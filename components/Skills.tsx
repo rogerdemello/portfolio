@@ -93,28 +93,16 @@ export default function Skills() {
               </div>
               
               {/* Skills */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {category.skills.map((skill, idx) => (
                   <div key={idx} className="group/skill">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <div className="text-gray-400 group-hover/skill:text-blue-400 transition-colors">
-                          {skill.icon}
-                        </div>
-                        <span className="text-sm font-medium text-gray-300">
-                          {skill.name}
-                        </span>
+                    <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                      <div className="text-gray-400 group-hover/skill:text-blue-400 transition-colors">
+                        {skill.icon}
                       </div>
-                      <span className="text-xs font-semibold text-gray-500">
-                        {skill.level}%
+                      <span className="text-sm font-medium text-gray-300">
+                        {skill.name}
                       </span>
-                    </div>
-                    {/* Progress bar */}
-                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-1000 ease-out`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
                     </div>
                   </div>
                 ))}
