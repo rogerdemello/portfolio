@@ -54,8 +54,8 @@ export default function Hero() {
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap mb-16">
-            <a href="https://drive.google.com/uc?export=download&id=1S9YMTn4OEEgAmfY4_f6mgnW-YvgfR06p" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105">
-              Download Resume
+            <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105">
+              View Resume
             </a>
             <a href="#projects" className="px-8 py-4 bg-gray-800 text-gray-100 font-semibold rounded-lg border-2 border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all transform hover:scale-105">
               View Projects
