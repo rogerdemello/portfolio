@@ -14,7 +14,7 @@ export default function Education() {
     {
       degree: "Minor in Artificial Intelligence and Machine Learning",
       school: "Shri Ramdeobaba College of Engineering and Management",
-      period: "Nov 2022 – May 2026",
+      period: "May 2023 – Dec 2025",
       description: "CGPA: 9.5 - Specialized coursework in AI, ML algorithms, deep learning, and data science.",
       icon: <FaAward size={28} />,
       color: "from-purple-500 to-pink-500",
