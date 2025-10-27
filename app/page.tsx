@@ -9,12 +9,14 @@ import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import MobileNav from "@/components/MobileNav";
 import BackToTop from "@/components/BackToTop";
+import ParticleBackground from "@/components/ParticleBackground";
 
 export default function Home() {
   return (
     <>
+      <ParticleBackground />
       <MobileNav />
-      <main className="min-h-screen">
+      <main className="min-h-screen relative z-20">
         <Hero />
         <FadeIn>
           <Education />

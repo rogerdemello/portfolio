@@ -76,14 +76,14 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden border border-gray-700 transform hover:-translate-y-2"
+              className="group bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden border border-gray-700 transform hover:-translate-y-2 tilt-on-hover"
             >
               {/* Project Header with Gradient */}
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+              <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden group-hover:scale-105 transition-transform duration-300`}>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="flex gap-4">
                     {project.techIcons.slice(0, 3).map((Icon, idx) => (
-                      <Icon key={idx} className="text-white/30 text-5xl transform group-hover:scale-110 transition-transform" />
+                      <Icon key={idx} className="text-white/30 text-5xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500" />
                     ))}
                   </div>
                 </div>

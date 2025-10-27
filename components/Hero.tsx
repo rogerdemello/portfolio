@@ -1,5 +1,5 @@
 "use client";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaDownload, FaEye } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { useState, useEffect } from "react";
 
@@ -8,12 +8,13 @@ export default function Hero() {
     "Software Developer",
     "C++ Enthusiast",
     "ML Engineer",
-    "AWS Certified"
+    "AWS Certified Cloud Practitioner"
   ];
   
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   
   useEffect(() => {
     const currentWord = roles[currentRole];
@@ -53,16 +54,18 @@ export default function Hero() {
             </div>
             
             <h1 className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Roger Richard</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                Roger Richard
+              </span>
               <br />
               <span className="text-gray-100">Demello</span>
             </h1>
             
             <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300">Software Developer</span>
-              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300">C++ Enthusiast</span>
-              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300">ML Engineer</span>
-              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300">AWS Certified</span>
+              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300 hover:scale-110 hover:border-blue-500 transition-all duration-300 cursor-default">Software Developer</span>
+              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300 hover:scale-110 hover:border-purple-500 transition-all duration-300 cursor-default">C++ Enthusiast</span>
+              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300 hover:scale-110 hover:border-pink-500 transition-all duration-300 cursor-default">ML Engineer</span>
+              <span className="px-4 py-2 bg-gray-800 rounded-lg shadow-sm border border-gray-700 text-gray-300 hover:scale-110 hover:border-green-500 transition-all duration-300 cursor-default">AWS Certified Cloud Practitioner</span>
             </div>
             
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -71,29 +74,61 @@ export default function Hero() {
           </div>
 
           <div className="flex justify-center gap-4 mb-12 flex-wrap">
-            <a href="https://github.com/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-blue-500">
-              <FaGithub className="text-gray-300 group-hover:text-blue-400 transition-colors" size={20} />
+            <a href="https://github.com/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-blue-500 btn-ripple magnetic-hover">
+              <FaGithub className="text-gray-300 group-hover:text-blue-400 transition-colors group-hover:rotate-12 transform duration-300" size={20} />
               <span className="text-sm font-medium text-gray-300">GitHub</span>
             </a>
-            <a href="https://linkedin.com/in/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-blue-500">
+            <a href="https://linkedin.com/in/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-blue-500 btn-ripple magnetic-hover">
               <FaLinkedin className="text-blue-500 group-hover:scale-110 transition-transform" size={20} />
               <span className="text-sm font-medium text-gray-300">LinkedIn</span>
             </a>
-            <a href="https://leetcode.com/u/rogerdemello/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-orange-500">
-              <SiLeetcode className="text-orange-500 group-hover:scale-110 transition-transform" size={20} />
+            <a href="https://leetcode.com/u/rogerdemello/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-orange-500 btn-ripple magnetic-hover">
+              <SiLeetcode className="text-orange-500 group-hover:scale-110 transition-transform group-hover:rotate-12" size={20} />
               <span className="text-sm font-medium text-gray-300">LeetCode</span>
             </a>
-            <a href="mailto:rogerdemello289@gmail.com" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-red-500">
-              <FaEnvelope className="text-red-500 group-hover:scale-110 transition-transform" size={20} />
+            <a href="mailto:rogerdemello289@gmail.com" className="group flex items-center gap-2 px-6 py-3 bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 hover:scale-105 hover:border-red-500 btn-ripple magnetic-hover">
+              <FaEnvelope className="text-red-500 group-hover:scale-110 transition-transform group-hover:rotate-12" size={20} />
               <span className="text-sm font-medium text-gray-300">Email</span>
             </a>
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap mb-16">
-            <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105">
-              View Resume
-            </a>
-            <a href="#projects" className="px-8 py-4 bg-gray-800 text-gray-100 font-semibold rounded-lg border-2 border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all transform hover:scale-105">
+            {/* Resume dropdown button */}
+            <div className="relative">
+              <button
+                onClick={() => setShowDropdown(!showDropdown)}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105 flex items-center gap-2 btn-ripple glow-pulse gradient-animate"
+              >
+                <FaDownload className="group-hover:animate-bounce" />
+                Resume
+              </button>
+              
+              {showDropdown && (
+                <div className="absolute top-full mt-2 left-0 bg-gray-800 rounded-lg shadow-2xl border border-gray-700 overflow-hidden z-20 min-w-[200px]">
+                  <a
+                    href="/Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-6 py-3 hover:bg-gray-700 transition-colors text-gray-300"
+                    onClick={() => setShowDropdown(false)}
+                  >
+                    <FaEye className="text-blue-400" />
+                    <span>View Resume</span>
+                  </a>
+                  <a
+                    href="/Resume.pdf"
+                    download="Roger_Demello_Resume.pdf"
+                    className="flex items-center gap-3 px-6 py-3 hover:bg-gray-700 transition-colors text-gray-300 border-t border-gray-700"
+                    onClick={() => setShowDropdown(false)}
+                  >
+                    <FaDownload className="text-green-400" />
+                    <span>Download PDF</span>
+                  </a>
+                </div>
+              )}
+            </div>
+            
+            <a href="#projects" className="px-8 py-4 bg-gray-800 text-gray-100 font-semibold rounded-lg border-2 border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all transform hover:scale-105 btn-ripple magnetic-hover">
               View Projects
             </a>
           </div>

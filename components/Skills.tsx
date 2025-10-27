@@ -80,7 +80,7 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="group p-6 bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 border border-gray-700 hover:scale-105"
+              className="group p-6 bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 border border-gray-700 hover:scale-105 tilt-on-hover"
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
@@ -96,11 +96,11 @@ export default function Skills() {
               <div className="space-y-3">
                 {category.skills.map((skill, idx) => (
                   <div key={idx} className="group/skill">
-                    <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
-                      <div className="text-gray-400 group-hover/skill:text-blue-400 transition-colors">
+                    <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700/50 transition-colors hover:scale-105 transform duration-200">
+                      <div className="text-gray-400 group-hover/skill:text-blue-400 transition-colors transform group-hover/skill:rotate-12 group-hover/skill:scale-125 duration-300">
                         {skill.icon}
                       </div>
-                      <span className="text-sm font-medium text-gray-300">
+                      <span className="text-sm font-medium text-gray-300 group-hover/skill:text-blue-400 transition-colors">
                         {skill.name}
                       </span>
                     </div>

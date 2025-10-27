@@ -30,10 +30,10 @@ export default function BackToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-110 group"
+          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-110 group glow-pulse animate-bounce btn-ripple"
           aria-label="Back to top"
         >
-          <FaArrowUp className="text-xl group-hover:animate-bounce" />
+          <FaArrowUp className="text-xl group-hover:animate-bounce group-hover:-translate-y-1 transition-transform" />
         </button>
       )}
     </>
