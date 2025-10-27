@@ -1,8 +1,41 @@
 "use client";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+  const roles = [
+    "Software Developer",
+    "C++ Enthusiast",
+    "ML Engineer",
+    "AWS Certified"
+  ];
+  
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  useEffect(() => {
+    const currentWord = roles[currentRole];
+    const typingSpeed = isDeleting ? 50 : 100;
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayText === currentWord) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && displayText === "") {
+        setIsDeleting(false);
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+      } else {
+        setDisplayText(
+          isDeleting
+            ? currentWord.substring(0, displayText.length - 1)
+            : currentWord.substring(0, displayText.length + 1)
+        );
+      }
+    }, typingSpeed);
+    
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentRole, roles]);
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
@@ -13,7 +46,10 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block mb-6 px-6 py-2 bg-blue-900/50 rounded-lg border border-blue-700">
-              <span className="text-sm font-medium text-blue-400">Software Developer & ML Engineer</span>
+              <span className="text-sm font-medium text-blue-400">
+                {displayText}
+                <span className="animate-pulse">|</span>
+              </span>
             </div>
             
             <h1 className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight">

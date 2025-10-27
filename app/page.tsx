@@ -7,10 +7,13 @@ import Training from "@/components/Training";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
+import MobileNav from "@/components/MobileNav";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   return (
     <>
+      <MobileNav />
       <main className="min-h-screen">
         <Hero />
         <FadeIn>
@@ -33,6 +36,7 @@ export default function Home() {
         </FadeIn>
         <Footer />
       </main>
+      <BackToTop />
     </>
   );
 }
