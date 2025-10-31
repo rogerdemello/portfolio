@@ -10,6 +10,7 @@ import FadeIn from "@/components/FadeIn";
 import MobileNav from "@/components/MobileNav";
 import BackToTop from "@/components/BackToTop";
 import ParticleBackground from "@/components/ParticleBackground";
+import GitHubStats from "@/components/GitHubStats";
 
 export default function Home() {
   return (
@@ -26,6 +27,9 @@ export default function Home() {
         </FadeIn>
         <FadeIn>
           <StatsSection />
+        </FadeIn>
+        <FadeIn>
+          <GitHubStats />
         </FadeIn>
         <FadeIn>
           <Projects />

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaHome, FaGraduationCap, FaCode, FaProjectDiagram, FaCertificate, FaEnvelope } from "react-icons/fa";
+import { FaBars, FaTimes, FaHome, FaGraduationCap, FaCode, FaGithub, FaProjectDiagram, FaCertificate, FaEnvelope } from "react-icons/fa";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +19,7 @@ export default function MobileNav() {
     { name: "Home", href: "#home", icon: <FaHome /> },
     { name: "Education", href: "#education", icon: <FaGraduationCap /> },
     { name: "Skills", href: "#skills", icon: <FaCode /> },
+    { name: "GitHub", href: "#github", icon: <FaGithub /> },
     { name: "Projects", href: "#projects", icon: <FaProjectDiagram /> },
     { name: "Training", href: "#training", icon: <FaCertificate /> },
     { name: "Contact", href: "#contact", icon: <FaEnvelope /> },
