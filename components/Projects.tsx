@@ -5,7 +5,7 @@ import { SiPython, SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiJupyter, Si
 export default function Projects() {
   const projects = [
     {
-      title: "Vitarithm – AI & Rule-Based Health Monitoring System",
+      title: "LifePulse – AI & Rule-Based Health Monitoring System",
       description:
         "Smart Health Calculator analyzing user lifestyle and body data with 87.1% accuracy in detecting lifestyle risks. Combined AI models with rule-based logic to assess sleep patterns, activity levels, and dietary habits aligned with WHO guidelines.",
       role: "Lead Developer & ML Engineer",
@@ -17,8 +17,8 @@ export default function Projects() {
       ],
       technologies: ["Python", "TensorFlow", "Pandas", "Scikit-Learn", "Flask"],
       techIcons: [SiPython, SiTensorflow, SiPandas, SiScikitlearn, SiFlask],
-      github: "https://github.com/yourgithub/vitarithm",
-      demo: "#",
+      github: "https://github.com/rogerdemello/LifePulse",
+      demo: "https://lifepulse-9vz4.onrender.com/",
       image: "/projects/project1.jpg",
       gradient: "from-blue-500 to-cyan-500"
     },
@@ -35,7 +35,7 @@ export default function Projects() {
       ],
       technologies: ["Python", "TensorFlow", "Keras", "Deep Learning", "Jupyter"],
       techIcons: [SiTensorflow, SiPython, SiJupyter, SiNumpy],
-      github: "https://github.com/yourgithub/gan-image-generation",
+      github: "https://github.com/rogerdemello/ImageToToonArt",
       demo: "#",
       image: "/projects/project2.jpg",
       gradient: "from-purple-500 to-pink-500"
@@ -137,30 +137,33 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  {/* <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"
-                  >
-                    <FaGithub />
-                    Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all text-sm font-medium"
-                  >
-                    <FaExternalLinkAlt />
-                    Demo
-                  </a> */}
-                  <p className="w-full text-center text-sm text-gray-500 italic py-2">
-                    Code and demo links coming soon
-                  </p>
-                </div>
+                {/* Action Buttons: Only for first two projects */}
+                {index !== 2 && (
+                  <div className="flex gap-3">
+                    <a
+                      href={project.demo && project.demo !== "#" ? project.demo : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium btn-ripple magnetic-hover transition-all duration-300
+                        ${project.demo && project.demo !== "#" ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105" : "bg-gray-700 text-gray-400 cursor-not-allowed"}`}
+                      style={project.demo && project.demo !== "#" ? {} : { pointerEvents: "none" }}
+                    >
+                      <FaExternalLinkAlt />
+                      {project.demo && project.demo !== "#" ? "Live Demo" : "Demo Coming Soon"}
+                    </a>
+                    <a
+                      href={project.github && project.github !== "#" ? project.github : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium btn-ripple magnetic-hover transition-all duration-300
+                        ${project.github && project.github !== "#" ? "bg-gray-900 text-white hover:bg-gray-800 hover:scale-105" : "bg-gray-700 text-gray-400 cursor-not-allowed"}`}
+                      style={project.github && project.github !== "#" ? {} : { pointerEvents: "none" }}
+                    >
+                      <FaGithub />
+                      {project.github && project.github !== "#" ? "GitHub" : "Code Coming Soon"}
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}

@@ -76,23 +76,6 @@ export default function GitHubStats() {
             </div>
           </div>
 
-          {/* GitHub Trophy */}
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-orange-500 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <FaStar className="text-3xl text-orange-400" />
-              <h3 className="text-xl font-semibold text-white">GitHub Trophies</h3>
-            </div>
-            <div className="relative w-full overflow-hidden rounded-lg">
-              <Image
-                src={`https://github-profile-trophy.vercel.app/?username=${githubUsername}&theme=radical&no-frame=true&no-bg=true&margin-w=4&column=7`}
-                alt="GitHub Trophies"
-                width={1000}
-                height={150}
-                className="w-full h-auto"
-                unoptimized
-              />
-            </div>
-          </div>
 
           {/* View Profile Button */}
           <div className="text-center pt-8">
