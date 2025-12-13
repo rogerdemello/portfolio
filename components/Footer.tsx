@@ -1,6 +1,6 @@
 "use client";
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart } from "react-icons/fa";
-import { SiLeetcode, SiCodechef, SiHackerrank } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -32,7 +32,7 @@ export default function Footer() {
               <span className="text-sm">LinkedIn</span>
             </a>
             <a
-              href="https://leetcode.com/rogerdemello"
+              href="https://leetcode.com/u/rogerdemello/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all transform hover:scale-105"

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaHome, FaGraduationCap, FaCode, FaGithub, FaProjectDiagram, FaCertificate, FaEnvelope } from "react-icons/fa";
+import { FaBars, FaTimes, FaHome, FaUser, FaCode, FaGithub, FaProjectDiagram, FaBriefcase, FaEnvelope } from "react-icons/fa";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,11 +17,11 @@ export default function MobileNav() {
 
   const navItems = [
     { name: "Home", href: "#home", icon: <FaHome /> },
-    { name: "Education", href: "#education", icon: <FaGraduationCap /> },
+    { name: "About", href: "#about", icon: <FaUser /> },
     { name: "Skills", href: "#skills", icon: <FaCode /> },
-    { name: "GitHub", href: "#github", icon: <FaGithub /> },
     { name: "Projects", href: "#projects", icon: <FaProjectDiagram /> },
-    { name: "Training", href: "#training", icon: <FaCertificate /> },
+    { name: "Experience", href: "#experience", icon: <FaBriefcase /> },
+    { name: "GitHub", href: "#github", icon: <FaGithub /> },
     { name: "Contact", href: "#contact", icon: <FaEnvelope /> },
   ];
 
@@ -50,7 +50,6 @@ export default function MobileNav() {
               href="#home"
               className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
             >
-              RD
             </a>
 
             {/* Desktop Navigation - Hidden on mobile */}

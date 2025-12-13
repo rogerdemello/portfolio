@@ -1,9 +1,8 @@
 import Hero from "@/components/Hero";
-import Education from "@/components/Education";
+import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import StatsSection from "@/components/StatsSection";
-import Training from "@/components/Training";
+import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
@@ -20,22 +19,19 @@ export default function Home() {
       <main className="min-h-screen relative z-20">
         <Hero />
         <FadeIn>
-          <Education />
+          <About />
         </FadeIn>
         <FadeIn>
           <Skills />
         </FadeIn>
         <FadeIn>
-          <StatsSection />
-        </FadeIn>
-        <FadeIn>
-          <GitHubStats />
-        </FadeIn>
-        <FadeIn>
           <Projects />
         </FadeIn>
         <FadeIn>
-          <Training />
+          <Experience />
+        </FadeIn>
+        <FadeIn>
+          <GitHubStats />
         </FadeIn>
         <FadeIn>
           <Contact />

@@ -7,7 +7,7 @@ export default function Education() {
       degree: "B.Tech in Electronics and Communication",
       school: "Shri Ramdeobaba College of Engineering and Management",
       period: "Nov 2022 – May 2026",
-      description: "CGPA: 8.76 - Focused on electronics, communication systems, and embedded technologies.",
+      description: "CGPA: 8.73 - Focused on electronics, communication systems, and embedded technologies.",
       icon: <FaGraduationCap size={28} />,
       color: "from-blue-500 to-cyan-500",
     },
