@@ -11,7 +11,7 @@ export default function Experience() {
       cgpa: "8.73",
       description: "Focused on electronics, communication systems, and embedded technologies.",
       icon: <FaGraduationCap size={28} />,
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-emerald-500 to-teal-500",
     },
     {
       degree: "Minor in Artificial Intelligence and Machine Learning",
@@ -20,7 +20,7 @@ export default function Experience() {
       cgpa: "9.5",
       description: "Specialized coursework in AI, ML algorithms, deep learning, and data science.",
       icon: <FaAward size={28} />,
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-amber-500 to-orange-500",
     },
   ];
 
@@ -38,7 +38,7 @@ export default function Experience() {
       issuer: "Coursera/AWS",
       date: "July 2025",
       icon: <FaCertificate size={28} />,
-      gradient: "from-blue-500 to-indigo-500",
+      gradient: "from-emerald-500 to-sage-500",
       description: "Comprehensive understanding of ML concepts and implementation using AWS services like SageMaker.",
     },
     {
@@ -57,7 +57,7 @@ export default function Experience() {
       company: "CFM, RCOEM",
       period: "May 2025 – July 2025",
       icon: <FaBriefcase size={28} />,
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-amber-500 to-orange-500",
       highlights: [
         "Enhanced ML-based tool to predict sleep disorders using lifestyle and health data",
         "Attained 87% accuracy in predictions analyzing stress, sleep duration, and blood pressure",
@@ -135,7 +135,7 @@ export default function Experience() {
               {workExperience.map((exp, index) => (
                 <div
                   key={index}
-                  className="group p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/10"
+                  className="group p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/10"
                 >
                   <div className="flex items-start gap-4 mb-4">
                     <div className={`p-3 bg-gradient-to-r ${exp.gradient} rounded-xl transform group-hover:scale-110 transition-transform shadow-lg`}>
@@ -171,7 +171,7 @@ export default function Experience() {
           {/* Education */}
           <div>
             <h3 className="text-3xl font-display font-bold text-gray-100 mb-8 flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl">
+              <div className="p-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl">
                 <FaGraduationCap className="text-white" size={24} />
               </div>
               Education
@@ -180,7 +180,7 @@ export default function Experience() {
               {education.map((edu, index) => (
                 <div
                   key={index}
-                  className="group p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/10"
+                  className="group p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/10"
                 >
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${edu.gradient} rounded-t-2xl opacity-50`}></div>
                   

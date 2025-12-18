@@ -9,7 +9,7 @@ export default function Education() {
       period: "Nov 2022 – May 2026",
       description: "CGPA: 8.73 - Focused on electronics, communication systems, and embedded technologies.",
       icon: <FaGraduationCap size={28} />,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-emerald-500 to-teal-500",
     },
     {
       degree: "Minor in Artificial Intelligence and Machine Learning",
@@ -17,7 +17,7 @@ export default function Education() {
       period: "May 2023 – Dec 2025",
       description: "CGPA: 9.5 - Specialized coursework in AI, ML algorithms, deep learning, and data science.",
       icon: <FaAward size={28} />,
-      color: "from-purple-500 to-pink-500",
+      color: "from-amber-500 to-orange-500",
     },
   ];
 

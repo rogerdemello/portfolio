@@ -8,13 +8,13 @@ export default function About() {
       icon: <FaBrain size={28} />,
       title: "ML Problem Solver",
       description: "Designing and implementing machine learning models to solve real-world problems with 85%+ accuracy",
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-amber-500 to-orange-500"
     },
     {
       icon: <FaCloud size={28} />,
       title: "Cloud Deployment",
       description: "Building scalable AI systems on AWS infrastructure with EC2, S3, Lambda, and RDS",
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-emerald-500 to-teal-500"
     },
     {
       icon: <FaChartLine size={28} />,
@@ -33,13 +33,13 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-500/30 backdrop-blur-sm">
+            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-emerald-500/10 to-sage-500/10 rounded-full border border-emerald-500/30 backdrop-blur-sm">
               <span className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
                 About Me
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-100 mb-6">
-              Machine Learning Engineer <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">& Cloud Specialist</span>
+              Machine Learning Engineer <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">& Cloud Specialist</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               I specialize in developing intelligent AI systems and deploying scalable machine learning models on cloud infrastructure. 

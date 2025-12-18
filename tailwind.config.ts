@@ -18,9 +18,9 @@ const config: Config = {
         mono: ['JetBrains Mono', 'Consolas', 'monospace'],
       },
       backgroundImage: {
-        'gradient-ai': 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)',
-        'gradient-cloud': 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
-        'gradient-ml': 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
+        'gradient-ai': 'linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #f59e0b 100%)',
+        'gradient-cloud': 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)',
+        'gradient-ml': 'linear-gradient(135deg, #10b981 0%, #14b8a6 100%)',
       },
     },
   },

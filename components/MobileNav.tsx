@@ -48,7 +48,7 @@ export default function MobileNav() {
             {/* Logo */}
             <a
               href="#home"
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
+              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400"
             >
             </a>
 

@@ -38,13 +38,13 @@ export default function Contact() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-500/30 backdrop-blur-sm">
+            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-emerald-500/10 to-sage-500/10 rounded-full border border-emerald-500/30 backdrop-blur-sm">
               <span className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
                 Get In Touch
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-100 mb-4">
-              Let&apos;s <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Connect</span>
+              Let&apos;s <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Connect</span>
             </h2>
             <p className="text-gray-400 text-lg">
               Interested in collaboration or have questions? Feel free to reach out.
@@ -136,7 +136,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-blue-500/30"
+                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-emerald-500/30"
                 >
                   {status === "sending" ? (
                     <>

@@ -71,7 +71,7 @@ function StatItem({ icon, end, label, suffix = "", duration = 2000 }: StatItemPr
         <div className="text-4xl mb-4 text-blue-400">
           {icon}
         </div>
-        <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+        <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">
           {count}{suffix}
         </div>
         <p className="text-gray-400 font-medium">
@@ -88,7 +88,7 @@ export default function StatsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
               Professional Metrics
             </h2>
             <p className="text-gray-400 text-lg">

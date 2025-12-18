@@ -22,7 +22,7 @@ export default function Skills() {
     {
       title: "Machine Learning & AI",
       icon: <FaBrain size={32} />,
-      color: "from-purple-500 to-pink-500",
+      color: "from-amber-500 to-orange-500",
       description: "Building intelligent systems and predictive models",
       skills: [
         { name: "TensorFlow", icon: <SiTensorflow size={24} /> },
@@ -37,7 +37,7 @@ export default function Skills() {
     {
       title: "Programming Languages",
       icon: <FaCode size={32} />,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-emerald-500 to-teal-500",
       description: "Strong foundation in multiple paradigms",
       skills: [
         { name: "Python", icon: <SiPython size={24} /> },
@@ -79,13 +79,13 @@ export default function Skills() {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full border border-purple-500/30 backdrop-blur-sm">
+          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-full border border-amber-500/30 backdrop-blur-sm">
             <span className="text-sm font-semibold text-purple-400 uppercase tracking-wide">
               Skills & Expertise
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-100 mb-4">
-            Technical <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Arsenal</span>
+            Technical <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Arsenal</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Comprehensive toolkit for building and deploying production-ready AI solutions
@@ -96,7 +96,7 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="group p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/10"
+              className="group p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/10"
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-5">
@@ -139,7 +139,7 @@ export default function Skills() {
             {['OOP', 'DSA', 'DBMS', 'OS', 'REST APIs', 'CI/CD', 'Linux'].map((skill, idx) => (
               <span 
                 key={idx}
-                className="px-3 py-1.5 bg-gradient-to-r from-gray-700/50 to-gray-800/50 rounded-lg text-xs font-medium text-gray-300 border border-gray-600/30 hover:border-blue-500/50 hover:text-blue-400 transition-all duration-300 cursor-default"
+                className="px-3 py-1.5 bg-gradient-to-r from-gray-700/50 to-gray-800/50 rounded-lg text-xs font-medium text-gray-300 border border-gray-600/30 hover:border-emerald-500/50 hover:text-emerald-400 transition-all duration-300 cursor-default"
               >
                 {skill}
               </span>

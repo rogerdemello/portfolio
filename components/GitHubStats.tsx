@@ -12,7 +12,7 @@ export default function GitHubStats() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 gradient-shift">
             GitHub Activity
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto"></div>
           <p className="mt-4 text-gray-400 text-lg">
             Real-time statistics and contributions
           </p>
@@ -83,7 +83,7 @@ export default function GitHubStats() {
               href={`https://github.com/${githubUsername}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 btn-ripple magnetic-hover"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 btn-ripple magnetic-hover"
             >
               <FaGithub className="text-2xl icon-rotate" />
               <span>View Full GitHub Profile</span>

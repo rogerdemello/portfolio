@@ -21,7 +21,7 @@ export default function Projects() {
       techIcons: [SiPython, SiTensorflow, SiScikitlearn, SiPandas, SiFlask, SiNumpy],
       github: "https://github.com/rogerdemello/LifePulse",
       demo: "https://lifepulse-9vz4.onrender.com/",
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-emerald-500 to-teal-500",
       icon: <FaChartLine size={40} />
     },
     {
@@ -41,7 +41,7 @@ export default function Projects() {
       techIcons: [SiFastapi, SiPython, SiOpencv, SiNumpy, SiReact, SiPytorch],
       github: "https://github.com/rogerdemello/ImageToToonArt",
       demo: "#",
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-amber-500 to-orange-500",
       icon: <FaCog size={40} />
     },
     {
@@ -73,13 +73,13 @@ export default function Projects() {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-500/30 backdrop-blur-sm">
+          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-emerald-500/10 to-sage-500/10 rounded-full border border-emerald-500/30 backdrop-blur-sm">
             <span className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
               Portfolio
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-100 mb-4">
-            Featured <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">ML Projects</span>
+            Featured <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">ML Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             Production-ready AI systems showcasing machine learning expertise and cloud deployment
@@ -90,7 +90,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/10"
+              className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/10"
             >
               {/* Top: Gradient Header */}
               <div className={`bg-gradient-to-br ${project.gradient} p-8 relative overflow-hidden`}>
@@ -169,7 +169,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all duration-300
-                      ${project.demo && project.demo !== "#" ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105" : "bg-gray-700/50 text-gray-500 cursor-not-allowed"}`}
+                      ${project.demo && project.demo !== "#" ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-700 hover:to-teal-700 hover:scale-105" : "bg-gray-700/50 text-gray-500 cursor-not-allowed"}`}
                     style={project.demo && project.demo !== "#" ? {} : { pointerEvents: "none" }}
                   >
                     <FaExternalLinkAlt size={12} />
