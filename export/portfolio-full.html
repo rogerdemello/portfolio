@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roger Richard Demello — Full Portfolio Export</title>
+  <style>
+    body{font-family: Manrope, Inter, Arial, sans-serif; color:#e6eef8; background:#06070a; margin:0; padding:32px}
+    .container{max-width:900px;margin:0 auto}
+    h1,h2,h3{color:#fff;margin:8px 0}
+    h1{font-size:28px}
+    h2{font-size:20px}
+    h3{font-size:16px}
+    p,li{color:#cbd5e1;line-height:1.45}
+    .section{margin:28px 0;padding:20px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);border-radius:8px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:6px;font-family:monospace;font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .card{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+    .muted{color:#94a3b8}
+    .small{font-size:13px}
+    embed.pdf{width:100%;height:800px;border:1px solid rgba(255,255,255,0.05);border-radius:8px}
+    @media print{body{background:white;color:black} .section{background:transparent;border:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Roger Richard Demello</h1>
+      <p class="muted">Senior AI / Machine Learning Engineer — Designing, training, and deploying production-grade AI systems — from data to inference at scale.</p>
+      <p class="small muted">Resume: <a href="/Resume.pdf" style="color:#ffd166">Open Resume (PDF)</a></p>
+    </header>
+
+    <section class="section" id="about">
+      <h2>About</h2>
+      <p>I work at the intersection of machine learning research and production engineering, building AI systems that are accurate, reliable, interpretable, and deployable under real-world constraints. I design end-to-end ML pipelines — from data ingestion and feature engineering to model training, evaluation, and inference — prioritizing pragmatic trade-offs: bias vs. variance, latency vs. accuracy, and experimentation speed vs. system stability. I focus on applied ML, deep learning, and GenAI workflows where model behavior, data quality, and infrastructure decisions are tightly coupled. Post-deployment, I monitor drift, debug failures, and iterate safely using clear metrics and reproducible experiments. I favor simple, evidence-driven architectures that ship and keep working.</p>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills & Expertise</h2>
+      <div class="chips">
+        <div class="chip">Machine Learning — Supervised & unsupervised models, evaluation strategy, error analysis</div>
+        <div class="chip">Deep Learning / GenAI — Transformers, embeddings, representation learning, model behavior</div>
+        <div class="chip">Programming — Python-first engineering, clean abstractions, testable code</div>
+        <div class="chip">Data & Pipelines — Feature engineering, data validation, reproducible experiments</div>
+        <div class="chip">Cloud & Deployment — API-based inference, scalable services, latency-aware design</div>
+        <div class="chip">Frameworks & Tools — PyTorch, FastAPI, React</div>
+      </div>
+
+      <h3 style="margin-top:18px">Detailed Technical List</h3>
+      <div class="grid">
+        <div class="card"><strong>Machine Learning & AI</strong><ul><li>TensorFlow</li><li>Scikit-Learn</li><li>PyTorch</li><li>Keras</li><li>Pandas</li><li>NumPy</li><li>OpenCV</li></ul></div>
+        <div class="card"><strong>Programming Languages</strong><ul><li>Python</li><li>C++</li><li>C</li><li>Java</li></ul></div>
+        <div class="card"><strong>Cloud & Infrastructure</strong><ul><li>AWS EC2, S3, Lambda, RDS</li><li>IAM & VPC</li></ul></div>
+        <div class="card"><strong>Frameworks & Tools</strong><ul><li>FastAPI</li><li>Flask</li><li>Git</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Projects — Featured ML Projects</h2>
+
+      <div class="card">
+        <h3>LifePulse: AI Health Monitoring System</h3>
+        <p class="muted small">Smart Health Calculator analyzing user lifestyle and body data with 87.1% accuracy. Combined AI models with rule-based logic to assess sleep patterns, activity levels, and dietary habits aligned with WHO guidelines.</p>
+        <h4>Problem</h4>
+        <p class="small">Need for accessible, accurate health risk assessment without expensive medical equipment.</p>
+        <h4>Approach</h4>
+        <p class="small">Hybrid AI approach combining machine learning models with WHO-aligned rule-based logic. Deployed on Render with Flask backend; technologies: Python, TensorFlow, Scikit-Learn, Pandas, Flask, NumPy.</p>
+        <h4>Impact</h4>
+        <ul class="small"><li>87.1% accuracy in multi-disease prediction</li><li>Real-time health risk assessment</li><li>WHO guideline integration</li><li>Interactive data visualization dashboard</li></ul>
+        <p class="small">Code: https://github.com/rogerdemello/LifePulse • Demo: https://lifepulse-9vz4.onrender.com/</p>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="card">
+        <h3>Cartoonize: Photo-to-Cartoon Art Transformer</h3>
+        <p class="muted small">Full-stack application converting photos into high-quality cartoon artwork using advanced OpenCV pipelines and optional neural style transfer.</p>
+        <h4>Problem</h4>
+        <p class="small">Complex image stylization requiring balance between artistic quality and computational efficiency.</p>
+        <h4>Approach</h4>
+        <p class="small">Multi-stage OpenCV pipeline with optional PyTorch neural style transfer. Serverless FastAPI deployment; techs: FastAPI, Python, OpenCV, NumPy, React, PyTorch.</p>
+        <h4>Impact</h4>
+        <ul class="small"><li>Advanced denoising and color quantization</li><li>Robust edge detection and stylization</li><li>Production-ready React frontend</li></ul>
+        <p class="small">Code: https://github.com/rogerdemello/ImageToToonArt</p>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="card">
+        <h3>AgenticWriter: AI Multi-Agent Content Pipeline</h3>
+        <p class="muted small">Lightweight multi-agent pipeline converting product JSON into ready-to-publish content (FAQ, product pages, comparison pages).</p>
+        <h4>Problem</h4>
+        <p class="small">Time-consuming manual content creation for product documentation and marketing materials.</p>
+        <h4>Approach</h4>
+        <p class="small">Multi-agent architecture with specialized agents for question generation, answering, and page assembly. Deployed as serverless functions with FastAPI backend; technologies: Python 3.11+, FastAPI, Pydantic, Jinja2, pytest.</p>
+        <h4>Impact</h4>
+        <ul class="small"><li>Automated FAQ and product page generation</li><li>Structured JSON outputs for CMS integration</li><li>Modular agent framework for extensibility</li></ul>
+        <p class="small">Code: https://github.com/rogerdemello/AI-agentic-content-generation-system/ • Demo: https://genaiwriter.vercel.app</p>
+      </div>
+
+    </section>
+
+    <section class="section" id="experience">
+      <h2>Experience & Credentials</h2>
+
+      <h3>Work Experience</h3>
+      <div class="grid">
+        <div class="card">
+          <strong>Machine Learning Intern — CFM, RCOEM</strong>
+          <p class="small muted">May 2025 – July 2025</p>
+          <ul class="small"><li>Enhanced ML-based tool to predict sleep disorders using lifestyle and health data</li><li>Attained 87% accuracy analyzing stress, sleep duration, and blood pressure</li><li>Used Python, Scikit-Learn, Pandas</li></ul>
+        </div>
+        <div class="card">
+          <strong>AWS Cloud Computing Training — RCOEM</strong>
+          <p class="small muted">March 2025 – April 2025</p>
+          <ul class="small"><li>Hands-on experience with EC2, S3, RDS, IAM, VPC, CloudWatch</li><li>Designed scalable web app architecture with Auto Scaling and Load Balancer</li><li>Implemented IAM roles and MFA</li></ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top:12px">Education</h3>
+      <div class="grid">
+        <div class="card">
+          <strong>B.Tech in Electronics and Communication</strong>
+          <p class="small muted">Shri Ramdeobaba College of Engineering and Management — Nov 2022 – May 2026 • CGPA: 8.73</p>
+          <p class="small">Focused on electronics, communication systems, and embedded technologies.</p>
+        </div>
+        <div class="card">
+          <strong>Minor in Artificial Intelligence and Machine Learning</strong>
+          <p class="small muted">Shri Ramdeobaba College of Engineering and Management — May 2023 – Dec 2025 • CGPA: 9.5</p>
+          <p class="small">Specialized coursework in AI, ML algorithms, deep learning, and data science.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:12px">Certifications</h3>
+      <div class="grid">
+        <div class="card">
+          <strong>AWS Certified Cloud Practitioner</strong>
+          <p class="small muted">Amazon Web Services — October 2025</p>
+          <p class="small">Validated foundational knowledge of AWS Cloud services, security, and architecture best practices.</p>
+        </div>
+        <div class="card">
+          <strong>Introduction to Machine Learning on AWS</strong>
+          <p class="small muted">Coursera/AWS — July 2025</p>
+          <p class="small">Comprehensive understanding of ML concepts and implementation using AWS services like SageMaker.</p>
+        </div>
+        <div class="card">
+          <strong>NCC 'A' and 'B' Certificate</strong>
+          <p class="small muted">National Cadet Corps — 2024-2025</p>
+          <p class="small">Leadership, discipline, and teamwork development through active NCC training and drills.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" id="competitive">
+      <h2>Competitive Programming & Profiles</h2>
+      <ul class="small">
+        <li>LeetCode: rogerdemello — https://leetcode.com/u/rogerdemello/</li>
+        <li>CodeChef: droger289 — https://www.codechef.com/users/droger289/</li>
+        <li>HackerRank: rogerdemello — https://www.hackerrank.com/profile/rogerdemello</li>
+      </ul>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p class="small">Email: rogerdemello289@gmail.com</p>
+      <p class="small">LinkedIn: https://linkedin.com/in/rogerdemello</p>
+      <p class="small">GitHub: https://github.com/rogerdemello</p>
+    </section>
+
+    <section class="section" id="resume-embed">
+      <h2>Embedded Resume</h2>
+      <p class="small muted">Below is your current uploaded resume PDF (open and print to include in final export PDF):</p>
+      <embed src="/Resume.pdf" type="application/pdf" class="pdf" />
+    </section>
+
+    <footer class="muted small" style="margin-top:18px">Generated from site content on December 13, 2025. Use your browser Print → Save as PDF to produce a portable PDF; or merge `/Resume.pdf` with this export using a PDF tool.</footer>
+  </div>
+</body>
+</html>
