@@ -45,22 +45,24 @@ export default function Projects() {
       icon: <FaCog size={40} />
     },
     {
-      title: "AgenticWriter: AI Multi-Agent Content Pipeline",
+      title: "LabLingo AI: Interactive Language-Learning Platform",
       description:
-        "Lightweight multi-agent pipeline converting product JSON into ready-to-publish content (FAQ, product pages, comparison pages). Serverless API with structured JSON outputs for static sites and headless CMS integration.",
-      problem: "Time-consuming manual content creation for product documentation and marketing materials",
-      approach: "Multi-agent architecture with specialized agents for question generation, answering, and page assembly",
-      cloudArchitecture: "Deployed on Vercel as serverless functions with FastAPI backend",
+        "AI-driven multimedia language lab for real-time spoken practice, pronunciation scoring, adaptive lessons, and instructor analytics. Real-time STT/TTS conversation exercises with automated pronunciation scoring and adaptive lesson pipelines.",
+      problem: "Learners need realistic speaking practice, instant feedback on pronunciation, and contextual examples—without requiring live tutors",
+      approach: "Real-time STT/TTS conversation exercises, automated pronunciation scoring, adaptive lesson pipelines, and instructor dashboards for monitoring progress",
+      cloudArchitecture: "Containerized microservices with autoscaled model workers (GPU for STT/TTS), PostgreSQL, S3-compatible storage, and optional edge STT for mobile",
       results: [
-        "Automated FAQ and product page generation",
-        "Structured JSON outputs for CMS integration",
-        "CI-friendly with comprehensive test coverage",
-        "Modular agent framework for extensibility"
+        "Real-time speech-to-text and text-to-speech for conversational drills",
+        "Phoneme-level pronunciation feedback and confidence scores",
+        "Adaptive curriculum that adjusts difficulty by performance",
+        "Multilingual support with locale-aware tokenization",
+        "Instructor dashboards with progress tracking and cohort analytics",
+        "CSV/JSON export and webhook integration for LMS"
       ],
-      technologies: ["Python 3.11+", "FastAPI", "Pydantic", "Jinja2", "pytest"],
-      techIcons: [SiPython, SiFastapi, SiFlask],
-      github: "https://github.com/rogerdemello/AI-agentic-content-generation-system/",
-      demo: "https://genaiwriter.vercel.app",
+      technologies: ["FastAPI", "React", "Whisper", "PyTorch", "Sentence-Transformers", "FAISS", "PostgreSQL"],
+      techIcons: [SiFastapi, SiReact, SiPython, SiPytorch, SiTensorflow],
+      github: "https://github.com/rogerdemello/LabLingo-AI",
+      demo: "#",
       gradient: "from-indigo-500 to-violet-500",
       icon: <FaCloud size={40} />
     },
