@@ -9,32 +9,46 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage("");
-    if (!process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim()) {
+    
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
+    if (!accessKey) {
       setStatus("error");
-      setErrorMessage("Contact form is not configured. Please email me directly.");
+      setErrorMessage("Contact form is not configured. Please email me directly at rogerdemello289@gmail.com");
       return;
     }
+    
     setStatus("sending");
 
     const formData = new FormData(e.currentTarget);
+    // Ensure access_key is set (fallback to env var if hidden input missing)
+    if (!formData.get("access_key")) {
+      formData.set("access_key", accessKey);
+    }
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
         body: formData,
       });
 
-      if (response.ok) {
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success) {
         setStatus("sent");
         e.currentTarget.reset();
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
-        setErrorMessage("Failed to send message. Please try again or email me directly.");
+        const errorMsg = data.message || `Server error (${response.status}). Please try again or email me directly.`;
+        setErrorMessage(errorMsg);
       }
-    } catch {
+    } catch (error) {
       setStatus("error");
-      setErrorMessage("Network error. Please try again or email me directly.");
+      console.error("Contact form error:", error);
+      setErrorMessage("Network error. Please check your connection or email me directly at rogerdemello289@gmail.com");
     }
   };
 
@@ -75,7 +89,7 @@ export default function Contact() {
                 <p className="text-primary mb-4">{errorMessage}</p>
                 <a
                   href="mailto:rogerdemello289@gmail.com"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-background-tertiary hover:bg-background-secondary rounded-xl text-foreground transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground hover:bg-primary-light rounded-xl transition-colors font-medium"
                 >
                   <FaEnvelope /> Email directly
                 </a>
@@ -117,7 +131,7 @@ export default function Contact() {
                       Your Email
                     </label>
                     <div className="relative">
-                      <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+                      <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground-muted" />
                       <input
                         type="email"
                         id="email"
@@ -153,7 +167,7 @@ export default function Contact() {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3.5 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all duration-300 ease-smooth resize-none text-gray-100 placeholder:text-gray-500"
+                    className="w-full px-4 py-3.5 bg-background-tertiary/80 backdrop-blur-sm border border-card-border rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 ease-smooth resize-none text-foreground placeholder:text-foreground-muted"
                     placeholder="Tell me about your project or inquiry..."
                   />
                 </div>
@@ -184,7 +198,7 @@ export default function Contact() {
             <p className="text-foreground-muted mb-4">Direct contact:</p>
             <a
               href="mailto:rogerdemello289@gmail.com"
-              className="text-blue-400 hover:underline text-lg font-medium"
+              className="text-primary hover:underline text-lg font-medium"
             >
               rogerdemello289@gmail.com
             </a>
