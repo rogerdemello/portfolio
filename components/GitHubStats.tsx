@@ -6,23 +6,27 @@ export default function GitHubStats() {
   const githubUsername = "rogerdemello";
 
   return (
-    <section id="github" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 gradient-shift">
-            GitHub Activity
+    <section id="github" className="py-20 md:py-24 bg-background-secondary">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block mb-4 px-5 py-2 sm:px-6 bg-primary/10 rounded-full border border-primary/30 backdrop-blur-sm">
+            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">
+              Activity
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            GitHub <span className="gradient-text">Stats</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto"></div>
-          <p className="mt-4 text-gray-400 text-lg">
+          <p className="text-foreground-muted text-base md:text-lg max-w-2xl mx-auto">
             Real-time statistics and contributions
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-6 md:space-y-8">
           {/* GitHub Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
             {/* Stats Card */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 tilt-on-hover">
+            <div className="bg-background-tertiary/80 backdrop-blur-sm rounded-xl p-6 border border-card-border hover:border-primary transition-all duration-300 tilt-on-hover">
               <div className="flex items-center gap-3 mb-4">
                 <FaGithub className="text-3xl text-blue-400" />
                 <h3 className="text-xl font-semibold text-white">GitHub Stats</h3>
@@ -40,7 +44,7 @@ export default function GitHubStats() {
             </div>
 
             {/* Streak Stats */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 tilt-on-hover">
+            <div className="bg-background-tertiary/80 backdrop-blur-sm rounded-xl p-6 border border-card-border hover:border-decorative transition-all duration-300 tilt-on-hover">
               <div className="flex items-center gap-3 mb-4">
                 <FaStar className="text-3xl text-purple-400" />
                 <h3 className="text-xl font-semibold text-white">Contribution Streak</h3>
@@ -59,7 +63,7 @@ export default function GitHubStats() {
           </div>
 
           {/* Top Languages Card */}
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all duration-300 tilt-on-hover">
+          <div className="bg-background-tertiary/80 backdrop-blur-sm rounded-xl p-6 border border-card-border hover:border-secondary transition-all duration-300 tilt-on-hover">
             <div className="flex items-center gap-3 mb-4">
               <FaCodeBranch className="text-3xl text-green-400" />
               <h3 className="text-xl font-semibold text-white">Most Used Languages</h3>
@@ -83,7 +87,7 @@ export default function GitHubStats() {
               href={`https://github.com/${githubUsername}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 btn-ripple magnetic-hover"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary-dark transition-all duration-300 transform hover:scale-105 btn-ripple magnetic-hover"
             >
               <FaGithub className="text-2xl icon-rotate" />
               <span>View Full GitHub Profile</span>

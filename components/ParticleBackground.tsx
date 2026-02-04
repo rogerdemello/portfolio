@@ -57,7 +57,9 @@ export default function ParticleBackground() {
     canvas.addEventListener("mousemove", handleMouseMove);
 
     // Animation
+    let rafId = 0;
     const animate = () => {
+      rafId = requestAnimationFrame(animate);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, i) => {
@@ -121,12 +123,12 @@ export default function ParticleBackground() {
       });
 
       isMouseMoving = false;
-      requestAnimationFrame(animate);
     };
 
-    animate();
+    rafId = requestAnimationFrame(animate);
 
     return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener("resize", setCanvasSize);
       canvas.removeEventListener("mousemove", handleMouseMove);
     };

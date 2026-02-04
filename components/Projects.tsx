@@ -21,7 +21,7 @@ export default function Projects() {
       techIcons: [SiPython, SiTensorflow, SiScikitlearn, SiPandas, SiFlask, SiNumpy],
       github: "https://github.com/rogerdemello/LifePulse",
       demo: "https://lifepulse-9vz4.onrender.com/",
-      gradient: "from-emerald-500 to-teal-500",
+      gradient: "from-primary to-secondary",
       icon: <FaChartLine size={40} />
     },
     {
@@ -41,7 +41,7 @@ export default function Projects() {
       techIcons: [SiFastapi, SiPython, SiOpencv, SiNumpy, SiReact, SiPytorch],
       github: "https://github.com/rogerdemello/ImageToToonArt",
       demo: "#",
-      gradient: "from-amber-500 to-orange-500",
+      gradient: "from-accent to-primary",
       icon: <FaCog size={40} />
     },
     {
@@ -63,36 +63,36 @@ export default function Projects() {
       techIcons: [SiFastapi, SiReact, SiPython, SiPytorch, SiTensorflow],
       github: "https://github.com/rogerdemello/LabLingo-AI",
       demo: "#",
-      gradient: "from-indigo-500 to-violet-500",
+      gradient: "from-decorative to-decorative-light",
       icon: <FaCloud size={40} />
     },
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-gray-950 via-slate-900 to-gray-900 relative overflow-hidden">
+    <section id="projects" className="py-20 md:py-24 bg-background relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.02)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-emerald-500/10 to-sage-500/10 rounded-full border border-emerald-500/30 backdrop-blur-sm">
-            <span className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block mb-4 px-5 py-2 sm:px-6 bg-primary/10 rounded-full border border-primary/30 backdrop-blur-sm">
+            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">
               Portfolio
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-100 mb-4">
-            Featured <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">ML Projects</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            Featured <span className="gradient-text">ML Projects</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-foreground-muted text-base md:text-lg max-w-3xl mx-auto">
             Production-ready AI systems showcasing machine learning expertise and cloud deployment
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-gray-600/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/10"
+              className="group bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/30 overflow-hidden transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10"
             >
               {/* Top: Gradient Header */}
               <div className={`bg-gradient-to-br ${project.gradient} p-8 relative overflow-hidden`}>
@@ -110,7 +110,7 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="relative z-10 text-center">
-                  <div className="text-white mb-3 transform group-hover:scale-110 transition-transform">
+                  <div className="text-white mb-3 transform group-hover:scale-105 transition-transform duration-350 ease-smooth">
                     {project.icon}
                   </div>
                   <h3 className="text-xl font-display font-bold text-white leading-tight">
@@ -121,7 +121,7 @@ export default function Projects() {
 
               {/* Content */}
               <div className="p-6">
-                <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                <p className="text-foreground-muted text-sm leading-relaxed mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -129,7 +129,7 @@ export default function Projects() {
                 <div className="space-y-3 mb-4">
                   <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
                     <h4 className="text-xs font-bold text-blue-400 mb-1 uppercase">Problem</h4>
-                    <p className="text-xs text-gray-400 line-clamp-2">{project.problem}</p>
+                    <p className="text-xs text-foreground-muted line-clamp-2">{project.problem}</p>
                   </div>
                   <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
                     <h4 className="text-xs font-bold text-purple-400 mb-1 uppercase">Solution</h4>
@@ -142,7 +142,7 @@ export default function Projects() {
                   <h4 className="text-xs font-bold text-green-400 mb-2 uppercase">Key Results</h4>
                   <div className="space-y-1">
                     {project.results.slice(0, 2).map((result, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-gray-400">
+                      <div key={idx} className="flex items-start gap-2 text-xs text-foreground-muted">
                         <FaCheckCircle className="text-green-500 mt-0.5 flex-shrink-0 text-[10px]" />
                         <span className="line-clamp-1">{result}</span>
                       </div>
@@ -156,7 +156,7 @@ export default function Projects() {
                     {project.technologies.slice(0, 4).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-gradient-to-r from-gray-700/50 to-gray-800/50 text-gray-300 rounded text-xs font-mono border border-gray-600/30"
+                        className="px-2 py-1 bg-background-secondary/80 text-foreground rounded text-xs font-mono border border-card-border"
                       >
                         {tech}
                       </span>
@@ -171,7 +171,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all duration-300
-                      ${project.demo && project.demo !== "#" ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-700 hover:to-teal-700 hover:scale-105" : "bg-gray-700/50 text-gray-500 cursor-not-allowed"}`}
+                      ${project.demo && project.demo !== "#" ? "bg-primary text-primary-foreground hover:bg-primary-dark hover:scale-105" : "bg-background-tertiary text-foreground-muted cursor-not-allowed"}`}
                     style={project.demo && project.demo !== "#" ? {} : { pointerEvents: "none" }}
                   >
                     <FaExternalLinkAlt size={12} />
@@ -182,7 +182,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all duration-300
-                      ${project.github && project.github !== "#" ? "bg-gray-800/70 text-white border border-gray-700/50 hover:bg-gray-800 hover:scale-105" : "bg-gray-700/50 text-gray-500 cursor-not-allowed"}`}
+                      ${project.github && project.github !== "#" ? "bg-background-tertiary text-foreground border border-card-border hover:bg-background-secondary hover:scale-105" : "bg-background-tertiary text-foreground-muted cursor-not-allowed"}`}
                     style={project.github && project.github !== "#" ? {} : { pointerEvents: "none" }}
                   >
                     <FaGithub size={12} />

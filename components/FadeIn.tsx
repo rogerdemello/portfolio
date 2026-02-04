@@ -20,9 +20,12 @@ export default function FadeIn({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
         }
@@ -33,10 +36,7 @@ export default function FadeIn({
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
@@ -65,7 +65,7 @@ export default function FadeIn({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
-        transition: `opacity ${duration}s ease-out ${delay}s, transform ${duration}s ease-out ${delay}s`,
+        transition: `opacity ${duration}s cubic-bezier(0.33, 1, 0.68, 1) ${delay}s, transform ${duration}s cubic-bezier(0.33, 1, 0.68, 1) ${delay}s`,
       }}
     >
       {children}

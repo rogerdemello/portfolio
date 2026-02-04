@@ -1,233 +1,129 @@
-# Roger Richard Demello - Portfolio Website
+# Roger Richard Demello — Portfolio
 
-A modern, interactive portfolio website built with Next.js, TypeScript, and Tailwind CSS, featuring advanced animations, particle effects, and micro-interactions.
+A modern, interactive portfolio built with **Next.js**, **TypeScript**, and **Tailwind CSS**, featuring a dark theme with coral/orange primary and golden accent, smooth animations, particle background, and micro-interactions.
 
-🌐 **Live Demo**: [https://rogerdemello.vercel.app/](https://rogerdemello.vercel.app/)
-
-## ✨ Features
-
-- 🎨 **Modern Dark Theme** - Sleek dark design with gradient accents
-- 📱 **Fully Responsive** - Perfect on all devices with mobile navigation
-- ⚡ **Fast & Optimized** - Built with Next.js 14 for optimal performance
-- 🎯 **Smooth Animations** - Fade-in effects and smooth scroll behavior
-- ✨ **Particle Background** - Interactive canvas-based particle system
-- 🎭 **Micro-Interactions** - Ripple effects, hover animations, 3D tilts
-- 🔄 **Typing Animation** - Dynamic role cycling in hero section
-- 📄 **Resume Dropdown** - View or download resume options
-- ⬆️ **Back to Top Button** - Smooth scroll navigation
-- � **SEO Optimized** - Enhanced meta tags for better discoverability
-- �💼 **Professional Sections**:
-  - Hero with typing animation
-  - Education background
-  - Technical skills with interactive cards
-  - Featured projects showcase
-  - Professional metrics & stats
-  - Training & certifications
-  - Competitive coding profiles
-  - Contact form with FormSubmit integration
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or yarn package manager
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/rogerdemello/portfolio.git
-cd portfolio
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Run the development server:
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## 🎨 Customization
-
-### Update Personal Information
-
-1. **Hero Section** (`components/Hero.tsx`):
-   - Update name, roles, and bio
-   - Modify social media links
-   - Change typing animation roles
-
-2. **Education** (`components/Education.tsx`):
-   - Add your educational background
-   - Update CGPA and dates
-
-3. **Skills** (`components/Skills.tsx`):
-   - Update skill categories and technologies
-   - Add/remove programming languages
-
-4. **Projects** (`components/Projects.tsx`):
-   - Add your projects with descriptions
-   - Include GitHub and demo links
-   - Upload project screenshots
-
-5. **Training & Certifications** (`components/Training.tsx`):
-   - Add certifications and training courses
-   - Update competitive coding profiles
-
-6. **Contact** (`components/Contact.tsx`):
-   - Update FormSubmit email endpoint
-   - Modify contact information
-
-### Styling
-
-The project uses Tailwind CSS for styling. Customize:
-- Colors in `tailwind.config.ts`
-- Global styles in `app/globals.css`
-- Micro-interactions in `app/micro-interactions.css`
-
-## 🎭 Interactive Features
-
-### Particle Background
-- 100 animated particles with mouse interaction
-- Particles avoid cursor on hover
-- Connected lines between nearby particles
-- Canvas-based rendering for smooth performance
-
-### Micro-Interactions
-- **Ripple Effects**: Click buttons to see water ripple animations
-- **Magnetic Hover**: Elements lift and respond to hover
-- **3D Tilt**: Cards tilt in 3D perspective
-- **Icon Animations**: Icons rotate and scale on hover
-- **Glow Pulse**: Key elements have pulsing glow effects
-- **Gradient Shift**: Animated gradient backgrounds
-
-### Typing Animation
-- Cycles through roles: Software Developer → C++ Enthusiast → ML Engineer → AWS Certified Cloud Practitioner
-- Smooth typing and deleting effect
-- Cursor blink animation
-
-### Mobile Navigation
-- Responsive hamburger menu
-- Slide-in sidebar on mobile
-- Smooth scroll to sections
-- Social links in mobile menu
-
-## 📦 Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-## 🚀 Deployment
-
-This portfolio is deployed on Vercel. You can deploy your own:
-
-1. Push your code to GitHub
-2. Import project on [Vercel](https://vercel.com)
-3. Deploy automatically
-
-Alternative deployment options:
-- Netlify
-- AWS Amplify
-- GitHub Pages (requires static export)
-
-## 🛠️ Technologies Used
-
-- **Framework**: Next.js 14
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: React Icons
-- **Animations**: Custom CSS animations + Canvas API
-- **Forms**: FormSubmit.co
-- **Deployment**: Vercel
-- **Version Control**: Git & GitHub
-
-## 📧 Contact Form
-
-The contact form uses [FormSubmit.co](https://formsubmit.co/) for email delivery. To set up:
-
-1. Update the email endpoint in `components/Contact.tsx`
-2. First submission requires email verification
-3. Subsequent submissions go directly to inbox
-
-## 🎯 Performance
-
-- ✅ Optimized images and assets
-- ✅ Code splitting with Next.js
-- ✅ SEO-friendly with meta tags
-- ✅ Fast loading times
-- ✅ Responsive design
-- ✅ Accessible (ARIA labels)
-
-## 📄 Resume
-
-Update your resume:
-1. Replace `public/Resume.pdf` with your resume
-2. The button offers View or Download options
-3. Opens in new tab for viewing
-
-## 🌟 Key Highlights
-
-- **Interactive Portfolio**: Engaging animations and micro-interactions
-- **Professional Design**: Clean, modern dark theme
-- **Mobile-First**: Perfect experience on all devices
-- **SEO Optimized**: Enhanced discoverability
-- **Fast Performance**: Optimized for speed
-- **Easy to Customize**: Well-structured and documented code
-
-## 📝 License
-
-MIT License - feel free to use this template for your own portfolio!
-
-## 🤝 Connect
-
-- **GitHub**: [github.com/rogerdemello](https://github.com/rogerdemello)
-- **LinkedIn**: [linkedin.com/in/rogerdemello](https://linkedin.com/in/rogerdemello)
-- **LeetCode**: [leetcode.com/u/rogerdemello](https://leetcode.com/u/rogerdemello/)
-- **Email**: rogerdemello289@gmail.com
+**Live:** [rogerdemello.vercel.app](https://rogerdemello.vercel.app/)
 
 ---
 
-**Made with ❤️ by Roger Richard Demello**
+## Features
 
-5. **Training & Certifications** (`components/Training.tsx`):
-   - Add your certifications and training courses
+- **Dark theme** — Dark base with coral primary, cyan secondary, and golden accent (semantic CSS variables)
+- **Responsive** — Mobile-first with slide-out nav and touch-friendly targets
+- **Performance** — Next.js (App Router), code splitting, optimized assets
+- **Animations** — Fade-in on scroll, typing role cycle in hero, smooth scroll
+- **Particle background** — Canvas particles with cursor avoidance and connecting lines
+- **Micro-interactions** — Ripples, magnetic hover, 3D tilt on cards, glow pulses
+- **Resume** — Hero dropdown: View or Download PDF
+- **Back to top** — Sticky button with smooth scroll
+- **SEO** — Meta tags, Open Graph, Twitter cards, semantic HTML
+- **Sections** — Hero, About, Skills, Projects, Experience (work + education + certs + competitive coding), GitHub Stats, Contact
+
+---
+
+## Getting started
+
+### Prerequisites
+
+- **Node.js** 18+
+- **npm** or **yarn**
+
+### Install and run
+
+```bash
+git clone https://github.com/rogerdemello/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). If the port is in use, Next.js will use 3001 (or the next available port).
+
+### Lock / “another instance” error
+
+If you see *Unable to acquire lock at .next/dev/lock*:
+
+1. Stop any other `npm run dev` (close the terminal or stop the process).
+2. Or delete the lock and try again: remove `.next/dev/lock` (or the whole `.next` folder for a clean rebuild).
+
+---
+
+## Customization
+
+### Content
+
+| Section        | File                | What to edit                                      |
+|----------------|---------------------|---------------------------------------------------|
+| Hero           | `components/Hero.tsx` | Name, roles (typing), tagline, social links, resume CTA |
+| About          | `components/About.tsx` | Bio, highlights, core competencies                |
+| Skills         | `components/Skills.tsx` | Categories, technologies, “Also proficient in”   |
+| Projects       | `components/Projects.tsx` | Projects list, links, tech stack, demo/code       |
+| Experience     | `components/Experience.tsx` | Work, education, certifications, competitive coding |
+| GitHub Stats   | `components/GitHubStats.tsx` | GitHub username                                  |
+| Contact        | `components/Contact.tsx` | Copy, form behavior (see below)                   |
+| Footer         | `components/Footer.tsx` | Links, copyright                                  |
 
 ### Styling
 
-The project uses Tailwind CSS for styling. You can customize:
-- Colors in `tailwind.config.ts`
-- Global styles in `app/globals.css`
+- **Theme (colors, spacing):** `app/globals.css` — `:root` variables (primary, accent, secondary, backgrounds, borders).
+- **Tailwind theme:** `tailwind.config.ts` — extended colors and utilities.
+- **Micro-interactions:** `app/micro-interactions.css`.
 
-## Build for Production
+---
+
+## Contact form
+
+The form uses **Web3Forms**. To enable it:
+
+1. Get an access key from [web3forms.com](https://web3forms.com).
+2. Add to `.env.local`:
+   ```env
+   NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key
+   ```
+3. See `.env.example` in the repo for a template.
+
+---
+
+## Build and deploy
 
 ```bash
 npm run build
 npm start
 ```
 
-## Deployment
+Deployed on **Vercel**; also works on Netlify, AWS, or any Node-friendly host.
 
-This Next.js app can be deployed to:
-- Vercel (recommended)
-- Netlify
-- AWS
-- Any platform supporting Node.js
+---
 
-## Technologies Used
+## Tech stack
 
-- Next.js 14
-- React 18
-- TypeScript
-- Tailwind CSS
-- React Icons
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons
+- **Animations:** Custom CSS + Canvas (particles)
+- **Forms:** Web3Forms
+- **Deployment:** Vercel
+
+---
+
+## Resume
+
+Replace `public/Resume.pdf` with your PDF. The hero “Resume” button offers **View** (new tab) and **Download**.
+
+---
 
 ## License
 
-MIT License - feel free to use this template for your own portfolio!
+MIT — feel free to use this as a template for your own portfolio.
+
+---
+
+## Connect
+
+- **GitHub:** [github.com/rogerdemello](https://github.com/rogerdemello)
+- **LinkedIn:** [linkedin.com/in/rogerdemello](https://linkedin.com/in/rogerdemello)
+- **LeetCode:** [leetcode.com/u/rogerdemello](https://leetcode.com/u/rogerdemello/)
+- **Email:** rogerdemello289@gmail.com
+
+*Built by Roger Richard Demello*

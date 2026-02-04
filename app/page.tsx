@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <ParticleBackground />
       <MobileNav />
-      <main className="min-h-screen relative z-20">
+      <main id="main-content" className="min-h-screen relative z-20" tabIndex={-1}>
         <Hero />
         <FadeIn>
           <About />
