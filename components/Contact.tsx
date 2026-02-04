@@ -10,6 +10,7 @@ export default function Contact() {
     e.preventDefault();
     setErrorMessage("");
     
+    const form = e.currentTarget;
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
     if (!accessKey) {
       setStatus("error");
@@ -20,7 +21,7 @@ export default function Contact() {
     
     setStatus("sending");
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     // Ensure access_key is set (fallback to env var if hidden input missing)
     if (!formData.get("access_key")) {
       formData.set("access_key", accessKey);
@@ -43,7 +44,8 @@ export default function Contact() {
 
       if (response.ok && data.success !== false) {
         setStatus("sent");
-        e.currentTarget.reset();
+        // Reset form - form reference captured before async call
+        form.reset();
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
