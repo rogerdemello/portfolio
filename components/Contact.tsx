@@ -14,6 +14,7 @@ export default function Contact() {
     if (!accessKey) {
       setStatus("error");
       setErrorMessage("Contact form is not configured. Please email me directly at rogerdemello289@gmail.com");
+      console.warn("Web3Forms API key missing. Set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local (local) or Vercel env vars (production)");
       return;
     }
     
@@ -26,29 +27,35 @@ export default function Contact() {
     }
 
     try {
+      // Web3Forms expects FormData without custom headers (browser sets Content-Type automatically)
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
         body: formData,
       });
 
-      const data = await response.json().catch(() => ({}));
+      let data: any = {};
+      try {
+        const text = await response.text();
+        data = text ? JSON.parse(text) : {};
+      } catch {
+        // Response might not be JSON
+      }
 
-      if (response.ok && data.success) {
+      if (response.ok && data.success !== false) {
         setStatus("sent");
         e.currentTarget.reset();
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
-        const errorMsg = data.message || `Server error (${response.status}). Please try again or email me directly.`;
+        const errorMsg = data.message || `Failed to send (${response.status}). Please email me directly.`;
         setErrorMessage(errorMsg);
+        console.error("Web3Forms error:", { status: response.status, data });
       }
-    } catch (error) {
+    } catch (error: any) {
       setStatus("error");
-      console.error("Contact form error:", error);
-      setErrorMessage("Network error. Please check your connection or email me directly at rogerdemello289@gmail.com");
+      console.error("Contact form network error:", error);
+      const errorDetails = error?.message || "Unknown error";
+      setErrorMessage(`Network error: ${errorDetails}. Please email me directly at rogerdemello289@gmail.com`);
     }
   };
 
