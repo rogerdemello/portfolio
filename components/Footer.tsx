@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Social Links */}
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 md:mb-8">
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-4 mb-6 md:mb-8">
             <a
               href="https://github.com/rogerdemello"
               target="_blank"

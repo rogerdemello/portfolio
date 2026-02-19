@@ -78,7 +78,7 @@ export default function Contact() {
               Let&apos;s <span className="gradient-text">Connect</span>
             </h2>
             <p className="text-foreground-muted text-base md:text-lg">
-              Interested in collaboration or have questions? Feel free to reach out.
+              Looking for ML engineering internships for summer 2026. Also down to chat about projects, especially if you're working on something with AI Agents.
             </p>
           </div>
 

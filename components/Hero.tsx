@@ -184,7 +184,7 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Main headline — 2pt smaller than default scale */}
+            {/* Main headline - 2pt smaller than default scale */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold mb-4 tracking-tight leading-tight">
               <span className="gradient-text">
                 Roger Richard Demello
@@ -214,7 +214,7 @@ export default function Hero() {
                 Machine Learning
               </span>
               <span className="px-5 py-2 bg-decorative/10 rounded border border-decorative/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-decorative/50 hover:shadow-lg hover:shadow-decorative/10 transition-all">
-                Deep Learning
+                Gen AI
               </span>
               <span className="px-5 py-2 bg-accent/10 rounded border border-accent/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all">
                 AWS Cloud

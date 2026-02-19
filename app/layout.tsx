@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Roger Richard Demello — ML Engineer & Cloud Specialist",
-  description: "Machine Learning Engineer & AWS Cloud Practitioner. Portfolio of AI/ML projects, cloud deployment, and software development — Python, TensorFlow, AWS.",
+  title: "Roger Richard Demello - ML Engineer & Cloud Specialist",
+  description: "Machine Learning Engineer & AWS Cloud Practitioner. Portfolio of AI/ML projects, cloud deployment, and software development - Python, TensorFlow, AWS.",
   keywords: [
     "Roger Demello",
     "Machine Learning Engineer",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://rogerdemello.vercel.app/",
-    title: "Roger Richard Demello — ML Engineer & Cloud Specialist",
+    title: "Roger Richard Demello - ML Engineer & Cloud Specialist",
     description: "Machine Learning Engineer & AWS Cloud Practitioner. AI/ML projects, cloud deployment, Python, TensorFlow.",
     siteName: "Roger Demello Portfolio",
     images: [
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
         url: "https://rogerdemello.vercel.app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Roger Richard Demello — ML Engineer & Cloud Specialist",
+        alt: "Roger Richard Demello - ML Engineer & Cloud Specialist",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Roger Richard Demello — ML Engineer & Cloud Specialist",
+    title: "Roger Richard Demello - ML Engineer & Cloud Specialist",
     description: "Machine Learning Engineer & AWS Cloud Practitioner. AI/ML projects, Python, TensorFlow, AWS.",
     images: ["https://rogerdemello.vercel.app/og-image.png"],
   },

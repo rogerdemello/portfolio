@@ -1,6 +1,6 @@
 "use client";
 import { FaGraduationCap, FaAward, FaCertificate, FaBriefcase, FaCode } from "react-icons/fa";
-import { SiLeetcode, SiCodechef, SiHackerrank, SiAmazon } from "react-icons/si";
+import { SiLeetcode, SiCodechef, SiCodeforces, SiAmazon } from "react-icons/si";
 
 export default function Experience() {
   const education = [
@@ -17,7 +17,7 @@ export default function Experience() {
       degree: "Minor in Artificial Intelligence and Machine Learning",
       school: "Shri Ramdeobaba College of Engineering and Management",
       period: "May 2023 – Dec 2025",
-      cgpa: "9.5",
+      cgpa: "9.6",
       description: "Specialized coursework in AI, ML algorithms, deep learning, and data science.",
       icon: <FaAward size={28} />,
       gradient: "from-accent to-primary",
@@ -39,19 +39,31 @@ export default function Experience() {
       date: "July 2025",
       icon: <FaCertificate size={28} />,
       gradient: "from-primary to-secondary",
-      description: "Comprehensive understanding of ML concepts and implementation using AWS services like SageMaker.",
+      description: "Learned ML concepts and how AWS SageMaker works. Course project involved training a classifier on AWS.",
     },
     {
-      title: "NCC 'A' and 'B' Certificate",
+      title: "NCC 'C' Certificate",
       issuer: "National Cadet Corps",
-      date: "2024-2025",
+      date: "Batch 2023-2026",
       icon: <FaAward size={28} />,
       gradient: "from-secondary to-primary",
-      description: "Leadership, discipline, and teamwork development through active NCC training and drills.",
+      description: "Leadership, discipline, and teamwork development through active NCC training and drills. Completed advanced training and obtained 'C' certificate.",
     },
   ];
 
   const workExperience = [
+    {
+      title: "AI Engineer Intern",
+      company: "AI LifeBOT",
+      period: "Jan 2026 – Present",
+      icon: <FaBriefcase size={28} />,
+      gradient: "from-accent to-primary",
+      highlights: [
+        "Built and deployed 3+ production LLM applications and AI agents serving 200+ users with tool integration and memory",
+        "Architected AI pipelines with LLMs, vector databases, and APIs, reducing latency through optimized caching",
+        "Led rapid prototyping of AI solutions with weekly technical reviews and production documentation"
+      ],
+    },
     {
       title: "Machine Learning Intern",
       company: "CFM, RCOEM",
@@ -82,6 +94,7 @@ export default function Experience() {
     {
       platform: "LeetCode",
       username: "rogerdemello",
+      rating: "1767",
       url: "https://leetcode.com/u/rogerdemello/",
       icon: <SiLeetcode size={32} />,
       color: "text-primary",
@@ -91,6 +104,7 @@ export default function Experience() {
     {
       platform: "CodeChef",
       username: "droger289",
+      rating: "1814",
       url: "https://www.codechef.com/users/droger289/",
       icon: <SiCodechef size={32} />,
       color: "text-accent",
@@ -98,10 +112,11 @@ export default function Experience() {
       borderColor: "border-accent/30",
     },
     {
-      platform: "HackerRank",
-      username: "rogerdemello",
-      url: "https://www.hackerrank.com/profile/rogerdemello",
-      icon: <SiHackerrank size={32} />,
+      platform: "Codeforces",
+      username: "rogerdemello289",
+      rating: "1247",
+      url: "https://codeforces.com/profile/rogerdemello289",
+      icon: <SiCodeforces size={32} />,
       color: "text-secondary",
       bgColor: "from-secondary/10 to-primary/10",
       borderColor: "border-secondary/30",
@@ -124,7 +139,7 @@ export default function Experience() {
             Professional <span className="gradient-text">Journey</span>
           </h2>
           <p className="text-foreground-muted max-w-2xl mx-auto text-base md:text-lg">
-            Continuous learning and hands-on experience in AI, ML, and Cloud technologies
+            My journey in AI and software engineering, from internships to professional roles.
           </p>
         </div>
         
@@ -271,6 +286,11 @@ export default function Experience() {
                   <h4 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {platform.platform}
                   </h4>
+                  {platform.rating && (
+                    <p className="text-lg font-bold text-primary mb-1">
+                      Rating: {platform.rating}
+                    </p>
+                  )}
                   <p className="text-foreground-muted font-mono text-sm">
                     @{platform.username}
                   </p>

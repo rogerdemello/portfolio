@@ -6,20 +6,26 @@ export default function About() {
   const highlights = [
     {
       icon: <FaBrain size={28} />,
-      title: "ML Problem Solver",
-      description: "Designing and implementing machine learning models to solve real-world problems with 85%+ accuracy",
+      title: "ML & Deep Learning",
+      description: "Built health prediction system with 87% accuracy (started at 71%). Working with CNNs, RNNs, and transformers for computer vision and NLP projects.",
       gradient: "from-accent to-primary"
     },
     {
       icon: <FaCloud size={28} />,
-      title: "Cloud Deployment",
-      description: "Building scalable AI systems on AWS infrastructure with EC2, S3, Lambda, and RDS",
+      title: "AWS Cloud",
+      description: "Deploying projects on EC2, S3, and Lambda. Comfortable with cloud infrastructure and inference endpoints. AWS Certified Cloud Practitioner.",
       gradient: "from-primary to-secondary"
     },
     {
+      icon: <FaCode size={28} />,
+      title: "AI Chatbots",
+      description: "Built Chatbots with Gemini API and LangChain for health queries, mental wellness, and scheduling. Learning RAG for better context handling.",
+      gradient: "from-secondary to-accent"
+    },
+    {
       icon: <FaChartLine size={28} />,
-      title: "Data-Driven",
-      description: "Transforming complex datasets into actionable insights using TensorFlow, Scikit-Learn, and Pandas",
+      title: "Data Engineering",
+      description: "Data cleaning and feature engineering with Pandas and NumPy. Experienced with handling imbalanced datasets and data preprocessing pipelines.",
       gradient: "from-primary to-accent"
     }
   ];
@@ -39,20 +45,19 @@ export default function About() {
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4 md:mb-6">
-              Machine Learning Engineer <span className="gradient-text">& Cloud Specialist</span>
+              ML Engineer <span className="gradient-text">& Cloud Specialist</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-foreground-muted max-w-3xl mx-auto leading-relaxed">
-              I specialize in developing intelligent AI systems and deploying scalable machine learning models on cloud infrastructure. 
-              With expertise in Python, TensorFlow, and AWS, I transform complex data challenges into production-ready solutions.
+              I specialize in developing intelligent AI systems and deploying scalable machine learning models on cloud infrastructure. With expertise in Python, TensorFlow, and AWS, I transform complex data challenges into production-ready solutions.
             </p>
           </div>
 
           {/* Highlights Grid */}
-          <div className="flex flex-wrap justify-center gap-5 sm:gap-6 mb-12 md:mb-16 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-12 md:mb-16 max-w-7xl mx-auto">
             {highlights.map((item, index) => (
               <div
                 key={index}
-                className="group p-6 bg-background-tertiary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/40 hover:bg-background-tertiary transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 flex-1 min-w-[280px] max-w-[340px]"
+                className="group p-6 bg-background-tertiary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/40 hover:bg-background-tertiary transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
               >
                 <div className={`inline-flex p-3 bg-gradient-to-r ${item.gradient} rounded-xl mb-4 transform group-hover:scale-105 transition-transform duration-350 ease-smooth`}>
                   <div className="text-white">

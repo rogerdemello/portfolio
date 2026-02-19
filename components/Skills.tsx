@@ -14,7 +14,7 @@ import {
   SiOpencv,
   SiFastapi,
   SiFlask,
-  SiGit
+  SiGit,
 } from "react-icons/si";
 
 export default function Skills() {
@@ -23,7 +23,7 @@ export default function Skills() {
       title: "Machine Learning & AI",
       icon: <FaBrain size={32} />,
       color: "from-accent to-primary",
-      description: "Building intelligent systems and predictive models",
+      description: "Building models with TensorFlow and PyTorch",
       skills: [
         { name: "TensorFlow", icon: <SiTensorflow size={24} /> },
         { name: "Scikit-Learn", icon: <SiScikitlearn size={24} /> },
@@ -38,19 +38,20 @@ export default function Skills() {
       title: "Programming Languages",
       icon: <FaCode size={32} />,
       color: "from-primary to-secondary",
-      description: "Strong foundation in multiple paradigms",
+      description: "Python mostly, C++ for coursework",
       skills: [
         { name: "Python", icon: <SiPython size={24} /> },
         { name: "C++", icon: <SiCplusplus size={24} /> },
         { name: "C", icon: <SiC size={24} /> },
         { name: "Java", icon: <FaJava size={24} /> },
+        { name: "SQL", icon: <FaDatabase size={24} /> },
       ],
     },
     {
       title: "Cloud & Infrastructure (AWS)",
       icon: <SiAmazon size={32} />,
       color: "from-primary to-accent",
-      description: "Scalable cloud architecture and deployment",
+      description: "Learning AWS deployment, EC2 and S3 mainly",
       skills: [
         { name: "AWS EC2", icon: <SiAmazon size={24} /> },
         { name: "AWS S3", icon: <SiAmazon size={24} /> },
@@ -63,7 +64,7 @@ export default function Skills() {
       title: "Frameworks & Tools",
       icon: <FaTools size={32} />,
       color: "from-secondary to-primary",
-      description: "Modern development and deployment tools",
+      description: "FastAPI and Flask for backends, Git for version control",
       skills: [
         { name: "FastAPI", icon: <SiFastapi size={24} /> },
         { name: "Flask", icon: <SiFlask size={24} /> },
@@ -85,10 +86,10 @@ export default function Skills() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-            Technical <span className="gradient-text">Arsenal</span>
+            Technical <span className="gradient-text">Stack</span>
           </h2>
           <p className="text-foreground-muted max-w-2xl mx-auto text-base md:text-lg">
-            Comprehensive toolkit for building and deploying production-ready AI solutions
+            Technologies I've actually used in projects or coursework. Pretty comfortable with Python and the ML stack-TensorFlow, scikit-learn, Pandas. Exploring AWS. React is new for me, built one project with it so far.
           </p>
         </div>
 

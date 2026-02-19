@@ -1,4 +1,4 @@
-# Roger Richard Demello — Portfolio
+# Roger Richard Demello - Portfolio
 
 A modern, interactive portfolio built with **Next.js**, **TypeScript**, and **Tailwind CSS**, featuring a dark theme with coral/orange primary and golden accent, smooth animations, particle background, and micro-interactions.
 
@@ -8,16 +8,16 @@ A modern, interactive portfolio built with **Next.js**, **TypeScript**, and **Ta
 
 ## Features
 
-- **Dark theme** — Dark base with coral primary, cyan secondary, and golden accent (semantic CSS variables)
-- **Responsive** — Mobile-first with slide-out nav and touch-friendly targets
-- **Performance** — Next.js (App Router), code splitting, optimized assets
-- **Animations** — Fade-in on scroll, typing role cycle in hero, smooth scroll
-- **Particle background** — Canvas particles with cursor avoidance and connecting lines
-- **Micro-interactions** — Ripples, magnetic hover, 3D tilt on cards, glow pulses
-- **Resume** — Hero dropdown: View or Download PDF
-- **Back to top** — Sticky button with smooth scroll
-- **SEO** — Meta tags, Open Graph, Twitter cards, semantic HTML
-- **Sections** — Hero, About, Skills, Projects, Experience (work + education + certs + competitive coding), GitHub Stats, Contact
+- **Dark theme** - Dark base with coral primary, cyan secondary, and golden accent (semantic CSS variables)
+- **Responsive** - Mobile-first with slide-out nav and touch-friendly targets
+- **Performance** - Next.js (App Router), code splitting, optimized assets
+- **Animations** - Fade-in on scroll, typing role cycle in hero, smooth scroll
+- **Particle background** - Canvas particles with cursor avoidance and connecting lines
+- **Micro-interactions** - Ripples, magnetic hover, 3D tilt on cards, glow pulses
+- **Resume** - Hero dropdown: View or Download PDF
+- **Back to top** - Sticky button with smooth scroll
+- **SEO** - Meta tags, Open Graph, Twitter cards, semantic HTML
+- **Sections** - Hero, About, Skills, Projects, Experience (work + education + certs + competitive coding), GitHub Stats, Contact
 
 ---
 
@@ -65,8 +65,8 @@ If you see *Unable to acquire lock at .next/dev/lock*:
 
 ### Styling
 
-- **Theme (colors, spacing):** `app/globals.css` — `:root` variables (primary, accent, secondary, backgrounds, borders).
-- **Tailwind theme:** `tailwind.config.ts` — extended colors and utilities.
+- **Theme (colors, spacing):** `app/globals.css` - `:root` variables (primary, accent, secondary, backgrounds, borders).
+- **Tailwind theme:** `tailwind.config.ts` - extended colors and utilities.
 - **Micro-interactions:** `app/micro-interactions.css`.
 
 ---
@@ -115,7 +115,7 @@ Replace `public/Resume.pdf` with your PDF. The hero “Resume” button offers *
 
 ## License
 
-MIT — feel free to use this as a template for your own portfolio.
+MIT - feel free to use this as a template for your own portfolio.
 
 ---
 

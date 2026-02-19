@@ -1,9 +1,15 @@
 "use client";
-import { FaGithub, FaStar, FaCodeBranch } from "react-icons/fa";
+import { FaGithub, FaStar, FaChartLine } from "react-icons/fa";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function GitHubStats() {
   const githubUsername = "rogerdemello";
+  const [timestamp, setTimestamp] = useState("");
+
+  useEffect(() => {
+    setTimestamp(`&t=${Date.now()}`);
+  }, []);
 
   return (
     <section id="github" className="py-20 md:py-24 bg-background-secondary">
@@ -33,53 +39,35 @@ export default function GitHubStats() {
               </div>
               <div className="relative w-full">
                 <Image
-                  src={`https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&theme=radical&hide_border=true&bg_color=1f2937&title_color=60a5fa&icon_color=a78bfa&text_color=e5e7eb&count_private=true`}
-                  alt="GitHub Stats"
-                  width={495}
-                  height={195}
-                  className="w-full h-auto rounded-lg"
-                  unoptimized
-                />
-              </div>
-            </div>
-
-            {/* Streak Stats */}
-            <div className="bg-background-tertiary/80 backdrop-blur-sm rounded-xl p-6 border border-card-border hover:border-decorative transition-all duration-300 tilt-on-hover">
-              <div className="flex items-center gap-3 mb-4">
-                <FaStar className="text-3xl text-purple-400" />
-                <h3 className="text-xl font-semibold text-white">Contribution Streak</h3>
-              </div>
-              <div className="relative w-full">
-                <Image
-                  src={`https://github-readme-streak-stats.herokuapp.com/?user=${githubUsername}&theme=radical&hide_border=true&background=1f2937&ring=60a5fa&fire=a78bfa&currStreakLabel=e5e7eb`}
+                  src={`https://github-readme-streak-stats.herokuapp.com/?user=${githubUsername}&theme=radical&hide_border=true&background=1f2937&ring=60a5fa&fire=a78bfa&currStreakLabel=e5e7eb${timestamp}`}
                   alt="GitHub Streak"
                   width={495}
                   height={195}
                   className="w-full h-auto rounded-lg"
                   unoptimized
+                  key={timestamp}
+                />
+              </div>
+            </div>
+
+            {/* Contribution Graph */}
+            <div className="bg-background-tertiary/80 backdrop-blur-sm rounded-xl p-6 border border-card-border hover:border-accent transition-all duration-300 tilt-on-hover">
+              <div className="flex items-center gap-3 mb-4">
+                <FaChartLine className="text-3xl text-green-400" />
+                <h3 className="text-xl font-semibold text-white">Contribution Calendar</h3>
+              </div>
+              <div className="relative w-full overflow-x-auto">
+                <Image
+                  src="/github-contributions_1.5x_postspark_2026-02-19_09-09-31.png"
+                  alt="GitHub Contribution Calendar"
+                  width={900}
+                  height={400}
+                  className="w-full h-auto rounded-lg"
+                  unoptimized
                 />
               </div>
             </div>
           </div>
-
-          {/* Top Languages Card */}
-          <div className="bg-background-tertiary/80 backdrop-blur-sm rounded-xl p-6 border border-card-border hover:border-secondary transition-all duration-300 tilt-on-hover">
-            <div className="flex items-center gap-3 mb-4">
-              <FaCodeBranch className="text-3xl text-green-400" />
-              <h3 className="text-xl font-semibold text-white">Most Used Languages</h3>
-            </div>
-            <div className="relative w-full max-w-md mx-auto">
-              <Image
-                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&theme=radical&hide_border=true&bg_color=1f2937&title_color=60a5fa&text_color=e5e7eb&langs_count=8`}
-                alt="Top Languages"
-                width={445}
-                height={165}
-                className="w-full h-auto rounded-lg"
-                unoptimized
-              />
-            </div>
-          </div>
-
 
           {/* View Profile Button */}
           <div className="text-center pt-8">
