@@ -82,7 +82,7 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-card-border p-6 sm:p-8 md:p-12 hover:border-primary/30 transition-all duration-350 ease-smooth">
+          <div className="bg-card/40 backdrop-blur-md rounded-2xl md:rounded-3xl border border-card-border p-6 sm:p-8 md:p-12 hover:border-primary/30 transition-all duration-300 shadow-2xl shadow-primary/5">
             {status === "sent" ? (
               <div className="text-center py-12">
                 <FaCheckCircle className="text-6xl text-green-500 mx-auto mb-6 animate-bounce" />

@@ -93,15 +93,20 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/30 overflow-hidden transition-all duration-350 ease-smooth hover:scale-[1.01] hover:shadow-2xl hover:shadow-primary/10 flex flex-col md:flex-row"
+              className="group bg-card/50 backdrop-blur-md rounded-2xl border border-card-border hover:border-primary/50 overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_-5px_hsla(var(--primary),0.15)] flex flex-col md:flex-row relative"
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              
               {/* Left: Gradient Header */}
-              <div className={`bg-gradient-to-br ${project.gradient} p-6 relative overflow-hidden md:w-64 flex items-center justify-center flex-shrink-0`}>
+              <div className={`bg-gradient-to-br ${project.gradient} p-6 relative overflow-hidden md:w-64 flex items-center justify-center flex-shrink-0 group-hover:brightness-110 transition-all duration-500`}>
+                <div className="absolute inset-0 opacity-20 mix-blend-overlay">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_0%,_transparent_70%)] opacity-30"></div>
+                </div>
                 <div className="absolute inset-0 opacity-10">
                   {project.techIcons.slice(0, 3).map((Icon, idx) => (
                     <Icon 
                       key={idx} 
-                      className="absolute text-white/25 text-5xl" 
+                      className="absolute text-white/40 text-6xl" 
                       style={{
                         top: `${(idx % 2) * 50}%`,
                         left: `${(idx % 3) * 50}%`,
@@ -110,18 +115,18 @@ export default function Projects() {
                     />
                   ))}
                 </div>
-                <div className="relative z-10 text-center">
-                  <div className="text-white mb-3 transform group-hover:scale-105 transition-transform duration-350 ease-smooth flex justify-center">
+                <div className="relative z-10 text-center transform group-hover:scale-105 transition-transform duration-500">
+                  <div className="text-white mb-3 flex justify-center drop-shadow-lg">
                     {project.icon}
                   </div>
-                  <h3 className="text-xl font-display font-bold text-white leading-tight">
+                  <h3 className="text-xl font-display font-bold text-white leading-tight drop-shadow-md">
                     {project.title}
                   </h3>
                 </div>
               </div>
 
               {/* Right: Content */}
-              <div className="p-6 flex-1">
+              <div className="p-6 flex-1 relative z-10">
                 {/* Description */}
                 <div className="mb-4">
                   <p className="text-foreground-muted text-sm leading-relaxed">
@@ -131,12 +136,12 @@ export default function Projects() {
 
                 {/* Quick Info - Side by side on larger screens */}
                 <div className="grid md:grid-cols-2 gap-3 mb-4">
-                  <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
-                    <h4 className="text-xs font-bold text-blue-400 mb-1.5 uppercase tracking-wide">Problem</h4>
+                  <div className="bg-background-tertiary/50 rounded-lg p-3 border border-card-border/50 hover:border-card-border transition-colors">
+                    <h4 className="text-xs font-bold text-secondary mb-1.5 uppercase tracking-wide">Problem</h4>
                     <p className="text-xs text-foreground-muted leading-relaxed">{project.problem}</p>
                   </div>
-                  <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
-                    <h4 className="text-xs font-bold text-purple-400 mb-1.5 uppercase tracking-wide">Solution</h4>
+                  <div className="bg-background-tertiary/50 rounded-lg p-3 border border-card-border/50 hover:border-card-border transition-colors">
+                    <h4 className="text-xs font-bold text-accent mb-1.5 uppercase tracking-wide">Solution</h4>
                     <p className="text-xs text-foreground-muted leading-relaxed">{project.approach}</p>
                   </div>
                 </div>
@@ -145,7 +150,7 @@ export default function Projects() {
                 <div className="space-y-4">
                   {/* Key Results */}
                   <div>
-                    <h4 className="text-xs font-bold text-green-400 mb-2 uppercase tracking-wide">Key Results</h4>
+                    <h4 className="text-xs font-bold text-primary mb-2 uppercase tracking-wide">Key Results</h4>
                     <div className="space-y-1.5">
                       {project.results.slice(0, 2).map((result, idx) => (
                         <div key={idx} className="flex items-start gap-2 text-xs text-foreground-muted leading-relaxed">

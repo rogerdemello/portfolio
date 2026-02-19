@@ -97,11 +97,11 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="group p-6 bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/30 transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
+              className="group p-6 bg-card/60 backdrop-blur-md rounded-2xl border border-border-color hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_hsla(var(--primary),0.15)] hover:-translate-y-1"
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-5">
-                <div className={`p-3 bg-gradient-to-r ${category.color} text-white rounded-xl transform group-hover:scale-105 transition-transform duration-350 ease-smooth shadow-lg`}>
+                <div className={`p-3 bg-gradient-to-r ${category.color} text-white rounded-xl shadow-lg group-hover:shadow-[0_0_20px_-5px_hsla(var(--primary),0.4)] transition-all duration-500`}>
                   {category.icon}
                 </div>
                 <div className="flex-1">
@@ -116,13 +116,14 @@ export default function Skills() {
                 {category.skills.map((skill, idx) => (
                   <div 
                     key={idx} 
-                    className="group/skill p-2.5 bg-background-tertiary/80 backdrop-blur-sm rounded-lg border border-card-border hover:border-primary/40 hover:bg-background-tertiary transition-all duration-300 ease-smooth"
+                    className="group/skill p-2.5 bg-background-tertiary rounded-lg border border-border-color/50 hover:border-primary/50 hover:bg-background-tertiary/80 transition-all duration-300 flex items-center gap-3 relative overflow-hidden"
                   >
-                    <div className="flex items-center gap-2">
-                      <div className="text-foreground-muted group-hover/skill:text-primary transition-colors duration-300 ease-smooth text-lg">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-2 z-10">
+                      <div className="text-foreground-muted group-hover/skill:text-primary transition-colors duration-300 text-lg">
                         {skill.icon}
                       </div>
-                      <span className="text-xs font-semibold text-foreground group-hover/skill:text-primary transition-colors duration-300 ease-smooth">
+                      <span className="text-xs font-semibold text-foreground group-hover/skill:text-primary transition-colors duration-300">
                         {skill.name}
                       </span>
                     </div>

@@ -150,22 +150,22 @@ export default function Experience() {
               {workExperience.map((exp, index) => (
                 <div
                   key={index}
-                  className="group p-8 bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/30 transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
+                  className="group p-8 bg-card/50 backdrop-blur-md rounded-2xl border border-card-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_hsla(var(--primary),0.15)] hover:-translate-y-1"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`p-3 bg-gradient-to-r ${exp.gradient} rounded-xl transform group-hover:scale-105 transition-transform duration-350 ease-smooth shadow-lg`}>
+                    <div className={`p-3 bg-gradient-to-r ${exp.gradient} rounded-xl shadow-lg group-hover:shadow-[0_0_20px_-5px_hsla(var(--primary),0.4)] transition-shadow duration-500`}>
                       <div className="text-white">
                         {exp.icon}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                      <h4 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
                         {exp.title}
                       </h4>
-                      <p className="text-base font-semibold text-blue-400 mb-1">
+                      <p className="text-base font-semibold text-secondary mb-1">
                         {exp.company}
                       </p>
-                      <p className="text-sm text-foreground-muted font-mono">
+                      <p className="text-sm text-foreground-muted font-mono bg-background-tertiary px-2 py-0.5 rounded inline-block border border-card-border/50">
                         {exp.period}
                       </p>
                     </div>
@@ -173,8 +173,8 @@ export default function Experience() {
                   <ul className="space-y-2 mt-4">
                     {exp.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-foreground-muted">
-                        <span className="text-purple-500 mt-1 flex-shrink-0">▸</span>
-                        <span>{highlight}</span>
+                        <span className="text-accent mt-1 flex-shrink-0">▸</span>
+                        <span className="leading-relaxed">{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -195,12 +195,12 @@ export default function Experience() {
               {education.map((edu, index) => (
                 <div
                   key={index}
-                  className="group relative p-8 bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/30 transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
+                  className="group relative p-8 bg-card/50 backdrop-blur-md rounded-2xl border border-card-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_-10px_hsla(var(--primary),0.15)] hover:-translate-y-1 overflow-hidden"
                 >
-                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${edu.gradient} rounded-t-2xl opacity-50`} aria-hidden></div>
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${edu.gradient} opacity-80 group-hover:opacity-100 transition-opacity duration-500`}></div>
                   
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`p-3 bg-gradient-to-r ${edu.gradient} rounded-xl transform group-hover:scale-105 transition-transform duration-350 ease-smooth shadow-lg`}>
+                    <div className={`p-3 bg-gradient-to-r ${edu.gradient} rounded-xl shadow-lg group-hover:shadow-[0_0_20px_-5px_hsla(var(--primary),0.4)] transition-all duration-500`}>
                       <div className="text-white">
                         {edu.icon}
                       </div>
@@ -209,17 +209,17 @@ export default function Experience() {
                       <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-tight">
                         {edu.degree}
                       </h4>
-                      <p className="text-base font-medium text-primary mb-1">
+                      <p className="text-base font-medium text-secondary mb-1">
                         {edu.school}
                       </p>
                       <div className="flex items-center gap-3 text-sm text-foreground-muted mb-2">
-                        <span className="font-mono">{edu.period}</span>
-                        <span className="text-foreground-muted">•</span>
+                        <span className="font-mono bg-background-tertiary px-2 py-0.5 rounded border border-card-border/50">{edu.period}</span>
+                        <span className="text-foreground-muted/50">•</span>
                         <span className="font-bold text-primary">CGPA: {edu.cgpa}</span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-foreground-muted text-sm leading-relaxed">
+                  <p className="text-foreground-muted text-sm leading-relaxed border-t border-card-border/30 pt-3 mt-2">
                     {edu.description}
                   </p>
                 </div>
@@ -239,9 +239,9 @@ export default function Experience() {
               {certifications.map((cert, index) => (
                 <div
                   key={index}
-                  className="group p-5 sm:p-6 bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/30 transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
+                  className="group p-5 sm:p-6 bg-card/60 backdrop-blur-md rounded-2xl border border-border-color hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_25px_-5px_hsla(var(--primary),0.1)] hover:-translate-y-1"
                 >
-                  <div className={`inline-flex p-3 bg-gradient-to-r ${cert.gradient} rounded-xl mb-4 transform group-hover:scale-105 transition-transform duration-350 ease-smooth shadow-lg`}>
+                  <div className={`inline-flex p-3 bg-gradient-to-r ${cert.gradient} rounded-xl mb-4 shadow-lg group-hover:shadow-[0_0_15px_-5px_hsla(var(--primary),0.4)] transition-all duration-500`}>
                     <div className="text-white">
                       {cert.icon}
                     </div>
@@ -249,13 +249,13 @@ export default function Experience() {
                   <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-tight">
                     {cert.title}
                   </h4>
-                  <p className="text-sm text-foreground-muted mb-1 font-semibold">
+                  <p className="text-sm text-secondary mb-1 font-semibold">
                     {cert.issuer}
                   </p>
-                  <p className="text-xs text-foreground-muted mb-3 font-mono">
+                  <p className="text-xs text-foreground-muted mb-3 font-mono bg-background-tertiary inline-block px-2 py-0.5 rounded border border-border-color/30">
                     {cert.date}
                   </p>
-                  <p className="text-sm text-foreground-muted leading-relaxed">
+                  <p className="text-sm text-foreground-muted leading-relaxed border-t border-border-color/30 pt-3">
                     {cert.description}
                   </p>
                 </div>

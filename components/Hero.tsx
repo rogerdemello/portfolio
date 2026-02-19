@@ -227,19 +227,19 @@ export default function Hero() {
 
           {/* Social links */}
           <div className="flex justify-center gap-3 sm:gap-4 mb-8 flex-wrap">
-            <a href="https://github.com/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-background-tertiary/80 backdrop-blur-sm rounded-xl border border-card-border hover:border-primary/50 hover:bg-background-tertiary transition-all duration-350 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background">
+            <a href="https://github.com/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-card-border hover:border-primary/50 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5">
               <FaGithub className="text-foreground-muted group-hover:text-primary transition-colors duration-300" size={16} />
               <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">GitHub</span>
             </a>
-            <a href="https://linkedin.com/in/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-background-tertiary/80 backdrop-blur-sm rounded-xl border border-secondary/40 hover:border-secondary/60 hover:bg-background-tertiary transition-all duration-350 ease-smooth focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-background">
+            <a href="https://linkedin.com/in/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-secondary/40 hover:border-secondary/60 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-secondary/5">
               <FaLinkedin className="text-secondary group-hover:text-secondary-light transition-colors duration-300" size={16} />
               <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">LinkedIn</span>
             </a>
-            <a href="https://leetcode.com/u/rogerdemello/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-background-tertiary/80 backdrop-blur-sm rounded-xl border border-primary/40 hover:border-primary/60 hover:bg-background-tertiary transition-all duration-350 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background">
+            <a href="https://leetcode.com/u/rogerdemello/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-primary/40 hover:border-primary/60 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5">
               <SiLeetcode className="text-primary group-hover:text-primary-light transition-colors duration-300" size={16} />
               <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">LeetCode</span>
             </a>
-            <a href="mailto:rogerdemello289@gmail.com" className="group flex items-center gap-2 px-4 py-2.5 bg-background-tertiary/80 backdrop-blur-sm rounded-xl border border-card-border hover:border-primary/50 hover:bg-background-tertiary transition-all duration-350 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background">
+            <a href="mailto:rogerdemello289@gmail.com" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-card-border hover:border-primary/50 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5">
               <FaEnvelope className="text-foreground-muted group-hover:text-primary transition-colors duration-300" size={16} />
               <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">Email</span>
             </a>
@@ -248,18 +248,18 @@ export default function Hero() {
           {/* Primary CTAs */}
           <div className="flex justify-center gap-3 flex-wrap mb-10">
             <div className="relative">
-              <button onClick={() => setShowDropdown(!showDropdown)} className="group px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary-light hover:shadow-lg hover:shadow-primary/30 transition-all duration-350 ease-smooth flex items-center gap-2 text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
+              <button onClick={() => setShowDropdown(!showDropdown)} className="group px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary-light hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] transition-all duration-300 ease-smooth flex items-center gap-2 text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
                 <FaDownload className="group-hover:translate-y-0.5 transition-transform duration-300 ease-smooth" size={13} />
                 Resume
               </button>
 
               {showDropdown && (
-                <div className="absolute top-full mt-2 left-0 bg-background/98 backdrop-blur-xl rounded-xl shadow-2xl border border-card-border overflow-hidden z-20 min-w-[180px]">
-                  <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 hover:bg-background-tertiary transition-colors duration-300 ease-smooth text-foreground-muted text-sm font-light" onClick={() => setShowDropdown(false)}>
+                <div className="absolute top-full mt-2 left-0 bg-card/90 backdrop-blur-xl rounded-xl shadow-2xl border border-card-border overflow-hidden z-20 min-w-[180px]">
+                  <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 hover:bg-white/5 transition-colors duration-300 ease-smooth text-foreground-muted text-sm font-light" onClick={() => setShowDropdown(false)}>
                     <FaEye className="text-primary" size={13} />
                     <span>View</span>
                   </a>
-                  <a href="/Resume.pdf" download="Roger_Demello_Resume.pdf" className="flex items-center gap-2 px-5 py-2.5 hover:bg-background-tertiary transition-colors duration-300 ease-smooth text-foreground-muted border-t border-card-border text-sm font-light" onClick={() => setShowDropdown(false)}>
+                  <a href="/Resume.pdf" download="Roger_Demello_Resume.pdf" className="flex items-center gap-2 px-5 py-2.5 hover:bg-white/5 transition-colors duration-300 ease-smooth text-foreground-muted border-t border-card-border text-sm font-light" onClick={() => setShowDropdown(false)}>
                     <FaDownload className="text-primary" size={13} />
                     <span>Download</span>
                   </a>
@@ -267,7 +267,7 @@ export default function Hero() {
               )}
             </div>
 
-            <a href="#projects" className="px-6 py-3 bg-background-tertiary backdrop-blur-sm text-foreground font-medium rounded-xl border border-card-border hover:border-accent/60 hover:bg-background-secondary hover:shadow-lg hover:shadow-accent/10 transition-all duration-350 ease-smooth text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-background">Projects</a>
+            <a href="#projects" className="px-6 py-3 bg-card/50 backdrop-blur-md text-foreground font-medium rounded-xl border border-card-border hover:border-accent/60 hover:bg-card/70 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 ease-smooth text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-background">Projects</a>
           </div>
         </div>
       </div>

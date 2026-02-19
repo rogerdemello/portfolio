@@ -57,9 +57,9 @@ export default function About() {
             {highlights.map((item, index) => (
               <div
                 key={index}
-                className="group p-6 bg-background-tertiary/80 backdrop-blur-sm rounded-2xl border border-card-border hover:border-primary/40 hover:bg-background-tertiary transition-all duration-350 ease-smooth hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
+                className="group p-6 bg-card/50 backdrop-blur-md rounded-2xl border border-card-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.15)] hover:-translate-y-1"
               >
-                <div className={`inline-flex p-3 bg-gradient-to-r ${item.gradient} rounded-xl mb-4 transform group-hover:scale-105 transition-transform duration-350 ease-smooth`}>
+                <div className={`inline-flex p-3 bg-gradient-to-r ${item.gradient} rounded-xl mb-4 transform group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/10`}>
                   <div className="text-white">
                     {item.icon}
                   </div>
@@ -75,31 +75,35 @@ export default function About() {
           </div>
 
           {/* Core Competencies */}
-          <div className="bg-gradient-to-br from-background-tertiary/80 to-background-secondary/80 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-card-border p-6 sm:p-8 md:p-12 transition-shadow duration-350 ease-smooth hover:shadow-xl hover:shadow-primary/10">
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-bold text-foreground mb-6 md:mb-8 text-center">
+          <div className="bg-card/40 backdrop-blur-md rounded-2xl md:rounded-3xl border border-card-border p-6 sm:p-8 md:p-12 transition-all duration-300 hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.1)] hover:border-primary/30 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-bold text-foreground mb-8 md:mb-10 text-center relative z-10">
               Core Competencies
             </h3>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 relative z-10">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
-                  <SiTensorflow className="text-3xl text-primary" />
+                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                    <SiTensorflow className="text-2xl" />
+                  </div>
                   <h4 className="text-xl font-bold text-foreground">Machine Learning</h4>
                 </div>
-                <ul className="space-y-2 text-foreground-muted">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                <ul className="space-y-3 text-foreground-muted">
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Supervised & Unsupervised Learning</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Neural Networks & Deep Learning</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Model Optimization & Evaluation</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Feature Engineering & Selection</span>
                   </li>
                 </ul>
@@ -107,24 +111,26 @@ export default function About() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
-                  <SiAmazon className="text-3xl text-accent" />
+                  <div className="p-2 bg-accent/10 rounded-lg text-accent">
+                    <SiAmazon className="text-2xl" />
+                  </div>
                   <h4 className="text-xl font-bold text-foreground">Cloud Infrastructure</h4>
                 </div>
-                <ul className="space-y-2 text-foreground-muted">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                <ul className="space-y-3 text-foreground-muted">
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>AWS EC2, S3, Lambda, RDS</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Scalable Architecture Design</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Auto Scaling & Load Balancing</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>IAM & Security Best Practices</span>
                   </li>
                 </ul>
@@ -132,24 +138,26 @@ export default function About() {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
-                  <SiPython className="text-3xl text-secondary" />
+                  <div className="p-2 bg-secondary/10 rounded-lg text-secondary">
+                    <SiPython className="text-2xl" />
+                  </div>
                   <h4 className="text-xl font-bold text-foreground">Development</h4>
                 </div>
-                <ul className="space-y-2 text-foreground-muted">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                <ul className="space-y-3 text-foreground-muted">
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Python, C++, Data Structures</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>FastAPI, Flask, RESTful APIs</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Git, CI/CD Pipelines</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">▸</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                     <span>Object-Oriented Programming</span>
                   </li>
                 </ul>
