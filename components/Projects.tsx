@@ -1,71 +1,68 @@
 "use client";
-import { FaGithub, FaExternalLinkAlt, FaCheckCircle, FaHeartbeat, FaMicrophone, FaShieldAlt } from "react-icons/fa";
-import { SiPython, SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiFastapi, SiFlask, SiReact, SiPytorch } from "react-icons/si";
+import { FaGithub, FaExternalLinkAlt, FaCheckCircle, FaShieldAlt, FaBullhorn, FaEnvelope } from "react-icons/fa";
+import { SiPython, SiFastapi, SiPandas, SiReact } from "react-icons/si";
 
 export default function Projects() {
   const projects = [
     {
-      title: "LifePulse: Health Risk Calculator",
+      title: "DealSentry",
       description:
-        "Health risk prediction system using ML models and WHO guidelines. Combined TensorFlow classifiers with rule-based validation to achieve 87.1% accuracy. Analyzes lifestyle factors like BMI, blood pressure, stress levels, and sleep patterns to provide personalized health risk assessments.",
-      problem: "Wanted to build something that could give people health insights without needing expensive lab tests or equipment. Also needed a portfolio project for internship applications.",
-      approach: "Started with just a TensorFlow classifier in June - accuracy was terrible at 71%. Spent two weeks trying different architectures before realizing the issue. Added WHO rules as a validation layer. Hybrid approach brought it to 87.1%.",
-      cloudArchitecture: "Running on Render's free tier (because I'm broke). Flask backend, takes about 2 seconds for predictions. Got ~1000 requests the first month after posting on r/learnmachinelearning, now averages maybe 100/month.",
+        "Built an AI-powered proposal compliance and risk analysis platform with automated document validation, approval workflows, and audit logging. Integrated LLM-based analysis with rule-based engines and enterprise tools for real-world B2B proposal operations.",
+      problem: "Enterprise sales teams needed fast proposal validation against compliance policies without slowing down approvals.",
+      approach: "Combined LLM-powered clause analysis with deterministic rule engines and database-driven workflows for reliable, traceable decision making.",
+      cloudArchitecture: "Designed scalable backend services with workflow orchestration, approval state tracking, and full audit trails across enterprise integrations.",
       results: [
-        "87.1% accuracy (started at 71% in June, fixed by late July)",
-        "Takes about 2 seconds for predictions - wanted faster but Render's free tier is slow",
-        "Built a dashboard with Chart.js (first time using it)",
-        "WHO guidelines as validation layer-this is what fixed the accuracy issue"
+        "Automated proposal document validation and AI-assisted risk analysis",
+        "Integrated CRM, email, and storage tools into approval workflows",
+        "Implemented complete audit logging for traceability and compliance",
+        "Built scalable services for high-reliability B2B review pipelines"
       ],
-      technologies: ["Python", "TensorFlow", "Scikit-Learn", "Pandas", "Flask", "NumPy"],
-      techIcons: [SiPython, SiTensorflow, SiScikitlearn, SiPandas, SiFlask, SiNumpy],
-      github: "https://github.com/rogerdemello/LifePulse",
-      demo: "https://lifepulse-9vz4.onrender.com/",
-      gradient: "from-primary to-secondary",
-      icon: <FaHeartbeat size={40} />
-    },
-    {
-      title: "DealSentry: Intelligent Proposal Guard",
-      description:
-        "AI compliance platform for sales proposals. Validates documents, scores risk, and manages approval workflows with audit trails. Integrates with CRM systems and uses Azure OpenAI to analyze contract clauses, detect policy violations, and provide intelligent risk assessments before client submission.",
-      problem: "Sales teams need to validate proposals against compliance rules and company policies before sending to clients, but manual review is slow and error-prone.",
-      approach: "React/TypeScript frontend with Node.js backend. Rule-based compliance engine combined with Azure OpenAI for intelligent risk analysis. PostgreSQL for data persistence, document processing pipeline for DOCX/PDF extraction.",
-      cloudArchitecture: "Integrated with CRM tools (like HubSpot), Gmail for notifications, DocuSign for e-signatures. Role-based access control with approval workflows and contract lifecycle tracking.",
-      results: [
-        "Automated compliance validation with AI-driven risk scoring",
-        "Document ingestion supporting DOCX and PDF formats",
-        "CRM integrations (Salesforce, HubSpot) and DocuSign workflows",
-        "Complete audit trails and role-based access control",
-        "Faster approval cycles and reduced compliance risk"
-      ],
-      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Azure OpenAI", "HubSpot API"],
-      techIcons: [SiReact, SiPython, SiFastapi, SiNumpy],
-      github: "https://github.com/rogerdemello/DealSentry",
+      technologies: ["Python", "FastAPI", "LLM Workflows", "PostgreSQL", "Rule Engines", "CRM Integrations"],
+      techIcons: [SiPython, SiFastapi, SiPandas, SiReact],
+      github: "https://github.com/rogerdemello/DealSentry/",
       demo: "#",
       gradient: "from-accent to-primary",
       icon: <FaShieldAlt size={40} />
     },
     {
-      title: "LabLingo AI: Language Learning Platform",
+      title: "ContentFlow AI (AI Marketing Agent)",
       description:
-        "AI language learning platform with speech recognition and pronunciation scoring. Used Whisper for speech-to-text and built phoneme comparison for pronunciation feedback. Features adaptive lesson difficulty, instructor dashboards for tracking student progress, and supports multiple languages with real-time feedback on speaking accuracy.",
-      problem: "Language learners need speaking practice and pronunciation feedback, but 1-on-1 tutors are expensive and scheduling sucks.",
-      approach: "Real-time speech-to-text with Whisper, phoneme extraction and comparison for scoring, adaptive lessons based on performance. Built instructor dashboards for progress tracking.",
-      cloudArchitecture: "Docker containers with separate workers for GPU-heavy STT/TTS. PostgreSQL for user data, S3 for audio files. Auto-scaling was a pain but I got it working.",
+        "Developed a multi-agent AI system for automated content generation, compliance validation, and multi-channel distribution. Implemented RAG-based policy checks with multilingual generation and approval workflows for enterprise marketing pipelines.",
+      problem: "Marketing teams needed to scale content production while maintaining policy compliance and brand governance across channels.",
+      approach: "Built modular agents for generation, retrieval, compliance, and distribution, with human approval gates and centralized orchestration.",
+      cloudArchitecture: "Designed deployment-ready APIs and analytics instrumentation to support enterprise publishing workflows and monitoring.",
       results: [
-        "Real-time speech recognition using OpenAI Whisper",
-        "Phoneme-level pronunciation scoring (still tuning the threshold)",
-        "Adaptive difficulty-if you're doing well, lessons get harder",
-        "Works with multiple languages, tested Spanish and French so far",
-        "Instructor dashboard shows class progress and individual stats",
-        "Export to CSV for gradebooks"
+        "Automated content generation and compliance checks with multi-agent orchestration",
+        "RAG-based policy validation with multilingual output generation",
+        "Enabled multi-channel publishing flows with approval checkpoints",
+        "Integrated analytics tracking with deployment-ready API services"
       ],
-      technologies: ["FastAPI", "React", "Whisper", "Ollama", "PyTorch", "Sentence-Transformers", "FAISS", "PostgreSQL"],
-      techIcons: [SiFastapi, SiReact, SiPython, SiPytorch, SiTensorflow],
-      github: "https://github.com/rogerdemello/LabLingo-AI",
+      technologies: ["Python", "FastAPI", "RAG", "Multi-Agent Systems", "Analytics", "API Orchestration"],
+      techIcons: [SiPython, SiFastapi, SiPandas, SiReact],
+      github: "https://github.com/rogerdemello/contentflow-ai",
+      demo: "#",
+      gradient: "from-primary to-secondary",
+      icon: <FaBullhorn size={40} />
+    },
+    {
+      title: "Autonomous Executive Email Copilot",
+      description:
+        "Designed an AI-driven inbox automation system with agent-based triage, decision policies, and approval mechanisms. Built deterministic evaluation pipelines with scoring, benchmarking, and telemetry for reliable performance analysis.",
+      problem: "Executive teams needed inbox automation that was both efficient and trustworthy with clear approval controls.",
+      approach: "Implemented policy-aware triage agents, deterministic evaluation benchmarks, and full-stack operational tooling for observability.",
+      cloudArchitecture: "Developed FastAPI services, test pipelines, and interactive dashboards to monitor agent behavior and operational reliability.",
+      results: [
+        "Delivered agent-based inbox triage with approval-aware decision policies",
+        "Built deterministic scoring and benchmarking workflows for evaluation",
+        "Added telemetry instrumentation for reliable agent performance analysis",
+        "Shipped full-stack monitoring tools and test-ready API services"
+      ],
+      technologies: ["Python", "FastAPI", "Agent Workflows", "Telemetry", "Evaluation Pipelines", "Dashboards"],
+      techIcons: [SiPython, SiFastapi, SiPandas, SiReact],
+      github: "https://github.com/rogerdemello/autonomous-executive-email-copilot",
       demo: "#",
       gradient: "from-decorative to-decorative-light",
-      icon: <FaMicrophone size={40} />
+      icon: <FaEnvelope size={40} />
     },
   ];
 
@@ -85,7 +82,7 @@ export default function Projects() {
             <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-foreground-muted max-w-4xl mx-auto text-base md:text-lg">  
-            A selection of projects showcasing my skills in machine learning, cloud deployment, and AI development. Each project highlights a unique problem, my approach to solving it, and the results achieved. Check out the code and demos!
+            A selection of projects showcasing my work in AI systems, multi-agent workflows, and enterprise automation. Each project highlights a real-world problem, the solution architecture, and measurable outcomes.
           </p>
         </div>
 
