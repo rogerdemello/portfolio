@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * BugMascot — an interactive, cursor-aware bug mascot for the portfolio.
+ * BugMascot - an interactive, cursor-aware bug mascot for the portfolio.
  *
  * Visual language is borrowed from the reference rover illustration:
  *   thick dark outlines, minimal geometric shapes, a large orange "visor",
@@ -26,7 +26,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------ *
- * Tunable constants — the "personality" of the mascot lives here.
+ * Tunable constants - the "personality" of the mascot lives here.
  * ------------------------------------------------------------------ */
 
 // SVG geometry (must stay in sync with the markup below).
@@ -41,7 +41,7 @@ const MAX_HEAD_DEG = 12; // head never turns more than this toward the cursor
 const HEAD_RANGE_PX = 520; // cursor distance over which max head angle is reached
 const MAX_PUPIL_X = 6; // furthest a pupil travels horizontally inside the eye
 const MAX_PUPIL_Y = 5; // ...and vertically
-const EASE = 0.12; // 0..1 — higher = snappier, lower = floatier
+const EASE = 0.12; // 0..1 - higher = snappier, lower = floatier
 const BREATH_PX = 2.2; // vertical "breathing" amplitude
 const IDLE_MS = 2600; // cursor still for this long → idle behaviour kicks in
 
@@ -75,7 +75,7 @@ function useReducedMotion(): boolean {
 /* ------------------------------------------------------------------ *
  * Hook: cursor tracking
  * Records the raw pointer position (viewport coords) and the timestamp of
- * the last movement in refs — never in state, so it triggers no re-renders.
+ * the last movement in refs - never in state, so it triggers no re-renders.
  * The render loop reads these refs each frame.
  * ------------------------------------------------------------------ */
 function usePointerTracking(enabled: boolean) {
@@ -93,7 +93,7 @@ function usePointerTracking(enabled: boolean) {
       lastMove.current = performance.now();
     };
 
-    // `passive` — we never call preventDefault, so let the browser optimize.
+    // `passive` - we never call preventDefault, so let the browser optimize.
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
   }, [enabled]);
@@ -175,12 +175,12 @@ export default function BugMascot() {
 
         // Pupils: take the UNIT vector toward the cursor and scale it by the
         // eye's travel radius. This makes the pupil sit on the rim of the eye
-        // in the cursor's direction — i.e. the eyes genuinely "look at" it.
+        // in the cursor's direction - i.e. the eyes genuinely "look at" it.
         pxTarget = (dx / dist) * MAX_PUPIL_X;
         pyTarget = (dy / dist) * MAX_PUPIL_Y;
       }
 
-      // Breathing bob is always on — a touch faster while idle (resting).
+      // Breathing bob is always on - a touch faster while idle (resting).
       const bobTarget = Math.sin(t * (idle ? 0.0016 : 0.0024)) * BREATH_PX * (idle ? 1.3 : 1);
 
       /* --- 2. Ease current values toward the targets -------------------- */
@@ -270,10 +270,11 @@ export default function BugMascot() {
       style={{
         width: "clamp(110px, 9vw, 150px)",
         pointerEvents: "none",
-        opacity: mounted ? 0.82 : 0,
+        opacity: mounted ? 0.92 : 0,
         transform: mounted ? "translateY(0)" : "translateY(12px)",
         transition: "opacity 700ms cubic-bezier(0.33,1,0.68,1), transform 700ms cubic-bezier(0.33,1,0.68,1)",
-        filter: "drop-shadow(0 10px 22px hsl(var(--primary) / 0.18))",
+        // Hard offset shadow to match the tactile "sticker" language.
+        filter: "drop-shadow(4px 4px 0 hsl(var(--foreground) / 0.85))",
       }}
     >
       <svg
@@ -286,10 +287,10 @@ export default function BugMascot() {
         style={
           {
             display: "block",
-            ["--ink" as string]: "hsl(0 0% 7%)",
-            ["--body" as string]: "hsl(var(--foreground))",
+            ["--ink" as string]: "hsl(var(--foreground))",
+            ["--body" as string]: "hsl(42 55% 96%)",
             ["--orange" as string]: "hsl(var(--primary))",
-            ["--amber" as string]: "hsl(var(--accent))",
+            ["--amber" as string]: "hsl(var(--secondary))",
           } as React.CSSProperties
         }
       >
@@ -300,7 +301,7 @@ export default function BugMascot() {
           </radialGradient>
         </defs>
 
-        {/* Soft orange "ground" glow — grounds the bug on the dark canvas. */}
+        {/* Soft orange "ground" glow - grounds the bug on the dark canvas. */}
         <ellipse cx="110" cy="220" rx="78" ry="16" fill="url(#bug-ground)" />
 
         {/* rootRef: receives the breathing bob (whole-body vertical motion). */}

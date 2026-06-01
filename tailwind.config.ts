@@ -45,9 +45,15 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['Manrope', 'Poppins', 'Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Consolas', 'monospace'],
+        sans: ['var(--font-sans)', 'Segoe UI', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        mono: ['var(--font-mono)', 'JetBrains Mono', 'monospace'],
+      },
+      boxShadow: {
+        hard: '4px 4px 0 0 hsl(var(--foreground))',
+        'hard-sm': '3px 3px 0 0 hsl(var(--foreground))',
+        'hard-lg': '8px 8px 0 0 hsl(var(--foreground))',
+        'hard-primary': '4px 4px 0 0 hsl(var(--primary))',
       },
       backgroundImage: {
         'gradient-ai': 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%)',

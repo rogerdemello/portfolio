@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FaEnvelope, FaUser, FaPaperPlane, FaCheckCircle } from "react-icons/fa";
+import { FaEnvelope, FaPaperPlane, FaCheckCircle, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -9,7 +9,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage("");
-    
+
     const form = e.currentTarget;
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
     if (!accessKey) {
@@ -18,17 +18,15 @@ export default function Contact() {
       console.warn("Web3Forms API key missing. Set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local (local) or Vercel env vars (production)");
       return;
     }
-    
+
     setStatus("sending");
 
     const formData = new FormData(form);
-    // Ensure access_key is set (fallback to env var if hidden input missing)
     if (!formData.get("access_key")) {
       formData.set("access_key", accessKey);
     }
 
     try {
-      // Web3Forms expects FormData without custom headers (browser sets Content-Type automatically)
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
@@ -44,7 +42,6 @@ export default function Contact() {
 
       if (response.ok && data.success !== false) {
         setStatus("sent");
-        // Reset form - form reference captured before async call
         form.reset();
         setTimeout(() => setStatus("idle"), 5000);
       } else {
@@ -61,156 +58,112 @@ export default function Contact() {
     }
   };
 
+  const inputClass =
+    "w-full px-4 py-3 bg-background border-2 border-foreground rounded-lg text-foreground placeholder:text-foreground/40 focus:outline-none focus:shadow-[3px_3px_0_0_hsl(var(--primary))] focus:-translate-x-[1px] focus:-translate-y-[1px] transition-all duration-150";
+
   return (
-    <section id="contact" className="py-20 md:py-24 bg-background relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.02)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10 md:mb-12">
-            <div className="inline-block mb-4 px-5 py-2 sm:px-6 bg-primary/10 rounded-full border border-primary/30 backdrop-blur-sm">
-              <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">
-                Get In Touch
-              </span>
+    <section id="contact" className="py-20 md:py-28 relative">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="flex items-end gap-4 mb-12 md:mb-16">
+            <span className="font-display font-black text-primary text-3xl sm:text-4xl leading-none">06</span>
+            <div>
+              <p className="eyebrow mb-2">Say hello</p>
+              <h2 className="font-display font-black text-foreground text-4xl sm:text-5xl leading-[0.95]">
+                Let&apos;s build something
+              </h2>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-              Let&apos;s <span className="gradient-text">Connect</span>
-            </h2>
-            <p className="text-foreground-muted text-base md:text-lg">
-              Open to AI Engineer, ML Engineer, and Data Scientist roles and collaborations. Always happy to talk LLM applications, ML models, and data — reach out if you're building something interesting.
-            </p>
           </div>
 
-          <div className="bg-card/40 backdrop-blur-md rounded-2xl md:rounded-3xl border border-card-border p-6 sm:p-8 md:p-12 hover:border-primary/30 transition-all duration-300 shadow-2xl shadow-primary/5">
-            {status === "sent" ? (
-              <div className="text-center py-12">
-                <FaCheckCircle className="text-6xl text-green-500 mx-auto mb-6 animate-bounce" />
-                <h3 className="text-2xl font-bold text-foreground mb-3">
-                  Message Sent Successfully!
-                </h3>
-                <p className="text-foreground-muted">
-                  Thank you for reaching out. I&apos;ll respond within 24-48 hours.
-                </p>
-              </div>
-            ) : status === "error" ? (
-              <div className="text-center py-12">
-                <p className="text-primary mb-4">{errorMessage}</p>
-                <a
-                  href="mailto:rogerdemello289@gmail.com"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground hover:bg-primary-light rounded-xl transition-colors font-medium"
-                >
-                  <FaEnvelope /> Email directly
+          <div className="grid lg:grid-cols-5 gap-6 md:gap-8 items-start">
+            {/* Left: pitch */}
+            <div className="lg:col-span-2">
+              <p className="text-lg text-foreground/75 leading-relaxed mb-6">
+                Open to <span className="font-semibold text-foreground">AI Engineer, ML Engineer, and Data Scientist</span> roles
+                and collaborations. Always happy to talk LLM applications, ML models, and data.
+              </p>
+              <div className="space-y-3">
+                <a href="mailto:rogerdemello289@gmail.com" className="ink-card ink-card--hover flex items-center gap-3 p-4">
+                  <span className="grid place-items-center w-10 h-10 rounded-lg border-2 border-foreground bg-primary text-primary-foreground flex-shrink-0">
+                    <FaEnvelope size={16} />
+                  </span>
+                  <span className="font-semibold text-foreground break-all">rogerdemello289@gmail.com</span>
                 </a>
-                <button
-                  type="button"
-                  onClick={() => { setStatus("idle"); setErrorMessage(""); }}
-                  className="block mt-4 mx-auto text-sm text-foreground-muted hover:text-foreground"
-                >
-                  Try again
-                </button>
+                <div className="flex gap-3">
+                  <a href="https://github.com/rogerdemello" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="ink-card ink-card--hover grid place-items-center w-12 h-12 text-foreground">
+                    <FaGithub size={20} />
+                  </a>
+                  <a href="https://linkedin.com/in/rogerdemello" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="ink-card ink-card--hover grid place-items-center w-12 h-12 text-foreground">
+                    <FaLinkedin size={20} />
+                  </a>
+                </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Web3Forms: set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local */}
-                <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""} />
-                <input type="hidden" name="redirect" value="false" />
-                <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+            </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="relative">
-                    <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
-                      Your Name
-                    </label>
-                    <div className="relative">
-                      <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground-muted" />
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        className="w-full pl-12 pr-4 py-3.5 bg-background-tertiary/80 backdrop-blur-sm border border-card-border rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 ease-smooth text-foreground placeholder:text-foreground-muted"
-                        placeholder="John Doe"
-                      />
-                    </div>
+            {/* Right: form */}
+            <div className="lg:col-span-3">
+              <div className="ink-card p-6 sm:p-8">
+                {status === "sent" ? (
+                  <div className="text-center py-10">
+                    <FaCheckCircle className="text-5xl text-accent mx-auto mb-5" />
+                    <h3 className="font-display text-2xl font-bold text-foreground mb-2">Message sent!</h3>
+                    <p className="text-foreground/70">Thanks for reaching out - I&apos;ll reply within 24–48 hours.</p>
                   </div>
-
-                  <div className="relative">
-                    <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                      Your Email
-                    </label>
-                    <div className="relative">
-                      <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground-muted" />
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        className="w-full pl-12 pr-4 py-3.5 bg-background-tertiary/80 backdrop-blur-sm border border-card-border rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 ease-smooth text-foreground placeholder:text-foreground-muted"
-                        placeholder="john@example.com"
-                      />
-                    </div>
+                ) : status === "error" ? (
+                  <div className="text-center py-10">
+                    <p className="text-decorative font-medium mb-5">{errorMessage}</p>
+                    <a href="mailto:rogerdemello289@gmail.com" className="btn-solid">
+                      <FaEnvelope size={14} /> Email directly
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => { setStatus("idle"); setErrorMessage(""); }}
+                      className="block mt-4 mx-auto text-sm text-foreground/60 hover:text-foreground underline underline-offset-4"
+                    >
+                      Try again
+                    </button>
                   </div>
-                </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""} />
+                    <input type="hidden" name="redirect" value="false" />
+                    <input type="checkbox" name="botcheck" style={{ display: "none" }} />
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-foreground mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    className="w-full px-4 py-3.5 bg-background-tertiary/80 backdrop-blur-sm border border-card-border rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 ease-smooth text-foreground placeholder:text-foreground-muted"
-                    placeholder="Project Opportunity / Collaboration"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3.5 bg-background-tertiary/80 backdrop-blur-sm border border-card-border rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 ease-smooth resize-none text-foreground placeholder:text-foreground-muted"
-                    placeholder="Tell me about your project or inquiry..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="w-full bg-primary text-primary-foreground font-semibold py-4 rounded-xl transition-all transform hover:bg-primary-dark hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-primary/30"
-                >
-                  {status === "sending" ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <FaPaperPlane />
-                      Send Message
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
-
-          {/* Contact Info */}
-          <div className="mt-12 text-center">
-            <p className="text-foreground-muted mb-4">Direct contact:</p>
-            <a
-              href="mailto:rogerdemello289@gmail.com"
-              className="text-primary hover:underline text-lg font-medium"
-            >
-              rogerdemello289@gmail.com
-            </a>
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label htmlFor="name" className="block font-mono text-xs uppercase tracking-[0.14em] font-semibold text-foreground/70 mb-2">Name</label>
+                        <input type="text" id="name" name="name" required className={inputClass} placeholder="Jane Doe" />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block font-mono text-xs uppercase tracking-[0.14em] font-semibold text-foreground/70 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required className={inputClass} placeholder="jane@example.com" />
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="subject" className="block font-mono text-xs uppercase tracking-[0.14em] font-semibold text-foreground/70 mb-2">Subject</label>
+                      <input type="text" id="subject" name="subject" required className={inputClass} placeholder="Opportunity / collaboration" />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block font-mono text-xs uppercase tracking-[0.14em] font-semibold text-foreground/70 mb-2">Message</label>
+                      <textarea id="message" name="message" required rows={5} className={`${inputClass} resize-none`} placeholder="Tell me about what you're building…" />
+                    </div>
+                    <button type="submit" disabled={status === "sending"} className="btn-solid w-full disabled:opacity-60 disabled:cursor-not-allowed">
+                      {status === "sending" ? (
+                        <>
+                          <span className="w-4 h-4 border-2 border-background border-t-transparent rounded-full animate-spin" />
+                          Sending…
+                        </>
+                      ) : (
+                        <>
+                          <FaPaperPlane size={14} /> Send message
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

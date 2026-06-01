@@ -1,5 +1,28 @@
 import type { Metadata } from "next";
+import { Fraunces, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+// Display serif with real character (optical sizing) - the antidote to
+// generic AI-default sans stacks.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+// Warm, friendly workhorse grotesque for body copy.
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+// Monospace for eyebrow labels, metadata, and tech tags.
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Roger Richard Demello - AI / ML Engineer & Data Scientist",
@@ -65,8 +88,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="bg-background text-foreground">
+    <html
+      lang="en"
+      className={`scroll-smooth ${fraunces.variable} ${hanken.variable} ${mono.variable}`}
+    >
+      <body className="bg-background text-foreground font-sans antialiased">
         <a
           href="#main-content"
           className="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:w-auto focus:h-auto focus:m-0 focus:overflow-visible focus:[clip:auto]"

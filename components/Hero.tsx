@@ -1,283 +1,148 @@
 "use client";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaDownload, FaEye } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaArrowDown } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import { useState, useEffect, useRef } from "react";
 
-function AIBackground() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+const socials = [
+  { href: "https://github.com/rogerdemello", icon: <FaGithub size={16} />, label: "GitHub" },
+  { href: "https://linkedin.com/in/rogerdemello", icon: <FaLinkedin size={16} />, label: "LinkedIn" },
+  { href: "https://leetcode.com/u/rogerdemello/", icon: <SiLeetcode size={16} />, label: "LeetCode" },
+  { href: "mailto:rogerdemello289@gmail.com", icon: <FaEnvelope size={16} />, label: "Email" },
+];
 
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+const stats = [
+  { value: "3+", label: "AI systems shipped" },
+  { value: "200+", label: "users served" },
+  { value: "87%", label: "ML model accuracy" },
+];
 
-    let rafId = 0;
-    const target = { x: 0, y: 0 };
-    const current = { x: 0, y: 0 };
-
-    const onPointerMove = (e: PointerEvent) => {
-      const rect = el.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const nx = (e.clientX - cx) / (rect.width / 2);
-      const ny = (e.clientY - cy) / (rect.height / 2);
-      target.x = Math.max(-1, Math.min(1, nx));
-      target.y = Math.max(-1, Math.min(1, ny));
-    };
-
-    const onLeave = () => {
-      target.x = 0;
-      target.y = 0;
-    };
-
-    el.addEventListener("pointermove", onPointerMove);
-    el.addEventListener("pointerleave", onLeave);
-
-    const animate = () => {
-      current.x += (target.x - current.x) * 0.08;
-      current.y += (target.y - current.y) * 0.08;
-
-      const rotateY = current.x * 8;
-      const rotateX = -current.y * 6;
-
-      el.style.transform = `perspective(1200px) translateZ(0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      rafId = requestAnimationFrame(animate);
-    };
-
-    rafId = requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      el.removeEventListener("pointermove", onPointerMove);
-      el.removeEventListener("pointerleave", onLeave);
-    };
-  }, []);
-
+// Highlighter-marker effect behind a word - a hand-made, non-AI flourish.
+function Mark({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      ref={containerRef}
-      aria-hidden
-      className="hidden md:block absolute z-0 left-1/2 -translate-x-1/2 top-12 pointer-events-none will-change-transform"
-      style={{ width: "1033px", height: "1170px", maxWidth: "1033px", maxHeight: "1170px", transform: "perspective(1200px)" }}
-    >
-      <svg
-        width="1033"
-        height="1170"
-        viewBox="0 0 1033 1170"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="block mx-auto opacity-30"
-      >
-        <defs>
-          <linearGradient id="skin" x1="0" x2="1">
-            <stop offset="0%" stopColor="#1e293b" />
-            <stop offset="100%" stopColor="#0f172a" />
-          </linearGradient>
-          <linearGradient id="rim" x1="0" x2="1">
-            <stop offset="0%" stopColor="#6366f1" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.3" />
-          </linearGradient>
-          <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="8" result="b" />
-            <feBlend in="SourceGraphic" in2="b" />
-          </filter>
-        </defs>
-
-        <ellipse cx="516.5" cy="420" rx="220" ry="280" fill="url(#skin)" filter="url(#soft)" />
-
-        <path d="M300 220 C420 120, 620 120, 730 220 L730 240 C620 140, 420 140, 300 240 Z" fill="none" stroke="url(#rim)" strokeWidth="6" opacity="0.9" />
-
-        <path d="M300 200 C330 80, 700 90, 730 200 C730 420, 650 520, 516.5 520 C383 520, 300 420, 300 200 Z" fill="#0f1724" opacity="0.95" />
-
-        <path d="M460 420 C480 430, 540 430, 556 420" stroke="#0b1220" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.7" />
-        <path d="M480 360 C485 380, 530 380, 548 360" stroke="#0b1220" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6" />
-
-        <g stroke="#818cf8" strokeWidth="0.8" opacity="0.35" transform="translate(50,200)">
-          <path d="M120 80 C150 60, 220 40, 300 60" fill="none" strokeOpacity="0.5" />
-          <path d="M80 200 C160 180, 240 160, 320 190" fill="none" strokeOpacity="0.4" />
-          <circle cx="260" cy="120" r="2.5" fill="#a78bfa" opacity="0.7" />
-          <circle cx="200" cy="220" r="2" fill="#fbbf24" opacity="0.6" />
-        </g>
-
-        <g stroke="#6366f1" strokeWidth="0.6" opacity="0.15">
-          <path d="M100 900 C300 800, 700 800, 900 900" fill="none" />
-          <path d="M120 930 C320 830, 720 830, 920 930" fill="none" />
-        </g>
-      </svg>
-    </div>
+    <span className="relative inline-block">
+      <span
+        aria-hidden
+        className="absolute inset-x-[-2px] bottom-[0.08em] h-[0.42em] -z-0 bg-primary/35 -rotate-1"
+      />
+      <span className="relative z-10">{children}</span>
+    </span>
   );
 }
 
 export default function Hero() {
-  const roles = [
-    "AI Engineer",
-    "Machine Learning Engineer",
-    "Data Scientist",
-    "LLM & Agentic Systems Developer",
-  ];
-
-  const [currentRole, setCurrentRole] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  useEffect(() => {
-    const currentWord = roles[currentRole];
-    const typingSpeed = isDeleting ? 50 : 100;
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting && displayText === currentWord) {
-        setTimeout(() => setIsDeleting(true), 1500);
-      } else if (isDeleting && displayText === "") {
-        setIsDeleting(false);
-        setCurrentRole((prev) => (prev + 1) % roles.length);
-      } else {
-        setDisplayText(
-          isDeleting
-            ? currentWord.substring(0, displayText.length - 1)
-            : currentWord.substring(0, displayText.length + 1),
-        );
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentRole, roles]);
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-            backgroundImage: 'url(/tech-bg.jpg)',
-            filter: 'saturate(0.95) contrast(0.9) brightness(0.75) grayscale(6%)',
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></div>
-        {/* Radial vignette for depth */}
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(2,6,23,0.45) 0%, rgba(2,6,23,0.18) 40%, rgba(2,6,23,0.78) 100%)' }}></div>
-        {/* Subtle dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/90"></div>
+    <section id="home" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+      {/* Faint decorative ink marks */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
+        <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full border-2 border-foreground/[0.05]" />
+        <div className="absolute top-1/3 -left-16 w-48 h-48 rotate-12 border-2 border-foreground/[0.05]" />
       </div>
 
-      {/* AI background (portrait + neural overlay) */}
-      <AIBackground />
-
-      {/* Ambient glow */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-blob"></div>
-      <div className="absolute top-40 right-10 w-96 h-96 bg-decorative/20 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-accent/25 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
-
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.03)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
-
-      <div className="container mx-auto px-4 sm:px-6 py-20 sm:py-24 pt-24 sm:pt-18 relative z-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12">
-            {/* Role badge with typing effect */}
-            <div className="inline-block mb-5 px-5 py-2.5 sm:px-6 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
-              <span className="text-xs sm:text-sm font-mono font-medium text-foreground">
-                {displayText}
-                <span className="animate-pulse text-primary">|</span>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center max-w-7xl mx-auto">
+          {/* Left - headline */}
+          <div className="lg:col-span-7">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="eyebrow">Portfolio · 2026</span>
+              <span className="inline-flex items-center gap-1.5 ink-tag !border-accent !text-accent">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                Open to roles
               </span>
             </div>
 
-            {/* Main headline - 2pt smaller than default scale */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold mb-4 tracking-tight leading-tight">
-              <span className="gradient-text">
-                Roger Richard Demello
-              </span>
+            <h1 className="font-display font-black text-foreground leading-[0.92] tracking-tight text-5xl sm:text-7xl lg:text-[5.5rem]">
+              Roger Richard Demello
             </h1>
 
-            {/* Professional title */}
-            <div className="mb-5">
-              <h2 className="text-base sm:text-lg md:text-xl font-sans font-semibold text-foreground mb-2 tracking-wide">AI &amp; Machine Learning Engineer</h2>
-              <div className="flex items-center justify-center gap-3 text-xs sm:text-sm md:text-base text-accent/90 font-light tracking-wider">
-                <span>LLM Apps &amp; Agents</span>
-                <span className="text-foreground-muted">×</span>
-                <span>ML Models</span>
-                <span className="text-foreground-muted">×</span>
-                <span>Data Science</span>
-              </div>
-            </div>
-
-            {/* Value proposition */}
-            <p className="text-sm sm:text-base md:text-lg text-foreground-muted mb-6 max-w-3xl mx-auto leading-relaxed px-2">
-              Building production-grade LLM applications and autonomous AI agents, training machine learning models, and turning data into decisions — from RAG pipelines serving 200+ users to ML systems with 87% accuracy.
+            <p className="mt-5 font-display font-bold text-foreground/85 leading-[1.1] text-xl sm:text-2xl lg:text-3xl">
+              I build <Mark>intelligent</Mark> systems -
+              <br className="hidden sm:block" /> LLM apps, <Mark>agents</Mark> &amp; ML.
             </p>
 
-            {/* Expertise tags */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
-              <span className="px-5 py-2 bg-primary/10 rounded border border-primary/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all">
-                LLM & Agentic AI
-              </span>
-              <span className="px-5 py-2 bg-decorative/10 rounded border border-decorative/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-decorative/50 hover:shadow-lg hover:shadow-decorative/10 transition-all">
-                Machine Learning
-              </span>
-              <span className="px-5 py-2 bg-accent/10 rounded border border-accent/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all">
-                Data Science
-              </span>
-              <span className="px-5 py-2 bg-secondary/10 rounded border border-secondary/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/10 transition-all">
-                Python & FastAPI
-              </span>
+            <p className="mt-6 text-base sm:text-lg text-foreground/75 max-w-xl leading-relaxed">
+              AI Engineer, ML Engineer, and Data Scientist. I take problems end to end - from
+              RAG pipelines and autonomous agents to trained models and the async backends they
+              run on.
+            </p>
+
+            {/* Role stickers */}
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {["AI Engineer", "ML Engineer", "Data Scientist"].map((r) => (
+                <span key={r} className="ink-tag text-[0.78rem]">{r}</span>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#projects" className="btn-solid group">
+                See my work
+                <FaArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+              </a>
+              <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">
+                Résumé
+              </a>
+
+              <div className="flex items-center gap-2 sm:ml-2">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target={s.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="grid place-items-center w-10 h-10 rounded-lg border-2 border-foreground bg-card text-foreground hover:bg-foreground hover:text-background transition-colors duration-200"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Social links */}
-          <div className="flex justify-center gap-3 sm:gap-4 mb-8 flex-wrap">
-            <a href="https://github.com/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-card-border hover:border-primary/50 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5">
-              <FaGithub className="text-foreground-muted group-hover:text-primary transition-colors duration-300" size={16} />
-              <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">GitHub</span>
-            </a>
-            <a href="https://linkedin.com/in/rogerdemello" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-secondary/40 hover:border-secondary/60 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-secondary/5">
-              <FaLinkedin className="text-secondary group-hover:text-secondary-light transition-colors duration-300" size={16} />
-              <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">LinkedIn</span>
-            </a>
-            <a href="https://leetcode.com/u/rogerdemello/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-primary/40 hover:border-primary/60 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5">
-              <SiLeetcode className="text-primary group-hover:text-primary-light transition-colors duration-300" size={16} />
-              <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">LeetCode</span>
-            </a>
-            <a href="mailto:rogerdemello289@gmail.com" className="group flex items-center gap-2 px-4 py-2.5 bg-card/50 backdrop-blur-md rounded-xl border border-card-border hover:border-primary/50 hover:bg-card/80 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5">
-              <FaEnvelope className="text-foreground-muted group-hover:text-primary transition-colors duration-300" size={16} />
-              <span className="text-xs font-light text-foreground-muted group-hover:text-foreground tracking-wide transition-colors duration-300">Email</span>
-            </a>
-          </div>
+          {/* Right - index card */}
+          <div className="lg:col-span-5">
+            <div className="ink-card ink-card--hover p-6 sm:p-7 relative max-w-md mx-auto lg:ml-auto rotate-1">
+              {/* taped corner */}
+              <span aria-hidden className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-secondary/70 border-2 border-foreground rounded-sm -rotate-2" />
 
-          {/* Primary CTAs */}
-          <div className="flex justify-center gap-3 flex-wrap mb-10">
-            <div className="relative">
-              <button onClick={() => setShowDropdown(!showDropdown)} className="group px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary-light hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] transition-all duration-300 ease-smooth flex items-center gap-2 text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
-                <FaDownload className="group-hover:translate-y-0.5 transition-transform duration-300 ease-smooth" size={13} />
-                Resume
-              </button>
+              <p className="eyebrow mb-4">Currently</p>
+              <p className="font-display text-2xl font-bold text-foreground leading-snug">
+                AI Engineer Intern
+              </p>
+              <p className="text-foreground/70 mt-1">
+                @ AI LifeBOT · since Jan 2026
+              </p>
 
-              {showDropdown && (
-                <div className="absolute top-full mt-2 left-0 bg-card/90 backdrop-blur-xl rounded-xl shadow-2xl border border-card-border overflow-hidden z-20 min-w-[180px]">
-                  <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 hover:bg-white/5 transition-colors duration-300 ease-smooth text-foreground-muted text-sm font-light" onClick={() => setShowDropdown(false)}>
-                    <FaEye className="text-primary" size={13} />
-                    <span>View</span>
-                  </a>
-                  <a href="/Resume.pdf" download="Roger_Demello_Resume.pdf" className="flex items-center gap-2 px-5 py-2.5 hover:bg-white/5 transition-colors duration-300 ease-smooth text-foreground-muted border-t border-card-border text-sm font-light" onClick={() => setShowDropdown(false)}>
-                    <FaDownload className="text-primary" size={13} />
-                    <span>Download</span>
-                  </a>
-                </div>
-              )}
+              <div className="my-6 border-t-2 border-dashed border-foreground/20" />
+
+              <div className="grid grid-cols-3 gap-3">
+                {stats.map((s) => (
+                  <div key={s.label} className="text-center">
+                    <div className="font-display text-2xl sm:text-3xl font-black text-primary leading-none">{s.value}</div>
+                    <div className="text-[0.65rem] text-foreground/60 mt-1.5 leading-tight">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="my-6 border-t-2 border-dashed border-foreground/20" />
+
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-mono text-foreground/60">Based in</span>
+                <span className="font-semibold text-foreground">Nagpur, India 🇮🇳</span>
+              </div>
             </div>
-
-            <a href="#projects" className="px-6 py-3 bg-card/50 backdrop-blur-md text-foreground font-medium rounded-xl border border-card-border hover:border-accent/60 hover:bg-card/70 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 ease-smooth text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-background">Projects</a>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2">
-        <a href="#about" className="flex flex-col items-center text-foreground-muted hover:text-primary transition-colors duration-350 ease-smooth group focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-transparent rounded-lg p-2">
-          <span className="text-xs font-light mb-2 tracking-widest uppercase">Scroll</span>
-          <FaArrowDown className="group-hover:translate-y-1 transition-transform duration-300 ease-smooth animate-bounce" size={14} />
-        </a>
-      </div>
+      {/* Scroll cue */}
+      <a
+        href="#about"
+        className="hidden sm:flex absolute bottom-7 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-foreground/50 hover:text-primary transition-colors group"
+        aria-label="Scroll to about"
+      >
+        <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em]">Scroll</span>
+        <FaArrowDown size={13} className="animate-bounce group-hover:text-primary" />
+      </a>
     </section>
   );
 }

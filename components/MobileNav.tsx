@@ -1,159 +1,157 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaHome, FaUser, FaCode, FaGithub, FaProjectDiagram, FaBriefcase, FaEnvelope } from "react-icons/fa";
+import { FaBars, FaTimes, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home", icon: <FaHome /> },
-    { name: "About", href: "#about", icon: <FaUser /> },
-    { name: "Skills", href: "#skills", icon: <FaCode /> },
-    { name: "Projects", href: "#projects", icon: <FaProjectDiagram /> },
-    { name: "Experience", href: "#experience", icon: <FaBriefcase /> },
-    { name: "GitHub", href: "#github", icon: <FaGithub /> },
-    { name: "Contact", href: "#contact", icon: <FaEnvelope /> },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Work", href: "#projects" },
+    { name: "Path", href: "#experience" },
+    { name: "GitHub", href: "#github" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      {/* Mobile Navigation Bar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-smooth-in-out ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-lg shadow-black/10"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          isScrolled ? "bg-background/90 backdrop-blur-md border-b-2 border-foreground" : "bg-transparent border-b-2 border-transparent"
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 min-h-[4rem] flex items-center">
+        <div className="container mx-auto px-4 sm:px-6 h-16 sm:h-[4.5rem] flex items-center">
           <div className="flex items-center justify-between w-full">
-            {/* Logo */}
+            {/* Logo - sticker monogram */}
             <a
               href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#home");
-              }}
-              className="text-xl font-bold text-foreground hover:text-primary transition-colors duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background rounded"
+              onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
+              className="group flex items-center gap-2.5 focus:outline-none"
+              aria-label="Home"
             >
-              RD
+              <span className="grid place-items-center w-9 h-9 rounded-lg bg-foreground text-background font-display font-black text-base border-2 border-foreground shadow-[3px_3px_0_0_hsl(var(--primary))] group-hover:shadow-[1px_1px_0_0_hsl(var(--primary))] group-hover:translate-x-[2px] group-hover:translate-y-[2px] transition-all duration-150">
+                RD
+              </span>
+              <span className="hidden sm:block font-display font-semibold text-foreground text-lg leading-none">
+                Roger Demello
+              </span>
             </a>
 
-            {/* Desktop Navigation - Hidden on mobile */}
-            <div className="hidden md:flex items-center gap-6">
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-7">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground-muted hover:text-primary transition-colors duration-300 ease-smooth font-medium focus:outline-none focus:text-primary rounded px-1 py-0.5"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
+                  className="font-mono text-xs uppercase tracking-[0.18em] font-semibold text-foreground/70 hover:text-primary transition-colors duration-200 relative after:absolute after:left-0 after:-bottom-1.5 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full focus:outline-none focus:text-primary"
                 >
                   {item.name}
                 </a>
               ))}
+              <a
+                href="/Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-solid !py-2 !px-4 text-xs font-mono uppercase tracking-[0.14em]"
+              >
+                Résumé
+              </a>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile menu button - sticker */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2.5 rounded-lg text-foreground-muted hover:text-primary hover:bg-background-tertiary transition-colors duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="md:hidden grid place-items-center w-10 h-10 rounded-lg bg-card border-2 border-foreground text-foreground shadow-[3px_3px_0_0_hsl(var(--foreground))] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_0_hsl(var(--foreground))] transition-all duration-150 focus:outline-none"
               aria-label="Toggle menu"
             >
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Drawer overlay */}
       <div
         aria-hidden="true"
-        className={`fixed inset-0 z-40 md:hidden bg-black/50 transition-opacity duration-400 ease-smooth-in-out ${
+        className={`fixed inset-0 z-40 md:hidden bg-foreground/30 backdrop-blur-[2px] transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsOpen(false)}
       />
 
-      {/* Mobile Menu Sidebar */}
+      {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-background/98 backdrop-blur-xl shadow-2xl border-l border-card-border z-50 transform md:hidden transition-transform duration-400 ease-smooth-in-out ${
+        className={`fixed top-0 right-0 h-full w-72 bg-background border-l-2 border-foreground z-50 transform md:hidden transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="p-6">
-          {/* Close Button */}
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-6 right-6 p-2 rounded-lg text-foreground-muted hover:text-primary hover:bg-background-tertiary transition-colors duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="absolute top-5 right-5 grid place-items-center w-9 h-9 rounded-lg border-2 border-foreground text-foreground bg-card shadow-[3px_3px_0_0_hsl(var(--foreground))] active:translate-x-[2px] active:translate-y-[2px] transition-all duration-150 focus:outline-none"
+            aria-label="Close menu"
           >
-            <FaTimes size={24} />
+            <FaTimes size={16} />
           </button>
 
-          {/* Menu Items */}
-          <div className="mt-16 space-y-4">
-            {navItems.map((item) => (
+          <p className="eyebrow mt-2 mb-5">Menu</p>
+          <div className="space-y-1">
+            {navItems.map((item, i) => (
               <a
                 key={item.name}
                 href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
-                className="flex items-center gap-3 px-4 py-3 text-foreground-muted hover:text-primary hover:bg-card/50 rounded-xl transition-colors duration-300 ease-smooth group"
+                onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
+                className="flex items-baseline gap-3 px-3 py-2.5 rounded-lg text-foreground hover:bg-background-tertiary transition-colors duration-200 group"
               >
-                <span className="text-xl group-hover:scale-110 transition-transform duration-300 ease-smooth">
-                  {item.icon}
-                </span>
-                <span className="font-medium">{item.name}</span>
+                <span className="font-mono text-xs text-primary tabular-nums">0{i + 1}</span>
+                <span className="font-display text-lg font-semibold group-hover:text-primary transition-colors">{item.name}</span>
               </a>
             ))}
           </div>
 
-          {/* Social Links in Mobile Menu */}
-          <div className="mt-8 pt-8 border-t border-card-border">
-            <p className="text-foreground-muted text-sm mb-4">Connect with me</p>
-            <div className="flex gap-4">
-              <a
-                href="https://github.com/rogerdemello"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 bg-card/30 rounded-xl hover:bg-primary/20 hover:scale-105 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50"
-              >
-                <svg className="w-5 h-5 text-foreground-muted" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-              </a>
-              <a
-                href="https://linkedin.com/in/rogerdemello"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 bg-card/30 rounded-xl hover:bg-primary/20 hover:scale-105 transition-all duration-300 ease-smooth focus:outline-none focus:ring-2 focus:ring-primary/50"
-              >
-                <svg className="w-5 h-5 text-foreground-muted" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
+          <a
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-solid w-full mt-6"
+          >
+            Download Résumé
+          </a>
+
+          <div className="mt-8 pt-6 border-t-2 border-dashed border-foreground/25">
+            <p className="eyebrow mb-3">Elsewhere</p>
+            <div className="flex gap-3">
+              {[
+                { href: "https://github.com/rogerdemello", icon: <FaGithub size={18} />, label: "GitHub" },
+                { href: "https://linkedin.com/in/rogerdemello", icon: <FaLinkedin size={18} />, label: "LinkedIn" },
+                { href: "mailto:rogerdemello289@gmail.com", icon: <FaEnvelope size={18} />, label: "Email" },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="grid place-items-center w-10 h-10 rounded-lg border-2 border-foreground bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>

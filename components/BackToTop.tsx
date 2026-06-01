@@ -6,41 +6,22 @@ export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
+    const toggleVisibility = () => setIsVisible(window.scrollY > 300);
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <button
-      onClick={scrollToTop}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
       aria-hidden={!isVisible}
       tabIndex={isVisible ? 0 : -1}
-      className={`fixed bottom-6 left-4 sm:bottom-8 sm:left-8 z-50 p-3 sm:p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl hover:shadow-primary/40 transition-all duration-350 ease-smooth transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background btn-ripple ${
-        isVisible
-          ? "opacity-100 translate-y-0 pointer-events-auto"
-          : "opacity-0 translate-y-4 pointer-events-none"
+      className={`fixed bottom-6 left-4 sm:bottom-8 sm:left-8 z-50 grid place-items-center w-12 h-12 rounded-xl bg-foreground text-background border-2 border-foreground shadow-[4px_4px_0_0_hsl(var(--primary))] hover:shadow-[6px_6px_0_0_hsl(var(--primary))] hover:-translate-x-[2px] hover:-translate-y-[2px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_0_hsl(var(--primary))] transition-all duration-150 focus:outline-none ${
+        isVisible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-3 pointer-events-none"
       }`}
-      style={{
-        transition: "opacity 0.35s cubic-bezier(0.33, 1, 0.68, 1), transform 0.35s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.35s ease",
-      }}
     >
-      <FaArrowUp className="text-xl transition-transform duration-200 group-hover:-translate-y-0.5" />
+      <FaArrowUp size={16} />
     </button>
   );
 }

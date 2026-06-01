@@ -8,14 +8,12 @@ import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import MobileNav from "@/components/MobileNav";
 import BackToTop from "@/components/BackToTop";
-import ParticleBackground from "@/components/ParticleBackground";
 import GitHubStats from "@/components/GitHubStats";
 import BugMascot from "@/components/BugMascot";
 
 export default function Home() {
   return (
     <>
-      <ParticleBackground />
       <MobileNav />
       <main id="main-content" className="min-h-screen relative z-20" tabIndex={-1}>
         <Hero />
