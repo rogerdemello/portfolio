@@ -54,6 +54,15 @@ const DOUBLE_BLINK_CHANCE = 0.18;
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
+// Personality lines the mascot shows in a small bubble. Just character — no chatbot.
+const MESSAGES = [
+  "Roger is probably debugging something.",
+  "Currently training a model.",
+  "Investigating bugs.",
+  "Probably overengineering something.",
+  "Powered by coffee.",
+];
+
 /* ------------------------------------------------------------------ *
  * Hook: prefers-reduced-motion
  * Returns true when the user has asked the OS to minimize animation.
@@ -111,6 +120,31 @@ export default function BugMascot() {
   // One-time mount flag so we can fade the mascot in (no layout thrash).
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
+
+  // Speech bubble: a personality line shown on hover, plus a gentle idle cycle.
+  const [bubble, setBubble] = useState<string | null>(null);
+  const hoveredRef = useRef(false);
+
+  useEffect(() => {
+    if (reduced) return; // respect reduced-motion: no auto-cycling
+    let cancelled = false;
+    let showT: ReturnType<typeof setTimeout>;
+    let hideT: ReturnType<typeof setTimeout>;
+    const cycle = () => {
+      if (cancelled) return;
+      setBubble(MESSAGES[Math.floor(Math.random() * MESSAGES.length)]);
+      hideT = setTimeout(() => {
+        if (!cancelled && !hoveredRef.current) setBubble(null);
+      }, 4500);
+      showT = setTimeout(cycle, 9000);
+    };
+    showT = setTimeout(cycle, 3500);
+    return () => {
+      cancelled = true;
+      clearTimeout(showT);
+      clearTimeout(hideT);
+    };
+  }, [reduced]);
 
   // Element refs we mutate imperatively in the rAF loop.
   const svgRef = useRef<SVGSVGElement | null>(null);
@@ -262,21 +296,37 @@ export default function BugMascot() {
 
   return (
     <div
-      aria-hidden="true"
       // Fixed bottom-right, hidden on touch/small screens (no cursor to track).
-      // pointer-events:none guarantees the mascot can NEVER block clicks or
-      // text selection on the page beneath it.
+      // The wrapper stays pointer-events:none so only the bug itself is interactive.
       className="hidden md:block fixed bottom-3 right-3 z-30 select-none"
       style={{
-        width: "clamp(110px, 9vw, 150px)",
         pointerEvents: "none",
-        opacity: mounted ? 0.92 : 0,
+        opacity: mounted ? 1 : 0,
         transform: mounted ? "translateY(0)" : "translateY(12px)",
         transition: "opacity 700ms cubic-bezier(0.33,1,0.68,1), transform 700ms cubic-bezier(0.33,1,0.68,1)",
-        // Hard offset shadow to match the tactile "sticker" language.
-        filter: "drop-shadow(4px 4px 0 hsl(var(--foreground) / 0.85))",
       }}
     >
+      {/* Speech bubble — visual only, never blocks clicks. */}
+      {bubble && (
+        <div
+          className="absolute bottom-full right-0 mb-3 w-max max-w-[230px] panel px-3 py-2 font-mono text-[0.72rem] leading-snug text-foreground/85 shadow-sm"
+          style={{ pointerEvents: "none" }}
+        >
+          {bubble}
+          <span className="absolute -bottom-[6px] right-8 w-3 h-3 rotate-45 bg-card border-r border-b border-card-border" />
+        </div>
+      )}
+
+      {/* Only the bug box is hoverable; the rest of the corner stays click-through. */}
+      <div
+        style={{
+          width: "clamp(160px, 13vw, 220px)",
+          pointerEvents: "auto",
+          filter: "drop-shadow(0 5px 12px hsl(var(--foreground) / 0.18))",
+        }}
+        onMouseEnter={() => { hoveredRef.current = true; setBubble(MESSAGES[0]); }}
+        onMouseLeave={() => { hoveredRef.current = false; setBubble(null); }}
+      >
       <svg
         ref={svgRef}
         viewBox={`0 0 ${VIEWBOX.w} ${VIEWBOX.h}`}
@@ -290,7 +340,7 @@ export default function BugMascot() {
             ["--ink" as string]: "hsl(var(--foreground))",
             ["--body" as string]: "hsl(42 55% 96%)",
             ["--orange" as string]: "hsl(var(--primary))",
-            ["--amber" as string]: "hsl(var(--secondary))",
+            ["--amber" as string]: "hsl(var(--accent))",
           } as React.CSSProperties
         }
       >
@@ -418,6 +468,7 @@ export default function BugMascot() {
           </g>
         </g>
       </svg>
+      </div>
     </div>
   );
 }

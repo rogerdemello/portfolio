@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { Fraunces, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// Display serif with real character (optical sizing) - the antidote to
-// generic AI-default sans stacks.
-const fraunces = Fraunces({
+// Editorial display serif for headings — elegant, distinctive, not a default sans.
+const serif = Instrument_Serif({
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-// Warm, friendly workhorse grotesque for body copy.
-const hanken = Hanken_Grotesk({
+// Clean workhorse for body copy.
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-// Monospace for eyebrow labels, metadata, and tech tags.
+// Monospace for labels, metadata, terminal UI, and code.
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
@@ -90,7 +91,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${fraunces.variable} ${hanken.variable} ${mono.variable}`}
+      className={`scroll-smooth ${serif.variable} ${inter.variable} ${mono.variable}`}
     >
       <body className="bg-background text-foreground font-sans antialiased">
         <a

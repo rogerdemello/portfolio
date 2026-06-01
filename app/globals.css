@@ -5,83 +5,72 @@
 @tailwind utilities;
 
 /*
- * Tactile / editorial design system.
- * Warm "paper" canvas, warm ink, and a deliberately hand-picked palette:
- *   persimmon (primary), ochre (secondary), pine green (accent), brick (decorative).
- * Intentionally avoids the purple/indigo/teal SaaS-gradient defaults.
- * Colors are HSL channels so Tailwind's `hsl(var(--x))` mappings keep working.
+ * "Technical Notebook + Research Lab" design system.
+ * Warm ivory paper, charcoal ink, burnt-orange accent, forest green + vintage gold.
+ * Minimal, editorial, restrained — closer to Linear / Notion / Stripe than a template.
+ * HSL channels so Tailwind's `hsl(var(--x))` mappings keep working.
  */
 :root {
-  /* Paper canvas + surfaces */
-  --background: 43 44% 91%;            /* warm cream paper */
-  --background-secondary: 42 38% 87%;  /* slightly deeper cream (alt sections) */
-  --background-tertiary: 41 35% 83%;   /* tan inset wells */
-  --card-bg: 42 55% 96%;               /* near-white card surface */
-  --border-color: 40 24% 74%;          /* soft tan divider */
+  /* Paper + surfaces */
+  --background: 39 39% 95%;            /* #F7F3EC warm ivory */
+  --background-secondary: 38 32% 91%;  /* slightly deeper ivory */
+  --background-tertiary: 38 30% 86%;   /* inset wells */
+  --card-bg: 43 50% 98%;               /* near-white warm */
+  --border-color: 38 18% 80%;          /* soft tan hairline */
 
-  /* Warm ink (text, outlines, hard shadows) */
-  --foreground: 36 20% 12%;            /* near-black, warm */
+  /* Ink */
+  --foreground: 0 0% 10%;              /* #1A1A1A deep charcoal */
 
-  /* Primary - Persimmon (ceramic orange) */
-  --primary: 14 78% 52%;
-  --primary-light: 16 84% 60%;
-  --primary-dark: 12 72% 43%;
-  --primary-foreground: 42 50% 97%;
+  /* Accent — Burnt orange #C75B12 */
+  --primary: 24 83% 43%;
+  --primary-light: 24 78% 51%;
+  --primary-dark: 24 85% 35%;
+  --primary-foreground: 39 40% 96%;
 
-  /* Secondary - Ochre / mustard */
-  --secondary: 37 72% 49%;
-  --secondary-light: 40 82% 58%;
-  --secondary-foreground: 36 20% 12%;
+  /* Secondary — Forest green #234B35 */
+  --secondary: 147 36% 22%;
+  --secondary-light: 147 30% 31%;
+  --secondary-foreground: 39 40% 96%;
 
-  /* Accent - Pine green (used sparingly for contrast) */
-  --accent: 161 38% 27%;
-  --accent-light: 159 34% 36%;
-  --accent-dark: 162 42% 20%;
-  --accent-foreground: 42 50% 97%;
+  /* Highlight — Vintage gold #C8A54B */
+  --accent: 43 53% 54%;
+  --accent-light: 43 60% 63%;
+  --accent-dark: 41 50% 44%;
+  --accent-foreground: 0 0% 10%;
 
-  /* Decorative - Brick red (rare pops) */
-  --decorative: 11 58% 42%;
-  --decorative-light: 13 64% 52%;
+  /* Decorative — deep green variant */
+  --decorative: 147 36% 28%;
+  --decorative-light: 147 30% 38%;
 
   /* Motion */
   --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
   --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
-  --transition-duration: 0.35s;
-
-  /* Layout rhythm */
-  --section-padding-y: 5rem;
-  --section-padding-y-lg: 6rem;
-  --container-padding-x: 1.5rem;
+  --transition-duration: 0.3s;
 }
 
 body {
   color: hsl(var(--foreground));
   background-color: hsl(var(--background));
-  /* Subtle paper "tooth": two faint dot grids + a warm wash. */
-  background-image:
-    radial-gradient(hsl(var(--foreground) / 0.035) 1px, transparent 1px),
-    radial-gradient(hsl(var(--foreground) / 0.025) 1px, transparent 1px);
-  background-size: 22px 22px, 22px 22px;
-  background-position: 0 0, 11px 11px;
-  font-family: var(--font-sans), 'Segoe UI', system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv01";
+  /* Barely-there notebook grain for warmth — stays "clean", adds paper feel. */
+  background-image: radial-gradient(hsl(var(--foreground) / 0.022) 1px, transparent 1px);
+  background-size: 26px 26px;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 80px;
 }
 
 ::selection {
-  background: hsl(var(--primary) / 0.28);
+  background: hsl(var(--primary) / 0.22);
   color: hsl(var(--foreground));
 }
 
-/* Legacy hooks kept so any stray references stay safe ------------------ */
+/* Legacy hooks kept safe */
 .animation-delay-2000 { animation-delay: 2s; }
 .animation-delay-4000 { animation-delay: 4s; }
-
-/* `gradient-text` is repurposed to a flat persimmon (no AI gradient). */
 .gradient-text { color: hsl(var(--primary)); }
 
 @layer utilities {
@@ -91,32 +80,24 @@ html {
 }
 
 @layer components {
-  /* Monospace eyebrow / kicker label above section titles. */
+  /* Monospace eyebrow / kicker label. */
   .eyebrow {
     font-family: var(--font-mono), monospace;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.7rem;
-    font-weight: 600;
+    letter-spacing: 0.22em;
+    font-size: 0.68rem;
+    font-weight: 500;
     color: hsl(var(--primary));
   }
 
-  /* Sticker card: paper surface, thick ink outline, hard offset shadow. */
-  .ink-card {
+  /* Minimal surface — hairline border, no heavy shadow. */
+  .panel {
     background: hsl(var(--card-bg));
-    border: 2px solid hsl(var(--foreground));
-    border-radius: 16px;
-    box-shadow: 6px 6px 0 0 hsl(var(--foreground));
-  }
-  .ink-card--hover {
-    transition: transform 0.18s var(--ease-out-smooth), box-shadow 0.18s var(--ease-out-smooth);
-  }
-  .ink-card--hover:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0 0 hsl(var(--foreground));
+    border: 1px solid hsl(var(--border-color));
+    border-radius: 12px;
   }
 
-  /* Solid "press" button - ink fill, persimmon shadow that compresses. */
+  /* Solid button — charcoal fill, warms to burnt orange on hover. */
   .btn-solid {
     display: inline-flex;
     align-items: center;
@@ -124,48 +105,43 @@ html {
     gap: 0.5rem;
     background: hsl(var(--foreground));
     color: hsl(var(--background));
-    border: 2px solid hsl(var(--foreground));
-    border-radius: 999px;
-    padding: 0.72rem 1.4rem;
-    font-weight: 700;
+    border: 1px solid hsl(var(--foreground));
+    border-radius: 9px;
+    padding: 0.62rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
     line-height: 1;
-    box-shadow: 4px 4px 0 0 hsl(var(--primary));
-    transition: transform 0.14s var(--ease-out-smooth), box-shadow 0.14s var(--ease-out-smooth);
+    transition: background 0.2s var(--ease-out-smooth), color 0.2s, border-color 0.2s;
   }
-  .btn-solid:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 hsl(var(--primary)); }
-  .btn-solid:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 hsl(var(--primary)); }
+  .btn-solid:hover { background: hsl(var(--primary)); border-color: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
 
-  /* Outline "press" button - paper fill, ink outline + ink shadow. */
+  /* Outline button. */
   .btn-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: hsl(var(--card-bg));
+    background: transparent;
     color: hsl(var(--foreground));
-    border: 2px solid hsl(var(--foreground));
-    border-radius: 999px;
-    padding: 0.72rem 1.4rem;
-    font-weight: 700;
+    border: 1px solid hsl(var(--foreground) / 0.25);
+    border-radius: 9px;
+    padding: 0.62rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
     line-height: 1;
-    box-shadow: 4px 4px 0 0 hsl(var(--foreground));
-    transition: transform 0.14s var(--ease-out-smooth), box-shadow 0.14s var(--ease-out-smooth);
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
-  .btn-outline:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 hsl(var(--foreground)); }
-  .btn-outline:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 hsl(var(--foreground)); }
+  .btn-outline:hover { border-color: hsl(var(--primary)); color: hsl(var(--primary)); }
 
-  /* Pill tag / chip. */
-  .ink-tag {
+  /* Inline "→ label" action link. */
+  .link-arrow {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
     font-family: var(--font-mono), monospace;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: hsl(var(--foreground));
-    background: hsl(var(--background));
-    border: 1.5px solid hsl(var(--foreground));
-    border-radius: 999px;
-    padding: 0.32rem 0.7rem;
+    font-size: 0.82rem;
+    color: hsl(var(--foreground) / 0.75);
+    transition: color 0.2s, gap 0.2s;
   }
+  .link-arrow:hover { color: hsl(var(--primary)); gap: 0.6rem; }
 }
