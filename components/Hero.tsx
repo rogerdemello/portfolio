@@ -109,10 +109,10 @@ function AIBackground() {
 
 export default function Hero() {
   const roles = [
+    "AI Engineer",
     "Machine Learning Engineer",
-    "AI Systems Developer",
-    "AWS Cloud Practitioner",
-    "ML Model Architect",
+    "Data Scientist",
+    "LLM & Agentic Systems Developer",
   ];
 
   const [currentRole, setCurrentRole] = useState(0);
@@ -193,34 +193,34 @@ export default function Hero() {
 
             {/* Professional title */}
             <div className="mb-5">
-              <h2 className="text-base sm:text-lg md:text-xl font-sans font-semibold text-foreground mb-2 tracking-wide">Machine Learning Engineer</h2>
+              <h2 className="text-base sm:text-lg md:text-xl font-sans font-semibold text-foreground mb-2 tracking-wide">AI &amp; Machine Learning Engineer</h2>
               <div className="flex items-center justify-center gap-3 text-xs sm:text-sm md:text-base text-accent/90 font-light tracking-wider">
-                <span>AI</span>
+                <span>LLM Apps &amp; Agents</span>
                 <span className="text-foreground-muted">×</span>
-                <span>Cloud</span>
+                <span>ML Models</span>
                 <span className="text-foreground-muted">×</span>
-                <span>AWS</span>
+                <span>Data Science</span>
               </div>
             </div>
 
             {/* Value proposition */}
             <p className="text-sm sm:text-base md:text-lg text-foreground-muted mb-6 max-w-3xl mx-auto leading-relaxed px-2">
-              Building intelligent AI systems and deploying scalable ML models on cloud infrastructure.
+              Building production-grade LLM applications and autonomous AI agents, training machine learning models, and turning data into decisions — from RAG pipelines serving 200+ users to ML systems with 87% accuracy.
             </p>
 
             {/* Expertise tags */}
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
               <span className="px-5 py-2 bg-primary/10 rounded border border-primary/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all">
-                Machine Learning
+                LLM & Agentic AI
               </span>
               <span className="px-5 py-2 bg-decorative/10 rounded border border-decorative/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-decorative/50 hover:shadow-lg hover:shadow-decorative/10 transition-all">
-                Gen AI
+                Machine Learning
               </span>
               <span className="px-5 py-2 bg-accent/10 rounded border border-accent/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all">
-                AWS Cloud
+                Data Science
               </span>
               <span className="px-5 py-2 bg-secondary/10 rounded border border-secondary/30 text-foreground text-sm font-light tracking-wide cursor-default backdrop-blur-sm hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/10 transition-all">
-                Python & C++
+                Python & FastAPI
               </span>
             </div>
           </div>

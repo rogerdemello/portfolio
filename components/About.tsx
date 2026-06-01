@@ -1,31 +1,31 @@
 "use client";
-import { FaBrain, FaCloud, FaCode, FaChartLine } from "react-icons/fa";
-import { SiTensorflow, SiAmazon, SiPython } from "react-icons/si";
+import { FaBrain, FaServer, FaCode, FaChartLine } from "react-icons/fa";
+import { SiPython } from "react-icons/si";
 
 export default function About() {
   const highlights = [
     {
       icon: <FaBrain size={28} />,
-      title: "ML & Deep Learning",
-      description: "Built health prediction system with 87% accuracy (started at 71%). Working with CNNs, RNNs, and transformers for computer vision and NLP projects.",
+      title: "LLM Apps & AI Agents",
+      description: "Built and deployed 3+ production-grade LLM applications and autonomous agents serving 200+ users, with tool integration, long-term memory, and goal-driven workflows.",
       gradient: "from-accent to-primary"
     },
     {
-      icon: <FaCloud size={28} />,
-      title: "AWS Cloud",
-      description: "Deploying projects on EC2, S3, and Lambda. Comfortable with cloud infrastructure and inference endpoints. AWS Certified Cloud Practitioner.",
-      gradient: "from-primary to-secondary"
-    },
-    {
-      icon: <FaCode size={28} />,
-      title: "AI Chatbots",
-      description: "Built Chatbots with Gemini API and LangChain for health queries, mental wellness, and scheduling. Learning RAG for better context handling.",
+      icon: <FaServer size={28} />,
+      title: "RAG, Vector DBs & Backend",
+      description: "Architected RAG pipelines and multi-agent orchestration (LangChain, LlamaIndex) over vector databases, served via scalable async FastAPI backends with real-time observability.",
       gradient: "from-secondary to-accent"
     },
     {
+      icon: <FaCode size={28} />,
+      title: "Machine Learning",
+      description: "Built and evaluated ML models with TensorFlow, PyTorch, and Scikit-learn — reaching 87% accuracy on a health prediction system through robust model design and validation.",
+      gradient: "from-primary to-secondary"
+    },
+    {
       icon: <FaChartLine size={28} />,
-      title: "Data Engineering",
-      description: "Data cleaning and feature engineering with Pandas and NumPy. Experienced with handling imbalanced datasets and data preprocessing pipelines.",
+      title: "Data Science & Analytics",
+      description: "Feature engineering, statistical analysis, and data preprocessing with Pandas and NumPy — turning lifestyle and physiological data into reliable, generalizable predictions.",
       gradient: "from-primary to-accent"
     }
   ];
@@ -45,10 +45,10 @@ export default function About() {
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-4 md:mb-6">
-              ML Engineer <span className="gradient-text">& Cloud Specialist</span>
+              AI &amp; ML Engineer <span className="gradient-text">/ Data Scientist</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-foreground-muted max-w-3xl mx-auto leading-relaxed">
-              I specialize in developing intelligent AI systems and deploying scalable machine learning models on cloud infrastructure. With expertise in Python, TensorFlow, and AWS, I transform complex data challenges into production-ready solutions.
+              I build and deploy production-grade LLM applications and autonomous AI agents, train and evaluate machine learning models, and turn raw data into actionable insight. From RAG pipelines and agentic workflows to feature engineering and statistical analysis, I take problems end to end — backed by scalable, async AI infrastructure.
             </p>
           </div>
 
@@ -85,26 +85,26 @@ export default function About() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                    <SiTensorflow className="text-2xl" />
+                    <FaBrain className="text-2xl" />
                   </div>
-                  <h4 className="text-xl font-bold text-foreground">Machine Learning</h4>
+                  <h4 className="text-xl font-bold text-foreground">Generative & Agentic AI</h4>
                 </div>
                 <ul className="space-y-3 text-foreground-muted">
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Supervised & Unsupervised Learning</span>
+                    <span>LLM Applications & AI Agents</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Neural Networks & Deep Learning</span>
+                    <span>RAG Pipelines & Vector Databases</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Model Optimization & Evaluation</span>
+                    <span>Multi-Agent Orchestration (LangChain)</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Feature Engineering & Selection</span>
+                    <span>Prompt Engineering & Semantic Search</span>
                   </li>
                 </ul>
               </div>
@@ -112,26 +112,26 @@ export default function About() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-accent/10 rounded-lg text-accent">
-                    <SiAmazon className="text-2xl" />
+                    <FaChartLine className="text-2xl" />
                   </div>
-                  <h4 className="text-xl font-bold text-foreground">Cloud Infrastructure</h4>
+                  <h4 className="text-xl font-bold text-foreground">Machine Learning & Data Science</h4>
                 </div>
                 <ul className="space-y-3 text-foreground-muted">
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>AWS EC2, S3, Lambda, RDS</span>
+                    <span>Supervised & Unsupervised Learning</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Scalable Architecture Design</span>
+                    <span>Deep Learning (TensorFlow, PyTorch)</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Auto Scaling & Load Balancing</span>
+                    <span>Feature Engineering & Model Evaluation</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-accent mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>IAM & Security Best Practices</span>
+                    <span>Statistical Analysis & EDA</span>
                   </li>
                 </ul>
               </div>
@@ -141,24 +141,24 @@ export default function About() {
                   <div className="p-2 bg-secondary/10 rounded-lg text-secondary">
                     <SiPython className="text-2xl" />
                   </div>
-                  <h4 className="text-xl font-bold text-foreground">Development</h4>
+                  <h4 className="text-xl font-bold text-foreground">Backend & Cloud</h4>
                 </div>
                 <ul className="space-y-3 text-foreground-muted">
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Python, C++, Data Structures</span>
+                    <span>FastAPI, Flask, REST APIs</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>FastAPI, Flask, RESTful APIs</span>
+                    <span>Async Programming & Streaming</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Git, CI/CD Pipelines</span>
+                    <span>AWS (EC2, S3, Lambda) — Certified</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
                     <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                    <span>Object-Oriented Programming</span>
+                    <span>Python, C++, Git & CI/CD</span>
                   </li>
                 </ul>
               </div>

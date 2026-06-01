@@ -2,19 +2,25 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Roger Richard Demello - ML Engineer & Cloud Specialist",
-  description: "Machine Learning Engineer & AWS Cloud Practitioner. Portfolio of AI/ML projects, cloud deployment, and software development - Python, TensorFlow, AWS.",
+  title: "Roger Richard Demello - AI / ML Engineer & Data Scientist",
+  description: "AI Engineer, Machine Learning Engineer, and Data Scientist. Building production-grade LLM applications and AI agents, training ML models, and turning data into insight - RAG pipelines, vector databases, agentic workflows, Python, FastAPI, LangChain, AWS.",
   keywords: [
     "Roger Demello",
+    "AI Engineer",
     "Machine Learning Engineer",
-    "ML Engineer",
+    "Data Scientist",
+    "LLM Applications",
+    "AI Agents",
+    "RAG Pipelines",
+    "Vector Databases",
+    "Agentic Workflows",
+    "LangChain",
+    "Deep Learning",
+    "Data Science",
     "AWS Cloud",
-    "AI/ML",
     "Python",
-    "TensorFlow",
-    "Cloud Computing",
-    "Portfolio",
-    "Software Engineer"
+    "FastAPI",
+    "Portfolio"
   ],
   authors: [{ name: "Roger Richard Demello" }],
   creator: "Roger Richard Demello",
@@ -22,22 +28,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://rogerdemello.vercel.app/",
-    title: "Roger Richard Demello - ML Engineer & Cloud Specialist",
-    description: "Machine Learning Engineer & AWS Cloud Practitioner. AI/ML projects, cloud deployment, Python, TensorFlow.",
+    title: "Roger Richard Demello - AI / ML Engineer & Data Scientist",
+    description: "AI Engineer, ML Engineer & Data Scientist. Production-grade LLM applications and AI agents, ML models, RAG pipelines, vector databases, FastAPI, LangChain.",
     siteName: "Roger Demello Portfolio",
     images: [
       {
         url: "https://rogerdemello.vercel.app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Roger Richard Demello - ML Engineer & Cloud Specialist",
+        alt: "Roger Richard Demello - AI / ML Engineer & Data Scientist",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Roger Richard Demello - ML Engineer & Cloud Specialist",
-    description: "Machine Learning Engineer & AWS Cloud Practitioner. AI/ML projects, Python, TensorFlow, AWS.",
+    title: "Roger Richard Demello - AI / ML Engineer & Data Scientist",
+    description: "AI Engineer, ML Engineer & Data Scientist. Production-grade LLM applications and AI agents, ML models, RAG pipelines, vector databases, and data analytics.",
     images: ["https://rogerdemello.vercel.app/og-image.png"],
   },
   robots: {

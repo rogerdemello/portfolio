@@ -10,6 +10,7 @@ import MobileNav from "@/components/MobileNav";
 import BackToTop from "@/components/BackToTop";
 import ParticleBackground from "@/components/ParticleBackground";
 import GitHubStats from "@/components/GitHubStats";
+import BugMascot from "@/components/BugMascot";
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
         <Footer />
       </main>
       <BackToTop />
+      <BugMascot />
     </>
   );
 }

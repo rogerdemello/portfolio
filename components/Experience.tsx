@@ -8,7 +8,7 @@ export default function Experience() {
       degree: "B.Tech in Electronics and Communication",
       school: "Shri Ramdeobaba College of Engineering and Management",
       period: "Nov 2022 – May 2026",
-      cgpa: "8.73",
+      cgpa: "8.9",
       description: "Focused on electronics, communication systems, and embedded technologies.",
       icon: <FaGraduationCap size={28} />,
       gradient: "from-primary to-secondary",
@@ -32,6 +32,14 @@ export default function Experience() {
       icon: <SiAmazon size={28} />,
       gradient: "from-primary to-accent",
       description: "Validated foundational knowledge of AWS Cloud services, security, and architecture best practices.",
+    },
+    {
+      title: "2nd Place — Bytesage AI National Hackathon",
+      issuer: "Bytesage",
+      date: "2025",
+      icon: <FaAward size={28} />,
+      gradient: "from-accent to-primary",
+      description: "Awarded 2nd place at a national-level AI hackathon for building an applied AI solution under time constraints.",
     },
     {
       title: "Introduction to Machine Learning on AWS",
@@ -61,7 +69,7 @@ export default function Experience() {
       highlights: [
         "Built and deployed 3+ production LLM applications and AI agents serving 200+ users with tool integration and memory",
         "Architected AI pipelines with LLMs, vector databases, and APIs, reducing latency through optimized caching",
-        "Led rapid prototyping of AI solutions with weekly technical reviews and production documentation"
+        "Led rapid prototyping of scalable AI solutions with LangChain and LlamaIndex, delivering production-ready deployment documentation"
       ],
     },
     {
@@ -139,7 +147,7 @@ export default function Experience() {
             Professional <span className="gradient-text">Journey</span>
           </h2>
           <p className="text-foreground-muted max-w-2xl mx-auto text-base md:text-lg">
-            My journey in AI and software engineering, from internships to professional roles.
+            My journey across AI engineering, machine learning, and data science — from internships to professional roles.
           </p>
         </div>
         
@@ -233,7 +241,7 @@ export default function Experience() {
               <div className="p-3 bg-gradient-to-r from-primary to-accent rounded-xl">
                 <FaCertificate className="text-white" size={24} />
               </div>
-              Certifications
+              Certifications & Awards
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
               {certifications.map((cert, index) => (
