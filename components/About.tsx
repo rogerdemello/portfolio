@@ -1,9 +1,17 @@
 "use client";
 
 const notes = [
-  { year: "2025", line: "Built ML systems.", sub: "Sleep-disorder prediction at 87% accuracy — feature engineering, validation, the boring parts that matter." },
+  { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
+  { year: "2025", line: "Built ML systems.", sub: "Sleep-disorder prediction at 87% accuracy - feature engineering, validation, the boring parts that matter." },
   { year: "2026", line: "Started building agents.", sub: "Shipped 3+ LLM apps and autonomous agents to 200+ users at AI LifeBOT." },
   { year: "Now", line: "Obsessed with making AI useful.", sub: "RAG that actually retrieves, agents that actually finish the task." },
+];
+
+const principles = [
+  "Ship small, measure, iterate.",
+  "Latency and reliability over leaderboard scores.",
+  "Make retrieval honest; make agents finish.",
+  "Document so the next person - or model - can pick it up.",
 ];
 
 export default function About() {
@@ -31,6 +39,19 @@ export default function About() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* How I work */}
+      <div className="mt-10 grid sm:grid-cols-[10rem_1fr] gap-x-6 gap-y-4">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/45 sm:pt-1">How I work</p>
+        <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+          {principles.map((p) => (
+            <li key={p} className="flex items-baseline gap-3 text-foreground/80">
+              <span className="text-accent font-mono text-sm">-</span>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

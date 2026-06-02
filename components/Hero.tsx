@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Oversized faint glyph for editorial depth */}
       <span
         aria-hidden
-        className="pointer-events-none select-none absolute -top-10 -right-16 font-display text-foreground/[0.04] leading-none text-[22rem] hidden sm:block"
+        className="pointer-events-none select-none absolute -top-8 -right-6 font-display text-foreground/[0.045] leading-none text-[14rem] lg:text-[17rem] hidden lg:block"
       >
         R
       </span>
@@ -40,7 +40,7 @@ export default function Hero() {
         </p>
 
         <p className="mt-7 text-base sm:text-lg text-foreground/65 max-w-xl leading-relaxed">
-          AI Engineer focused on agents, retrieval, and real-world systems —
+          AI Engineer focused on agents, retrieval, and real-world systems -
           reasoning, retrieving, automating, and scaling.
         </p>
 
@@ -68,14 +68,14 @@ export default function Hero() {
                   {item.label}
                 </span>
                 <span className="hidden sm:inline font-mono text-xs text-foreground/40 self-center">
-                  — {item.note}
+                  - {item.note}
                 </span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="mt-12 flex items-center gap-2 font-mono text-sm text-foreground/50">
+        <div className="mt-10 flex items-center gap-2 font-mono text-sm text-foreground/50">
           <span className="text-accent">◆</span> Nagpur, India
         </div>
       </div>

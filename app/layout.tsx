@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// Editorial display serif for headings — elegant, distinctive, not a default sans.
+// Editorial display serif for headings - elegant, distinctive, not a default sans.
 const serif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",

@@ -54,7 +54,7 @@ const DOUBLE_BLINK_CHANCE = 0.18;
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
-// Personality lines the mascot shows in a small bubble. Just character — no chatbot.
+// Personality lines the mascot shows in a small bubble. Just character - no chatbot.
 const MESSAGES = [
   "Roger is probably debugging something.",
   "Currently training a model.",
@@ -306,7 +306,7 @@ export default function BugMascot() {
         transition: "opacity 700ms cubic-bezier(0.33,1,0.68,1), transform 700ms cubic-bezier(0.33,1,0.68,1)",
       }}
     >
-      {/* Speech bubble — visual only, never blocks clicks. */}
+      {/* Speech bubble - visual only, never blocks clicks. */}
       {bubble && (
         <div
           className="absolute bottom-full right-0 mb-3 w-max max-w-[230px] panel px-3 py-2 font-mono text-[0.72rem] leading-snug text-foreground/85 shadow-sm"

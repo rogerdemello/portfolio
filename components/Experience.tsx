@@ -10,7 +10,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">03</span>
+        <span className="font-mono text-sm text-accent">04</span>
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Experience</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-12 leading-none">
@@ -54,10 +54,31 @@ export default function Experience() {
         ))}
       </ol>
 
+      {/* Selected highlights */}
+      <div className="mt-14">
+        <p className="eyebrow mb-4">Selected highlights</p>
+        <ul className="space-y-2.5 text-foreground/80">
+          {[
+            "Deployed 3+ production LLM apps and autonomous agents to 200+ users.",
+            "Cut inference latency through optimized retrieval and caching.",
+            "Built a sleep-disorder ML model at 87% accuracy with rigorous validation.",
+            "Designed AWS architecture - EC2, S3, IAM, Auto Scaling, Load Balancer.",
+          ].map((h) => (
+            <li key={h} className="flex items-baseline gap-3">
+              <span className="text-accent font-mono text-sm">-</span>
+              <span>{h}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {/* Footnote: education + certs as terse lines */}
-      <div className="mt-14 grid sm:grid-cols-2 gap-x-10 gap-y-6 text-sm">
+      <div className="mt-12 grid sm:grid-cols-2 gap-x-10 gap-y-6 text-sm">
         <div>
-          <p className="eyebrow mb-3">Education</p>
+          <div className="flex items-baseline justify-between mb-3">
+            <p className="eyebrow">Education</p>
+            <span className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/40">CGPA</span>
+          </div>
           <ul className="space-y-2 text-foreground/75">
             <li className="flex justify-between gap-4"><span>B.Tech, Electronics &amp; Communication</span><span className="font-mono text-foreground/50">8.9</span></li>
             <li className="flex justify-between gap-4"><span>Minor, AI &amp; Machine Learning</span><span className="font-mono text-foreground/50">9.6</span></li>
@@ -66,7 +87,7 @@ export default function Experience() {
         <div>
           <p className="eyebrow mb-3">Credentials</p>
           <ul className="space-y-2 text-foreground/75">
-            <li>AWS Certified Cloud Practitioner — 2025</li>
+            <li>AWS Certified Cloud Practitioner - 2025</li>
             <li>2nd Place, Bytesage AI National Hackathon</li>
           </ul>
         </div>

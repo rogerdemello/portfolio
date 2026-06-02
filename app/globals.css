@@ -7,7 +7,7 @@
 /*
  * "Technical Notebook + Research Lab" design system.
  * Warm ivory paper, charcoal ink, burnt-orange accent, forest green + vintage gold.
- * Minimal, editorial, restrained — closer to Linear / Notion / Stripe than a template.
+ * Minimal, editorial, restrained - closer to Linear / Notion / Stripe than a template.
  * HSL channels so Tailwind's `hsl(var(--x))` mappings keep working.
  */
 :root {
@@ -21,24 +21,24 @@
   /* Ink */
   --foreground: 0 0% 10%;              /* #1A1A1A deep charcoal */
 
-  /* Accent — Burnt orange #C75B12 */
+  /* Accent - Burnt orange #C75B12 */
   --primary: 24 83% 43%;
   --primary-light: 24 78% 51%;
   --primary-dark: 24 85% 35%;
   --primary-foreground: 39 40% 96%;
 
-  /* Secondary — Forest green #234B35 */
+  /* Secondary - Forest green #234B35 */
   --secondary: 147 36% 22%;
   --secondary-light: 147 30% 31%;
   --secondary-foreground: 39 40% 96%;
 
-  /* Highlight — Vintage gold #C8A54B */
+  /* Highlight - Vintage gold #C8A54B */
   --accent: 43 53% 54%;
   --accent-light: 43 60% 63%;
   --accent-dark: 41 50% 44%;
   --accent-foreground: 0 0% 10%;
 
-  /* Decorative — deep green variant */
+  /* Decorative - deep green variant */
   --decorative: 147 36% 28%;
   --decorative-light: 147 30% 38%;
 
@@ -51,7 +51,7 @@
 body {
   color: hsl(var(--foreground));
   background-color: hsl(var(--background));
-  /* Barely-there notebook grain for warmth — stays "clean", adds paper feel. */
+  /* Barely-there notebook grain for warmth - stays "clean", adds paper feel. */
   background-image: radial-gradient(hsl(var(--foreground) / 0.022) 1px, transparent 1px);
   background-size: 26px 26px;
   font-family: var(--font-sans), system-ui, sans-serif;
@@ -90,14 +90,14 @@ html {
     color: hsl(var(--primary));
   }
 
-  /* Minimal surface — hairline border, no heavy shadow. */
+  /* Minimal surface - hairline border, no heavy shadow. */
   .panel {
     background: hsl(var(--card-bg));
     border: 1px solid hsl(var(--border-color));
     border-radius: 12px;
   }
 
-  /* Solid button — charcoal fill, warms to burnt orange on hover. */
+  /* Solid button - charcoal fill, warms to burnt orange on hover. */
   .btn-solid {
     display: inline-flex;
     align-items: center;

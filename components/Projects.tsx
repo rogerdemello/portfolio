@@ -11,8 +11,8 @@ const projects = [
     links: [{ label: "Source", href: "https://github.com/rogerdemello/autonomous-executive-email-copilot" }],
   },
   {
-    title: "DealSentry — Proposal Guard",
-    problem: "Enterprises review proposals for compliance by hand — slow and inconsistent.",
+    title: "DealSentry - Proposal Guard",
+    problem: "Enterprises review proposals for compliance by hand - slow and inconsistent.",
     approach: ["Rule engine + AI risk scoring.", "PDF / DOCX ingestion.", "Approval workflows + audit trails.", "CRM integrations."],
     result: "Less manual review, faster compliance sign-off.",
     stack: "React · TypeScript · Node.js · PostgreSQL · Azure OpenAI",

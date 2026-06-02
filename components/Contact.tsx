@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">05</span>
+        <span className="font-mono text-sm text-accent">06</span>
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Contact</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-10 leading-none">
@@ -24,7 +24,7 @@ export default function Contact() {
           <span className="w-3 h-3 rounded-full bg-[#E2542A]" />
           <span className="w-3 h-3 rounded-full bg-[#C8A54B]" />
           <span className="w-3 h-3 rounded-full bg-[#4f8f63]" />
-          <span className="ml-3 font-mono text-xs text-background/60">bash — contact</span>
+          <span className="ml-3 font-mono text-xs text-background/60">bash - contact</span>
         </div>
 
         {/* body */}

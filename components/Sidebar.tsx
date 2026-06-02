@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaBars, FaTimes } from "react-icons/f
 const nav = [
   { name: "About", id: "about" },
   { name: "Projects", id: "projects" },
+  { name: "Stack", id: "stack" },
   { name: "Experience", id: "experience" },
   { name: "Writing", id: "writing" },
   { name: "Contact", id: "contact" },
