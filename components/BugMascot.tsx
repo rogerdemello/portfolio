@@ -1,25 +1,25 @@
 "use client";
 
 /**
- * BugMascot - an interactive, cursor-aware bug mascot for the portfolio.
+ * BugMascot - an interactive, cursor-aware rover mascot for the portfolio.
  *
- * Visual language is borrowed from the reference rover illustration:
- *   thick dark outlines, minimal geometric shapes, a large orange "visor",
- *   big expressive eyes and light/neutral body fills. Colors are pulled from
- *   the site's CSS custom properties (`--primary`, `--accent`, `--foreground`,
- *   `--background`) so the mascot always matches the active theme.
+ * The body is the rover illustration (`public/rover-mascot.png`). A transparent
+ * SVG overlay is registered exactly over the rover's printed eyes and draws
+ * fresh, living eyes on top: a white mask disc (covers the printed pupil), a
+ * tracking pupil, and an orange blink lid. Lid/highlight colors come from the
+ * site's CSS custom properties (`--primary`, `--foreground`) so the eyes match
+ * the active theme.
  *
  * Behaviour:
  *   - Eyes (pupils) smoothly track the cursor.
- *   - The head rotates slightly toward the cursor, with hard angle limits.
  *   - Randomized blinking (with the occasional double-blink for personality).
  *   - A gentle "breathing" bob plus a slow look-around when the cursor is idle.
  *   - Fully `prefers-reduced-motion` aware (renders a calm, static pose).
  *
  * Performance:
  *   - A single requestAnimationFrame loop drives everything.
- *   - Per-frame work mutates SVG transforms imperatively via refs, so React
- *     never re-renders during animation (the component renders ~once).
+ *   - Per-frame work mutates transforms imperatively via refs, so React never
+ *     re-renders during animation (the component renders ~once).
  *   - The loop pauses when the tab is hidden.
  */
 
@@ -29,20 +29,24 @@ import { useEffect, useRef, useState } from "react";
  * Tunable constants - the "personality" of the mascot lives here.
  * ------------------------------------------------------------------ */
 
-// SVG geometry (must stay in sync with the markup below).
-const VIEWBOX = { w: 220, h: 240 };
-const HEAD_PIVOT = { x: 110, y: 120 }; // neck joint the head rotates around
-const EYE_LEFT = { x: 88, y: 92 };
-const EYE_RIGHT = { x: 132, y: 92 };
-const EYE_LID_TOP = 76; // y of the top of the eye, used as the blink pivot
+// Overlay geometry. The overlay SVG uses the PNG's native pixel space as its
+// viewBox (so these coords map 1:1 onto the rover image). Calibrated against
+// public/rover-mascot.png (957x1024) - tweak if the eyes drift off the art.
+const VIEWBOX = { w: 1229, h: 992 };
+// Eye centres measured from the printed eyes in rover-mascot.png.
+const EYE_LEFT = { x: 437, y: 89 };
+const EYE_RIGHT = { x: 638, y: 98 };
+const EYE_WHITE_R = 47; // white mask disc - large enough to hide the printed eye
+const PUPIL_R = 34; // big to preserve the rover's kawaii dark-eye look
+const HIGHLIGHT_R = 9;
+const LID_R = 50; // orange blink-lid disc (slightly larger than the white)
+const EYE_LID_TOP = 47; // y of the top of the eye, used as the blink pivot
 
 // Motion limits / feel.
-const MAX_HEAD_DEG = 12; // head never turns more than this toward the cursor
-const HEAD_RANGE_PX = 520; // cursor distance over which max head angle is reached
-const MAX_PUPIL_X = 6; // furthest a pupil travels horizontally inside the eye
-const MAX_PUPIL_Y = 5; // ...and vertically
+const MAX_PUPIL_X = 11; // furthest a pupil travels horizontally inside the eye
+const MAX_PUPIL_Y = 9; // ...and vertically
 const EASE = 0.12; // 0..1 - higher = snappier, lower = floatier
-const BREATH_PX = 2.2; // vertical "breathing" amplitude
+const BREATH_PX = 6; // vertical "breathing" amplitude (in viewBox units)
 const IDLE_MS = 2600; // cursor still for this long → idle behaviour kicks in
 
 // Blink timing.
@@ -51,8 +55,6 @@ const BLINK_MAX_MS = 6500;
 const BLINK_CLOSE_MS = 70;
 const BLINK_OPEN_MS = 90;
 const DOUBLE_BLINK_CHANCE = 0.18;
-
-const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
 // Personality lines the mascot shows in a small bubble. Just character - no chatbot.
 const MESSAGES = [
@@ -148,8 +150,7 @@ export default function BugMascot() {
 
   // Element refs we mutate imperatively in the rAF loop.
   const svgRef = useRef<SVGSVGElement | null>(null);
-  const rootRef = useRef<SVGGElement | null>(null); // breathing bob
-  const headRef = useRef<SVGGElement | null>(null); // head rotation
+  const rootRef = useRef<HTMLDivElement | null>(null); // breathing bob (wraps img + overlay)
   const pupilLRef = useRef<SVGGElement | null>(null);
   const pupilRRef = useRef<SVGGElement | null>(null);
   const lidLRef = useRef<SVGGElement | null>(null);
@@ -162,7 +163,7 @@ export default function BugMascot() {
     let running = true;
 
     // Smoothed ("current") values that ease toward their targets each frame.
-    const cur = { head: 0, px: 0, py: 0, bob: 0 };
+    const cur = { px: 0, py: 0, bob: 0 };
 
     // Cached mascot centre in viewport coords (recomputed on resize/scroll).
     let center = { x: 0, y: 0 };
@@ -184,17 +185,15 @@ export default function BugMascot() {
     const tick = (t: number) => {
       if (!running) return;
 
-      /* --- 1. Decide where the head + eyes WANT to be (targets) ---------- */
+      /* --- 1. Decide where the eyes WANT to be (targets) ---------------- */
       const idle = !seen.current || t - lastMove.current > IDLE_MS;
 
-      let headTarget: number;
       let pxTarget: number;
       let pyTarget: number;
 
       if (idle) {
         // Idle: a slow, gentle look-around using offset sine waves so the
         // horizontal and vertical drift feel uncorrelated (more lifelike).
-        headTarget = Math.sin(t * 0.0006) * MAX_HEAD_DEG * 0.3;
         pxTarget = Math.sin(t * 0.0007) * MAX_PUPIL_X * 0.55;
         pyTarget = Math.cos(t * 0.0011) * MAX_PUPIL_Y * 0.5;
       } else {
@@ -202,10 +201,6 @@ export default function BugMascot() {
         const dx = pointer.current.x - center.x;
         const dy = pointer.current.y - center.y;
         const dist = Math.hypot(dx, dy) || 1;
-
-        // Head turn: proportional to horizontal offset, normalized over
-        // HEAD_RANGE_PX and hard-clamped to ±MAX_HEAD_DEG so it never spins.
-        headTarget = clamp(dx / HEAD_RANGE_PX, -1, 1) * MAX_HEAD_DEG;
 
         // Pupils: take the UNIT vector toward the cursor and scale it by the
         // eye's travel radius. This makes the pupil sit on the rim of the eye
@@ -219,7 +214,6 @@ export default function BugMascot() {
 
       /* --- 2. Ease current values toward the targets -------------------- */
       // Standard exponential smoothing: cur += (target - cur) * EASE.
-      cur.head += (headTarget - cur.head) * EASE;
       cur.px += (pxTarget - cur.px) * EASE;
       cur.py += (pyTarget - cur.py) * EASE;
       cur.bob += (bobTarget - cur.bob) * EASE;
@@ -250,11 +244,8 @@ export default function BugMascot() {
       }
 
       /* --- 4. Write the transforms (the only per-frame DOM work) -------- */
-      rootRef.current?.setAttribute("transform", `translate(0 ${cur.bob.toFixed(2)})`);
-      headRef.current?.setAttribute(
-        "transform",
-        `rotate(${cur.head.toFixed(2)} ${HEAD_PIVOT.x} ${HEAD_PIVOT.y})`,
-      );
+      // Breathing bob translates the whole rover (img + eye overlay) vertically.
+      if (rootRef.current) rootRef.current.style.transform = `translateY(${cur.bob.toFixed(2)}px)`;
 
       const pl = `translate(${cur.px.toFixed(2)} ${cur.py.toFixed(2)})`;
       pupilLRef.current?.setAttribute("transform", pl);
@@ -317,7 +308,7 @@ export default function BugMascot() {
         </div>
       )}
 
-      {/* Only the bug box is hoverable; the rest of the corner stays click-through. */}
+      {/* Only the rover box is hoverable; the rest of the corner stays click-through. */}
       <div
         style={{
           width: "clamp(160px, 13vw, 220px)",
@@ -327,147 +318,56 @@ export default function BugMascot() {
         onMouseEnter={() => { hoveredRef.current = true; setBubble(MESSAGES[0]); }}
         onMouseLeave={() => { hoveredRef.current = false; setBubble(null); }}
       >
-      <svg
-        ref={svgRef}
-        viewBox={`0 0 ${VIEWBOX.w} ${VIEWBOX.h}`}
-        width="100%"
-        height="100%"
-        role="img"
-        // Theme-aware palette via CSS variables.
-        style={
-          {
-            display: "block",
-            ["--ink" as string]: "hsl(var(--foreground))",
-            ["--body" as string]: "hsl(42 55% 96%)",
-            ["--orange" as string]: "hsl(var(--primary))",
-            ["--amber" as string]: "hsl(var(--accent))",
-          } as React.CSSProperties
-        }
-      >
-        <defs>
-          <radialGradient id="bug-ground" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-          </radialGradient>
-        </defs>
+        {/* rootRef: receives the breathing bob (whole rover bobs vertically). */}
+        <div ref={rootRef} style={{ position: "relative", lineHeight: 0, willChange: "transform" }}>
+          {/* The rover illustration is the body. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/rover-mascot.png?v=3"
+            alt="Rover mascot"
+            width={VIEWBOX.w}
+            height={VIEWBOX.h}
+            draggable={false}
+            style={{ display: "block", width: "100%", height: "auto" }}
+          />
 
-        {/* Soft orange "ground" glow - grounds the bug on the dark canvas. */}
-        <ellipse cx="110" cy="220" rx="78" ry="16" fill="url(#bug-ground)" />
-
-        {/* rootRef: receives the breathing bob (whole-body vertical motion). */}
-        <g ref={rootRef}>
-          {/* Legs (drawn first so they tuck behind the body). 3 per side. */}
-          <g
-            fill="none"
-            stroke="var(--ink)"
-            strokeWidth={5}
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          {/* Transparent overlay registered exactly over the printed eyes.
+              viewBox matches the PNG's pixel space so eye coords map 1:1. */}
+          <svg
+            ref={svgRef}
+            viewBox={`0 0 ${VIEWBOX.w} ${VIEWBOX.h}`}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+            aria-hidden="true"
           >
-            <path d="M70 150 L42 140 L34 160" />
-            <path d="M64 168 L32 168 L24 188" />
-            <path d="M68 184 L42 194 L38 212" />
-            <path d="M150 150 L178 140 L186 160" />
-            <path d="M156 168 L188 168 L196 188" />
-            <path d="M152 184 L178 194 L182 212" />
-          </g>
-
-          {/* Body / abdomen. */}
-          <ellipse
-            cx="110"
-            cy="166"
-            rx="66"
-            ry="52"
-            fill="var(--body)"
-            stroke="var(--ink)"
-            strokeWidth={6}
-          />
-          {/* Subtle wing-case seam + accent dots for a little detail. */}
-          <path
-            d="M110 120 L110 214"
-            stroke="var(--ink)"
-            strokeWidth={3}
-            strokeOpacity={0.35}
-            strokeLinecap="round"
-          />
-          <circle cx="86" cy="158" r="4" fill="var(--orange)" opacity={0.8} />
-          <circle cx="134" cy="174" r="3.5" fill="var(--amber)" opacity={0.8} />
-
-          {/* Neck joint (part of the body; the head pivots above it). */}
-          <rect
-            x="98"
-            y="112"
-            width="24"
-            height="20"
-            rx="8"
-            fill="var(--body)"
-            stroke="var(--ink)"
-            strokeWidth={5}
-          />
-
-          {/* headRef: rotates toward the cursor about HEAD_PIVOT. */}
-          <g ref={headRef}>
-            {/* Antennae with friendly amber tips. */}
-            <g fill="none" stroke="var(--ink)" strokeWidth={5} strokeLinecap="round">
-              <path d="M92 64 C84 46 80 36 78 28" />
-              <path d="M128 64 C136 46 140 36 142 28" />
-            </g>
-            <circle cx="78" cy="26" r="6" fill="var(--amber)" stroke="var(--ink)" strokeWidth={3} />
-            <circle cx="142" cy="26" r="6" fill="var(--amber)" stroke="var(--ink)" strokeWidth={3} />
-
-            {/* Head shell. */}
-            <rect
-              x="48"
-              y="58"
-              width="124"
-              height="68"
-              rx="28"
-              fill="var(--body)"
-              stroke="var(--ink)"
-              strokeWidth={6}
-            />
-
-            {/* Orange visor (echoes the rover's orange head band). */}
-            <rect
-              x="58"
-              y="70"
-              width="104"
-              height="44"
-              rx="20"
-              fill="var(--orange)"
-              stroke="var(--ink)"
-              strokeWidth={5}
-            />
-
-            {/* ---- Eyes ---- each: white sclera, tracking pupil, blink lid. */}
+            {/* ---- Eyes ---- each: white mask disc (hides the printed pupil),
+                tracking pupil, then orange blink lid on top. */}
             {/* Left eye */}
             <g>
-              <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r="15" fill="#fff" stroke="var(--ink)" strokeWidth={3} />
+              <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--foreground))" strokeWidth={4} />
               <g ref={pupilLRef}>
-                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r="7.5" fill="var(--ink)" />
-                <circle cx={EYE_LEFT.x - 2.5} cy={EYE_LEFT.y - 2.5} r="2.4" fill="#fff" />
+                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={PUPIL_R} fill="hsl(var(--foreground))" />
+                <circle cx={EYE_LEFT.x - PUPIL_R * 0.35} cy={EYE_LEFT.y - PUPIL_R * 0.35} r={HIGHLIGHT_R} fill="#fff" />
               </g>
               {/* Lid: orange disc that scales down over the eye when blinking.
                   Uses the SVG `transform` attribute (not CSS) so the per-frame
                   setAttribute in the loop isn't overridden by an inline style. */}
               <g ref={lidLRef} transform="scale(1 0)">
-                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r="16.5" fill="var(--orange)" />
+                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={LID_R} fill="hsl(var(--primary))" />
               </g>
             </g>
             {/* Right eye */}
             <g>
-              <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r="15" fill="#fff" stroke="var(--ink)" strokeWidth={3} />
+              <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--foreground))" strokeWidth={4} />
               <g ref={pupilRRef}>
-                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r="7.5" fill="var(--ink)" />
-                <circle cx={EYE_RIGHT.x - 2.5} cy={EYE_RIGHT.y - 2.5} r="2.4" fill="#fff" />
+                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={PUPIL_R} fill="hsl(var(--foreground))" />
+                <circle cx={EYE_RIGHT.x - PUPIL_R * 0.35} cy={EYE_RIGHT.y - PUPIL_R * 0.35} r={HIGHLIGHT_R} fill="#fff" />
               </g>
               <g ref={lidRRef} transform="scale(1 0)">
-                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r="16.5" fill="var(--orange)" />
+                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={LID_R} fill="hsl(var(--primary))" />
               </g>
             </g>
-          </g>
-        </g>
-      </svg>
+          </svg>
+        </div>
       </div>
     </div>
   );
