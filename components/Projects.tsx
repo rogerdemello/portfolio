@@ -35,12 +35,12 @@ const projects = [
     links: [{ label: "Source", href: "https://github.com/rogerdemello/contentflow-ai" }],
   },
   {
-    title: "LifePulse",
-    problem: "Health risk signals sit unread across disconnected metrics.",
-    approach: ["Random Forest models per condition.", "BMI / BP / cholesterol risk stratification.", "USDA-integrated nutrition tracking.", "Offline local inference."],
-    result: "Heart disease 87.2%, migraine 82.0%, health score R² 0.82.",
-    stack: "Python · Flask · scikit-learn · XGBoost · pandas · ONNX · Gunicorn",
-    links: [{ label: "Source", href: "https://github.com/rogerdemello/LifePulse" }],
+    title: "DealSentry",
+    problem: "Enterprises review proposals for compliance by hand - slow and inconsistent.",
+    approach: ["Automated compliance rules engine + risk scoring.", "Document upload with auto-parsing.", "Approval routing with SLA tracking.", "Salesforce / HubSpot / Gmail integrations."],
+    result: "Faster, more consistent sign-off; risky terms flagged before execution.",
+    stack: "React · TypeScript · Express · Prisma · PostgreSQL · OpenAI API · Puppeteer",
+    links: [{ label: "Source", href: "https://github.com/rogerdemello/DealSentry" }],
   },
   {
     title: "Engram",
