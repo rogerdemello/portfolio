@@ -1,11 +1,11 @@
 "use client";
 
 const groups = [
-  { label: "Languages", items: ["Python", "C++", "Java", "SQL"] },
-  { label: "AI & ML", items: ["LLMs", "RAG", "Agents", "LangChain", "LlamaIndex", "OpenAI API", "Hugging Face", "TensorFlow", "PyTorch", "Scikit-learn"] },
-  { label: "Backend", items: ["FastAPI", "Flask", "REST APIs", "Async", "Microservices"] },
-  { label: "Data", items: ["PostgreSQL", "MongoDB", "Vector DBs", "Pandas", "NumPy"] },
-  { label: "Cloud & Tools", items: ["AWS", "Docker", "Git", "CI/CD", "Linux"] },
+  { label: "Languages", items: ["Python", "C++", "Java", "C", "SQL"] },
+  { label: "Agentic & GenAI", items: ["RAG Pipelines", "Vector Databases", "Multi-Agent Systems", "Prompt Engineering", "Agentic Workflows"] },
+  { label: "Machine Learning", items: ["Scikit-learn", "PyTorch", "TensorFlow", "NumPy", "Pandas", "LLMs", "Semantic Search"] },
+  { label: "Backend & DevOps", items: ["FastAPI", "Flask", "REST APIs", "CI/CD", "PostgreSQL", "AWS", "Vercel"] },
+  { label: "Tools & Platforms", items: ["Git", "GitHub", "LangChain", "Hugging Face", "Supabase", "Docker", "Linux"] },
 ];
 
 export default function Stack() {
