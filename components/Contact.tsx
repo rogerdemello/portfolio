@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">06</span>
+        <span className="font-mono text-sm text-accent">05</span>
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Contact</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-10 leading-none">
@@ -38,8 +38,8 @@ export default function Contact() {
 
           <div className="space-y-2">
             {lines.map((l) => (
-              <div key={l.cmd} className="flex flex-wrap items-baseline gap-x-3">
-                <span className="text-background/45 w-20 shrink-0">→ {l.cmd}</span>
+              <div key={l.cmd} className="flex items-baseline gap-x-3">
+                <span className="text-background/45 w-24 shrink-0 whitespace-nowrap">→ {l.cmd}</span>
                 <a
                   href={l.href}
                   target={l.href.startsWith("http") ? "_blank" : undefined}

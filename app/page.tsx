@@ -17,12 +17,12 @@ export default function Home() {
       <main id="main-content" className="lg:pl-60 relative" tabIndex={-1}>
         <div className="max-w-3xl px-5 sm:px-8 lg:pl-20 lg:pr-8">
           <Hero />
-          <FadeIn><About /></FadeIn>
           <FadeIn><Projects /></FadeIn>
           <FadeIn><Stack /></FadeIn>
           <FadeIn><Experience /></FadeIn>
           <FadeIn><Journal /></FadeIn>
           <FadeIn><Contact /></FadeIn>
+          <FadeIn><About /></FadeIn>
         </div>
         <Footer />
       </main>

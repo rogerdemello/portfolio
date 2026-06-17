@@ -10,14 +10,6 @@ const exploring = [
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center py-28 overflow-hidden">
-      {/* Oversized faint glyph for editorial depth */}
-      <span
-        aria-hidden
-        className="pointer-events-none select-none absolute -top-8 -right-6 font-display text-foreground/[0.045] leading-none text-[14rem] lg:text-[17rem] hidden lg:block"
-      >
-        R
-      </span>
-
       <div className="relative">
         {/* Availability */}
         <div className="inline-flex items-center gap-2 font-mono text-xs text-secondary mb-8">

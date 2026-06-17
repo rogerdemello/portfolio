@@ -1,5 +1,5 @@
 "use client";
-import { FaArrowRight } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const projects = [
   {
@@ -8,7 +8,7 @@ const projects = [
     approach: ["Deterministic RL-style inbox simulation.", "Baseline, perturbation, LLM & hybrid policy modes.", "Bounded, numerically stable grading metrics."],
     result: "Honest benchmarks on classification, prioritization & full inbox management.",
     stack: "Python · FastAPI · Pydantic · SQLAlchemy · SciPy · React · OpenAI API",
-    links: [{ label: "Source", href: "https://github.com/rogerdemello/autonomous-executive-email-copilot" }],
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/autonomous-executive-email-copilot" }],
   },
   {
     title: "SentinelOps",
@@ -16,7 +16,7 @@ const projects = [
     approach: ["Anomaly detection with IsolationForest.", "Multi-agent root-cause analysis.", "Dependency-graph impact modeling.", "Human-approved self-healing."],
     result: "Shifts operations from reactive firefighting to proactive prevention.",
     stack: "Python · FastAPI · scikit-learn · statsmodels · NetworkX · React · Azure OpenAI",
-    links: [{ label: "Source", href: "https://github.com/rogerdemello/sentinel-ops" }],
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/sentinel-ops" }],
   },
   {
     title: "Shadow GTM",
@@ -24,7 +24,7 @@ const projects = [
     approach: ["Gemini-grounded competitor page scans.", "Diffs signals against prior snapshots.", "Ranked, source-cited revenue plays.", "Multi-tenant autonomous scheduling."],
     result: "Live, explainable competitive intelligence grounded in verbatim evidence.",
     stack: "Next.js · TypeScript · Gemini API · Supabase · Stripe · Recharts · Zod",
-    links: [{ label: "Source", href: "https://github.com/rogerdemello/shadow-gtm" }],
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/shadow-gtm" }],
   },
   {
     title: "contentflow-ai",
@@ -32,7 +32,7 @@ const projects = [
     approach: ["Multi-agent draft → comply → localize → publish.", "Policy-aware RAG with auto-remediation.", "Human-in-the-loop approval gates."],
     result: "Channel-ready output with audit logging; ~₹2.1 Cr/yr modeled savings.",
     stack: "Python · LangGraph · scikit-learn RAG · FastAPI · Streamlit · Azure OpenAI",
-    links: [{ label: "Source", href: "https://github.com/rogerdemello/contentflow-ai" }],
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/contentflow-ai" }],
   },
   {
     title: "DealSentry",
@@ -40,7 +40,7 @@ const projects = [
     approach: ["Automated compliance rules engine + risk scoring.", "Document upload with auto-parsing.", "Approval routing with SLA tracking.", "Salesforce / HubSpot / Gmail integrations."],
     result: "Faster, more consistent sign-off; risky terms flagged before execution.",
     stack: "React · TypeScript · Express · Prisma · PostgreSQL · OpenAI API · Puppeteer",
-    links: [{ label: "Source", href: "https://github.com/rogerdemello/DealSentry" }],
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/DealSentry" }],
   },
   {
     title: "Engram",
@@ -48,7 +48,7 @@ const projects = [
     approach: ["User-owned, verifiable memory layer on Sui.", "On-chain consent grants / revokes.", "Seal-encrypted Walrus storage.", "Receipts citing the exact memories used."],
     result: "Portable, auditable AI memory with real-time on-chain consent.",
     stack: "Next.js · TypeScript · Sui Move · Walrus · Seal · Azure OpenAI · Playwright",
-    links: [{ label: "Source", href: "https://github.com/rogerdemello/engram" }],
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/engram" }],
   },
 ];
 
@@ -65,11 +65,11 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">02</span>
+        <span className="font-mono text-sm text-accent">01</span>
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Projects</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-4 leading-none">
-        Case Studies
+        Projects
       </h2>
 
       <div>
@@ -102,7 +102,7 @@ export default function Projects() {
               <div className="mt-6 flex flex-wrap gap-6">
                 {p.links.map((l) => (
                   <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                    <FaArrowRight size={11} /> {l.label}
+                    <FaGithub size={13} /> {l.label}
                   </a>
                 ))}
               </div>

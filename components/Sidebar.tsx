@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
 
 const nav = [
-  { name: "About", id: "about" },
   { name: "Projects", id: "projects" },
   { name: "Stack", id: "stack" },
   { name: "Experience", id: "experience" },
   { name: "Writing", id: "writing" },
   { name: "Contact", id: "contact" },
+  { name: "About", id: "about" },
 ];
 
 const socials = [
