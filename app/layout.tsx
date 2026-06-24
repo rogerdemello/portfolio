@@ -26,7 +26,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rogerdemello.vercel.app"),
+  metadataBase: new URL("https://rogerdemello.tech"),
   title: "Roger Richard Demello - AI / ML Engineer & Data Scientist",
   description: "AI Engineer, Machine Learning Engineer, and Data Scientist. Building production-grade LLM applications and AI agents, training ML models, and turning data into insight - RAG pipelines, vector databases, agentic workflows, Python, FastAPI, LangChain, AWS.",
   keywords: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rogerdemello.vercel.app/",
+    url: "https://rogerdemello.tech/",
     title: "Roger Richard Demello - AI / ML Engineer & Data Scientist",
     description: "AI Engineer, ML Engineer & Data Scientist. Production-grade LLM applications and AI agents, ML models, RAG pipelines, vector databases, FastAPI, LangChain.",
     siteName: "Roger Demello Portfolio",

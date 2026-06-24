@@ -64,7 +64,7 @@ export function renderOgImage() {
               color: GREEN,
             }}
           >
-            rogerdemello.vercel.app
+            rogerdemello.tech
           </div>
         </div>
 
