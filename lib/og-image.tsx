@@ -15,15 +15,16 @@ const MUTED = "rgba(26,26,26,0.55)";
 const LINE = "rgba(26,26,26,0.14)";
 
 // Fetch a single-subset Google font (only the glyphs in `text`) as an ArrayBuffer.
-async function loadFont(family: string, weight: number, text: string) {
+// `familyQuery` is the full css2 family spec, e.g. "Fraunces:opsz,wght@144,600".
+async function loadFont(familyQuery: string, text: string) {
   const url =
-    `https://fonts.googleapis.com/css2?family=${family.replace(/ /g, "+")}:wght@${weight}` +
+    `https://fonts.googleapis.com/css2?family=${familyQuery.replace(/ /g, "+")}` +
     `&text=${encodeURIComponent(text)}`;
   const css = await (
     await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" } })
   ).text();
   const src = css.match(/src:\s*url\(([^)]+)\)/)?.[1];
-  if (!src) throw new Error(`font src not found for ${family}`);
+  if (!src) throw new Error(`font src not found for ${familyQuery}`);
   return fetch(src).then((r) => r.arrayBuffer());
 }
 
@@ -33,15 +34,18 @@ const MONO_TEXT =
 
 export async function renderOgImage() {
   let fonts:
-    | { name: string; data: ArrayBuffer; weight: 400 | 500; style: "normal" }[]
+    | { name: string; data: ArrayBuffer; weight: 400 | 500 | 600; style: "normal" }[]
     | undefined;
   try {
-    const [serif, mono] = await Promise.all([
-      loadFont("Instrument Serif", 400, SERIF_TEXT),
-      loadFont("JetBrains Mono", 500, MONO_TEXT),
+    const [serif, serifBold, mono] = await Promise.all([
+      // Fraunces at display optical size - warm, high-contrast editorial serif.
+      loadFont("Fraunces:opsz,wght@144,560", SERIF_TEXT),
+      loadFont("Fraunces:opsz,wght@144,600", SERIF_TEXT),
+      loadFont("JetBrains Mono:wght@500", MONO_TEXT),
     ]);
     fonts = [
       { name: "Serif", data: serif, weight: 400, style: "normal" },
+      { name: "Serif", data: serifBold, weight: 600, style: "normal" },
       { name: "Mono", data: mono, weight: 500, style: "normal" },
     ];
   } catch {
@@ -75,7 +79,7 @@ export async function renderOgImage() {
       >
         {/* Header */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "baseline", fontFamily: "Serif", fontSize: 48 }}>
+          <div style={{ display: "flex", alignItems: "baseline", fontFamily: "Serif", fontWeight: 600, fontSize: 48 }}>
             <span>R</span>
             <span style={{ color: ORANGE }}>.</span>
           </div>
@@ -100,7 +104,7 @@ export async function renderOgImage() {
 
         {/* Middle */}
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontFamily: "Serif", fontSize: 128, lineHeight: 1, letterSpacing: -1 }}>
+          <div style={{ display: "flex", fontFamily: "Serif", fontWeight: 600, fontSize: 106, lineHeight: 1, letterSpacing: -2 }}>
             Roger Demello
           </div>
           <div
@@ -108,9 +112,9 @@ export async function renderOgImage() {
               display: "flex",
               flexWrap: "wrap",
               fontFamily: "Serif",
-              fontSize: 46,
-              marginTop: 18,
-              color: "rgba(26,26,26,0.8)",
+              fontSize: 44,
+              marginTop: 22,
+              color: "rgba(26,26,26,0.82)",
             }}
           >
             <span>Building systems that&nbsp;</span>
