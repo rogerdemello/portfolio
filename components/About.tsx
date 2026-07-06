@@ -1,5 +1,4 @@
 "use client";
-import SectionHeader from "@/components/SectionHeader";
 
 const notes = [
   { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
@@ -18,9 +17,15 @@ const principles = [
 export default function About() {
   return (
     <section id="about" className="py-20 md:py-28 border-t border-card-border">
-      <SectionHeader n="07" label="Operator Profile" title="Field Notes" />
+      <div className="flex items-baseline gap-2.5">
+        <span className="font-mono text-sm text-accent">06</span>
+        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">About</span>
+      </div>
+      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-10 leading-none">
+        Field Notes
+      </h2>
 
-      {/* Log file: accent gutter rule + ruled rows */}
+      {/* Notebook: red margin rule + ruled rows */}
       <div className="panel relative overflow-hidden">
         <span aria-hidden className="absolute top-0 bottom-0 left-12 sm:left-16 w-px bg-primary/40" />
         <div className="pl-16 sm:pl-24 pr-6">
@@ -28,7 +33,7 @@ export default function About() {
             <div key={n.year} className="flex flex-col sm:flex-row gap-1 sm:gap-6 py-5 border-b border-dashed border-card-border last:border-0">
               <span className="font-mono text-sm text-primary sm:w-16 shrink-0 sm:pt-1">{n.year}</span>
               <div>
-                <p className="font-sans font-bold text-lg sm:text-xl text-foreground leading-snug">{n.line}</p>
+                <p className="font-display text-xl sm:text-2xl text-foreground leading-snug">{n.line}</p>
                 <p className="text-sm text-foreground/60 mt-1.5 leading-relaxed">{n.sub}</p>
               </div>
             </div>

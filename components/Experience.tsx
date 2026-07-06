@@ -1,5 +1,4 @@
 "use client";
-import SectionHeader from "@/components/SectionHeader";
 
 const timeline = [
   { year: "2025", company: "CFM, RCOEM", role: "Machine Learning Intern", detail: "Sleep-disorder prediction · 87% accuracy · Python, Scikit-learn", last: false },
@@ -10,7 +9,13 @@ const timeline = [
 export default function Experience() {
   return (
     <section id="experience" className="py-20 md:py-28 border-t border-card-border">
-      <SectionHeader n="04" label="Flight-Log" title="Timeline" />
+      <div className="flex items-baseline gap-2.5">
+        <span className="font-mono text-sm text-accent">03</span>
+        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Experience</span>
+      </div>
+      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-12 leading-none">
+        Timeline
+      </h2>
 
       {/* Desktop: horizontal */}
       <div className="hidden md:block relative">
@@ -24,7 +29,7 @@ export default function Experience() {
                 }`}
               />
               <p className={`font-mono text-sm mb-1.5 ${t.last ? "text-accent" : "text-primary"}`}>{t.year}</p>
-              <h3 className="font-mono font-semibold text-xl text-foreground leading-tight">{t.company}</h3>
+              <h3 className="font-display text-2xl text-foreground leading-tight">{t.company}</h3>
               <p className="text-sm text-foreground/70 mt-1">{t.role}</p>
               <p className="font-mono text-xs text-foreground/50 mt-3 leading-relaxed">{t.detail}</p>
             </li>

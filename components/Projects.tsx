@@ -1,6 +1,5 @@
 "use client";
 import { FaGithub } from "react-icons/fa";
-import SectionHeader from "@/components/SectionHeader";
 
 const projects = [
   {
@@ -65,7 +64,13 @@ function Row({ label, color, children }: { label: string; color: string; childre
 export default function Projects() {
   return (
     <section id="projects" className="py-20 md:py-28 border-t border-card-border">
-      <SectionHeader n="02" label="Deployed Systems" title="Projects" sub="Active missions - problem, approach, result." />
+      <div className="flex items-baseline gap-2.5">
+        <span className="font-mono text-sm text-accent">01</span>
+        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Projects</span>
+      </div>
+      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-4 leading-none">
+        Projects
+      </h2>
 
       <div>
         {projects.map((p, i) => (
@@ -75,9 +80,7 @@ export default function Projects() {
           >
             <span className="font-mono text-sm text-foreground/35 pt-2 group-hover:text-accent transition-colors duration-200">[0{i + 1}]</span>
             <div>
-              <h3 className="font-sans font-bold text-2xl sm:text-3xl text-foreground leading-tight mb-6 group-hover:text-primary transition-colors duration-200">
-                {p.title}
-              </h3>
+              <h3 className="font-display text-3xl sm:text-4xl text-foreground leading-tight mb-6 group-hover:text-primary transition-colors duration-200">{p.title}</h3>
 
               <dl className="space-y-4">
                 <Row label="Problem" color="text-foreground/45">{p.problem}</Row>

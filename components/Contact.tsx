@@ -1,54 +1,62 @@
 "use client";
-import SectionHeader from "@/components/SectionHeader";
 
-const channels = [
-  { band: "PRIMARY", chan: "EMAIL", value: "rogerdemello289@gmail.com", href: "mailto:rogerdemello289@gmail.com" },
-  { band: "SECONDARY", chan: "LINKEDIN", value: "linkedin.com/in/rogerdemello", href: "https://linkedin.com/in/rogerdemello" },
-  { band: "DATA", chan: "GITHUB", value: "github.com/rogerdemello", href: "https://github.com/rogerdemello" },
+const lines = [
+  { cmd: "email", value: "rogerdemello289@gmail.com", href: "mailto:rogerdemello289@gmail.com" },
+  { cmd: "linkedin", value: "linkedin.com/in/rogerdemello", href: "https://linkedin.com/in/rogerdemello" },
+  { cmd: "github", value: "github.com/rogerdemello", href: "https://github.com/rogerdemello" },
 ];
 
 export default function Contact() {
   return (
     <section id="contact" className="py-20 md:py-28 border-t border-card-border">
-      <SectionHeader n="06" label="Uplink" title="Get in touch" />
+      <div className="flex items-baseline gap-2.5">
+        <span className="font-mono text-sm text-accent">05</span>
+        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Contact</span>
+      </div>
+      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-10 leading-none">
+        Get in touch
+      </h2>
 
-      <div className="panel panel-live overflow-hidden max-w-2xl">
-        {/* console header */}
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-card-border bg-background-secondary/60">
-          <span className="readout flex items-center gap-2"><span className="led-cyan led" aria-hidden /> Comms Channels</span>
-          <span className="font-mono text-xs text-primary draft-letter">Signal — Strong</span>
+      {/* Terminal */}
+      <div className="rounded-xl overflow-hidden border border-foreground/80 shadow-sm max-w-2xl">
+        {/* title bar */}
+        <div className="flex items-center gap-2 px-4 py-2.5 bg-foreground">
+          <span className="w-3 h-3 rounded-full bg-[#E2542A]" />
+          <span className="w-3 h-3 rounded-full bg-[#C8A54B]" />
+          <span className="w-3 h-3 rounded-full bg-[#4f8f63]" />
+          <span className="ml-3 font-mono text-xs text-background/60">bash - contact</span>
         </div>
 
-        {/* column headers */}
-        <div className="grid grid-cols-[6rem_6rem_1fr] gap-x-3 px-4 py-2 border-b border-card-border readout">
-          <span>Band</span>
-          <span>Channel</span>
-          <span>Address</span>
-        </div>
+        {/* body */}
+        <div className="bg-foreground text-background font-mono text-sm sm:text-[0.95rem] p-5 sm:p-7 leading-relaxed">
+          <p className="mb-4">
+            <span className="text-accent">roger@demello</span>
+            <span className="text-background/50">:</span>
+            <span className="text-secondary-light">~</span>
+            <span className="text-background/50">$</span> contact
+          </p>
 
-        {channels.map((c) => (
-          <div
-            key={c.chan}
-            className="grid grid-cols-[6rem_6rem_1fr] gap-x-3 px-4 py-3 border-b border-card-border/60 last:border-0 items-center"
-          >
-            <span className="font-mono text-xs text-accent draft-letter">{c.band}</span>
-            <span className="font-mono text-xs text-foreground/65 draft-letter">{c.chan}</span>
-            <a
-              href={c.href}
-              target={c.href.startsWith("http") ? "_blank" : undefined}
-              rel="noopener noreferrer"
-              className="text-secondary hover:text-primary hover:underline underline-offset-4 break-all text-sm transition-colors"
-            >
-              {c.value}
-            </a>
+          <div className="space-y-2">
+            {lines.map((l) => (
+              <div key={l.cmd} className="flex items-baseline gap-x-3">
+                <span className="text-background/45 w-24 shrink-0 whitespace-nowrap">→ {l.cmd}</span>
+                <a
+                  href={l.href}
+                  target={l.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="text-primary-light hover:underline underline-offset-4 break-all"
+                >
+                  {l.value}
+                </a>
+              </div>
+            ))}
           </div>
-        ))}
 
-        <div className="flex items-center gap-2 px-4 py-3 bg-background-secondary/40">
-          <span className="inline-flex items-center gap-2 text-primary font-mono text-xs draft-letter">
-            <span className="led" aria-hidden />
-            Standing by — open to AI Engineering roles · response window: immediate
-          </span>
+          <p className="mt-5 flex items-center gap-3">
+            <span className="text-background/45">status:</span>
+            <span style={{ color: "hsl(147 45% 62%)" }}>Open to AI Engineering roles</span>
+            <span className="inline-block w-2.5 h-[1.1em] bg-background/80 animate-pulse translate-y-0.5" />
+          </p>
         </div>
       </div>
     </section>

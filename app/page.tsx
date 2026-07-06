@@ -1,5 +1,5 @@
-import MissionBar from "@/components/MissionBar";
-import MissionControl from "@/components/MissionControl";
+import Sidebar from "@/components/Sidebar";
+import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Stack from "@/components/Stack";
@@ -13,10 +13,10 @@ import BugMascot from "@/components/BugMascot";
 export default function Home() {
   return (
     <>
-      <MissionBar />
-      <main id="main-content" className="pt-11 relative" tabIndex={-1}>
-        <div className="mx-auto max-w-4xl px-4 sm:px-8">
-          <MissionControl />
+      <Sidebar />
+      <main id="main-content" className="lg:pl-60 relative" tabIndex={-1}>
+        <div className="max-w-3xl px-5 sm:px-8 lg:pl-20 lg:pr-8">
+          <Hero />
           <FadeIn><Projects /></FadeIn>
           <FadeIn><Stack /></FadeIn>
           <FadeIn><Experience /></FadeIn>
