@@ -23,6 +23,12 @@ export default function FadeIn({
     const el = ref.current;
     if (!el) return;
 
+    // Respect reduced-motion: reveal immediately, skip the transform/observer.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {

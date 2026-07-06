@@ -11,6 +11,7 @@ import {
   FaJava, FaDatabase, FaProjectDiagram, FaRobot, FaTerminal, FaSitemap,
   FaBrain, FaSearch, FaExchangeAlt, FaAws,
 } from "react-icons/fa";
+import SectionHeader from "@/components/SectionHeader";
 
 const groups = [
   { label: "Languages", items: ["Python", "C++", "Java", "C", "SQL"] },
@@ -58,14 +59,7 @@ const ICONS: Record<string, IconType> = {
 export default function Stack() {
   return (
     <section id="stack" className="py-20 md:py-28 border-t border-card-border">
-      <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">02</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Stack</span>
-      </div>
-      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-3 leading-none">
-        Toolkit
-      </h2>
-      <p className="text-foreground/60 mb-10 max-w-lg">What I reach for - chosen because it ships, not because it&apos;s trendy.</p>
+      <SectionHeader n="03" label="Subsystems" title="Toolkit" sub="What I reach for - chosen because it ships, not because it's trendy." />
 
       <dl className="divide-y divide-card-border border-y border-card-border">
         {groups.map((g) => (
@@ -77,7 +71,7 @@ export default function Stack() {
                 return (
                   <span
                     key={item}
-                    className="group inline-flex items-center gap-2 rounded-lg border border-card-border bg-card/60 pl-2.5 pr-3 py-1.5 text-sm text-foreground/85 transition-colors hover:border-primary/45 hover:text-foreground"
+                    className="group inline-flex items-center gap-2 rounded-sm border border-card-border/70 bg-card/40 pl-2.5 pr-3 py-1.5 text-sm text-foreground/85 transition-colors hover:border-primary/50 hover:text-foreground"
                   >
                     {Icon && <Icon size={15} className="shrink-0 text-foreground/45 transition-colors group-hover:text-primary" aria-hidden />}
                     {item}
