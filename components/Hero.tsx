@@ -1,7 +1,7 @@
 "use client";
 import { FaDownload } from "react-icons/fa";
 
-const exploring = [
+const Building = [
   { label: "Autonomous Agents", note: "tool-using, goal-driven" },
   { label: "Retrieval Systems", note: "RAG that actually retrieves" },
   { label: "Machine Learning", note: "models that generalize" },
@@ -37,23 +37,23 @@ export default function Hero() {
         </p>
 
         <a
-          href="/Resume.pdf"
+          href="/Roger_Demello_CV.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          download="Roger_Demello_Resume.pdf"
+          download="Roger_Demello_CV.pdf"
           className="btn-solid mt-8 group"
         >
           <FaDownload size={13} className="group-hover:translate-y-0.5 transition-transform duration-200" />
-          Download résumé
+          Download CV
         </a>
 
-        {/* Currently exploring */}
+        {/* Currently Building */}
         <div className="mt-12 pt-8 border-t border-card-border grid sm:grid-cols-[auto_1fr] gap-x-12 gap-y-5">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/40 pt-2">
-            Currently<br className="hidden sm:block" /> exploring
+            Currently<br className="hidden sm:block" /> Building
           </p>
           <ul className="space-y-3">
-            {exploring.map((item) => (
+            {Building.map((item) => (
               <li key={item.label} className="group flex items-baseline gap-3.5">
                 <span className="font-mono text-secondary text-sm pt-0.5">↳</span>
                 <span className="font-display text-xl sm:text-2xl text-foreground group-hover:text-primary transition-colors duration-200">

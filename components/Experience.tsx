@@ -88,7 +88,7 @@ export default function Experience() {
           <p className="eyebrow mb-3">Credentials</p>
           <ul className="space-y-2 text-foreground/75">
             <li>AWS Certified Cloud Practitioner - 2025</li>
-            <li>2nd Place, Bytesage AI National Hackathon</li>
+            <li>2nd Place, ByteSize Sage AI National Hackathon</li>
           </ul>
         </div>
       </div>

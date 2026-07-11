@@ -109,7 +109,7 @@ Deployed on **Vercel**; also works on Netlify, AWS, or any Node-friendly host.
 
 ## Resume
 
-Replace `public/Resume.pdf` with your PDF. The hero “Resume” button offers **View** (new tab) and **Download**.
+Replace `public/Roger_Demello_CV.pdf` with your PDF. The hero “Download CV” button downloads on desktop and opens the PDF in a new tab on mobile (iOS Safari ignores the `download` attribute).
 
 ---
 
