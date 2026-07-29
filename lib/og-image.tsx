@@ -135,11 +135,11 @@ export async function renderOgImage() {
           <div style={{ display: "flex", height: 1, background: LINE }} />
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 21 }}>
             <div style={{ display: "flex", gap: 22 }}>
-              {stat("3+", "LLM apps")}
+              {stat("3", "production apps")}
               <span style={{ color: LINE }}>/</span>
               {stat("200+", "users")}
               <span style={{ color: LINE }}>/</span>
-              {stat("87%", "accuracy")}
+              {stat("35%", "lower latency")}
             </div>
             <div style={{ display: "flex", color: INK }}>rogerdemello.tech</div>
           </div>

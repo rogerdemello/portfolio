@@ -1,46 +1,63 @@
 "use client";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
+    title: "ML Guardian",
+    problem: "ML pipelines fail silently - stale upstreams and renamed columns only surface once a KPI moves.",
+    approach: ["Scan → score → incident → write-back loop.", "Freshness, null-rate and schema-drift detection.", "Findings written back to DataHub as tags and glossary terms.", "Generates fail-fast remediation code."],
+    result: "Names the exact downstream models and dashboards at risk, before the damage shows up.",
+    stack: "Python · FastAPI · MCP · DataHub · Gemini · GitHub Actions",
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/ml-guardian" }],
+  },
+  {
+    title: "music-recsys",
+    problem: "Recommender demos rarely survive contact with production constraints.",
+    approach: ["Two-tower embeddings → ANN retrieval → LightGBM ranker.", "Event bus, feature updater, online store, model registry.", "Retrain, embedding-refresh and candidate-precompute jobs.", "Every backend behind a Protocol - local or networked."],
+    result: "Runs CPU-only with zero external services; scales to Kafka and Kubernetes by flipping one config value.",
+    stack: "Python · PyTorch · LightGBM · FastAPI · MLflow · Redis · Kafka · Prometheus",
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/music-recsys" }],
+  },
+  {
     title: "Executive Email Copilot",
     problem: "No reproducible way to benchmark autonomous email-triage agents.",
-    approach: ["Deterministic RL-style inbox simulation.", "Baseline, perturbation, LLM & hybrid policy modes.", "Bounded, numerically stable grading metrics."],
-    result: "Honest benchmarks on classification, prioritization & full inbox management.",
+    approach: ["Deterministic RL-style inbox simulation.", "Four policy modes - baseline, perturbation, LLM, hybrid.", "Bounded, numerically stable grading metrics.", "Telemetry, approval workflows and episode replay."],
+    result: "Honest benchmarks on classification, prioritization and full inbox management.",
     stack: "Python · FastAPI · Pydantic · SQLAlchemy · SciPy · React · OpenAI API",
-    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/autonomous-executive-email-copilot" }],
-  },
-  {
-    title: "SentinelOps",
-    problem: "Ops teams react to incidents after they've already caused damage.",
-    approach: ["Anomaly detection with IsolationForest.", "Multi-agent root-cause analysis.", "Dependency-graph impact modeling.", "Human-approved self-healing."],
-    result: "Shifts operations from reactive firefighting to proactive prevention.",
-    stack: "Python · FastAPI · scikit-learn · statsmodels · NetworkX · React · Azure OpenAI",
-    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/sentinel-ops" }],
-  },
-  {
-    title: "Shadow GTM",
-    problem: "GTM teams can't watch every competitor move in real time.",
-    approach: ["Gemini-grounded competitor page scans.", "Diffs signals against prior snapshots.", "Ranked, source-cited revenue plays.", "Multi-tenant autonomous scheduling."],
-    result: "Live, explainable competitive intelligence grounded in verbatim evidence.",
-    stack: "Next.js · TypeScript · Gemini API · Supabase · Stripe · Recharts · Zod",
-    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/shadow-gtm" }],
-  },
-  {
-    title: "contentflow-ai",
-    problem: "Enterprise content cycles stall on manual compliance and localization.",
-    approach: ["Multi-agent draft → comply → localize → publish.", "Policy-aware RAG with auto-remediation.", "Human-in-the-loop approval gates."],
-    result: "Channel-ready output with audit logging; ~₹2.1 Cr/yr modeled savings.",
-    stack: "Python · LangGraph · scikit-learn RAG · FastAPI · Streamlit · Azure OpenAI",
-    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/contentflow-ai" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/rogerdemello/autonomous-executive-email-copilot" },
+      { label: "Live", href: "https://exec-email-copilot.onrender.com" },
+    ],
   },
   {
     title: "DealSentry",
-    problem: "Enterprises review proposals for compliance by hand - slow and inconsistent.",
-    approach: ["Automated compliance rules engine + risk scoring.", "Document upload with auto-parsing.", "Approval routing with SLA tracking.", "Salesforce / HubSpot / Gmail integrations."],
-    result: "Faster, more consistent sign-off; risky terms flagged before execution.",
-    stack: "React · TypeScript · Express · Prisma · PostgreSQL · OpenAI API · Puppeteer",
-    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/DealSentry" }],
+    problem: "Enterprises review proposals for compliance by hand - slow, inconsistent, expensive.",
+    approach: ["Rules engine paired with AI risk scoring.", "DOCX / PDF ingestion with automated parsing.", "Approval routing with SLA tracking and RBAC.", "Salesforce, HubSpot and Gmail integrations."],
+    result: "Cut manual review effort ~70%; risky terms surface before anything gets signed.",
+    stack: "React · TypeScript · Express · Prisma · PostgreSQL · Azure OpenAI · Puppeteer",
+    links: [
+      { label: "GitHub", href: "https://github.com/rogerdemello/DealSentry" },
+      { label: "Live", href: "https://dealsentry.onrender.com" },
+    ],
+  },
+  {
+    title: "BharatOS",
+    problem: "India's small businesses get voice APIs, not an AI that reasons about the business.",
+    approach: ["Five agents - CFO, Inventory, Marketing, Risk, Growth.", "Business Twin for historical recall.", "Sarvam-105B reasoning over real transaction data.", "Full voice loop - Saaras STT, Bulbul TTS, Mayura translate."],
+    result: "A multilingual AI co-founder for kirana stores, with a network-proof demo mode.",
+    stack: "TypeScript · Node.js · Express · Sarvam-105B · Web Audio API · Tailwind CSS",
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/bharatos" }],
+  },
+  {
+    title: "SplitChain",
+    problem: "Settling a group bill onchain normally costs one transaction per debt.",
+    approach: ["Vision LLM reads receipt line items in any currency.", "Tap who had what; the split is recorded onchain.", "Balances simplified to the fewest transfers needed.", "USD-denominated entry via a Pyth MON/USD feed."],
+    result: "One-tap settleMany clears every debt in a single transaction on Monad.",
+    stack: "Next.js · TypeScript · Solidity · Monad · Pyth · Express · Tailwind CSS",
+    links: [
+      { label: "GitHub", href: "https://github.com/rogerdemello/splitchain" },
+      { label: "Live", href: "https://splitchain.onrender.com" },
+    ],
   },
   {
     title: "Engram",
@@ -48,7 +65,21 @@ const projects = [
     approach: ["User-owned, verifiable memory layer on Sui.", "On-chain consent grants / revokes.", "Seal-encrypted Walrus storage.", "Receipts citing the exact memories used."],
     result: "Portable, auditable AI memory with real-time on-chain consent.",
     stack: "Next.js · TypeScript · Sui Move · Walrus · Seal · Azure OpenAI · Playwright",
-    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/engram" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/rogerdemello/engram" },
+      { label: "Live", href: "https://engram-alpha-sage.vercel.app" },
+    ],
+  },
+  {
+    title: "Shadow GTM",
+    problem: "GTM teams can't watch every competitor move in real time.",
+    approach: ["Gemini-grounded competitor page scans.", "Diffs signals against prior snapshots.", "Ranked, source-cited revenue plays.", "Multi-tenant autonomous scheduling."],
+    result: "Live, explainable competitive intelligence grounded in verbatim evidence.",
+    stack: "Next.js · TypeScript · Gemini API · Supabase · Stripe · Recharts · Zod",
+    links: [
+      { label: "GitHub", href: "https://github.com/rogerdemello/shadow-gtm" },
+      { label: "Live", href: "https://shadow-gtm.vercel.app" },
+    ],
   },
 ];
 
@@ -78,7 +109,9 @@ export default function Projects() {
             key={p.title}
             className="group grid sm:grid-cols-[3.5rem_1fr] gap-x-6 py-12 border-t border-card-border"
           >
-            <span className="font-mono text-sm text-foreground/35 pt-2 group-hover:text-accent transition-colors duration-200">[0{i + 1}]</span>
+            <span className="font-mono text-sm text-foreground/35 pt-2 group-hover:text-accent transition-colors duration-200">
+              [{String(i + 1).padStart(2, "0")}]
+            </span>
             <div>
               <h3 className="font-display text-3xl sm:text-4xl text-foreground leading-tight mb-6 group-hover:text-primary transition-colors duration-200">{p.title}</h3>
 
@@ -102,7 +135,7 @@ export default function Projects() {
               <div className="mt-6 flex flex-wrap gap-6">
                 {p.links.map((l) => (
                   <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                    <FaGithub size={13} /> {l.label}
+                    {l.label === "Live" ? <FaExternalLinkAlt size={12} /> : <FaGithub size={13} />} {l.label}
                   </a>
                 ))}
               </div>

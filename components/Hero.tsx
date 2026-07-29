@@ -4,7 +4,7 @@ import { FaDownload } from "react-icons/fa";
 const Building = [
   { label: "Autonomous Agents", note: "tool-using, goal-driven" },
   { label: "Retrieval Systems", note: "RAG that actually retrieves" },
-  { label: "Machine Learning", note: "models that generalize" },
+  { label: "ML Infrastructure", note: "training through to serving" },
 ];
 
 export default function Hero() {
@@ -33,7 +33,8 @@ export default function Hero() {
 
         <p className="mt-7 text-base sm:text-lg text-foreground/65 max-w-xl leading-relaxed">
           AI Engineer focused on agents, retrieval, and real-world systems -
-          reasoning, retrieving, automating, and scaling.
+          shipped to 200+ users, benchmarked honestly, and built to run
+          without a pile of external services.
         </p>
 
         <a

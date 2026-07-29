@@ -1,23 +1,22 @@
 # Roger Richard Demello - Portfolio
 
-A modern, interactive portfolio built with **Next.js**, **TypeScript**, and **Tailwind CSS**, featuring a dark theme with coral/orange primary and golden accent, smooth animations, particle background, and micro-interactions.
+A personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. Editorial ivory theme - serif display type, monospace metadata, and a fixed sidebar with scroll-spy navigation.
 
-**Live:** [rogerdemello.vercel.app](https://rogerdemello.vercel.app/)
+**Live:** [rogerdemello.tech](https://rogerdemello.tech/)
 
 ---
 
 ## Features
 
-- **Dark theme** - Dark base with coral primary, cyan secondary, and golden accent (semantic CSS variables)
-- **Responsive** - Mobile-first with slide-out nav and touch-friendly targets
-- **Performance** - Next.js (App Router), code splitting, optimized assets
-- **Animations** - Fade-in on scroll, typing role cycle in hero, smooth scroll
-- **Particle background** - Canvas particles with cursor avoidance and connecting lines
-- **Micro-interactions** - Ripples, magnetic hover, 3D tilt on cards, glow pulses
-- **Resume** - Hero dropdown: View or Download PDF
-- **Back to top** - Sticky button with smooth scroll
-- **SEO** - Meta tags, Open Graph, Twitter cards, semantic HTML
-- **Sections** - Hero, About, Skills, Projects, Experience (work + education + certs + competitive coding), GitHub Stats, Contact
+- **Editorial theme** - warm ivory paper, ink foreground, persimmon primary (semantic CSS variables)
+- **Fixed sidebar** - desktop rail with scroll-spy; slide-out drawer on mobile
+- **Sections** - Hero, Projects, Stack, Experience, Writing, Contact, About
+- **Projects** - each written as Problem / Approach / Result / Stack rather than a card grid
+- **Dynamic social cards** - OG and Twitter images generated at the edge (`app/opengraph-image.tsx`, `app/twitter-image.tsx`)
+- **SEO** - metadata, Open Graph, Twitter cards, `sitemap.xml`, `robots.txt`
+- **Accessibility** - skip-to-content link, semantic landmarks, labelled controls
+- **Rover mascot** - cursor-tracking eyes (`components/BugMascot.tsx`)
+- **CV** - hero button downloads the PDF (opens in a new tab on iOS Safari, which ignores `download`)
 
 ---
 
@@ -26,7 +25,7 @@ A modern, interactive portfolio built with **Next.js**, **TypeScript**, and **Ta
 ### Prerequisites
 
 - **Node.js** 18+
-- **npm** or **yarn**
+- **npm**
 
 ### Install and run
 
@@ -37,14 +36,25 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). If the port is in use, Next.js will use 3001 (or the next available port).
+Open [http://localhost:3000](http://localhost:3000). If the port is in use, Next.js picks the next available one.
 
-### Lock / “another instance” error
+### Lock / "another instance" error
 
 If you see *Unable to acquire lock at .next/dev/lock*:
 
-1. Stop any other `npm run dev` (close the terminal or stop the process).
-2. Or delete the lock and try again: remove `.next/dev/lock` (or the whole `.next` folder for a clean rebuild).
+1. Stop any other `npm run dev`.
+2. Or delete `.next/dev/lock` (or the whole `.next` folder for a clean rebuild).
+
+### Low-memory build machines
+
+`next build` fans out one worker per core. On a machine with limited RAM this can fail with `VirtualAlloc failed` or `build worker exited with code: 3221226505`. Cap the workers for a local build:
+
+```js
+// next.config.mjs
+const nextConfig = { experimental: { cpus: 2 }, /* ... */ };
+```
+
+Not needed on Vercel - leave it out of committed config.
 
 ---
 
@@ -52,35 +62,39 @@ If you see *Unable to acquire lock at .next/dev/lock*:
 
 ### Content
 
-| Section        | File                | What to edit                                      |
-|----------------|---------------------|---------------------------------------------------|
-| Hero           | `components/Hero.tsx` | Name, roles (typing), tagline, social links, resume CTA |
-| About          | `components/About.tsx` | Bio, highlights, core competencies                |
-| Skills         | `components/Skills.tsx` | Categories, technologies, “Also proficient in”   |
-| Projects       | `components/Projects.tsx` | Projects list, links, tech stack, demo/code       |
-| Experience     | `components/Experience.tsx` | Work, education, certifications, competitive coding |
-| GitHub Stats   | `components/GitHubStats.tsx` | GitHub username                                  |
-| Contact        | `components/Contact.tsx` | Copy, form behavior (see below)                   |
-| Footer         | `components/Footer.tsx` | Links, copyright                                  |
+| Section    | File                       | What to edit                                          |
+|------------|----------------------------|-------------------------------------------------------|
+| Hero       | `components/Hero.tsx`      | Name, tagline, "Currently Building" list, CV link      |
+| Projects   | `components/Projects.tsx`  | `projects` array - problem, approach, result, stack, links |
+| Stack      | `components/Stack.tsx`     | `groups` array plus the `ICONS` map for per-skill logos |
+| Experience | `components/Experience.tsx`| `timeline`, selected highlights, education, credentials |
+| Writing    | `components/Journal.tsx`   | `entries` array                                        |
+| Contact    | `components/Contact.tsx`   | Copy and form behavior (see below)                     |
+| About      | `components/About.tsx`     | `notes` field-note rows and `principles`               |
+| Sidebar    | `components/Sidebar.tsx`   | Nav items, social links, availability status           |
+| Footer     | `components/Footer.tsx`    | Name, location, back-to-top                            |
+| Metadata   | `app/layout.tsx`           | Title, description, keywords, OG and Twitter metadata  |
+
+Adding a skill to `groups` in `Stack.tsx` without a matching `ICONS` entry renders the label with no logo - add the icon too. Only import icons that exist in the installed `react-icons` version.
 
 ### Styling
 
-- **Theme (colors, spacing):** `app/globals.css` - `:root` variables (primary, accent, secondary, backgrounds, borders).
-- **Tailwind theme:** `tailwind.config.ts` - extended colors and utilities.
-- **Micro-interactions:** `app/micro-interactions.css`.
+- **Theme (colors, spacing):** `app/globals.css` - `:root` variables
+- **Tailwind theme:** `tailwind.config.ts`
+- **Micro-interactions:** `app/micro-interactions.css`
 
 ---
 
 ## Contact form
 
-The form uses **Web3Forms**. To enable it:
+The form uses **Web3Forms**:
 
 1. Get an access key from [web3forms.com](https://web3forms.com).
 2. Add to `.env.local`:
    ```env
    NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key
    ```
-3. See `.env.example` in the repo for a template.
+3. See `.env.example` for a template.
 
 ---
 
@@ -91,25 +105,25 @@ npm run build
 npm start
 ```
 
-Deployed on **Vercel**; also works on Netlify, AWS, or any Node-friendly host.
+Deployed on **Vercel**.
 
 ---
 
 ## Tech stack
 
-- **Framework:** Next.js (App Router)
+- **Framework:** Next.js 16 (App Router, Turbopack)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
+- **Type:** Instrument Serif, Inter, JetBrains Mono (`next/font`)
 - **Icons:** React Icons
-- **Animations:** Custom CSS + Canvas (particles)
 - **Forms:** Web3Forms
 - **Deployment:** Vercel
 
 ---
 
-## Resume
+## CV
 
-Replace `public/Roger_Demello_CV.pdf` with your PDF. The hero “Download CV” button downloads on desktop and opens the PDF in a new tab on mobile (iOS Safari ignores the `download` attribute).
+Replace `public/Roger_Demello_CV.pdf` with your PDF, keeping the filename so the hero link and any external references keep working.
 
 ---
 

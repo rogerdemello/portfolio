@@ -1,8 +1,8 @@
 "use client";
 
 const timeline = [
-  { year: "2025", company: "CFM, RCOEM", role: "Machine Learning Intern", detail: "Sleep-disorder prediction · 87% accuracy · Python, Scikit-learn", last: false },
-  { year: "2026", company: "AI LifeBOT", role: "AI Engineer Intern", detail: "3+ LLM apps & agents · 200+ users · RAG, LangChain", last: false },
+  { year: "May - Jul 2025", company: "CFM, RCOEM", role: "Machine Learning Research Intern", detail: "Data cleaning & preprocessing pipelines · 1,000+ records · 30% faster development", last: false },
+  { year: "Jan - Jun 2026", company: "AI LifeBOT", role: "AI Engineer Intern", detail: "Backend services behind 3 production apps · 200+ users · 35% lower latency · 99.5% uptime", last: false },
   { year: "Next", company: "?", role: "Open to AI Engineering roles", detail: "Let's build something.", last: true },
 ];
 
@@ -59,10 +59,10 @@ export default function Experience() {
         <p className="eyebrow mb-4">Selected highlights</p>
         <ul className="space-y-2.5 text-foreground/80">
           {[
-            "Deployed 3+ production LLM apps and autonomous agents to 200+ users.",
-            "Cut inference latency through optimized retrieval and caching.",
-            "Built a sleep-disorder ML model at 87% accuracy with rigorous validation.",
-            "Designed AWS architecture - EC2, S3, IAM, Auto Scaling, Load Balancer.",
+            "Shipped backend services behind 3 production applications serving 200+ users.",
+            "Cut response latency 35% at 99.5% uptime by optimizing pipeline hot paths.",
+            "Compressed release cycles 50% through automated validation and test pipelines.",
+            "Built data cleaning and preprocessing pipelines over 1,000+ records.",
           ].map((h) => (
             <li key={h} className="flex items-baseline gap-3">
               <span className="text-accent font-mono text-sm">-</span>
@@ -80,14 +80,16 @@ export default function Experience() {
             <span className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/40">CGPA</span>
           </div>
           <ul className="space-y-2 text-foreground/75">
-            <li className="flex justify-between gap-4"><span>B.Tech, Electronics &amp; Communication</span><span className="font-mono text-foreground/50">8.9</span></li>
-            <li className="flex justify-between gap-4"><span>Minor, AI &amp; Machine Learning</span><span className="font-mono text-foreground/50">9.6</span></li>
+            <li className="flex justify-between gap-4"><span>B.Tech, Electronics &amp; Communication</span><span className="font-mono text-foreground/50">8.90</span></li>
+            <li className="flex justify-between gap-4"><span>Minor, AI &amp; Machine Learning</span><span className="font-mono text-foreground/50">9.67</span></li>
           </ul>
+          <p className="font-mono text-xs text-foreground/45 mt-3">RCOEM, Nagpur · 2022 - 2026</p>
         </div>
         <div>
           <p className="eyebrow mb-3">Credentials</p>
           <ul className="space-y-2 text-foreground/75">
-            <li>AWS Certified Cloud Practitioner - 2025</li>
+            <li>AWS Certified Cloud Practitioner - Oct 2025</li>
+            <li>Finalist, Paytm × Sarvam × Logitech AI National Hackathon</li>
             <li>2nd Place, ByteSize Sage AI National Hackathon</li>
           </ul>
         </div>

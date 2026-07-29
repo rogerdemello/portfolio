@@ -1,11 +1,11 @@
 "use client";
 
 const entries = [
+  { date: "Jul 2026", title: "Let the model explain, not decide.", note: "A deterministic engine computes the answer; the LLM only says why. That's how the numbers stay auditable." },
+  { date: "Jul 2026", title: "Offline-first is a feature.", note: "If it needs five services and an API key just to boot, nobody will ever run it." },
+  { date: "Jun 2026", title: "Interfaces beat infrastructure.", note: "Put every backend behind a protocol and local swaps for distributed without touching the logic." },
   { date: "May 2026", title: "Why most RAG systems fail.", note: "It's retrieval quality, not model size, that decides whether the answer is useful." },
-  { date: "Apr 2026", title: "Latency matters more than model size.", note: "Users feel p95 latency. They never see your benchmark scores." },
-  { date: "Apr 2026", title: "Building reliable agents.", note: "Guardrails, evals, and knowing when the agent should stop." },
-  { date: "Mar 2026", title: "Evals are the real moat.", note: "If you can't measure it, you can't improve it - agents especially." },
-  { date: "Feb 2026", title: "Prompt engineering is spec-writing.", note: "Be precise about the contract, not clever with the words." },
+  { date: "Apr 2026", title: "Evals are the real moat.", note: "If you can't measure it, you can't improve it - agents especially." },
 ];
 
 export default function Journal() {

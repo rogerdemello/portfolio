@@ -2,9 +2,9 @@
 
 const notes = [
   { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
-  { year: "2025", line: "Built ML systems.", sub: "Sleep-disorder prediction at 87% accuracy - feature engineering, validation, the boring parts that matter." },
-  { year: "2026", line: "Started building agents.", sub: "Shipped 3+ LLM apps and autonomous agents to 200+ users at AI LifeBOT." },
-  { year: "Now", line: "Obsessed with making AI useful.", sub: "RAG that actually retrieves, agents that actually finish the task." },
+  { year: "2025", line: "Built ML systems.", sub: "Data pipelines over 1,000+ records - preprocessing, validation, the boring parts that matter." },
+  { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - backend services behind 3 production apps, 200+ users, 35% lower latency." },
+  { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Agentic systems, retrieval, and ML infrastructure - open to AI engineering roles." },
 ];
 
 const principles = [
