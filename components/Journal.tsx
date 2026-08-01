@@ -1,38 +1,60 @@
 "use client";
+import Section from "@/components/Section";
+import SectionHeader from "@/components/SectionHeader";
+import FadeIn from "@/components/FadeIn";
 
 const entries = [
-  { date: "Jul 2026", title: "Let the model explain, not decide.", note: "A deterministic engine computes the answer; the LLM only says why. That's how the numbers stay auditable." },
-  { date: "Jul 2026", title: "Offline-first is a feature.", note: "If it needs five services and an API key just to boot, nobody will ever run it." },
-  { date: "Jun 2026", title: "Interfaces beat infrastructure.", note: "Put every backend behind a protocol and local swaps for distributed without touching the logic." },
-  { date: "May 2026", title: "Why most RAG systems fail.", note: "It's retrieval quality, not model size, that decides whether the answer is useful." },
-  { date: "Apr 2026", title: "Evals are the real moat.", note: "If you can't measure it, you can't improve it - agents especially." },
+  {
+    date: "Jul 2026",
+    title: "Let the model explain, not decide.",
+    note: "A deterministic engine computes the answer; the LLM only says why. That's how the numbers stay auditable.",
+  },
+  {
+    date: "Jul 2026",
+    title: "Offline-first is a feature.",
+    note: "If it needs five services and an API key just to boot, nobody will ever run it.",
+  },
+  {
+    date: "Jun 2026",
+    title: "Interfaces beat infrastructure.",
+    note: "Put every backend behind a protocol and local swaps for distributed without touching the logic.",
+  },
+  {
+    date: "May 2026",
+    title: "Why most RAG systems fail.",
+    note: "It's retrieval quality, not model size, that decides whether the answer is useful.",
+  },
+  {
+    date: "Apr 2026",
+    title: "Evals are the real moat.",
+    note: "If you can't measure it, you can't improve it - agents especially.",
+  },
 ];
 
 export default function Journal() {
   return (
-    <section id="writing" className="py-20 md:py-28 border-t border-card-border">
-      <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">04</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Writing</span>
-      </div>
-      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-3 leading-none">
-        Engineering Journal
-      </h2>
-      <p className="text-foreground/60 mb-10 max-w-lg">Recent thoughts - short notes from building things.</p>
+    <Section id="writing">
+      <SectionHeader
+        eyebrow="Writing"
+        title={<>Notes from building things.</>}
+        description="Short opinions, earned the hard way."
+      />
 
-      <ul>
-        {entries.map((e) => (
-          <li key={e.title} className="group grid sm:grid-cols-[8rem_1fr] gap-1 sm:gap-6 py-6 border-t border-card-border">
-            <span className="font-mono text-sm text-foreground/45 sm:pt-1.5">{e.date}</span>
-            <div>
-              <h3 className="font-display text-2xl sm:text-3xl text-foreground leading-tight group-hover:text-primary transition-colors">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {entries.map((e, i) => (
+          <FadeIn key={e.title} delay={Math.min(i, 3) * 70} className="h-full">
+            <article className="card card-hover flex h-full flex-col p-6">
+              <span className="text-[0.8rem] font-bold uppercase tracking-wide text-ink-subtle">
+                {e.date}
+              </span>
+              <h3 className="mt-3 font-display text-[1.2rem] font-extrabold leading-snug track-tight text-ink">
                 {e.title}
               </h3>
-              <p className="text-sm text-foreground/60 mt-2 leading-relaxed max-w-xl">{e.note}</p>
-            </div>
-          </li>
+              <p className="mt-3 text-[0.93rem] leading-relaxed text-ink-muted">{e.note}</p>
+            </article>
+          </FadeIn>
         ))}
-      </ul>
-    </section>
+      </div>
+    </Section>
   );
 }

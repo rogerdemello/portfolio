@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// Editorial display serif for headings - elegant, distinctive, not a default sans.
-const serif = Instrument_Serif({
+// Friendly geometric sans for headings - rounder and warmer than Inter, which
+// keeps the display sizes from feeling like default system type.
+const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
@@ -18,7 +18,7 @@ const inter = Inter({
   display: "swap",
 });
 
-// Monospace for labels, metadata, terminal UI, and code.
+// Monospace, used sparingly for code-flavoured metadata.
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
@@ -87,12 +87,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${serif.variable} ${inter.variable} ${mono.variable}`}
+      className={`scroll-smooth ${display.variable} ${inter.variable} ${mono.variable}`}
     >
-      <body className="bg-background text-foreground font-sans antialiased">
+      <body className="bg-paper font-sans text-ink-muted antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:w-auto focus:h-auto focus:m-0 focus:overflow-visible focus:[clip:auto]"
+          className="sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:m-0 focus:h-auto focus:w-auto focus:overflow-visible focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none focus:[clip:auto]"
         >
           Skip to content
         </a>

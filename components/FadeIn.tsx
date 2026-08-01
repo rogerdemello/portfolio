@@ -1,22 +1,23 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-interface FadeInProps {
-  children: React.ReactNode;
-  delay?: number;
-  duration?: number;
-  direction?: "up" | "down" | "left" | "right" | "none";
-  className?: string;
-}
-
+/**
+ * Reveals its children once they scroll into view, then stops observing.
+ *
+ * `delay` exists so grids can stagger their items - passing `i * 60` down a
+ * list makes the cards cascade instead of snapping in as one block. Keep the
+ * total under ~400ms or the last item feels late.
+ */
 export default function FadeIn({
   children,
   delay = 0,
-  duration = 0.6,
-  direction = "up",
-  className = "",
-}: FadeInProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  className,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,46 +27,27 @@ export default function FadeIn({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const getTransform = () => {
-    if (!isVisible) {
-      switch (direction) {
-        case "up":
-          return "translateY(30px)";
-        case "down":
-          return "translateY(-30px)";
-        case "left":
-          return "translateX(30px)";
-        case "right":
-          return "translateX(-30px)";
-        default:
-          return "none";
-      }
-    }
-    return "none";
-  };
-
   return (
     <div
       ref={ref}
       className={className}
       style={{
-        opacity: isVisible ? 1 : 0,
-        transform: getTransform(),
-        transition: `opacity ${duration}s cubic-bezier(0.33, 1, 0.68, 1) ${delay}s, transform ${duration}s cubic-bezier(0.33, 1, 0.68, 1) ${delay}s`,
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "translateY(18px)",
+        transition:
+          "opacity 0.55s cubic-bezier(0.33,1,0.68,1), transform 0.55s cubic-bezier(0.33,1,0.68,1)",
+        transitionDelay: `${delay}ms`,
       }}
     >
       {children}

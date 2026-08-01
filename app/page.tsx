@@ -1,4 +1,4 @@
-import Sidebar from "@/components/Sidebar";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
@@ -7,25 +7,29 @@ import Experience from "@/components/Experience";
 import Journal from "@/components/Journal";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import FadeIn from "@/components/FadeIn";
 import BugMascot from "@/components/BugMascot";
 
+/**
+ * Sections own their own scroll reveals (header first, then staggered items),
+ * so there is no page-level wrapper here - nesting the two would fade every
+ * card twice.
+ */
 export default function Home() {
   return (
     <>
-      <Sidebar />
-      <main id="main-content" className="lg:pl-60 relative" tabIndex={-1}>
-        <div className="max-w-3xl px-5 sm:px-8 lg:pl-20 lg:pr-8">
-          <Hero />
-          <FadeIn><Projects /></FadeIn>
-          <FadeIn><Stack /></FadeIn>
-          <FadeIn><Experience /></FadeIn>
-          <FadeIn><Journal /></FadeIn>
-          <FadeIn><Contact /></FadeIn>
-          <FadeIn><About /></FadeIn>
-        </div>
-        <Footer />
+      <Navbar />
+
+      <main id="main-content" tabIndex={-1} className="focus:outline-none">
+        <Hero />
+        <Projects />
+        <Stack />
+        <Experience />
+        <Journal />
+        <About />
+        <Contact />
       </main>
+
+      <Footer />
       <BugMascot />
     </>
   );

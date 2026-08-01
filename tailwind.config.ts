@@ -1,5 +1,9 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * "Studio" theme - warm paper, white cards, one coral accent, plus a small set
+ * of muted tints used for project cover art.
+ */
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,90 +13,58 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: {
-          DEFAULT: "hsl(var(--background))",
-          secondary: "hsl(var(--background-secondary))",
-          tertiary: "hsl(var(--background-tertiary))",
+        paper: {
+          DEFAULT: "hsl(var(--paper))",
+          sunk: "hsl(var(--paper-sunk))",
         },
-        foreground: {
-          DEFAULT: "hsl(var(--foreground))",
-          muted: "hsl(var(--foreground) / 0.7)",
+        card: "hsl(var(--card))",
+        edge: {
+          DEFAULT: "hsl(var(--edge))",
+          strong: "hsl(var(--edge-strong))",
         },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          light: "hsl(var(--primary-light))",
-          dark: "hsl(var(--primary-dark))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          light: "hsl(var(--secondary-light))",
-          foreground: "hsl(var(--secondary-foreground))",
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          muted: "hsl(var(--ink-muted))",
+          subtle: "hsl(var(--ink-subtle))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
-          light: "hsl(var(--accent-light))",
-          dark: "hsl(var(--accent-dark))",
-          foreground: "hsl(var(--accent-foreground))",
+          hover: "hsl(var(--accent-hover))",
+          soft: "hsl(var(--accent-soft))",
         },
-        decorative: {
-          DEFAULT: "hsl(var(--decorative))",
-          light: "hsl(var(--decorative-light))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card-bg))",
-          border: "hsl(var(--border-color))",
+        go: {
+          DEFAULT: "hsl(var(--go))",
+          soft: "hsl(var(--go-soft))",
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'Segoe UI', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'Georgia', 'serif'],
-        mono: ['var(--font-mono)', 'JetBrains Mono', 'monospace'],
+        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
       },
-      boxShadow: {
-        hard: '4px 4px 0 0 hsl(var(--foreground))',
-        'hard-sm': '3px 3px 0 0 hsl(var(--foreground))',
-        'hard-lg': '8px 8px 0 0 hsl(var(--foreground))',
-        'hard-primary': '4px 4px 0 0 hsl(var(--primary))',
-      },
-      backgroundImage: {
-        'gradient-ai': 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%)',
-        'gradient-cloud': 'linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%)',
-        'gradient-ml': 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)',
+      borderRadius: {
+        sm: "var(--r-sm)",
+        DEFAULT: "var(--r)",
+        lg: "var(--r-lg)",
       },
       borderColor: {
-        card: "hsl(var(--border-color))",
-      },
-      animation: {
-        blob: 'blob 8s ease-in-out infinite',
-      },
-      keyframes: {
-        blob: {
-          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-        },
-        'fade-in-up': {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
+        DEFAULT: "hsl(var(--edge))",
       },
       transitionTimingFunction: {
-        'smooth': 'cubic-bezier(0.33, 1, 0.68, 1)',
-        'smooth-in-out': 'cubic-bezier(0.65, 0, 0.35, 1)',
+        smooth: "cubic-bezier(0.33, 1, 0.68, 1)",
       },
-      transitionDuration: {
-        '350': '350ms',
-        '400': '400ms',
+      keyframes: {
+        "pulse-dot": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.4" },
+        },
       },
-      spacing: {
-        '18': '4.5rem',
-        '22': '5.5rem',
-        '30': '7.5rem',
+      animation: {
+        "pulse-dot": "pulse-dot 2.4s ease-in-out infinite",
       },
       maxWidth: {
-        '8xl': '88rem',
-        '9xl': '96rem',
+        content: "72rem",
+        prose: "42rem",
       },
     },
   },

@@ -1,147 +1,220 @@
-@import './micro-interactions.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*
- * "Technical Notebook + Research Lab" design system.
- * Warm ivory paper, charcoal ink, burnt-orange accent, forest green + vintage gold.
- * Minimal, editorial, restrained - closer to Linear / Notion / Stripe than a template.
- * HSL channels so Tailwind's `hsl(var(--x))` mappings keep working.
+ * "Studio" design system.
+ *
+ * Warm off-white paper, white cards lifted on soft layered shadows, generous
+ * whitespace, rounded corners, and one friendly coral accent. Colour arrives
+ * through soft tinted surfaces rather than gradients.
+ *
+ * HSL channels so Tailwind's `hsl(var(--x))` mappings and opacity modifiers
+ * (`text-ink/60`) both work.
  */
 :root {
   /* Paper + surfaces */
-  --background: 39 39% 95%;            /* #F7F3EC warm ivory */
-  --background-secondary: 38 32% 91%;  /* slightly deeper ivory */
-  --background-tertiary: 38 30% 86%;   /* inset wells */
-  --card-bg: 43 50% 98%;               /* near-white warm */
-  --border-color: 38 18% 80%;          /* soft tan hairline */
+  --paper: 40 27% 98%;          /* #FBFAF8 page */
+  --paper-sunk: 40 23% 95%;     /* #F5F3EF wells, alternating bands */
+  --card: 0 0% 100%;            /* #FFFFFF lifted surfaces */
+
+  /* Edges */
+  --edge: 40 17% 90%;           /* #E9E6E0 hairline */
+  --edge-strong: 40 14% 83%;    /* #DAD6CE emphasised */
 
   /* Ink */
-  --foreground: 0 0% 10%;              /* #1A1A1A deep charcoal */
+  --ink: 40 6% 10%;             /* #1B1A18 headings */
+  --ink-muted: 38 5% 40%;       /* #6B6760 body copy */
+  --ink-subtle: 36 5% 56%;      /* #96918A captions, meta */
 
-  /* Accent - Burnt orange #C75B12 */
-  --primary: 24 83% 43%;
-  --primary-light: 24 78% 51%;
-  --primary-dark: 24 85% 35%;
-  --primary-foreground: 39 40% 96%;
+  /* Accent - warm coral. Friendly, and not the default indigo. */
+  --accent: 11 84% 59%;         /* #EE5D3D */
+  --accent-hover: 11 72% 51%;   /* #DC4A2A */
+  --accent-soft: 12 83% 95%;    /* #FDEDE9 tinted fills */
 
-  /* Secondary - Forest green #234B35 */
-  --secondary: 147 36% 22%;
-  --secondary-light: 147 30% 31%;
-  --secondary-foreground: 39 40% 96%;
+  /* Positive / availability */
+  --go: 152 45% 36%;            /* #328058 */
+  --go-soft: 152 40% 94%;
 
-  /* Highlight - Vintage gold #C8A54B */
-  --accent: 43 53% 54%;
-  --accent-light: 43 60% 63%;
-  --accent-dark: 41 50% 44%;
-  --accent-foreground: 0 0% 10%;
+  /* Soft layered elevation. Two shadows each: a tight contact shadow and a
+     wide ambient one - that pairing is what makes a card look lifted rather
+     than outlined. */
+  --lift-sm: 0 1px 2px hsl(40 8% 12% / 0.04), 0 1px 3px hsl(40 8% 12% / 0.05);
+  --lift: 0 2px 4px hsl(40 8% 12% / 0.04), 0 8px 20px hsl(40 8% 12% / 0.07);
+  --lift-lg: 0 4px 10px hsl(40 8% 12% / 0.05), 0 18px 44px hsl(40 8% 12% / 0.10);
 
-  /* Decorative - deep green variant */
-  --decorative: 147 36% 28%;
-  --decorative-light: 147 30% 38%;
+  /* Shape */
+  --r-sm: 10px;
+  --r: 16px;
+  --r-lg: 22px;
 
-  /* Motion */
-  --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
-  --transition-duration: 0.3s;
-}
+  --ease: cubic-bezier(0.33, 1, 0.68, 1);
 
-body {
-  color: hsl(var(--foreground));
-  background-color: hsl(var(--background));
-  /* Barely-there notebook grain for warmth - stays "clean", adds paper feel. */
-  background-image: radial-gradient(hsl(var(--foreground) / 0.022) 1px, transparent 1px);
-  background-size: 26px 26px;
-  font-family: var(--font-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  /* Aliases so BugMascot's CSS-variable lookups keep resolving. */
+  --primary: var(--accent);
+  --foreground: var(--ink);
+  --background: var(--paper);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  color: hsl(var(--ink-muted));
+  background-color: hsl(var(--paper));
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  color: hsl(var(--ink));
 }
 
 ::selection {
-  background: hsl(var(--primary) / 0.22);
-  color: hsl(var(--foreground));
+  background: hsl(var(--accent) / 0.18);
+  color: hsl(var(--ink));
 }
-
-/* Legacy hooks kept safe */
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
-.gradient-text { color: hsl(var(--primary)); }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .font-display { font-family: var(--font-display), Georgia, serif; }
+  .font-display { font-family: var(--font-display), 'Plus Jakarta Sans', system-ui, sans-serif; }
   .font-mono { font-family: var(--font-mono), ui-monospace, monospace; }
+
+  /* Optical tracking for large display sizes. */
+  .track-tight { letter-spacing: -0.025em; }
+  .track-tighter { letter-spacing: -0.038em; }
+
+  .lift-sm { box-shadow: var(--lift-sm); }
+  .lift { box-shadow: var(--lift); }
+  .lift-lg { box-shadow: var(--lift-lg); }
 }
 
 @layer components {
-  /* Monospace eyebrow / kicker label. */
+  /* Lifted white surface - the workhorse of the whole layout. */
+  .card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--edge));
+    border-radius: var(--r);
+    box-shadow: var(--lift-sm);
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease),
+                border-color 0.3s var(--ease);
+  }
+
+  /* Cards that respond to the cursor. */
+  .card-hover:hover {
+    box-shadow: var(--lift);
+    border-color: hsl(var(--edge-strong));
+    transform: translateY(-3px);
+  }
+
+  /* Small rounded label above a heading. */
   .eyebrow {
-    font-family: var(--font-mono), monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.68rem;
-    font-weight: 500;
-    color: hsl(var(--primary));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: hsl(var(--accent-soft));
+    color: hsl(var(--accent-hover));
+    border-radius: 999px;
+    padding: 0.32rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
-  /* Minimal surface - hairline border, no heavy shadow. */
-  .panel {
-    background: hsl(var(--card-bg));
-    border: 1px solid hsl(var(--border-color));
-    border-radius: 12px;
-  }
-
-  /* Solid button - charcoal fill, warms to burnt orange on hover. */
-  .btn-solid {
+  /* Primary action. */
+  .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
-    border: 1px solid hsl(var(--foreground));
-    border-radius: 9px;
-    padding: 0.62rem 1.1rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 1;
-    transition: background 0.2s var(--ease-out-smooth), color 0.2s, border-color 0.2s;
+    background: hsl(var(--accent));
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 0.72rem 1.4rem;
+    font-size: 0.925rem;
+    font-weight: 600;
+    line-height: 1.2;
+    box-shadow: var(--lift-sm);
+    transition: background 0.2s var(--ease), box-shadow 0.2s var(--ease),
+                transform 0.2s var(--ease);
   }
-  .btn-solid:hover { background: hsl(var(--primary)); border-color: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+  .btn:hover { background: hsl(var(--accent-hover)); box-shadow: var(--lift); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
 
-  /* Outline button. */
-  .btn-outline {
+  /* Secondary action - white pill. */
+  .btn-soft {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: transparent;
-    color: hsl(var(--foreground));
-    border: 1px solid hsl(var(--foreground) / 0.25);
-    border-radius: 9px;
-    padding: 0.62rem 1.1rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 1;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    background: hsl(var(--card));
+    color: hsl(var(--ink));
+    border: 1px solid hsl(var(--edge-strong));
+    border-radius: 999px;
+    padding: 0.72rem 1.4rem;
+    font-size: 0.925rem;
+    font-weight: 600;
+    line-height: 1.2;
+    box-shadow: var(--lift-sm);
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease),
+                transform 0.2s var(--ease);
   }
-  .btn-outline:hover { border-color: hsl(var(--primary)); color: hsl(var(--primary)); }
+  .btn-soft:hover { box-shadow: var(--lift); border-color: hsl(var(--ink-subtle)); transform: translateY(-1px); }
+  .btn-soft:active { transform: translateY(0); }
 
-  /* Inline "→ label" action link. */
-  .link-arrow {
+  /* Inline text link with a travelling arrow. */
+  .link-go {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-family: var(--font-mono), monospace;
-    font-size: 0.82rem;
-    color: hsl(var(--foreground) / 0.75);
-    transition: color 0.2s, gap 0.2s;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--ink));
+    transition: color 0.2s var(--ease), gap 0.2s var(--ease);
   }
-  .link-arrow:hover { color: hsl(var(--primary)); gap: 0.6rem; }
+  .link-go:hover { color: hsl(var(--accent-hover)); gap: 0.6rem; }
+
+  /* Tech pill used in stack lists and project footers. */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--edge));
+    border-radius: 999px;
+    padding: 0.36rem 0.75rem;
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: hsl(var(--ink-muted));
+    transition: border-color 0.2s var(--ease), color 0.2s var(--ease),
+                box-shadow 0.2s var(--ease);
+  }
+  .pill:hover {
+    color: hsl(var(--ink));
+    border-color: hsl(var(--edge-strong));
+    box-shadow: var(--lift-sm);
+  }
+}
+
+/* Keyboard focus. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

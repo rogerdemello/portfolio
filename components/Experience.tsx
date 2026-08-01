@@ -1,99 +1,157 @@
 "use client";
+import { FaGraduationCap, FaAward, FaArrowRight } from "react-icons/fa6";
+import Section from "@/components/Section";
+import SectionHeader from "@/components/SectionHeader";
+import FadeIn from "@/components/FadeIn";
 
 const timeline = [
-  { year: "May - Jul 2025", company: "CFM, RCOEM", role: "Machine Learning Research Intern", detail: "Data cleaning & preprocessing pipelines · 1,000+ records · 30% faster development", last: false },
-  { year: "Jan - Jun 2026", company: "AI LifeBOT", role: "AI Engineer Intern", detail: "Backend services behind 3 production apps · 200+ users · 35% lower latency · 99.5% uptime", last: false },
-  { year: "Next", company: "?", role: "Open to AI Engineering roles", detail: "Let's build something.", last: true },
+  {
+    initials: "AL",
+    tint: "bg-[#F6ECEA] text-[#9C5544]",
+    period: "Jan — Jun 2026",
+    company: "AI LifeBOT",
+    role: "AI Engineer Intern",
+    points: [
+      "Shipped backend services behind 3 production applications serving 200+ users.",
+      "Cut response latency 35% at 99.5% uptime by optimizing pipeline hot paths.",
+      "Compressed release cycles 50% through automated validation and test pipelines.",
+    ],
+    current: false,
+  },
+  {
+    initials: "CF",
+    tint: "bg-[#EEF1F7] text-[#41597D]",
+    period: "May — Jul 2025",
+    company: "CFM, RCOEM",
+    role: "Machine Learning Research Intern",
+    points: [
+      "Built data cleaning and preprocessing pipelines over 1,000+ records.",
+      "Cut development time 30% by standardising the validation workflow.",
+    ],
+    current: false,
+  },
+];
+
+const education = [
+  { title: "B.Tech, Electronics & Communication", meta: "RCOEM, Nagpur · 2022 — 2026", score: "8.90" },
+  { title: "Minor, AI & Machine Learning", meta: "RCOEM, Nagpur", score: "9.67" },
+];
+
+const credentials = [
+  { title: "AWS Certified Cloud Practitioner", meta: "Issued Oct 2025" },
+  { title: "Finalist — Paytm × Sarvam × Logitech AI Hackathon", meta: "National" },
+  { title: "2nd Place — ByteSize Sage AI Hackathon", meta: "National" },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 md:py-28 border-t border-card-border">
-      <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">03</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Experience</span>
-      </div>
-      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-12 leading-none">
-        Timeline
-      </h2>
+    <Section id="experience" tone="sunk">
+      <SectionHeader
+        eyebrow="Experience"
+        title={<>Where I&rsquo;ve worked.</>}
+        description="Two internships, both spent on things that ran in production rather than in a notebook."
+      />
 
-      {/* Desktop: horizontal */}
-      <div className="hidden md:block relative">
-        <div aria-hidden className="absolute top-[7px] left-0 right-0 h-px bg-foreground/20" />
-        <ol className="grid grid-cols-3">
-          {timeline.map((t) => (
-            <li key={t.year} className="relative pr-10">
+      <div className="grid gap-5">
+        {timeline.map((t, i) => (
+          <FadeIn key={t.company} delay={i * 80}>
+          <div className="card card-hover p-6 sm:p-7">
+            <div className="flex flex-wrap items-center gap-4">
               <span
-                className={`block w-4 h-4 rounded-full relative z-10 mb-6 ${
-                  t.last ? "bg-background border-2 border-dashed border-accent" : "bg-background border-2 border-primary"
-                }`}
-              />
-              <p className={`font-mono text-sm mb-1.5 ${t.last ? "text-accent" : "text-primary"}`}>{t.year}</p>
-              <h3 className="font-display text-2xl text-foreground leading-tight">{t.company}</h3>
-              <p className="text-sm text-foreground/70 mt-1">{t.role}</p>
-              <p className="font-mono text-xs text-foreground/50 mt-3 leading-relaxed">{t.detail}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
+                className={`grid h-12 w-12 shrink-0 place-items-center rounded-sm font-display text-sm font-extrabold ${t.tint}`}
+              >
+                {t.initials}
+              </span>
 
-      {/* Mobile: vertical */}
-      <ol className="md:hidden relative border-l border-foreground/20 ml-2 pl-7 space-y-9">
-        {timeline.map((t) => (
-          <li key={t.year} className="relative">
-            <span
-              className={`absolute -left-[2.35rem] top-0.5 w-4 h-4 rounded-full ${
-                t.last ? "bg-background border-2 border-dashed border-accent" : "bg-background border-2 border-primary"
-              }`}
-            />
-            <p className={`font-mono text-sm mb-1 ${t.last ? "text-accent" : "text-primary"}`}>{t.year}</p>
-            <h3 className="font-display text-2xl text-foreground leading-tight">{t.company}</h3>
-            <p className="text-sm text-foreground/70 mt-1">{t.role}</p>
-            <p className="font-mono text-xs text-foreground/50 mt-2 leading-relaxed">{t.detail}</p>
-          </li>
-        ))}
-      </ol>
+              <div className="min-w-0">
+                <h3 className="font-display text-[1.25rem] font-extrabold track-tight text-ink">
+                  {t.company}
+                </h3>
+                <p className="text-[0.95rem] text-ink-muted">{t.role}</p>
+              </div>
 
-      {/* Selected highlights */}
-      <div className="mt-14">
-        <p className="eyebrow mb-4">Selected highlights</p>
-        <ul className="space-y-2.5 text-foreground/80">
-          {[
-            "Shipped backend services behind 3 production applications serving 200+ users.",
-            "Cut response latency 35% at 99.5% uptime by optimizing pipeline hot paths.",
-            "Compressed release cycles 50% through automated validation and test pipelines.",
-            "Built data cleaning and preprocessing pipelines over 1,000+ records.",
-          ].map((h) => (
-            <li key={h} className="flex items-baseline gap-3">
-              <span className="text-accent font-mono text-sm">-</span>
-              <span>{h}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+              <span className="ml-auto rounded-full border border-edge bg-paper px-3 py-1.5 text-[0.8rem] font-semibold text-ink-subtle">
+                {t.period}
+              </span>
+            </div>
 
-      {/* Footnote: education + certs as terse lines */}
-      <div className="mt-12 grid sm:grid-cols-2 gap-x-10 gap-y-6 text-sm">
-        <div>
-          <div className="flex items-baseline justify-between mb-3">
-            <p className="eyebrow">Education</p>
-            <span className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/40">CGPA</span>
+            <ul className="mt-6 space-y-2.5 border-t border-edge pt-5">
+              {t.points.map((p) => (
+                <li key={p} className="flex gap-3 text-[0.95rem] leading-relaxed text-ink-muted">
+                  <FaArrowRight size={11} className="mt-1.5 shrink-0 text-accent" />
+                  {p}
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="space-y-2 text-foreground/75">
-            <li className="flex justify-between gap-4"><span>B.Tech, Electronics &amp; Communication</span><span className="font-mono text-foreground/50">8.90</span></li>
-            <li className="flex justify-between gap-4"><span>Minor, AI &amp; Machine Learning</span><span className="font-mono text-foreground/50">9.67</span></li>
-          </ul>
-          <p className="font-mono text-xs text-foreground/45 mt-3">RCOEM, Nagpur · 2022 - 2026</p>
+          </FadeIn>
+        ))}
+
+        {/* Open slot - reads as the natural next card rather than a dead end. */}
+        <FadeIn delay={160}>
+        <div className="rounded-[var(--r)] border border-dashed border-edge-strong p-6 text-center sm:p-8">
+          <p className="font-display text-[1.15rem] font-bold text-ink">
+            Open to AI engineering roles
+          </p>
+          <p className="mx-auto mt-2 max-w-md text-[0.95rem] text-ink-muted">
+            Graduated and building at full speed. If you&rsquo;re hiring for agents,
+            retrieval or ML infrastructure, let&rsquo;s talk.
+          </p>
+          <a href="#contact" className="btn mt-5">
+            Get in touch
+            <FaArrowRight size={13} />
+          </a>
         </div>
-        <div>
-          <p className="eyebrow mb-3">Credentials</p>
-          <ul className="space-y-2 text-foreground/75">
-            <li>AWS Certified Cloud Practitioner - Oct 2025</li>
-            <li>Finalist, Paytm × Sarvam × Logitech AI National Hackathon</li>
-            <li>2nd Place, ByteSize Sage AI National Hackathon</li>
-          </ul>
-        </div>
+        </FadeIn>
       </div>
-    </section>
+
+      {/* Education + credentials */}
+      <div className="mt-6 grid gap-5 md:grid-cols-2">
+        <FadeIn className="h-full">
+        <div className="card h-full p-6">
+          <div className="flex items-center gap-3">
+            <span className="grid h-9 w-9 place-items-center rounded-sm bg-[#EDF2EC] text-[#3F6B4F]">
+              <FaGraduationCap size={15} />
+            </span>
+            <h3 className="font-display text-[1.05rem] font-bold text-ink">Education</h3>
+          </div>
+
+          <ul className="mt-5 space-y-4">
+            {education.map((e) => (
+              <li key={e.title} className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-[0.95rem] font-semibold text-ink">{e.title}</p>
+                  <p className="mt-0.5 text-[0.85rem] text-ink-subtle">{e.meta}</p>
+                </div>
+                <span className="shrink-0 rounded-full bg-paper-sunk px-2.5 py-1 font-display text-[0.85rem] font-bold text-ink">
+                  {e.score}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        </FadeIn>
+
+        <FadeIn delay={80} className="h-full">
+        <div className="card h-full p-6">
+          <div className="flex items-center gap-3">
+            <span className="grid h-9 w-9 place-items-center rounded-sm bg-[#F7EFE6] text-[#8A6238]">
+              <FaAward size={15} />
+            </span>
+            <h3 className="font-display text-[1.05rem] font-bold text-ink">Credentials</h3>
+          </div>
+
+          <ul className="mt-5 space-y-4">
+            {credentials.map((c) => (
+              <li key={c.title}>
+                <p className="text-[0.95rem] font-semibold text-ink">{c.title}</p>
+                <p className="mt-0.5 text-[0.85rem] text-ink-subtle">{c.meta}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        </FadeIn>
+      </div>
+    </Section>
   );
 }

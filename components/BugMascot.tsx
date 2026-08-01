@@ -42,6 +42,11 @@ const HIGHLIGHT_R = 9;
 const LID_R = 50; // orange blink-lid disc (slightly larger than the white)
 const EYE_LID_TOP = 47; // y of the top of the eye, used as the blink pivot
 
+// The pupil and eye outline are drawn on a white disc, so they need a fixed
+// dark ink rather than `--fg` - which is near-white on this theme and would
+// make the eyes disappear.
+const EYE_INK = "#111318";
+
 // Motion limits / feel.
 const MAX_PUPIL_X = 11; // furthest a pupil travels horizontally inside the eye
 const MAX_PUPIL_Y = 9; // ...and vertically
@@ -300,11 +305,11 @@ export default function BugMascot() {
       {/* Speech bubble - visual only, never blocks clicks. */}
       {bubble && (
         <div
-          className="absolute bottom-full right-0 mb-3 w-max max-w-[230px] panel px-3 py-2 font-mono text-[0.72rem] leading-snug text-foreground/85 shadow-sm"
+          className="card absolute bottom-full right-0 mb-3 w-max max-w-[230px] px-3.5 py-2.5 text-[0.8rem] font-medium leading-snug text-ink"
           style={{ pointerEvents: "none" }}
         >
           {bubble}
-          <span className="absolute -bottom-[6px] right-8 w-3 h-3 rotate-45 bg-card border-r border-b border-card-border" />
+          <span className="absolute -bottom-[6px] right-8 h-3 w-3 rotate-45 border-b border-r border-edge bg-card" />
         </div>
       )}
 
@@ -313,7 +318,7 @@ export default function BugMascot() {
         style={{
           width: "clamp(160px, 13vw, 220px)",
           pointerEvents: "auto",
-          filter: "drop-shadow(0 5px 12px hsl(var(--foreground) / 0.18))",
+          filter: "drop-shadow(0 8px 20px hsl(40 8% 12% / 0.16))",
         }}
         onMouseEnter={() => { hoveredRef.current = true; setBubble(MESSAGES[0]); }}
         onMouseLeave={() => { hoveredRef.current = false; setBubble(null); }}
@@ -343,9 +348,9 @@ export default function BugMascot() {
                 tracking pupil, then orange blink lid on top. */}
             {/* Left eye */}
             <g>
-              <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--foreground))" strokeWidth={4} />
+              <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={EYE_WHITE_R} fill="#fff" stroke={EYE_INK} strokeWidth={4} />
               <g ref={pupilLRef}>
-                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={PUPIL_R} fill="hsl(var(--foreground))" />
+                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={PUPIL_R} fill={EYE_INK} />
                 <circle cx={EYE_LEFT.x - PUPIL_R * 0.35} cy={EYE_LEFT.y - PUPIL_R * 0.35} r={HIGHLIGHT_R} fill="#fff" />
               </g>
               {/* Lid: orange disc that scales down over the eye when blinking.
@@ -357,9 +362,9 @@ export default function BugMascot() {
             </g>
             {/* Right eye */}
             <g>
-              <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--foreground))" strokeWidth={4} />
+              <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={EYE_WHITE_R} fill="#fff" stroke={EYE_INK} strokeWidth={4} />
               <g ref={pupilRRef}>
-                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={PUPIL_R} fill="hsl(var(--foreground))" />
+                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={PUPIL_R} fill={EYE_INK} />
                 <circle cx={EYE_RIGHT.x - PUPIL_R * 0.35} cy={EYE_RIGHT.y - PUPIL_R * 0.35} r={HIGHLIGHT_R} fill="#fff" />
               </g>
               <g ref={lidRRef} transform="scale(1 0)">
