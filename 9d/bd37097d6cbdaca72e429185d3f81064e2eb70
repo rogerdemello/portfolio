@@ -1,0 +1,175 @@
+components/Footer.tsx
+  s_6aa81a05f786d8::t_4333b4126bf7bf 6
+app/icon.tsx
+  s_6aa81a05f786d8::t_e19f20eae34286 16,18
+components/Journal.tsx
+  s_6aa81a05f786d8::t_24fdded276f49b 16
+components/Projects.tsx
+  s_6aa81a05f786d8::t_f44c29cda49db8 90
+  s_6aa81a05f786d8::t_e03d1c79c27ca7 86,88-89,100,102,105-107,111-121,123,126-127,132-153
+app/page.tsx
+  s_6aa81a05f786d8::t_7e666b457d6b7a 18
+components/Experience.tsx
+  s_6aa81a05f786d8::t_bf32c2fd462f05 15
+  s_6aa81a05f786d8::t_d554751f71680d 91
+components/About.tsx
+  s_6aa81a05f786d8::t_20949ed1971be2 22
+lib/og-image.tsx
+  s_6aa81a05f786d8::t_8875bf28fb6448 57,72,74-75,84,96,100-101,117,121,123,125
+  s_6aa81a05f786d8::t_4e5942b49fb108 4-5,10-15
+app/layout.tsx
+  s_6aa81a05f786d8::t_a1c44fb3c02be9 1
+  s_6aa81a05f786d8::t_6e2150dfa64eca 28-33
+components/Hero.tsx
+  s_6aa81a05f786d8::t_051b3bc19212ce 60
+  s_6aa81a05f786d8::t_200e09d8828ea7 10-17,20,22,31-42,49,57-59,61-65,71,73,78-79,85,89,97
+  s_6aa81a05f786d8::t_3cb4937153a6d1 55-56
+  s_6aa81a05f786d8::t_cd1b406ba0239f 23,25
+app/globals.css
+  s_6aa81a05f786d8::t_1153f1f7a4edc9 117-118
+  s_6aa81a05f786d8::t_41f835a2ef2ec7 8-11,15-22,25,27-31,33-36,38-42,44-46,57-61,72,85-93,107,111-116,119-155,157,159,165-168,170-171,174-179,189-191,193-194,197,201,207-209,211
+components/Stack.tsx
+  s_6aa81a05f786d8::t_172aa6a9c63598 79,84,89-90,94-95
+components/Sidebar.tsx
+  s_6aa81a05f786d8::t_affb80b50f85dd 129
+  s_6aa81a05f786d8::t_08016147ce7742 180
+  s_6aa81a05f786d8::t_c4d2182d060e45 86-99
+  s_6aa81a05f786d8::t_d500cff16d6d8c 3
+  s_6aa81a05f786d8::t_2976baef63fca6 141-159
+  s_6aa81a05f786d8::t_2582e3826abf3a 165
+components/Contact.tsx
+  s_6aa81a05f786d8::t_a8d226b99993b5 14,21,23-27,31,34-37,43,48,56-59
+components/BugMascot.tsx
+  s_6aa81a05f786d8::t_45341ab5fe8fa4 346,360
+  s_6aa81a05f786d8::t_040dc2b3ef79fb 348,362
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "autter_version": "1.6.9",
+  "base_commit_sha": "9dbd37097d6cbdaca72e429185d3f81064e2eb70",
+  "branch": "main",
+  "prompts": {
+    "s_6aa81a05f786d8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3572691d-5652-4982-8f39-70a061b70aaa",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:7a98ca7b1ebe9ac9d29cd08c99f1637242375e2543df6a5dfa784e2ab7827941",
+      "total_additions": 325,
+      "total_deletions": 191,
+      "accepted_lines": 1490,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_6aa81a05f786d8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3572691d-5652-4982-8f39-70a061b70aaa",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:7a98ca7b1ebe9ac9d29cd08c99f1637242375e2543df6a5dfa784e2ab7827941",
+      "stats": {
+        "total_additions": 325,
+        "total_deletions": 191,
+        "accepted_lines": 1490,
+        "overriden_lines": 0,
+        "files": {
+          "app/globals.css": {
+            "total_additions": 121,
+            "total_deletions": 56,
+            "accepted_lines": 120,
+            "overriden_lines": 0
+          },
+          "app/icon.tsx": {
+            "total_additions": 2,
+            "total_deletions": 2,
+            "accepted_lines": 2,
+            "overriden_lines": 0
+          },
+          "app/layout.tsx": {
+            "total_additions": 7,
+            "total_deletions": 1,
+            "accepted_lines": 7,
+            "overriden_lines": 0
+          },
+          "app/page.tsx": {
+            "total_additions": 1,
+            "total_deletions": 1,
+            "accepted_lines": 32,
+            "overriden_lines": 0
+          },
+          "components/About.tsx": {
+            "total_additions": 1,
+            "total_deletions": 1,
+            "accepted_lines": 58,
+            "overriden_lines": 0
+          },
+          "components/BugMascot.tsx": {
+            "total_additions": 4,
+            "total_deletions": 4,
+            "accepted_lines": 374,
+            "overriden_lines": 0
+          },
+          "components/Contact.tsx": {
+            "total_additions": 18,
+            "total_deletions": 17,
+            "accepted_lines": 18,
+            "overriden_lines": 0
+          },
+          "components/Experience.tsx": {
+            "total_additions": 2,
+            "total_deletions": 2,
+            "accepted_lines": 110,
+            "overriden_lines": 0
+          },
+          "components/Footer.tsx": {
+            "total_additions": 1,
+            "total_deletions": 1,
+            "accepted_lines": 22,
+            "overriden_lines": 0
+          },
+          "components/Hero.tsx": {
+            "total_additions": 56,
+            "total_deletions": 30,
+            "accepted_lines": 103,
+            "overriden_lines": 0
+          },
+          "components/Journal.tsx": {
+            "total_additions": 1,
+            "total_deletions": 1,
+            "accepted_lines": 38,
+            "overriden_lines": 0
+          },
+          "components/Projects.tsx": {
+            "total_additions": 48,
+            "total_deletions": 37,
+            "accepted_lines": 159,
+            "overriden_lines": 0
+          },
+          "components/Sidebar.tsx": {
+            "total_additions": 37,
+            "total_deletions": 9,
+            "accepted_lines": 190,
+            "overriden_lines": 0
+          },
+          "components/Stack.tsx": {
+            "total_additions": 6,
+            "total_deletions": 9,
+            "accepted_lines": 106,
+            "overriden_lines": 0
+          },
+          "lib/og-image.tsx": {
+            "total_additions": 20,
+            "total_deletions": 20,
+            "accepted_lines": 151,
+            "overriden_lines": 0
+          }
+        }
+      }
+    }
+  }
+}
