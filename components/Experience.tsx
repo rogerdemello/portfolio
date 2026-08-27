@@ -12,7 +12,7 @@ export default function Experience() {
     <section id="experience" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
         <span className="font-mono text-sm text-accent">03</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Experience</span>
+        <span className="readout">Experience</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-12 leading-none">
         Timeline
@@ -88,7 +88,7 @@ export default function Experience() {
         <div>
           <div className="flex items-baseline justify-between mb-3">
             <p className="eyebrow">Education</p>
-            <span className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/40">CGPA</span>
+            <span className="readout">CGPA</span>
           </div>
           <ul className="space-y-2 text-foreground/75">
             <li className="flex justify-between gap-4"><span>B.Tech, Electronics &amp; Communication</span><span className="font-mono text-foreground/50">8.90</span></li>

@@ -83,11 +83,11 @@ const projects = [
   },
 ];
 
-function Row({ label, color, children }: { label: string; color: string; children: React.ReactNode }) {
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="grid sm:grid-cols-[7rem_1fr] gap-1 sm:gap-4">
-      <dt className={`font-mono text-xs uppercase tracking-[0.16em] pt-1 ${color}`}>{label}</dt>
-      <dd className="text-foreground/85">{children}</dd>
+    <div className="grid sm:grid-cols-[5.5rem_1fr] gap-1 sm:gap-5">
+      <dt className="readout sm:pt-1">{label}</dt>
+      <dd className="text-foreground/80 leading-relaxed max-w-2xl">{children}</dd>
     </div>
   );
 }
@@ -97,49 +97,60 @@ export default function Projects() {
     <section id="projects" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
         <span className="font-mono text-sm text-accent">01</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Projects</span>
+        <span className="readout">Projects</span>
       </div>
-      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-4 leading-none">
+      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-2 leading-none">
         Projects
       </h2>
+      <p className="font-mono text-xs text-foreground/40 mb-4">
+        {projects.length} shipped · ordered by what a recruiter can verify fastest
+      </p>
 
       <div>
         {projects.map((p, i) => (
-          <article
-            key={p.title}
-            className="group grid sm:grid-cols-[3.5rem_1fr] gap-x-6 py-12 border-t border-card-border"
-          >
-            <span className="font-mono text-sm text-foreground/35 pt-2 group-hover:text-accent transition-colors duration-200">
-              [{String(i + 1).padStart(2, "0")}]
-            </span>
-            <div>
-              <h3 className="font-display text-3xl sm:text-4xl text-foreground leading-tight mb-6 group-hover:text-primary transition-colors duration-200">{p.title}</h3>
+          <article key={p.title} className="group py-11 border-t border-card-border">
+            {/* Header: index + title on the left, actions on the right */}
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3">
+              <h3 className="flex items-baseline gap-3.5 min-w-0">
+                <span className="font-mono text-sm text-accent/70 group-hover:text-accent transition-colors duration-200 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-3xl sm:text-4xl text-foreground leading-tight group-hover:text-primary transition-colors duration-200">
+                  {p.title}
+                </span>
+              </h3>
 
-              <dl className="space-y-4">
-                <Row label="Problem" color="text-foreground/45">{p.problem}</Row>
-                <Row label="Approach" color="text-secondary">
-                  <span className="flex flex-wrap gap-x-2">
-                    {p.approach.map((a) => (
-                      <span key={a}>{a}</span>
-                    ))}
-                  </span>
-                </Row>
-                <Row label="Result" color="text-primary">
-                  <span className="font-medium">{p.result}</span>
-                </Row>
-                <Row label="Stack" color="text-foreground/45">
-                  <span className="font-mono text-xs text-foreground/60">{p.stack}</span>
-                </Row>
-              </dl>
-
-              <div className="mt-6 flex flex-wrap gap-6">
+              <div className="flex flex-wrap items-center gap-4 shrink-0">
                 {p.links.map((l) => (
                   <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                    {l.label === "Live" ? <FaExternalLinkAlt size={12} /> : <FaGithub size={13} />} {l.label}
+                    {l.label === "Live" ? <FaExternalLinkAlt size={11} /> : <FaGithub size={12} />}
+                    [{l.label.toLowerCase()}]
                   </a>
                 ))}
               </div>
             </div>
+
+            <div aria-hidden className="h-px bg-card-border my-6 group-hover:bg-primary/25 transition-colors duration-300" />
+
+            <dl className="space-y-4">
+              <Row label="Problem">{p.problem}</Row>
+              <Row label="Approach">
+                <ul className="space-y-1.5">
+                  {p.approach.map((a) => (
+                    <li key={a} className="flex items-baseline gap-2.5">
+                      <span aria-hidden className="font-mono text-xs text-primary/70 shrink-0">+</span>
+                      <span>{a}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Row>
+              <Row label="Result">
+                <span className="text-foreground font-medium">{p.result}</span>
+              </Row>
+              <Row label="Stack">
+                <span className="font-mono text-xs text-foreground/50">{p.stack}</span>
+              </Row>
+            </dl>
           </article>
         ))}
       </div>

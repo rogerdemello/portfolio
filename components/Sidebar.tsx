@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaBars, FaTimes, FaDownload } from "react-icons/fa";
 
 const nav = [
   { name: "Projects", id: "projects" },
@@ -83,6 +83,20 @@ export default function Sidebar() {
     </ul>
   );
 
+  // Persistent CV action - a recruiter should never have to scroll to find it.
+  const CvButton = (
+    <a
+      href="/Roger_Demello_CV.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      download="Roger_Demello_CV.pdf"
+      className="btn-solid w-full py-2 text-xs"
+    >
+      <FaDownload size={11} />
+      Download CV
+    </a>
+  );
+
   const SocialRow = (
     <div className="flex items-center gap-3">
       {socials.map((s) => (
@@ -112,6 +126,7 @@ export default function Sidebar() {
           <nav className="mt-12">{NavLinks}</nav>
         </div>
         <div className="space-y-4">
+          {CvButton}
           <div className="flex items-center gap-2 font-mono text-xs text-secondary">
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
             Open to roles
@@ -123,19 +138,31 @@ export default function Sidebar() {
       {/* Mobile top bar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 h-16 border-b border-card-border bg-background/90 backdrop-blur-md">
         {Monogram}
-        <button
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-          className="grid place-items-center w-10 h-10 rounded-lg border border-foreground/20 text-foreground focus:outline-none"
-        >
-          {open ? <FaTimes size={18} /> : <FaBars size={18} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <a
+            href="/Roger_Demello_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Roger_Demello_CV.pdf"
+            className="btn-solid py-2 text-xs"
+          >
+            <FaDownload size={11} />
+            CV
+          </a>
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+            className="grid place-items-center w-10 h-10 rounded-lg border border-card-border text-foreground focus:outline-none"
+          >
+            {open ? <FaTimes size={18} /> : <FaBars size={18} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
       <div
         aria-hidden="true"
-        className={`lg:hidden fixed inset-0 z-40 bg-foreground/20 backdrop-blur-[2px] transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 z-40 bg-background/75 backdrop-blur-[2px] transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setOpen(false)}
@@ -150,6 +177,7 @@ export default function Sidebar() {
           <nav className="mt-10">{NavLinks}</nav>
         </div>
         <div className="space-y-4">
+          {CvButton}
           <div className="flex items-center gap-2 font-mono text-xs text-secondary">
             <span className="w-2 h-2 rounded-full bg-secondary" />
             Open to roles

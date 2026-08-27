@@ -1,18 +1,18 @@
 import { ImageResponse } from "next/og";
 
 // Shared 1200x630 social card for the Open Graph + Twitter routes.
-// Mirrors the site's "Technical Notebook" theme: warm ivory paper, charcoal
-// ink, burnt-orange accent, editorial serif headline + mono details.
+// Mirrors the site's "Instrument" theme: near-black surface, cool near-white
+// ink, cyan signal accent, editorial serif headline + mono details.
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_ALT =
   "Roger Demello - AI / ML Engineer building systems that think, reason and ship.";
 
-const IVORY = "#F7F3EC";
-const INK = "#1A1A1A";
-const ORANGE = "#C75B12";
-const GREEN = "#234B35";
-const MUTED = "rgba(26,26,26,0.55)";
-const LINE = "rgba(26,26,26,0.14)";
+const SURFACE = "#0B0D0F";
+const INK = "#EBEEF1";
+const CYAN = "#39C2DB";
+const MINT = "#49CF8E";
+const MUTED = "rgba(235,238,241,0.5)";
+const LINE = "rgba(235,238,241,0.14)";
 
 // Fetch a single-subset Google font (only the glyphs in `text`) as an ArrayBuffer.
 // `familyQuery` is the full css2 family spec, e.g. "Fraunces:opsz,wght@144,600".
@@ -54,7 +54,7 @@ export async function renderOgImage() {
 
   const stat = (v: string, label: string) => (
     <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
-      <span style={{ color: ORANGE }}>{v}</span>
+      <span style={{ color: CYAN }}>{v}</span>
       <span style={{ color: MUTED }}>{label}</span>
     </div>
   );
@@ -69,10 +69,10 @@ export async function renderOgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "60px 68px",
-          background: IVORY,
+          background: SURFACE,
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(26,26,26,0.05) 1px, transparent 0)",
-          backgroundSize: "26px 26px",
+            "linear-gradient(rgba(235,238,241,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(235,238,241,0.045) 1px, transparent 1px)",
+          backgroundSize: "64px 64px, 64px 64px",
           color: INK,
           fontFamily: "Mono",
         }}
@@ -81,7 +81,7 @@ export async function renderOgImage() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "baseline", fontFamily: "Serif", fontWeight: 600, fontSize: 48 }}>
             <span>R</span>
-            <span style={{ color: ORANGE }}>.</span>
+            <span style={{ color: CYAN }}>.</span>
           </div>
           <div
             style={{
@@ -93,12 +93,12 @@ export async function renderOgImage() {
               padding: "9px 16px",
               fontSize: 17,
               letterSpacing: 1,
-              color: GREEN,
+              color: MINT,
               textTransform: "uppercase",
             }}
           >
-            <div style={{ display: "flex", width: 10, height: 10, borderRadius: 999, background: GREEN }} />
-            Available for AI Engineering roles
+            <div style={{ display: "flex", width: 10, height: 10, borderRadius: 999, background: MINT }} />
+            Open to full-time AI Engineering roles
           </div>
         </div>
 
@@ -114,15 +114,15 @@ export async function renderOgImage() {
               fontFamily: "Serif",
               fontSize: 44,
               marginTop: 22,
-              color: "rgba(26,26,26,0.82)",
+              color: "rgba(235,238,241,0.8)",
             }}
           >
             <span>Building systems that&nbsp;</span>
-            <span style={{ color: ORANGE }}>think</span>
+            <span style={{ color: CYAN }}>think</span>
             <span>,&nbsp;</span>
-            <span style={{ color: ORANGE }}>reason</span>
+            <span style={{ color: CYAN }}>reason</span>
             <span>&nbsp;and&nbsp;</span>
-            <span style={{ color: ORANGE }}>ship</span>
+            <span style={{ color: CYAN }}>ship</span>
             <span>.</span>
           </div>
           <div style={{ display: "flex", marginTop: 22, fontSize: 20, letterSpacing: 2, color: MUTED, textTransform: "uppercase" }}>

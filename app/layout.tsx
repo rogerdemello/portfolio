@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -24,6 +24,12 @@ const mono = JetBrains_Mono({
   variable: "--font-mono",
   display: "swap",
 });
+
+// Dark instrument surface - keeps mobile browser chrome from flashing white.
+export const viewport: Viewport = {
+  themeColor: "#0B0D0F",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rogerdemello.tech"),

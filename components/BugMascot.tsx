@@ -343,9 +343,9 @@ export default function BugMascot() {
                 tracking pupil, then orange blink lid on top. */}
             {/* Left eye */}
             <g>
-              <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--foreground))" strokeWidth={4} />
+              <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--background))" strokeWidth={4} />
               <g ref={pupilLRef}>
-                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={PUPIL_R} fill="hsl(var(--foreground))" />
+                <circle cx={EYE_LEFT.x} cy={EYE_LEFT.y} r={PUPIL_R} fill="hsl(var(--background))" />
                 <circle cx={EYE_LEFT.x - PUPIL_R * 0.35} cy={EYE_LEFT.y - PUPIL_R * 0.35} r={HIGHLIGHT_R} fill="#fff" />
               </g>
               {/* Lid: orange disc that scales down over the eye when blinking.
@@ -357,9 +357,9 @@ export default function BugMascot() {
             </g>
             {/* Right eye */}
             <g>
-              <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--foreground))" strokeWidth={4} />
+              <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={EYE_WHITE_R} fill="#fff" stroke="hsl(var(--background))" strokeWidth={4} />
               <g ref={pupilRRef}>
-                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={PUPIL_R} fill="hsl(var(--foreground))" />
+                <circle cx={EYE_RIGHT.x} cy={EYE_RIGHT.y} r={PUPIL_R} fill="hsl(var(--background))" />
                 <circle cx={EYE_RIGHT.x - PUPIL_R * 0.35} cy={EYE_RIGHT.y - PUPIL_R * 0.35} r={HIGHLIGHT_R} fill="#fff" />
               </g>
               <g ref={lidRRef} transform="scale(1 0)">

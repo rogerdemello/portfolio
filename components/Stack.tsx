@@ -76,26 +76,23 @@ export default function Stack() {
     <section id="stack" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
         <span className="font-mono text-sm text-accent">02</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Stack</span>
+        <span className="readout">Stack</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-3 leading-none">
         Toolkit
       </h2>
-      <p className="text-foreground/60 mb-10 max-w-lg">What I reach for - chosen because it ships, not because it&apos;s trendy.</p>
+      <p className="text-foreground/55 mb-10 max-w-lg">What I reach for - chosen because it ships, not because it&apos;s trendy.</p>
 
       <dl className="divide-y divide-card-border border-y border-card-border">
         {groups.map((g) => (
           <div key={g.label} className="grid sm:grid-cols-[10rem_1fr] gap-2 sm:gap-6 py-5">
-            <dt className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/45 sm:pt-2">{g.label}</dt>
-            <dd className="flex flex-wrap gap-2.5">
+            <dt className="readout sm:pt-2">{g.label}</dt>
+            <dd className="flex flex-wrap gap-2">
               {g.items.map((item) => {
                 const Icon = ICONS[item];
                 return (
-                  <span
-                    key={item}
-                    className="group inline-flex items-center gap-2 rounded-lg border border-card-border bg-card/60 pl-2.5 pr-3 py-1.5 text-sm text-foreground/85 transition-colors hover:border-primary/45 hover:text-foreground"
-                  >
-                    {Icon && <Icon size={15} className="shrink-0 text-foreground/45 transition-colors group-hover:text-primary" aria-hidden />}
+                  <span key={item} className="chip group">
+                    {Icon && <Icon size={14} className="shrink-0 text-foreground/40 transition-colors group-hover:text-primary" aria-hidden />}
                     {item}
                   </span>
                 );

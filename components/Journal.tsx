@@ -13,7 +13,7 @@ export default function Journal() {
     <section id="writing" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
         <span className="font-mono text-sm text-accent">04</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">Writing</span>
+        <span className="readout">Writing</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-3 leading-none">
         Engineering Journal

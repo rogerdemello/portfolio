@@ -5,42 +5,45 @@
 @tailwind utilities;
 
 /*
- * "Technical Notebook + Research Lab" design system.
- * Warm ivory paper, charcoal ink, burnt-orange accent, forest green + vintage gold.
- * Minimal, editorial, restrained - closer to Linear / Notion / Stripe than a template.
+ * "Instrument" design system - dark technical.
+ * Near-black instrument surface, cool near-white ink, cyan signal accent,
+ * mint for live/available states, amber for indices and highlights.
+ * Monospace-forward: labels, metrics and section headers are all mono.
  * HSL channels so Tailwind's `hsl(var(--x))` mappings keep working.
  */
 :root {
-  /* Paper + surfaces */
-  --background: 39 39% 95%;            /* #F7F3EC warm ivory */
-  --background-secondary: 38 32% 91%;  /* slightly deeper ivory */
-  --background-tertiary: 38 30% 86%;   /* inset wells */
-  --card-bg: 43 50% 98%;               /* near-white warm */
-  --border-color: 38 18% 80%;          /* soft tan hairline */
+  color-scheme: dark;
+
+  /* Instrument surfaces */
+  --background: 210 15% 5%;            /* #0B0D0F near-black */
+  --background-secondary: 210 14% 7%;  /* lifted panel */
+  --background-tertiary: 210 13% 10%;  /* inset wells */
+  --card-bg: 210 14% 8%;               /* card surface */
+  --border-color: 210 12% 17%;         /* hairline rule */
 
   /* Ink */
-  --foreground: 0 0% 10%;              /* #1A1A1A deep charcoal */
+  --foreground: 210 17% 93%;           /* cool near-white */
 
-  /* Accent - Burnt orange #C75B12 */
-  --primary: 24 83% 43%;
-  --primary-light: 24 78% 51%;
-  --primary-dark: 24 85% 35%;
-  --primary-foreground: 39 40% 96%;
+  /* Primary - signal cyan */
+  --primary: 188 72% 52%;
+  --primary-light: 188 80% 66%;
+  --primary-dark: 190 70% 38%;
+  --primary-foreground: 210 20% 6%;
 
-  /* Secondary - Forest green #234B35 */
-  --secondary: 147 36% 22%;
-  --secondary-light: 147 30% 31%;
-  --secondary-foreground: 39 40% 96%;
+  /* Secondary - live / available mint */
+  --secondary: 152 55% 52%;
+  --secondary-light: 152 60% 64%;
+  --secondary-foreground: 210 20% 6%;
 
-  /* Highlight - Vintage gold #C8A54B */
-  --accent: 43 53% 54%;
-  --accent-light: 43 60% 63%;
-  --accent-dark: 41 50% 44%;
-  --accent-foreground: 0 0% 10%;
+  /* Accent - index amber */
+  --accent: 40 85% 60%;
+  --accent-light: 40 90% 70%;
+  --accent-dark: 38 75% 48%;
+  --accent-foreground: 210 20% 6%;
 
-  /* Decorative - deep green variant */
-  --decorative: 147 36% 28%;
-  --decorative-light: 147 30% 38%;
+  /* Decorative */
+  --decorative: 188 60% 40%;
+  --decorative-light: 188 65% 52%;
 
   /* Motion */
   --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
@@ -51,9 +54,11 @@
 body {
   color: hsl(var(--foreground));
   background-color: hsl(var(--background));
-  /* Barely-there notebook grain for warmth - stays "clean", adds paper feel. */
-  background-image: radial-gradient(hsl(var(--foreground) / 0.022) 1px, transparent 1px);
-  background-size: 26px 26px;
+  /* Faint engineering grid - reads as graph paper, never as texture. */
+  background-image:
+    linear-gradient(hsl(var(--foreground) / 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--foreground) / 0.028) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px;
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -64,7 +69,7 @@ html {
 }
 
 ::selection {
-  background: hsl(var(--primary) / 0.22);
+  background: hsl(var(--primary) / 0.28);
   color: hsl(var(--foreground));
 }
 
@@ -77,6 +82,15 @@ html {
   .text-balance { text-wrap: balance; }
   .font-display { font-family: var(--font-display), Georgia, serif; }
   .font-mono { font-family: var(--font-mono), ui-monospace, monospace; }
+
+  /* Tight mono caps used for every section header and readout label. */
+  .readout {
+    font-family: var(--font-mono), monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    color: hsl(var(--foreground) / 0.45);
+  }
 }
 
 @layer components {
@@ -90,30 +104,80 @@ html {
     color: hsl(var(--primary));
   }
 
-  /* Minimal surface - hairline border, no heavy shadow. */
+  /* Instrument surface - hairline border over a barely-lifted panel. */
   .panel {
     background: hsl(var(--card-bg));
     border: 1px solid hsl(var(--border-color));
-    border-radius: 12px;
+    border-radius: 10px;
   }
 
-  /* Solid button - charcoal fill, warms to burnt orange on hover. */
+  /* Metric tile - the signature element. Big mono figure over a mono label. */
+  .metric {
+    display: flex;
+    /* Reversed so the figure sits above its label while the DOM keeps dt-then-dd. */
+    flex-direction: column-reverse;
+    gap: 0.3rem;
+    background: hsl(var(--background-secondary));
+    border: 1px solid hsl(var(--border-color));
+    border-radius: 10px;
+    padding: 0.85rem 1rem 0.9rem;
+    transition: border-color 0.25s var(--ease-out-smooth), background 0.25s;
+  }
+  .metric:hover { border-color: hsl(var(--primary) / 0.5); background: hsl(var(--background-tertiary)); }
+  .metric-value {
+    font-family: var(--font-mono), monospace;
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1;
+    color: hsl(var(--primary));
+    font-variant-numeric: tabular-nums;
+  }
+  .metric-label {
+    font-family: var(--font-mono), monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.62rem;
+    color: hsl(var(--foreground) / 0.45);
+  }
+
+  /* Small mono chip used for stack items. */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.78rem;
+    color: hsl(var(--foreground) / 0.8);
+    background: hsl(var(--background-secondary));
+    border: 1px solid hsl(var(--border-color));
+    border-radius: 7px;
+    padding: 0.35rem 0.7rem;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .chip:hover { border-color: hsl(var(--primary) / 0.5); color: hsl(var(--foreground)); background: hsl(var(--background-tertiary)); }
+
+  /* Solid button - cyan signal fill. */
   .btn-solid {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
-    border: 1px solid hsl(var(--foreground));
-    border-radius: 9px;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--primary));
+    border-radius: 8px;
     padding: 0.62rem 1.1rem;
-    font-size: 0.9rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.84rem;
     font-weight: 500;
     line-height: 1;
-    transition: background 0.2s var(--ease-out-smooth), color 0.2s, border-color 0.2s;
+    transition: background 0.2s var(--ease-out-smooth), border-color 0.2s, box-shadow 0.2s;
   }
-  .btn-solid:hover { background: hsl(var(--primary)); border-color: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+  .btn-solid:hover {
+    background: hsl(var(--primary-light));
+    border-color: hsl(var(--primary-light));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.16);
+  }
 
   /* Outline button. */
   .btn-outline {
@@ -122,26 +186,27 @@ html {
     justify-content: center;
     gap: 0.5rem;
     background: transparent;
-    color: hsl(var(--foreground));
-    border: 1px solid hsl(var(--foreground) / 0.25);
-    border-radius: 9px;
+    color: hsl(var(--foreground) / 0.85);
+    border: 1px solid hsl(var(--border-color));
+    border-radius: 8px;
     padding: 0.62rem 1.1rem;
-    font-size: 0.9rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.84rem;
     font-weight: 500;
     line-height: 1;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    transition: border-color 0.2s, color 0.2s;
   }
   .btn-outline:hover { border-color: hsl(var(--primary)); color: hsl(var(--primary)); }
 
-  /* Inline "→ label" action link. */
+  /* Bracketed action link - [live] [github]. */
   .link-arrow {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
     font-family: var(--font-mono), monospace;
-    font-size: 0.82rem;
-    color: hsl(var(--foreground) / 0.75);
-    transition: color 0.2s, gap 0.2s;
+    font-size: 0.8rem;
+    color: hsl(var(--foreground) / 0.6);
+    transition: color 0.2s;
   }
-  .link-arrow:hover { color: hsl(var(--primary)); gap: 0.6rem; }
+  .link-arrow:hover { color: hsl(var(--primary)); }
 }

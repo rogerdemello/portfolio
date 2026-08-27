@@ -19,7 +19,7 @@ export default function About() {
     <section id="about" className="py-20 md:py-28 border-t border-card-border">
       <div className="flex items-baseline gap-2.5">
         <span className="font-mono text-sm text-accent">06</span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-foreground/40">About</span>
+        <span className="readout">About</span>
       </div>
       <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-10 leading-none">
         Field Notes
