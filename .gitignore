@@ -21,6 +21,9 @@
 *.pem
 nul
 
+# private resume working notes - candid project caveats, never publish
+Projects_Resume_Explanations.txt
+
 # debug
 npm-debug.log*
 yarn-debug.log*

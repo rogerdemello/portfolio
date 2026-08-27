@@ -54,7 +54,7 @@ export default function Contact() {
 
           <p className="mt-5 flex items-center gap-3">
             <span className="text-background/45">status:</span>
-            <span style={{ color: "hsl(147 45% 62%)" }}>Open to AI Engineering roles</span>
+            <span style={{ color: "hsl(147 45% 62%)" }}>Open to full-time AI Engineering roles</span>
             <span className="inline-block w-2.5 h-[1.1em] bg-background/80 animate-pulse translate-y-0.5" />
           </p>
         </div>

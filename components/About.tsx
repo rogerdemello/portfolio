@@ -4,7 +4,7 @@ const notes = [
   { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
   { year: "2025", line: "Built ML systems.", sub: "Data pipelines over 1,000+ records - preprocessing, validation, the boring parts that matter." },
   { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - backend services behind 3 production apps, 200+ users, 35% lower latency." },
-  { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Agentic systems, retrieval, and ML infrastructure - open to AI engineering roles." },
+  { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Building multi-channel agents and RAG pipelines at Innovun Global - open to full-time AI roles." },
 ];
 
 const principles = [

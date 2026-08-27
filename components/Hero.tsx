@@ -17,7 +17,7 @@ export default function Hero() {
             <span className="absolute inline-flex h-full w-full rounded-full bg-secondary opacity-60 animate-ping" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
           </span>
-          Available for AI Engineering roles
+          AI Engineer Intern at Innovun Global - open to full-time roles
         </div>
 
         <h1 className="font-display text-foreground leading-[0.9] tracking-tight text-6xl sm:text-7xl lg:text-8xl">
@@ -69,7 +69,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-10 flex items-center gap-2 font-mono text-sm text-foreground/50">
-          <span className="text-accent">◆</span> Nagpur, India
+          <span className="text-accent">◆</span> Nagpur, India - open to relocating internationally
         </div>
       </div>
     </section>
