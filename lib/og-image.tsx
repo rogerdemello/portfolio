@@ -5,7 +5,7 @@ import { ImageResponse } from "next/og";
 // ink, cyan signal accent, editorial serif headline + mono details.
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_ALT =
-  "Roger Demello - AI / ML Engineer building systems that think, reason and ship.";
+  "Roger Demello - Software Engineer, AI/ML, building systems that think, reason and ship.";
 
 const SURFACE = "#0B0D0F";
 const INK = "#EBEEF1";
@@ -98,7 +98,7 @@ export async function renderOgImage() {
             }}
           >
             <div style={{ display: "flex", width: 10, height: 10, borderRadius: 999, background: MINT }} />
-            Open to full-time AI Engineering roles
+            Immediate joiner · remote, any timezone
           </div>
         </div>
 
@@ -126,7 +126,7 @@ export async function renderOgImage() {
             <span>.</span>
           </div>
           <div style={{ display: "flex", marginTop: 22, fontSize: 20, letterSpacing: 2, color: MUTED, textTransform: "uppercase" }}>
-            AI / ML Engineer · Data Scientist
+            Software Engineer, AI/ML
           </div>
         </div>
 

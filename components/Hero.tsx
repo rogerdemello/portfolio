@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="relative">
         {/* Status readout */}
         <p className="font-mono text-xs text-secondary leading-tight mb-6">
-          AI Engineer Intern at Innovun Global - open to full-time roles
+          AI Engineer Intern at Innovun Global - immediate joiner, open to full-time roles
         </p>
 
         <h1 className="font-display text-foreground leading-[0.9] tracking-tight text-6xl sm:text-7xl lg:text-8xl">
@@ -31,7 +31,7 @@ export default function Hero() {
         {/* Role readout + hairline */}
         <div className="mt-5 flex items-center gap-4">
           <span className="font-mono text-sm uppercase tracking-[0.22em] text-primary whitespace-nowrap">
-            AI Engineer
+            Software Engineer, AI/ML
           </span>
           <span aria-hidden className="h-px flex-1 bg-card-border" />
           <span className="hidden sm:inline font-mono text-xs text-foreground/40 whitespace-nowrap">
@@ -47,9 +47,9 @@ export default function Hero() {
         </p>
 
         <p className="mt-4 text-base text-foreground/60 max-w-xl leading-relaxed">
-          AI Engineer focused on agents, retrieval, and real-world systems -
-          shipped to 200+ users, benchmarked honestly, and built to run
-          without a pile of external services.
+          Software engineer shipping machine learning and generative AI systems
+          end to end - Python and TypeScript services over PostgreSQL, Docker
+          delivery through CI/CD, shipped to 200+ users at 99.5% uptime.
         </p>
 
         {/* Metric readout. dt precedes dd for valid <dl> semantics; .metric
@@ -95,7 +95,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-10 flex items-center gap-2 font-mono text-sm text-foreground/45">
-          <span className="text-accent">◆</span> Nagpur, India - open to relocating internationally
+          <span className="text-accent">◆</span> Nagpur, India · fully remote, any timezone - open to relocating internationally
         </div>
       </div>
     </section>

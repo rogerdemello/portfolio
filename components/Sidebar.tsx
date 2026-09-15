@@ -121,7 +121,7 @@ export default function Sidebar() {
         <div>
           {Monogram}
           <p className="mt-3 font-mono text-xs text-foreground/50 leading-relaxed">
-            AI Engineer<br />Nagpur, India
+            Software Engineer, AI/ML<br />Nagpur, India · remote
           </p>
           <nav className="mt-12">{NavLinks}</nav>
         </div>
@@ -129,7 +129,7 @@ export default function Sidebar() {
           {CvButton}
           <div className="flex items-center gap-2 font-mono text-xs text-secondary">
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            Open to roles
+            Immediate joiner
           </div>
           {SocialRow}
         </div>
@@ -180,7 +180,7 @@ export default function Sidebar() {
           {CvButton}
           <div className="flex items-center gap-2 font-mono text-xs text-secondary">
             <span className="w-2 h-2 rounded-full bg-secondary" />
-            Open to roles
+            Immediate joiner
           </div>
           {SocialRow}
         </div>

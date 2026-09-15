@@ -2,6 +2,7 @@
 
 const lines = [
   { cmd: "email", value: "rogerdemello289@gmail.com", href: "mailto:rogerdemello289@gmail.com" },
+  { cmd: "phone", value: "+91 94217 78898", href: "tel:+919421778898" },
   { cmd: "linkedin", value: "linkedin.com/in/rogerdemello", href: "https://linkedin.com/in/rogerdemello" },
   { cmd: "github", value: "github.com/rogerdemello", href: "https://github.com/rogerdemello" },
 ];
@@ -55,7 +56,7 @@ export default function Contact() {
 
           <p className="mt-5 flex items-center gap-3 flex-wrap">
             <span className="text-foreground/35">status:</span>
-            <span className="text-secondary">Open to full-time AI Engineering roles</span>
+            <span className="text-secondary">Immediate joiner · fully remote, any timezone</span>
             <span aria-hidden className="inline-block w-2 h-[1.05em] bg-primary/80 animate-pulse translate-y-0.5" />
           </p>
         </div>

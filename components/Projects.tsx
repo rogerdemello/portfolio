@@ -1,7 +1,35 @@
 "use client";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
+// The first three are the projects carried on the CV, in CV order.
 const projects = [
+  {
+    title: "music-recsys",
+    problem: "Recommender demos rarely survive contact with production constraints.",
+    approach: ["Two-tower embeddings → ANN retrieval → LightGBM ranker.", "Retrain, embedding-refresh and candidate-precompute jobs against an MLflow registry.", "Simulated A/B tests across ranking variants, with Prometheus and Grafana on model and serving metrics.", "Cache, event bus, feature store and ANN index each behind an interface."],
+    result: "Runs CPU-only with zero external services; scales to Kafka and Kubernetes by flipping one config value.",
+    stack: "Python · PyTorch · LightGBM · FastAPI · MLflow · Redis · Kafka · Prometheus · Grafana · Docker",
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/music-recsys" }],
+  },
+  {
+    title: "sentinelops",
+    problem: "Incidents get diagnosed after they page someone - by then the service that actually caused it is three hops upstream.",
+    approach: ["IsolationForest anomaly detection over service telemetry.", "Service dependencies modelled as a NetworkX graph.", "Slack and PagerDuty alerting with simulated self-healing.", "Optional hookup to real Kubernetes and webhooks without changing core service contracts."],
+    result: "Names the dependency chain behind an incident before the page fires, with a structured audit log per action.",
+    stack: "Python · FastAPI · Scikit-learn · statsmodels · NetworkX · React · Vite · TypeScript · Supabase",
+    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/sentinel-ops" }],
+  },
+  {
+    title: "DealSentry",
+    problem: "Enterprises review proposals for compliance by hand - slow, inconsistent, expensive.",
+    approach: ["Rules engine scoring pricing, legal and structural risk before signature rather than after.", "Document upload, parsing and PDF generation.", "Approval routing with SLA tracking, audit logging and RBAC.", "Salesforce, HubSpot, Gmail and Google Drive integrations."],
+    result: "Risky terms surface before anything gets signed, and every review step stays attributable and time-bound.",
+    stack: "React · TypeScript · Express · Prisma · PostgreSQL · Node.js · OpenAI API · Puppeteer",
+    links: [
+      { label: "GitHub", href: "https://github.com/rogerdemello/DealSentry" },
+      { label: "Live", href: "https://dealsentry.onrender.com" },
+    ],
+  },
   {
     title: "Shadow GTM",
     problem: "GTM teams can't watch every competitor move in real time.",
@@ -30,25 +58,6 @@ const projects = [
     links: [
       { label: "GitHub", href: "https://github.com/rogerdemello/engram" },
       { label: "Live", href: "https://engram-alpha-sage.vercel.app" },
-    ],
-  },
-  {
-    title: "music-recsys",
-    problem: "Recommender demos rarely survive contact with production constraints.",
-    approach: ["Two-tower embeddings → ANN retrieval → LightGBM ranker.", "Event bus, feature updater, online store, model registry.", "Retrain, embedding-refresh and candidate-precompute jobs.", "Every backend behind a Protocol - local or networked."],
-    result: "Runs CPU-only with zero external services; scales to Kafka and Kubernetes by flipping one config value.",
-    stack: "Python · PyTorch · LightGBM · FastAPI · MLflow · Redis · Kafka · Prometheus",
-    links: [{ label: "GitHub", href: "https://github.com/rogerdemello/music-recsys" }],
-  },
-  {
-    title: "DealSentry",
-    problem: "Enterprises review proposals for compliance by hand - slow, inconsistent, expensive.",
-    approach: ["Rules engine paired with AI risk scoring.", "DOCX / PDF ingestion with automated parsing.", "Approval routing with SLA tracking and RBAC.", "Salesforce, HubSpot and Gmail integrations."],
-    result: "Cut manual review effort ~70%; risky terms surface before anything gets signed.",
-    stack: "React · TypeScript · Express · Prisma · PostgreSQL · Azure OpenAI · Puppeteer",
-    links: [
-      { label: "GitHub", href: "https://github.com/rogerdemello/DealSentry" },
-      { label: "Live", href: "https://dealsentry.onrender.com" },
     ],
   },
   {

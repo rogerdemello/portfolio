@@ -1,10 +1,10 @@
 "use client";
 
 const timeline = [
-  { year: "May - Jul 2025", company: "CFM, RCOEM", role: "Machine Learning Research Intern", detail: "Data cleaning & preprocessing pipelines · 1,000+ records · 30% faster development", current: false, last: false },
-  { year: "Jan - Jun 2026", company: "AI LifeBOT", role: "AI Engineer Intern", detail: "Backend services behind 3 production apps · 200+ users · 35% lower latency · 99.5% uptime", current: false, last: false },
-  { year: "Aug 2026 - Now", company: "Innovun Global", role: "AI Engineer Intern, Remote", detail: "Multi-channel enrollment agent · WhatsApp, Instagram & web · RAG pipeline behind FastAPI webhooks", current: true, last: false },
-  { year: "Next", company: "?", role: "Open to full-time AI roles", detail: "Let's build something.", current: false, last: true },
+  { year: "May - Jul 2025", company: "CFM, RCOEM", role: "Machine Learning Research Intern", detail: "Clinical classification model · 1,000+ health records · 87% accuracy · 30% faster development", current: false, last: false },
+  { year: "Jan - Jun 2026", company: "AI LifeBOT", role: "AI Engineer Intern", detail: "3 production apps · 200+ users · 40% task efficiency · 35% lower latency · 99.5% uptime", current: false, last: false },
+  { year: "Aug 2026 - Now", company: "Innovun Global", role: "AI Engineer Intern, Remote", detail: "Live RAG agent for Cruz Roja Mexicana · two platform APIs across 3 channels · one schema", current: true, last: false },
+  { year: "Next", company: "?", role: "Open to full-time roles", detail: "Immediate joiner. Let's build something.", current: false, last: true },
 ];
 
 export default function Experience() {
@@ -68,12 +68,14 @@ export default function Experience() {
         <p className="eyebrow mb-4">Selected highlights</p>
         <ul className="space-y-2.5 text-foreground/80">
           {[
-            "Building a multi-channel enrollment agent across WhatsApp, Instagram and web.",
-            "Integrating WhatsApp Business Cloud and Instagram Graph APIs over webhooks behind FastAPI.",
-            "Shipped backend services behind 3 production applications serving 200+ users.",
-            "Cut response latency 35% at 99.5% uptime by optimizing pipeline hot paths.",
-            "Compressed release cycles 50% through automated validation and test pipelines.",
-            "Built data cleaning and preprocessing pipelines over 1,000+ records.",
+            "Building the retrieval pipeline and prompts behind a live RAG agent for Cruz Roja Mexicana (Red Cross, Mexico).",
+            "Unified two external platform APIs across 3 channels into one consistent schema behind a live service.",
+            "Engineered 3 production applications for 200+ users, raising task efficiency 40%.",
+            "Cut query and response latency 35% by profiling an inherited codebase across the full request path.",
+            "Shipped 5+ features end to end, compressing delivery and validation cycles 50%.",
+            "Automated pytest suites inside CI/CD pipelines and reviewed teammate code in an Agile team.",
+            "Trained a clinical classification model on 1,000+ health records to 87% accuracy on held-out data.",
+            "Raised result reliability 25% through cross-validation across multiple splits, not one sample.",
           ].map((h) => (
             <li key={h} className="flex items-baseline gap-3">
               <span className="text-accent font-mono text-sm">-</span>
