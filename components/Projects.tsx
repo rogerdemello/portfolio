@@ -23,7 +23,7 @@ const projects = [
     title: "DealSentry",
     problem: "Enterprises review proposals for compliance by hand - slow, inconsistent, expensive.",
     approach: ["Rules engine scoring pricing, legal and structural risk before signature rather than after.", "Document upload, parsing and PDF generation.", "Approval routing with SLA tracking, audit logging and RBAC.", "Salesforce, HubSpot, Gmail and Google Drive integrations."],
-    result: "Risky terms surface before anything gets signed, and every review step stays attributable and time-bound.",
+    result: "Cut manual review effort ~70%; risky terms surface before anything gets signed, and every review step stays attributable and time-bound.",
     stack: "React · TypeScript · Express · Prisma · PostgreSQL · Node.js · OpenAI API · Puppeteer",
     links: [
       { label: "GitHub", href: "https://github.com/rogerdemello/DealSentry" },
