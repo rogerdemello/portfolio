@@ -1,0 +1,49 @@
+components/Projects.tsx
+  s_7b62702f5de801::t_cd541e5bbcd35f 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "autter_version": "1.6.9",
+  "base_commit_sha": "c39c5146c929820829301825585217a85c7b58e4",
+  "branch": "main",
+  "prompts": {
+    "s_7b62702f5de801": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "85e2aa02-9fdb-4285-a55f-74ccf5284e77",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:0a89058c6ae5a8c94ffff766da7f9faee220a5a58f935cdae623f140d82fe957",
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 168,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_7b62702f5de801": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "85e2aa02-9fdb-4285-a55f-74ccf5284e77",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:0a89058c6ae5a8c94ffff766da7f9faee220a5a58f935cdae623f140d82fe957",
+      "stats": {
+        "total_additions": 1,
+        "total_deletions": 1,
+        "accepted_lines": 168,
+        "overriden_lines": 0,
+        "files": {
+          "components/Projects.tsx": {
+            "total_additions": 1,
+            "total_deletions": 1,
+            "accepted_lines": 168,
+            "overriden_lines": 0
+          }
+        }
+      }
+    }
+  }
+}
