@@ -1,0 +1,77 @@
+components/Sidebar.tsx
+  s_1eb3b6dff2be41::t_c8440b7eb18900 101,109-110
+app/globals.css
+  s_1eb3b6dff2be41::t_45249b65440d6c 212-238
+app/layout.tsx
+  s_1eb3b6dff2be41::t_b9fda9e93985c1 100-106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "autter_version": "1.6.9",
+  "base_commit_sha": "fdef38bad1ca529772b1e3ffa269d29f54f9e96d",
+  "branch": "main",
+  "prompts": {
+    "s_1eb3b6dff2be41": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cf2b6917-201e-4f7c-9355-c6ccdbb0a25b",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:fa31d7a8dc45917374c4ade9aaae45a647541c449984079975e2dc1cad68fe8f",
+      "total_additions": 49,
+      "total_deletions": 24,
+      "accepted_lines": 247,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_1eb3b6dff2be41": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cf2b6917-201e-4f7c-9355-c6ccdbb0a25b",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:fa31d7a8dc45917374c4ade9aaae45a647541c449984079975e2dc1cad68fe8f",
+      "stats": {
+        "total_additions": 49,
+        "total_deletions": 24,
+        "accepted_lines": 247,
+        "overriden_lines": 0,
+        "files": {
+          "app/globals.css": {
+            "total_additions": 27,
+            "total_deletions": 0,
+            "accepted_lines": 27,
+            "overriden_lines": 0
+          },
+          "app/layout.tsx": {
+            "total_additions": 7,
+            "total_deletions": 1,
+            "accepted_lines": 7,
+            "overriden_lines": 0
+          },
+          "components/Footer.tsx": {
+            "total_additions": 12,
+            "total_deletions": 17,
+            "accepted_lines": 22,
+            "overriden_lines": 0
+          },
+          "components/Hero.tsx": {
+            "total_additions": 0,
+            "total_deletions": 4,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Sidebar.tsx": {
+            "total_additions": 3,
+            "total_deletions": 2,
+            "accepted_lines": 191,
+            "overriden_lines": 0
+          }
+        }
+      }
+    }
+  }
+}
