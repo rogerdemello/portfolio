@@ -98,7 +98,7 @@ export default function Sidebar() {
   );
 
   const SocialRow = (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2.5">
       {socials.map((s) => (
         <a
           key={s.label}
@@ -106,7 +106,8 @@ export default function Sidebar() {
           target={s.href.startsWith("http") ? "_blank" : undefined}
           rel="noopener noreferrer"
           aria-label={s.label}
-          className="text-foreground/50 hover:text-primary transition-colors"
+          title={s.label}
+          className="social-icon"
         >
           {s.icon}
         </a>

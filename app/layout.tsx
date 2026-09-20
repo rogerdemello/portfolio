@@ -97,7 +97,13 @@ export default function RootLayout({
       lang="en"
       className={`scroll-smooth ${serif.variable} ${inter.variable} ${mono.variable}`}
     >
-      <body className="bg-background text-foreground font-sans antialiased">
+      {/* Browser extensions (Grammarly et al.) inject attributes into <body>
+          before hydration; suppress the resulting mismatch warning. Scoped to
+          this element only - real mismatches inside the tree still surface. */}
+      <body
+        className="bg-background text-foreground font-sans antialiased"
+        suppressHydrationWarning
+      >
         <a
           href="#main-content"
           className="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:w-auto focus:h-auto focus:m-0 focus:overflow-visible focus:[clip:auto]"

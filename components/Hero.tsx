@@ -93,10 +93,6 @@ export default function Hero() {
             ))}
           </ul>
         </div>
-
-        <div className="mt-10 flex items-center gap-2 font-mono text-sm text-foreground/45">
-          <span className="text-accent">◆</span> Nagpur, India · fully remote, any timezone - open to relocating internationally
-        </div>
       </div>
     </section>
   );

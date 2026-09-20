@@ -209,4 +209,31 @@ html {
     transition: color 0.2s;
   }
   .link-arrow:hover { color: hsl(var(--primary)); }
+
+  /* Social glyph - a lit control well, so GitHub/LinkedIn/email read as actions. */
+  .social-icon {
+    display: grid;
+    place-items: center;
+    width: 2.15rem;
+    height: 2.15rem;
+    color: hsl(var(--foreground) / 0.75);
+    background: hsl(var(--background-secondary));
+    border: 1px solid hsl(var(--border-color));
+    border-radius: 8px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s,
+      transform 0.2s var(--ease-out-smooth);
+  }
+  .social-icon:hover {
+    color: hsl(var(--primary));
+    border-color: hsl(var(--primary) / 0.6);
+    background: hsl(var(--background-tertiary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.14);
+    transform: translateY(-2px);
+  }
+  .social-icon:focus-visible {
+    outline: none;
+    color: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.3);
+  }
 }
