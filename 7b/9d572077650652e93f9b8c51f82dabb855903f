@@ -1,0 +1,87 @@
+app/globals.css
+  s_38c86fbe44829b::t_f7b1af59a96091 116-127
+components/HeroShots.tsx
+  s_38c86fbe44829b::t_f7b1af59a96091 2,24,26,29
+components/Work.tsx
+  s_38c86fbe44829b::t_f7b1af59a96091 5,41,101,103,106
+next.config.mjs
+  s_38c86fbe44829b::t_f7b1af59a96091 19-26
+components/Shot.tsx
+  s_38c86fbe44829b::t_5d6f3b0d57b31d 1-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "autter_version": "1.6.9",
+  "base_commit_sha": "7b9d572077650652e93f9b8c51f82dabb855903f",
+  "branch": "fix/eager-screenshots",
+  "prompts": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:dba6a1deeef0e3ef42474471aa56bad4c1489d926945bcdcc3a8aeba24828e80",
+      "total_additions": 81,
+      "total_deletions": 16,
+      "accepted_lines": 426,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:dba6a1deeef0e3ef42474471aa56bad4c1489d926945bcdcc3a8aeba24828e80",
+      "stats": {
+        "total_additions": 81,
+        "total_deletions": 16,
+        "accepted_lines": 426,
+        "overriden_lines": 0,
+        "files": {
+          ".claude/launch.json": {
+            "total_additions": 1,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "app/globals.css": {
+            "total_additions": 12,
+            "total_deletions": 0,
+            "accepted_lines": 157,
+            "overriden_lines": 0
+          },
+          "components/HeroShots.tsx": {
+            "total_additions": 4,
+            "total_deletions": 6,
+            "accepted_lines": 40,
+            "overriden_lines": 0
+          },
+          "components/Shot.tsx": {
+            "total_additions": 51,
+            "total_deletions": 0,
+            "accepted_lines": 51,
+            "overriden_lines": 0
+          },
+          "components/Work.tsx": {
+            "total_additions": 5,
+            "total_deletions": 10,
+            "accepted_lines": 170,
+            "overriden_lines": 0
+          },
+          "next.config.mjs": {
+            "total_additions": 8,
+            "total_deletions": 0,
+            "accepted_lines": 8,
+            "overriden_lines": 0
+          }
+        }
+      }
+    }
+  }
+}
