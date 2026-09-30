@@ -1,34 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import { Newsreader, Hanken_Grotesk, Caveat } from "next/font/google";
 import "./globals.css";
 
-// Editorial display serif for headings - elegant, distinctive, not a default sans.
-const serif = Instrument_Serif({
+// Serif for everything you read: headings and body, like a letter.
+const serif = Newsreader({
   subsets: ["latin"],
-  weight: "400",
+  axes: ["opsz"],
   style: ["normal", "italic"],
-  variable: "--font-display",
+  variable: "--font-serif",
   display: "swap",
 });
 
-// Clean workhorse for body copy.
-const inter = Inter({
+// Small sans for dates, stacks and buttons.
+const sans = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-// Monospace for labels, metadata, terminal UI, and code.
-const mono = JetBrains_Mono({
+// Handwriting for the margin notes and sketch labels only.
+const note = Caveat({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-note",
   display: "swap",
 });
 
-// Dark instrument surface - keeps mobile browser chrome from flashing white.
+// Matches the paper colour so mobile browser chrome blends into the page.
 export const viewport: Viewport = {
-  themeColor: "#0B0D0F",
-  colorScheme: "dark",
+  themeColor: "#FAF9F6",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -87,6 +87,23 @@ export const metadata: Metadata = {
   },
 };
 
+// Structured data so search engines and recruiter tools read this page as a person, not a blob.
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Roger Richard Demello",
+  alternateName: "Roger Demello",
+  jobTitle: "Software Engineer, AI/ML",
+  url: "https://rogerdemello.tech",
+  address: { "@type": "PostalAddress", addressLocality: "Nagpur", addressCountry: "IN" },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Shri Ramdeobaba College of Engineering and Management",
+  },
+  sameAs: ["https://github.com/rogerdemello", "https://linkedin.com/in/rogerdemello"],
+  knowsAbout: ["Machine learning", "Generative AI", "Retrieval-augmented generation", "Multi-agent systems", "Python", "TypeScript", "FastAPI", "AWS"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -95,22 +112,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${serif.variable} ${inter.variable} ${mono.variable}`}
+      className={`${serif.variable} ${sans.variable} ${note.variable}`}
     >
       {/* Browser extensions (Grammarly et al.) inject attributes into <body>
           before hydration; suppress the resulting mismatch warning. Scoped to
           this element only - real mismatches inside the tree still surface. */}
       <body
-        className="bg-background text-foreground font-sans antialiased"
+        className="bg-paper font-serif text-ink antialiased"
         suppressHydrationWarning
       >
         <a
           href="#main-content"
-          className="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:w-auto focus:h-auto focus:m-0 focus:overflow-visible focus:[clip:auto]"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-ink focus:px-5 focus:py-2.5 focus:font-sans focus:text-sm focus:font-semibold focus:text-paper"
         >
           Skip to content
         </a>
         {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
       </body>
     </html>
   );

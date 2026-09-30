@@ -1,239 +1,145 @@
-@import './micro-interactions.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*
- * "Instrument" design system - dark technical.
- * Near-black instrument surface, cool near-white ink, cyan signal accent,
- * mint for live/available states, amber for indices and highlights.
- * Monospace-forward: labels, metrics and section headers are all mono.
- * HSL channels so Tailwind's `hsl(var(--x))` mappings keep working.
+ * Plain paper, black ink, a blue ballpoint for the marginal notes, one yellow highlighter.
+ * Body copy is set like a letter (serif, generous measure); the sans is only for small UI text.
  */
 :root {
-  color-scheme: dark;
-
-  /* Instrument surfaces */
-  --background: 210 15% 5%;            /* #0B0D0F near-black */
-  --background-secondary: 210 14% 7%;  /* lifted panel */
-  --background-tertiary: 210 13% 10%;  /* inset wells */
-  --card-bg: 210 14% 8%;               /* card surface */
-  --border-color: 210 12% 17%;         /* hairline rule */
-
-  /* Ink */
-  --foreground: 210 17% 93%;           /* cool near-white */
-
-  /* Primary - signal cyan */
-  --primary: 188 72% 52%;
-  --primary-light: 188 80% 66%;
-  --primary-dark: 190 70% 38%;
-  --primary-foreground: 210 20% 6%;
-
-  /* Secondary - live / available mint */
-  --secondary: 152 55% 52%;
-  --secondary-light: 152 60% 64%;
-  --secondary-foreground: 210 20% 6%;
-
-  /* Accent - index amber */
-  --accent: 40 85% 60%;
-  --accent-light: 40 90% 70%;
-  --accent-dark: 38 75% 48%;
-  --accent-foreground: 210 20% 6%;
-
-  /* Decorative */
-  --decorative: 188 60% 40%;
-  --decorative-light: 188 65% 52%;
-
-  /* Motion */
-  --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
-  --transition-duration: 0.3s;
-}
-
-body {
-  color: hsl(var(--foreground));
-  background-color: hsl(var(--background));
-  /* Faint engineering grid - reads as graph paper, never as texture. */
-  background-image:
-    linear-gradient(hsl(var(--foreground) / 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(var(--foreground) / 0.028) 1px, transparent 1px);
-  background-size: 64px 64px, 64px 64px;
-  font-family: var(--font-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  --paper: 250 249 246;
+  --ink: 28 27 25;
+  --muted: 108 105 98;
+  --pen: 37 69 201;
+  --mark: 255 229 138;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 5.5rem;
+  background: rgb(var(--paper));
 }
 
-::selection {
-  background: hsl(var(--primary) / 0.28);
-  color: hsl(var(--foreground));
+body {
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
-/* Legacy hooks kept safe */
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
-.gradient-text { color: hsl(var(--primary)); }
-
-@layer utilities {
-  .text-balance { text-wrap: balance; }
-  .font-display { font-family: var(--font-display), Georgia, serif; }
-  .font-mono { font-family: var(--font-mono), ui-monospace, monospace; }
-
-  /* Tight mono caps used for every section header and readout label. */
-  .readout {
-    font-family: var(--font-mono), monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 0.7rem;
-    color: hsl(var(--foreground) / 0.45);
-  }
-}
+::selection { background: rgb(var(--mark)); color: rgb(var(--ink)); }
+:focus-visible { outline: 2px solid rgb(var(--pen)); outline-offset: 3px; border-radius: 3px; }
 
 @layer components {
-  /* Monospace eyebrow / kicker label. */
-  .eyebrow {
-    font-family: var(--font-mono), monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.68rem;
+  /* Page column. Prose stays narrow; figures and notes are allowed to break out of it. */
+  .page { width: 100%; max-width: 64rem; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 640px) { .page { padding-inline: 2rem; } }
+  .measure { max-width: 42rem; }
+
+  .h2 {
     font-weight: 500;
-    color: hsl(var(--primary));
+    font-size: clamp(2rem, 4.4vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.022em;
   }
 
-  /* Instrument surface - hairline border over a barely-lifted panel. */
-  .panel {
-    background: hsl(var(--card-bg));
-    border: 1px solid hsl(var(--border-color));
-    border-radius: 10px;
+  /* Text link: underlined, and the underline turns to ballpoint on hover. */
+  .link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: rgb(var(--ink) / 0.45);
+    transition: color 0.15s, text-decoration-color 0.15s;
   }
+  .link:hover { color: rgb(var(--pen)); text-decoration-color: rgb(var(--pen)); }
 
-  /* Metric tile - the signature element. Big mono figure over a mono label. */
-  .metric {
-    display: flex;
-    /* Reversed so the figure sits above its label while the DOM keeps dt-then-dd. */
-    flex-direction: column-reverse;
-    gap: 0.3rem;
-    background: hsl(var(--background-secondary));
-    border: 1px solid hsl(var(--border-color));
-    border-radius: 10px;
-    padding: 0.85rem 1rem 0.9rem;
-    transition: border-color 0.25s var(--ease-out-smooth), background 0.25s;
-  }
-  .metric:hover { border-color: hsl(var(--primary) / 0.5); background: hsl(var(--background-tertiary)); }
-  .metric-value {
-    font-family: var(--font-mono), monospace;
-    font-size: 1.45rem;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 6px;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 0.95rem;
     font-weight: 600;
-    line-height: 1;
-    color: hsl(var(--primary));
-    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
   }
-  .metric-label {
-    font-family: var(--font-mono), monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.62rem;
-    color: hsl(var(--foreground) / 0.45);
+  .btn-ink { background: rgb(var(--ink)); color: rgb(var(--paper)); border: 1px solid rgb(var(--ink)); }
+  .btn-ink:hover { background: rgb(var(--pen)); border-color: rgb(var(--pen)); }
+  .btn-line { border: 1px solid rgb(var(--ink) / 0.35); }
+  .btn-line:hover { border-color: rgb(var(--ink)); }
+
+  /* Highlighter: used once or twice, on the sentence that matters. */
+  .marker {
+    background: rgb(var(--mark));
+    color: rgb(var(--ink));
+    padding: 0.04em 0.22em;
+    margin-inline: -0.1em;
+    border-radius: 2px 5px 3px 6px / 5px 2px 6px 3px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
-  /* Small mono chip used for stack items. */
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-mono), monospace;
-    font-size: 0.78rem;
-    color: hsl(var(--foreground) / 0.8);
-    background: hsl(var(--background-secondary));
-    border: 1px solid hsl(var(--border-color));
-    border-radius: 7px;
-    padding: 0.35rem 0.7rem;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
-  }
-  .chip:hover { border-color: hsl(var(--primary) / 0.5); color: hsl(var(--foreground)); background: hsl(var(--background-tertiary)); }
-
-  /* Solid button - cyan signal fill. */
-  .btn-solid {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    border: 1px solid hsl(var(--primary));
-    border-radius: 8px;
-    padding: 0.62rem 1.1rem;
-    font-family: var(--font-mono), monospace;
-    font-size: 0.84rem;
+  /* Handwritten margin note. */
+  .note {
+    font-family: var(--font-note), cursive;
     font-weight: 500;
-    line-height: 1;
-    transition: background 0.2s var(--ease-out-smooth), border-color 0.2s, box-shadow 0.2s;
-  }
-  .btn-solid:hover {
-    background: hsl(var(--primary-light));
-    border-color: hsl(var(--primary-light));
-    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.16);
+    font-size: 1.45rem;
+    line-height: 1.1;
+    color: rgb(var(--pen));
   }
 
-  /* Outline button. */
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: transparent;
-    color: hsl(var(--foreground) / 0.85);
-    border: 1px solid hsl(var(--border-color));
-    border-radius: 8px;
-    padding: 0.62rem 1.1rem;
-    font-family: var(--font-mono), monospace;
-    font-size: 0.84rem;
-    font-weight: 500;
-    line-height: 1;
-    transition: border-color 0.2s, color 0.2s;
+  /* Small print in the sans: dates, stacks, meta. */
+  .meta {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: rgb(var(--muted));
   }
-  .btn-outline:hover { border-color: hsl(var(--primary)); color: hsl(var(--primary)); }
 
-  /* Bracketed action link - [live] [github]. */
-  .link-arrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono), monospace;
-    font-size: 0.8rem;
-    color: hsl(var(--foreground) / 0.6);
-    transition: color 0.2s;
+  /* Screenshot / sketch frame. */
+  .figure {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgb(var(--ink) / 0.14);
+    border-radius: 4px;
+    background: rgb(var(--paper));
   }
-  .link-arrow:hover { color: hsl(var(--primary)); }
 
-  /* Social glyph - a lit control well, so GitHub/LinkedIn/email read as actions. */
-  .social-icon {
-    display: grid;
-    place-items: center;
-    width: 2.15rem;
-    height: 2.15rem;
-    color: hsl(var(--foreground) / 0.75);
-    background: hsl(var(--background-secondary));
-    border: 1px solid hsl(var(--border-color));
-    border-radius: 8px;
-    transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s,
-      transform 0.2s var(--ease-out-smooth);
-  }
-  .social-icon:hover {
-    color: hsl(var(--primary));
-    border-color: hsl(var(--primary) / 0.6);
-    background: hsl(var(--background-tertiary));
-    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.14);
-    transform: translateY(-2px);
-  }
-  .social-icon:focus-visible {
-    outline: none;
-    color: hsl(var(--primary));
-    border-color: hsl(var(--primary));
-    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.3);
-  }
+  /* Native <details> toggle */
+  .more > summary { list-style: none; cursor: pointer; }
+  .more > summary::-webkit-details-marker { display: none; }
+  .more[open] .more-plus { transform: rotate(45deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}
+
+/*
+ * Print: a recruiter may well print this. Drop the chrome, keep the substance, and spell out
+ * every link so the paper copy is still usable.
+ */
+@page { margin: 14mm; }
+@media print {
+  html, body { background: #fff; }
+  body { font-size: 10.5pt; line-height: 1.5; }
+  .page { max-width: none; padding-inline: 0; }
+  section { padding-top: 1.4rem !important; }
+  h2, h3 { break-after: avoid; }
+  article, li, figure { break-inside: avoid; }
+  .figure { max-height: 7.5cm; width: auto; }
+  a { text-decoration: none; color: inherit; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-family: var(--font-sans), sans-serif; font-size: 0.72em; color: #555; word-break: break-all; }
+  a[href$=".pdf"]::after, a[href^="#"]::after { content: none; }
+  .btn { border: 1px solid #999; background: none; color: #000; }
+  details:not([open]) > *:not(summary) { display: block; }
 }
