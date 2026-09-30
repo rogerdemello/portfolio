@@ -1,6 +1,6 @@
 # Roger Richard Demello - Portfolio
 
-A personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. Editorial ivory theme - serif display type, monospace metadata, and a fixed sidebar with scroll-spy navigation.
+A personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. Written like a letter, not a dashboard: plain paper, black ink, first-person prose, a blue-ballpoint margin note or two, and real screenshots of the projects. No gradients, no glass, no glow.
 
 **Live:** [rogerdemello.tech](https://rogerdemello.tech/)
 
@@ -8,15 +8,19 @@ A personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **
 
 ## Features
 
-- **Editorial theme** - warm ivory paper, ink foreground, persimmon primary (semantic CSS variables)
-- **Fixed sidebar** - desktop rail with scroll-spy; slide-out drawer on mobile
-- **Sections** - Hero, Projects, Stack, Experience, Writing, Contact, About
-- **Projects** - each written as Problem / Approach / Result / Stack rather than a card grid
-- **Dynamic social cards** - OG and Twitter images generated at the edge (`app/opengraph-image.tsx`, `app/twitter-image.tsx`)
+- **Recruiter-first order** - who I am and when I can start, then the three CV projects, then experience, skills, about, contact. The CV link stays in the sticky header.
+- **Real work, shown** - screenshots of the running apps in `public/projects/` (captured at 2x), and hand-drawn architecture sketches for the two projects with no presentable UI (`components/Sketches.tsx`)
+- **Work in the first ten seconds** - the hero pins three real app screenshots beside the intro; each jumps to its write-up (`components/HeroShots.tsx`)
+- **Skills with receipts** - each tool carries a small number: how many of the projects list it, computed from the project data (`components/Skills.tsx`)
+- **Hand-made details** - margin notes in handwriting with pen-drawn arrows (`components/Doodles.tsx`), highlighter on the one sentence that matters, a live "it's 10:07 am in Nagpur" clock
+- **No client JS for content** - the page is static server components; only the copy-email button and the clock hydrate. The "Also built" rows use native `<details>`.
+- **Dynamic social cards** - OG and Twitter images generated at build (`app/opengraph-image.tsx`, `app/twitter-image.tsx`, shared `lib/og-image.tsx`)
 - **SEO** - metadata, Open Graph, Twitter cards, `sitemap.xml`, `robots.txt`
-- **Accessibility** - skip-to-content link, semantic landmarks, labelled controls
-- **Rover mascot** - cursor-tracking eyes (`components/BugMascot.tsx`)
-- **CV** - hero button downloads the PDF (opens in a new tab on iOS Safari, which ignores `download`)
+- **Accessibility** - skip-to-content link, semantic landmarks, keyboard-operable disclosure rows, alt text on every screenshot, `aria-label`s on the sketches, reduced-motion support
+- **Scroll-spy nav** - the header underlines the section you are reading (`components/NavLinks.tsx`)
+- **Prints properly** - print styles drop the chrome and spell out every link, so a printed copy is still usable
+- **Structured data** - `Person` JSON-LD in `app/layout.tsx`
+- **CV** - buttons download the PDF (opens in a new tab on iOS Safari, which ignores `download`)
 
 ---
 
@@ -62,39 +66,27 @@ Not needed on Vercel - leave it out of committed config.
 
 ### Content
 
-| Section    | File                       | What to edit                                          |
-|------------|----------------------------|-------------------------------------------------------|
-| Hero       | `components/Hero.tsx`      | Name, tagline, "Currently Building" list, CV link      |
-| Projects   | `components/Projects.tsx`  | `projects` array - problem, approach, result, stack, links |
-| Stack      | `components/Stack.tsx`     | `groups` array plus the `ICONS` map for per-skill logos |
-| Experience | `components/Experience.tsx`| `timeline`, selected highlights, education, credentials |
-| Writing    | `components/Journal.tsx`   | `entries` array                                        |
-| Contact    | `components/Contact.tsx`   | Copy and form behavior (see below)                     |
-| About      | `components/About.tsx`     | `notes` field-note rows and `principles`               |
-| Sidebar    | `components/Sidebar.tsx`   | Nav items, social links, availability status           |
-| Footer     | `components/Footer.tsx`    | Name, location, back-to-top                            |
-| Metadata   | `app/layout.tsx`           | Title, description, keywords, OG and Twitter metadata  |
+Structured content lives in **`lib/content.ts`**: profile, experience, projects, skills, education. The first-person paragraphs in the hero and section intros are written directly in the components (`components/Hero.tsx`, `Work.tsx`, `Skills.tsx`, `Contact.tsx`) because their voice matters more than their structure.
 
-Adding a skill to `groups` in `Stack.tsx` without a matching `ICONS` entry renders the label with no logo - add the icon too. Only import icons that exist in the installed `react-icons` version.
+| Export         | Feeds                                                              |
+|----------------|--------------------------------------------------------------------|
+| `profile`      | Name, contact details, CV path                                      |
+| `experience`   | Roles - period, headline, highlights                                |
+| `projects`     | Problem, approach, result, stack, links, categories, image/sketch   |
+| `skillGroups`  | The Skills list (the numbers are computed from `projects[].stack`)  |
+| `education`, `credentials` | Education                                               |
+| `story`, `principles` | About                                                        |
+| `nav`          | Header links (each `id` must match a section `id`)                  |
+
+**Projects.** The ones with `onCv: true` get the full write-up; the rest appear under "Also built". Give a project either `image` (a 16:10 WebP in `public/projects/`) plus `imageAlt`, or a `sketch` id. To add a new sketch, add a component in `components/Sketches.tsx` using the `Box`, `Arr` and `PenNote` helpers (lines are generated from a seeded jitter, so server and client render identically) and reference it in `Work.tsx`.
+
+**Screenshots.** Capture at 1440x900 with a 2x device scale, crop to 16:10 and save as WebP (~1600px wide) plus a 640px `-sm.webp` variant of the same name (thumbnails and the hero use it; see `thumb()` in `lib/content.ts`). Real product shots beat mockups; if an app has no meaningful UI, sketch it.
 
 ### Styling
 
-- **Theme (colors, spacing):** `app/globals.css` - `:root` variables
+- **Colours and shared classes:** `app/globals.css` - `--paper`, `--ink`, `--muted`, `--pen` (ballpoint blue, used only for notes and small accents) and `--mark` (highlighter), plus `.page`, `.measure`, `.link`, `.btn`, `.marker`, `.note`, `.meta`, `.figure`
+- **Type:** Newsreader (headings and prose), Hanken Grotesk (small UI text), Caveat (margin notes and sketch labels only) - loaded in `app/layout.tsx`
 - **Tailwind theme:** `tailwind.config.ts`
-- **Micro-interactions:** `app/micro-interactions.css`
-
----
-
-## Contact form
-
-The form uses **Web3Forms**:
-
-1. Get an access key from [web3forms.com](https://web3forms.com).
-2. Add to `.env.local`:
-   ```env
-   NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key
-   ```
-3. See `.env.example` for a template.
 
 ---
 
@@ -114,16 +106,15 @@ Deployed on **Vercel**.
 - **Framework:** Next.js 16 (App Router, Turbopack)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
-- **Type:** Instrument Serif, Inter, JetBrains Mono (`next/font`)
+- **Type:** Newsreader, Hanken Grotesk, Caveat (`next/font`)
 - **Icons:** React Icons
-- **Forms:** Web3Forms
 - **Deployment:** Vercel
 
 ---
 
 ## CV
 
-Replace `public/Roger_Demello_CV.pdf` with your PDF, keeping the filename so the hero link and any external references keep working.
+Replace `public/Roger_Demello_CV.pdf` with your PDF, keeping the filename so the CV buttons and any external references keep working.
 
 ---
 

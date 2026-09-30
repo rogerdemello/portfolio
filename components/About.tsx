@@ -1,55 +1,28 @@
-"use client";
-
-const notes = [
-  { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
-  { year: "2025", line: "Trained models on real, messy data.", sub: "A clinical classifier over 1,000+ health records to 87% accuracy - plus the preprocessing and cross-validation that made the number trustworthy." },
-  { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - 3 production apps, 200+ users, 40% task efficiency, 35% lower latency." },
-  { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Building the retrieval pipeline behind a live RAG agent for the Red Cross in Mexico - immediate joiner, fully remote." },
-];
-
-const principles = [
-  "Ship small, measure, iterate.",
-  "Latency and reliability over leaderboard scores.",
-  "Make retrieval honest; make agents finish.",
-  "Document so the next person - or model - can pick it up.",
-];
+import { story, principles } from "@/lib/content";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28 border-t border-card-border">
-      <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">06</span>
-        <span className="readout">About</span>
-      </div>
-      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-10 leading-none">
-        Field Notes
-      </h2>
+    <section id="about" className="page pt-24 sm:pt-32">
+      <h2 className="h2">About</h2>
 
-      {/* Notebook: red margin rule + ruled rows */}
-      <div className="panel relative overflow-hidden">
-        <span aria-hidden className="absolute top-0 bottom-0 left-12 sm:left-16 w-px bg-primary/40" />
-        <div className="pl-16 sm:pl-24 pr-6">
-          {notes.map((n) => (
-            <div key={n.year} className="flex flex-col sm:flex-row gap-1 sm:gap-6 py-5 border-b border-dashed border-card-border last:border-0">
-              <span className="font-mono text-sm text-primary sm:w-16 shrink-0 sm:pt-1">{n.year}</span>
-              <div>
-                <p className="font-display text-xl sm:text-2xl text-foreground leading-snug">{n.line}</p>
-                <p className="text-sm text-foreground/60 mt-1.5 leading-relaxed">{n.sub}</p>
-              </div>
+      <ol className="mt-12 space-y-8">
+        {story.map((s) => (
+          <li key={s.year} className="grid gap-x-10 gap-y-1 md:grid-cols-[10.5rem_1fr]">
+            <p className="meta md:pt-2 font-semibold text-ink">{s.year}</p>
+            <div className="max-w-[40rem]">
+              <p className="text-[1.3rem] font-medium leading-snug tracking-[-0.01em]">{s.line}</p>
+              <p className="mt-1.5 text-[1.08rem] leading-[1.6] text-ink/80">{s.sub}</p>
             </div>
-          ))}
-        </div>
-      </div>
+          </li>
+        ))}
+      </ol>
 
-      {/* How I work */}
-      <div className="mt-10 grid sm:grid-cols-[10rem_1fr] gap-x-6 gap-y-4">
-        <p className="font-mono text-xs uppercase tracking-[0.16em] text-foreground/45 sm:pt-1">How I work</p>
-        <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+      <div className="mt-20 grid gap-x-10 gap-y-4 md:grid-cols-[10.5rem_1fr]">
+        <h3 className="text-[1.65rem] font-medium leading-tight tracking-[-0.02em] md:col-span-2">How I work</h3>
+        <span aria-hidden className="hidden md:block" />
+        <ul className="max-w-[40rem] list-disc space-y-2 pl-5 text-[1.15rem] leading-[1.55] marker:text-pen">
           {principles.map((p) => (
-            <li key={p} className="flex items-baseline gap-3 text-foreground/80">
-              <span className="text-accent font-mono text-sm">-</span>
-              <span>{p}</span>
-            </li>
+            <li key={p}>{p}</li>
           ))}
         </ul>
       </div>

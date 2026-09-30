@@ -1,21 +1,18 @@
 import { ImageResponse } from "next/og";
 
 // Shared 1200x630 social card for the Open Graph + Twitter routes.
-// Mirrors the site's "Instrument" theme: near-black surface, cool near-white
-// ink, cyan signal accent, editorial serif headline + mono details.
+// Same voice as the site: plain paper, a serif headline, one highlighted line, a note in ballpoint.
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_ALT =
-  "Roger Demello - Software Engineer, AI/ML, building systems that think, reason and ship.";
+  "Roger Demello - software engineer, AI/ML, in Nagpur, India. Can start immediately, in any timezone.";
 
-const SURFACE = "#0B0D0F";
-const INK = "#EBEEF1";
-const CYAN = "#39C2DB";
-const MINT = "#49CF8E";
-const MUTED = "rgba(235,238,241,0.5)";
-const LINE = "rgba(235,238,241,0.14)";
+const PAPER = "#FAF9F6";
+const INK = "#1C1B19";
+const SOFT = "#6C6962";
+const PEN = "#2545C9";
+const MARK = "#FFE58A";
 
 // Fetch a single-subset Google font (only the glyphs in `text`) as an ArrayBuffer.
-// `familyQuery` is the full css2 family spec, e.g. "Fraunces:opsz,wght@144,600".
 async function loadFont(familyQuery: string, text: string) {
   const url =
     `https://fonts.googleapis.com/css2?family=${familyQuery.replace(/ /g, "+")}` +
@@ -28,36 +25,25 @@ async function loadFont(familyQuery: string, text: string) {
   return fetch(src).then((r) => r.arrayBuffer());
 }
 
-const SERIF_TEXT = "Roger Demello Building systems that think, reason and ship.";
-const MONO_TEXT =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 /·.+%&:-";
+const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ";
+const TEXT = `${ALPHABET}.,'/:-&`;
 
 export async function renderOgImage() {
   let fonts:
-    | { name: string; data: ArrayBuffer; weight: 400 | 500 | 600; style: "normal" }[]
+    | { name: string; data: ArrayBuffer; weight: 400 | 500 | 700; style: "normal" }[]
     | undefined;
   try {
-    const [serif, serifBold, mono] = await Promise.all([
-      // Fraunces at display optical size - warm, high-contrast editorial serif.
-      loadFont("Fraunces:opsz,wght@144,560", SERIF_TEXT),
-      loadFont("Fraunces:opsz,wght@144,600", SERIF_TEXT),
-      loadFont("JetBrains Mono:wght@500", MONO_TEXT),
+    const [serif, note] = await Promise.all([
+      loadFont("Newsreader:wght@500", TEXT),
+      loadFont("Caveat:wght@500", TEXT),
     ]);
     fonts = [
-      { name: "Serif", data: serif, weight: 400, style: "normal" },
-      { name: "Serif", data: serifBold, weight: 600, style: "normal" },
-      { name: "Mono", data: mono, weight: 500, style: "normal" },
+      { name: "Serif", data: serif, weight: 500, style: "normal" },
+      { name: "Note", data: note, weight: 500, style: "normal" },
     ];
   } catch {
     fonts = undefined; // graceful fallback to the default font
   }
-
-  const stat = (v: string, label: string) => (
-    <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
-      <span style={{ color: CYAN }}>{v}</span>
-      <span style={{ color: MUTED }}>{label}</span>
-    </div>
-  );
 
   return new ImageResponse(
     (
@@ -68,80 +54,27 @@ export async function renderOgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "60px 68px",
-          background: SURFACE,
-          backgroundImage:
-            "linear-gradient(rgba(235,238,241,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(235,238,241,0.045) 1px, transparent 1px)",
-          backgroundSize: "64px 64px, 64px 64px",
+          padding: "64px 84px",
+          background: PAPER,
           color: INK,
-          fontFamily: "Mono",
+          fontFamily: "Serif",
         }}
       >
-        {/* Header */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "baseline", fontFamily: "Serif", fontWeight: 600, fontSize: 48 }}>
-            <span>R</span>
-            <span style={{ color: CYAN }}>.</span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              border: `1px solid ${LINE}`,
-              borderRadius: 999,
-              padding: "9px 16px",
-              fontSize: 17,
-              letterSpacing: 1,
-              color: MINT,
-              textTransform: "uppercase",
-            }}
-          >
-            <div style={{ display: "flex", width: 10, height: 10, borderRadius: 999, background: MINT }} />
-            Immediate joiner · remote, any timezone
-          </div>
-        </div>
+        <div style={{ display: "flex", fontSize: 34, letterSpacing: -0.5 }}>Roger Demello</div>
 
-        {/* Middle */}
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontFamily: "Serif", fontWeight: 600, fontSize: 106, lineHeight: 1, letterSpacing: -2 }}>
-            Roger Demello
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              fontFamily: "Serif",
-              fontSize: 44,
-              marginTop: 22,
-              color: "rgba(235,238,241,0.8)",
-            }}
-          >
-            <span>Building systems that&nbsp;</span>
-            <span style={{ color: CYAN }}>think</span>
-            <span>,&nbsp;</span>
-            <span style={{ color: CYAN }}>reason</span>
-            <span>&nbsp;and&nbsp;</span>
-            <span style={{ color: CYAN }}>ship</span>
+          <div style={{ display: "flex", fontSize: 150, lineHeight: 1, letterSpacing: -5, whiteSpace: "nowrap" }}>Hi, I&apos;m Roger.</div>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", marginTop: 26, fontSize: 40, lineHeight: 1.3, whiteSpace: "nowrap" }}>
+            <span>Software engineer, AI/ML. I&nbsp;</span>
+            <span style={{ background: MARK, padding: "0 10px", borderRadius: 4 }}>can start immediately</span>
             <span>.</span>
           </div>
-          <div style={{ display: "flex", marginTop: 22, fontSize: 20, letterSpacing: 2, color: MUTED, textTransform: "uppercase" }}>
-            Software Engineer, AI/ML
-          </div>
         </div>
 
-        {/* Footer */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div style={{ display: "flex", height: 1, background: LINE }} />
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 21 }}>
-            <div style={{ display: "flex", gap: 22 }}>
-              {stat("3", "production apps")}
-              <span style={{ color: LINE }}>/</span>
-              {stat("200+", "users")}
-              <span style={{ color: LINE }}>/</span>
-              {stat("35%", "lower latency")}
-            </div>
-            <div style={{ display: "flex", color: INK }}>rogerdemello.tech</div>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", fontSize: 30, color: SOFT }}>rogerdemello.tech</div>
+          <div style={{ display: "flex", fontFamily: "Note", fontSize: 44, color: PEN, transform: "rotate(-3deg)" }}>
+            start date: whenever you need
           </div>
         </div>
       </div>

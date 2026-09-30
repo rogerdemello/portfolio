@@ -1,32 +1,25 @@
-import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Stack from "@/components/Stack";
+import Work from "@/components/Work";
 import Experience from "@/components/Experience";
-import Journal from "@/components/Journal";
+import Skills from "@/components/Skills";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import FadeIn from "@/components/FadeIn";
-import BugMascot from "@/components/BugMascot";
 
 export default function Home() {
   return (
     <>
-      <Sidebar />
-      <main id="main-content" className="lg:pl-60 relative" tabIndex={-1}>
-        <div className="max-w-5xl px-5 sm:px-8 lg:pl-20 lg:pr-8">
-          <Hero />
-          <FadeIn><Projects /></FadeIn>
-          <FadeIn><Stack /></FadeIn>
-          <FadeIn><Experience /></FadeIn>
-          <FadeIn><Journal /></FadeIn>
-          <FadeIn><Contact /></FadeIn>
-          <FadeIn><About /></FadeIn>
-        </div>
-        <Footer />
+      <Header />
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        <Hero />
+        <Work />
+        <Experience />
+        <Skills />
+        <About />
+        <Contact />
       </main>
-      <BugMascot />
+      <Footer />
     </>
   );
 }
