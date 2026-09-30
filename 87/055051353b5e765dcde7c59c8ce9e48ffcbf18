@@ -1,0 +1,319 @@
+lib/og-image.tsx
+  s_38c86fbe44829b::t_2a0a5af4a1d857 66-68
+  s_38c86fbe44829b::t_bfa763bd483410 4,7,9-13,28-29,33,36-38,41-42,57-58,60,63,69,74-77
+components/CopyEmail.tsx
+  s_38c86fbe44829b::t_1b31cc4f99ee98 1-39
+components/LocalTime.tsx
+  s_38c86fbe44829b::t_d3f11a705f66ba 1-16
+tailwind.config.ts
+  s_38c86fbe44829b::t_4a951c2a1ea92e 4,14,21
+  s_38c86fbe44829b::t_2b6bde3820273b 3,16-18,22-23
+  s_38c86fbe44829b::t_0aafbf54daa867 1-2,5-13,15,19-20,24-29
+components/Contact.tsx
+  s_38c86fbe44829b::t_1b31cc4f99ee98 1-3,7-8,10-13,15-22,24-30,32-60
+components/Footer.tsx
+  s_38c86fbe44829b::t_e884cd12e1a968 5-13
+  s_38c86fbe44829b::t_0efce565956d82 1
+components/Sketches.tsx
+  s_38c86fbe44829b::t_c5d1c889e2636a 1-106,108-164,170-172
+  s_38c86fbe44829b::t_bfa763bd483410 107,165-169
+components/Hero.tsx
+  s_38c86fbe44829b::t_917d4167f1fac0 5,62
+  s_38c86fbe44829b::t_25574438ce2610 1-2,6-8,14,31,64
+  s_38c86fbe44829b::t_27422eb0d52e6a 3,13,16-21,23-29,32-41,43-60,65
+lib/content.ts
+  s_38c86fbe44829b::t_4911afef78efb3 1-109,112,115-117,119-127,132-146,151-153,155-163,171-173,175-180,182,190-192,194-199,201,206-208,210-215,217,225-227,229-234,236,241-243,245-302
+README.md
+  s_38c86fbe44829b::t_aa06f94ae8efaf 3,11-12,14-16,19,71-77,79,81,87-88,109
+  s_38c86fbe44829b::t_484ebfeff30cbc 13,20-22,83
+  s_38c86fbe44829b::t_c3eddc90df7d30 17,23,85,89,117
+  s_38c86fbe44829b::t_bdf5edfee10453 69,78
+components/Skills.tsx
+  s_38c86fbe44829b::t_c5d1c889e2636a 1,3-6,8,10-16,18-24,26,28-31
+app/icon.tsx
+  s_38c86fbe44829b::t_bfa763bd483410 6,17-20,23,26
+components/About.tsx
+  s_38c86fbe44829b::t_bdf5edfee10453 1,5-6,8-14,16-18,20-23,25
+components/Header.tsx
+  s_38c86fbe44829b::t_f7a86ee3bb553f 1-26
+components/Experience.tsx
+  s_38c86fbe44829b::t_c5d1c889e2636a 1-2,6-7,9-16,18-31,36-37,39-51,54-65
+components/Doodles.tsx
+  s_38c86fbe44829b::t_484ebfeff30cbc 1-5,7-14,16-23,25-31,33-35,37-41,43-65
+  s_38c86fbe44829b::t_1713922389550f 36,42
+app/globals.css
+  s_38c86fbe44829b::t_f7a86ee3bb553f 6-7,10-14,19-20,23-32,35-36,39-42,44-48,51-57,59,61,64-71,73-86,89-91,93-95,98-103,106-113,115-144
+components/Work.tsx
+  s_38c86fbe44829b::t_484ebfeff30cbc 6-8,155
+  s_38c86fbe44829b::t_5a22dc0ff9661b 2-5,9-53,55-91,93,95,114-118,120-154,156-175
+  s_38c86fbe44829b::t_bfcfb98bd88c9b 1,54,92,94,96-113,119
+components/Figures.tsx
+  s_38c86fbe44829b::t_3b359e57811d49 1-16
+app/layout.tsx
+  s_38c86fbe44829b::t_5bbf45148c8b9c 2,5-6,8,10,14-15,21-22,24,30,115,121,126
+  s_38c86fbe44829b::t_eb2e02700471ea 28,31
+  s_38c86fbe44829b::t_f7a86ee3bb553f 90-106,131
+app/page.tsx
+  s_38c86fbe44829b::t_193ad870e50de3 1,3,13,16
+  s_38c86fbe44829b::t_c9204adafd7740 5-6,14-15,17-20,22
+components/HeroShots.tsx
+  s_38c86fbe44829b::t_38782535ef357f 1-42
+components/NavLinks.tsx
+  s_38c86fbe44829b::t_655eb011e15b36 1-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "autter_version": "1.6.9",
+  "base_commit_sha": "87055051353b5e765dcde7c59c8ce9e48ffcbf18",
+  "branch": "redesign/handmade-portfolio",
+  "prompts": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:5946aa4b097f1007aba1cb0177f6ad3836ef67483ae1a193ee7dd84b6fb00c0d",
+      "total_additions": 4534,
+      "total_deletions": 3079,
+      "accepted_lines": 1772,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:5946aa4b097f1007aba1cb0177f6ad3836ef67483ae1a193ee7dd84b6fb00c0d",
+      "stats": {
+        "total_additions": 4534,
+        "total_deletions": 3079,
+        "accepted_lines": 1772,
+        "overriden_lines": 0,
+        "files": {
+          ".claude/launch.json": {
+            "total_additions": 66,
+            "total_deletions": 36,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "README.md": {
+            "total_additions": 65,
+            "total_deletions": 74,
+            "accepted_lines": 134,
+            "overriden_lines": 0
+          },
+          "app/globals.css": {
+            "total_additions": 555,
+            "total_deletions": 649,
+            "accepted_lines": 145,
+            "overriden_lines": 0
+          },
+          "app/icon.tsx": {
+            "total_additions": 13,
+            "total_deletions": 11,
+            "accepted_lines": 31,
+            "overriden_lines": 0
+          },
+          "app/layout.tsx": {
+            "total_additions": 63,
+            "total_deletions": 45,
+            "accepted_lines": 135,
+            "overriden_lines": 0
+          },
+          "app/page.tsx": {
+            "total_additions": 23,
+            "total_deletions": 30,
+            "accepted_lines": 25,
+            "overriden_lines": 0
+          },
+          "components/About.tsx": {
+            "total_additions": 117,
+            "total_deletions": 144,
+            "accepted_lines": 31,
+            "overriden_lines": 0
+          },
+          "components/Contact.tsx": {
+            "total_additions": 197,
+            "total_deletions": 200,
+            "accepted_lines": 63,
+            "overriden_lines": 0
+          },
+          "components/CopyEmail.tsx": {
+            "total_additions": 45,
+            "total_deletions": 6,
+            "accepted_lines": 39,
+            "overriden_lines": 0
+          },
+          "components/CountUp.tsx": {
+            "total_additions": 61,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Doodles.tsx": {
+            "total_additions": 70,
+            "total_deletions": 3,
+            "accepted_lines": 67,
+            "overriden_lines": 0
+          },
+          "components/Education.tsx": {
+            "total_additions": 157,
+            "total_deletions": 104,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Effects.tsx": {
+            "total_additions": 60,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Experience.tsx": {
+            "total_additions": 202,
+            "total_deletions": 245,
+            "accepted_lines": 69,
+            "overriden_lines": 0
+          },
+          "components/Figures.tsx": {
+            "total_additions": 16,
+            "total_deletions": 0,
+            "accepted_lines": 16,
+            "overriden_lines": 0
+          },
+          "components/Footer.tsx": {
+            "total_additions": 36,
+            "total_deletions": 41,
+            "accepted_lines": 17,
+            "overriden_lines": 0
+          },
+          "components/Header.tsx": {
+            "total_additions": 38,
+            "total_deletions": 12,
+            "accepted_lines": 26,
+            "overriden_lines": 0
+          },
+          "components/Hero.tsx": {
+            "total_additions": 496,
+            "total_deletions": 526,
+            "accepted_lines": 69,
+            "overriden_lines": 0
+          },
+          "components/HeroShots.tsx": {
+            "total_additions": 42,
+            "total_deletions": 0,
+            "accepted_lines": 42,
+            "overriden_lines": 0
+          },
+          "components/LocalTime.tsx": {
+            "total_additions": 16,
+            "total_deletions": 0,
+            "accepted_lines": 16,
+            "overriden_lines": 0
+          },
+          "components/Marked.tsx": {
+            "total_additions": 18,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Nav.tsx": {
+            "total_additions": 279,
+            "total_deletions": 155,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/NavLinks.tsx": {
+            "total_additions": 44,
+            "total_deletions": 0,
+            "accepted_lines": 44,
+            "overriden_lines": 0
+          },
+          "components/ProjectExplorer.tsx": {
+            "total_additions": 319,
+            "total_deletions": 1,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/ProjectList.tsx": {
+            "total_additions": 195,
+            "total_deletions": 9,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Projects.tsx": {
+            "total_additions": 31,
+            "total_deletions": 178,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/SectionHeader.tsx": {
+            "total_additions": 33,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/SectionHeading.tsx": {
+            "total_additions": 23,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Sketches.tsx": {
+            "total_additions": 180,
+            "total_deletions": 8,
+            "accepted_lines": 172,
+            "overriden_lines": 0
+          },
+          "components/Skills.tsx": {
+            "total_additions": 136,
+            "total_deletions": 95,
+            "accepted_lines": 41,
+            "overriden_lines": 0
+          },
+          "components/Work.tsx": {
+            "total_additions": 194,
+            "total_deletions": 19,
+            "accepted_lines": 175,
+            "overriden_lines": 0
+          },
+          "components/Writing.tsx": {
+            "total_additions": 72,
+            "total_deletions": 40,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "lib/content.ts": {
+            "total_additions": 427,
+            "total_deletions": 125,
+            "accepted_lines": 302,
+            "overriden_lines": 0
+          },
+          "lib/og-image.tsx": {
+            "total_additions": 89,
+            "total_deletions": 156,
+            "accepted_lines": 84,
+            "overriden_lines": 0
+          },
+          "lib/tech-icons.ts": {
+            "total_additions": 61,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "tailwind.config.ts": {
+            "total_additions": 95,
+            "total_deletions": 167,
+            "accepted_lines": 29,
+            "overriden_lines": 0
+          }
+        }
+      }
+    }
+  }
+}
