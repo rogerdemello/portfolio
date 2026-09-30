@@ -113,6 +113,18 @@ body {
     background: rgb(var(--paper));
   }
 
+  /* Raster screenshots: hold a 16:10 box, and if the image ever fails show the alt text small and quiet. */
+  .shot {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    overflow: hidden;
+    background: rgb(var(--ink) / 0.04);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    color: rgb(var(--muted));
+  }
+
   /* Native <details> toggle */
   .more > summary { list-style: none; cursor: pointer; }
   .more > summary::-webkit-details-marker { display: none; }
