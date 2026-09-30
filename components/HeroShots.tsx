@@ -1,4 +1,5 @@
 import { projects, slug, thumb } from "@/lib/content";
+import Shot from "./Shot";
 
 // Three real apps, tossed on the desk like printouts. Each one jumps to its write-up.
 const layout = [
@@ -20,15 +21,12 @@ export default function HeroShots() {
               aria-label={`Jump to ${p.title}`}
               className={`absolute w-[78%] transition-transform duration-300 hover:-translate-y-1.5 hover:rotate-0 ${l.pos} ${l.tilt}`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Shot
                 src={thumb(p.image!)}
-                alt={p.imageAlt}
+                alt={p.imageAlt!}
                 width={640}
                 height={400}
-                decoding="async"
-                fetchPriority="low"
-                className="figure shadow-[0_1px_2px_rgb(0_0_0/0.08),0_16px_30px_-16px_rgb(0_0_0/0.45)]"
+                className="shadow-[0_1px_2px_rgb(0_0_0/0.08),0_16px_30px_-16px_rgb(0_0_0/0.45)]"
               />
             </a>
           );
