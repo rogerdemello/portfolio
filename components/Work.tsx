@@ -2,6 +2,7 @@ import { projects, slug, thumb, type Project } from "@/lib/content";
 import { Circled } from "./Doodles";
 import { MusicRecsysSketch, DealSentrySketch } from "./Sketches";
 import Figures from "./Figures";
+import Shot from "./Shot";
 
 const WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 const word = (n: number) => WORDS[n] ?? String(n);
@@ -37,10 +38,7 @@ function Figure({ p }: { p: Project }) {
       </div>
     );
   }
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src={p.image} alt={p.imageAlt} width={1600} height={1000} loading="lazy" className="figure" />
-  );
+  return <Shot src={p.image!} alt={p.imageAlt!} width={1600} height={1000} />;
 }
 
 function caption(p: Project) {
@@ -100,15 +98,12 @@ function Thumb({ p }: { p: Project }) {
       aria-label={`Open ${p.title} (${target.label === "Live" ? "live demo" : "source code"})`}
       className="group block self-start"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Shot
         src={thumb(p.image!)}
-        alt={p.imageAlt}
+        alt={p.imageAlt!}
         width={640}
         height={400}
-        loading="lazy"
-        decoding="async"
-        className="figure transition-transform duration-300 group-hover:-translate-y-1"
+        className="transition-transform duration-300 group-hover:-translate-y-1"
       />
     </a>
   );
