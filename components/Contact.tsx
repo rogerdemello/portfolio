@@ -1,66 +1,63 @@
-"use client";
-
-const lines = [
-  { cmd: "email", value: "rogerdemello289@gmail.com", href: "mailto:rogerdemello289@gmail.com" },
-  { cmd: "phone", value: "+91 94217 78898", href: "tel:+919421778898" },
-  { cmd: "linkedin", value: "linkedin.com/in/rogerdemello", href: "https://linkedin.com/in/rogerdemello" },
-  { cmd: "github", value: "github.com/rogerdemello", href: "https://github.com/rogerdemello" },
-];
+import { profile } from "@/lib/content";
+import CopyEmail from "./CopyEmail";
+import LocalTime from "./LocalTime";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 md:py-28 border-t border-card-border">
-      <div className="flex items-baseline gap-2.5">
-        <span className="font-mono text-sm text-accent">05</span>
-        <span className="readout">Contact</span>
+    <section id="contact" className="page pb-24 pt-24 sm:pt-32">
+      <h2 className="h2">Say hello</h2>
+
+      <p className="measure mt-5 text-[1.28rem] leading-[1.6]">
+        I&apos;m looking for a full-time role in AI and ML engineering, and <mark className="marker">I can start
+        immediately</mark>, from any timezone. Call is fastest.
+      </p>
+
+      <p className="mt-8">
+        <a
+          href={profile.phoneHref}
+          className="link text-[clamp(1.9rem,6vw,3rem)] font-medium tracking-[-0.02em]"
+        >
+          {profile.phone}
+        </a>
+      </p>
+
+      <div className="mt-8 flex flex-wrap items-center gap-3">
+        <a href={profile.phoneHref} className="btn btn-ink">
+          Call me <span aria-hidden>→</span>
+        </a>
+        <a href={profile.cv} target="_blank" rel="noopener noreferrer" download={profile.cvFile} className="btn btn-line">
+          Download my CV <span aria-hidden>↓</span>
+        </a>
       </div>
-      <h2 className="font-display text-5xl sm:text-6xl text-foreground mt-3 mb-10 leading-none">
-        Get in touch
-      </h2>
 
-      {/* Terminal */}
-      <div className="rounded-xl overflow-hidden border border-card-border max-w-2xl">
-        {/* title bar */}
-        <div className="flex items-center gap-2 px-4 py-2.5 bg-background-tertiary border-b border-card-border">
-          <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-          <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-          <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-          <span className="ml-3 font-mono text-xs text-foreground/40">bash - contact</span>
-        </div>
+      <ul className="mt-10 space-y-1.5 font-sans text-[1.02rem]">
+        <li>
+          <span className="inline-block w-24 text-muted">Email</span>
+          <a href={`mailto:${profile.email}`} className="link break-all">
+            {profile.email}
+          </a>
+          <CopyEmail email={profile.email} />
+        </li>
+        <li>
+          <span className="inline-block w-24 text-muted">LinkedIn</span>
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="link">
+            {profile.linkedinLabel}
+          </a>
+        </li>
+        <li>
+          <span className="inline-block w-24 text-muted">GitHub</span>
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="link">
+            {profile.githubLabel}
+          </a>
+        </li>
+      </ul>
 
-        {/* body */}
-        <div className="bg-background-secondary font-mono text-sm sm:text-[0.92rem] p-5 sm:p-7 leading-relaxed">
-          <p className="mb-4">
-            <span className="text-accent">roger@demello</span>
-            <span className="text-foreground/35">:</span>
-            <span className="text-secondary">~</span>
-            <span className="text-foreground/35">$</span>{" "}
-            <span className="text-foreground/80">contact</span>
-          </p>
-
-          <div className="space-y-2">
-            {lines.map((l) => (
-              <div key={l.cmd} className="flex items-baseline gap-x-3">
-                <span className="text-foreground/35 w-24 shrink-0 whitespace-nowrap">→ {l.cmd}</span>
-                <a
-                  href={l.href}
-                  target={l.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline underline-offset-4 break-all"
-                >
-                  {l.value}
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-5 flex items-center gap-3 flex-wrap">
-            <span className="text-foreground/35">status:</span>
-            <span className="text-secondary">Immediate joiner · fully remote, any timezone</span>
-            <span aria-hidden className="inline-block w-2 h-[1.05em] bg-primary/80 animate-pulse translate-y-0.5" />
-          </p>
-        </div>
-      </div>
+      <p className="note mb-5 mt-14 inline-block origin-left -rotate-3 text-[2.4rem]" aria-hidden>
+        talk soon, Roger
+      </p>
+      <p className="meta">
+        <LocalTime />
+      </p>
     </section>
   );
 }
