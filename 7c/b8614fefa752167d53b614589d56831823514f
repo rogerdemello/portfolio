@@ -1,0 +1,213 @@
+components/HeroShots.tsx
+  s_38c86fbe44829b::t_4b6d4f15ae7ede 35
+components/Sketches.tsx
+  s_38c86fbe44829b::t_235ec3b26a649c 105,107,143,145
+components/Doodles.tsx
+  s_38c86fbe44829b::t_70633d31379da0 68-83
+README.md
+  s_38c86fbe44829b::t_35f05a4e2e316a 11-12,14-15,75,77,82
+  s_38c86fbe44829b::t_70633d31379da0 16
+components/Experience.tsx
+  s_38c86fbe44829b::t_35f05a4e2e316a 2-3,6-17,22
+components/Hero.tsx
+  s_38c86fbe44829b::t_e0528b92244a79 23
+  s_38c86fbe44829b::t_70633d31379da0 2,14-21,26,31,39
+lib/og-image.tsx
+  s_38c86fbe44829b::t_70633d31379da0 7
+components/Tool.tsx
+  s_38c86fbe44829b::t_a009e9fe480ff3 1-12
+lib/tech-icons.ts
+  s_38c86fbe44829b::t_c7194d044100f2 1-79
+components/ExperienceList.tsx
+  s_38c86fbe44829b::t_f3a00d47cbfc9a 1-98
+components/Skills.tsx
+  s_38c86fbe44829b::t_35f05a4e2e316a 1-2,10,13,15-22
+components/LocalTime.tsx
+  s_38c86fbe44829b::t_70633d31379da0 7,15
+app/globals.css
+  s_38c86fbe44829b::t_a009e9fe480ff3 128,131-133,135-136,138-143,145
+  s_38c86fbe44829b::t_cf3c6981c4c919 129-130,134,137,144,146,183
+  s_38c86fbe44829b::t_70633d31379da0 153-160
+lib/content.ts
+  s_38c86fbe44829b::t_139230471b26da 38-43,53-56,58-64,70-77,80,88-95,97
+  s_38c86fbe44829b::t_70633d31379da0 13,194,216,251
+  s_38c86fbe44829b::t_235ec3b26a649c 82,99
+  s_38c86fbe44829b::t_d60f927e9405e9 133,191-193,195-210
+lib/format.ts
+  s_38c86fbe44829b::t_d60f927e9405e9 1-7
+app/layout.tsx
+  s_38c86fbe44829b::t_70633d31379da0 98
+components/Expander.tsx
+  s_38c86fbe44829b::t_03508ff21d4895 1-22
+components/Work.tsx
+  s_38c86fbe44829b::t_344ab233f4f415 2,7,9,30-32,35,46-54,59-83,87-91,100-101,109,120-123,126-130
+components/Contact.tsx
+  s_38c86fbe44829b::t_70633d31379da0 11
+  s_38c86fbe44829b::t_cf3c6981c4c919 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "autter_version": "1.6.9",
+  "base_commit_sha": "7cb8614fefa752167d53b614589d56831823514f",
+  "branch": "feat/rows-logos-experience",
+  "prompts": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:ae24e004f767a36ca6a4fa3724ab073cda99290655e47e378798797c9c1539c6",
+      "total_additions": 626,
+      "total_deletions": 275,
+      "accepted_lines": 1617,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:ae24e004f767a36ca6a4fa3724ab073cda99290655e47e378798797c9c1539c6",
+      "stats": {
+        "total_additions": 626,
+        "total_deletions": 275,
+        "accepted_lines": 1617,
+        "overriden_lines": 0,
+        "files": {
+          ".claude/launch.json": {
+            "total_additions": 1,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "README.md": {
+            "total_additions": 9,
+            "total_deletions": 8,
+            "accepted_lines": 135,
+            "overriden_lines": 0
+          },
+          "app/globals.css": {
+            "total_additions": 49,
+            "total_deletions": 21,
+            "accepted_lines": 185,
+            "overriden_lines": 0
+          },
+          "app/layout.tsx": {
+            "total_additions": 1,
+            "total_deletions": 1,
+            "accepted_lines": 1,
+            "overriden_lines": 0
+          },
+          "components/Contact.tsx": {
+            "total_additions": 3,
+            "total_deletions": 3,
+            "accepted_lines": 63,
+            "overriden_lines": 0
+          },
+          "components/Doodles.tsx": {
+            "total_additions": 16,
+            "total_deletions": 0,
+            "accepted_lines": 83,
+            "overriden_lines": 0
+          },
+          "components/Expander.tsx": {
+            "total_additions": 22,
+            "total_deletions": 0,
+            "accepted_lines": 22,
+            "overriden_lines": 0
+          },
+          "components/Experience.tsx": {
+            "total_additions": 17,
+            "total_deletions": 29,
+            "accepted_lines": 57,
+            "overriden_lines": 0
+          },
+          "components/ExperienceList.tsx": {
+            "total_additions": 98,
+            "total_deletions": 0,
+            "accepted_lines": 98,
+            "overriden_lines": 0
+          },
+          "components/Hero.tsx": {
+            "total_additions": 13,
+            "total_deletions": 6,
+            "accepted_lines": 76,
+            "overriden_lines": 0
+          },
+          "components/HeroShots.tsx": {
+            "total_additions": 2,
+            "total_deletions": 2,
+            "accepted_lines": 40,
+            "overriden_lines": 0
+          },
+          "components/LocalTime.tsx": {
+            "total_additions": 2,
+            "total_deletions": 2,
+            "accepted_lines": 16,
+            "overriden_lines": 0
+          },
+          "components/Sketches.tsx": {
+            "total_additions": 4,
+            "total_deletions": 4,
+            "accepted_lines": 172,
+            "overriden_lines": 0
+          },
+          "components/Skills.tsx": {
+            "total_additions": 39,
+            "total_deletions": 51,
+            "accepted_lines": 29,
+            "overriden_lines": 0
+          },
+          "components/SkillsExplorer.tsx": {
+            "total_additions": 120,
+            "total_deletions": 2,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "components/Tool.tsx": {
+            "total_additions": 12,
+            "total_deletions": 0,
+            "accepted_lines": 12,
+            "overriden_lines": 0
+          },
+          "components/Work.tsx": {
+            "total_additions": 64,
+            "total_deletions": 101,
+            "accepted_lines": 133,
+            "overriden_lines": 0
+          },
+          "lib/content.ts": {
+            "total_additions": 64,
+            "total_deletions": 41,
+            "accepted_lines": 325,
+            "overriden_lines": 0
+          },
+          "lib/format.ts": {
+            "total_additions": 7,
+            "total_deletions": 0,
+            "accepted_lines": 7,
+            "overriden_lines": 0
+          },
+          "lib/og-image.tsx": {
+            "total_additions": 1,
+            "total_deletions": 1,
+            "accepted_lines": 84,
+            "overriden_lines": 0
+          },
+          "lib/tech-icons.ts": {
+            "total_additions": 82,
+            "total_deletions": 3,
+            "accepted_lines": 79,
+            "overriden_lines": 0
+          }
+        }
+      }
+    }
+  }
+}
