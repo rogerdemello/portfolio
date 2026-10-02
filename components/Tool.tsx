@@ -5,7 +5,7 @@ export default function Tool({ name }: { name: string }) {
   const { icon: Icon, color } = techFor(name);
   return (
     <li className="skill">
-      <Icon size={22} style={{ color }} aria-hidden className="skill-icon shrink-0" />
+      <Icon size="1.25em" style={{ color }} aria-hidden className="skill-icon shrink-0" />
       <span>{name}</span>
     </li>
   );
