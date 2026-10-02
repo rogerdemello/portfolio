@@ -14,6 +14,17 @@
   --mark: 255 229 138;
 }
 
+/*
+ * Scaled desktop displays (Windows at 125-175%, i.e. a device pixel ratio between 1.25 and 2) make 100%
+ * zoom feel zoomed in: a 1080p laptop at 150% shows a 1280px-wide page whose text looks oversized. Shrink
+ * the root size so the page opens at the proportions it was designed at. Everything is in rem, so it all
+ * scales together. Phones, tablets, standard 1x monitors and 2x retina screens are left alone, and
+ * browser zoom still works because this is a percentage of the user's own font setting.
+ */
+@media screen and (min-width: 1024px) and (min-resolution: 1.25dppx) and (max-resolution: 1.99dppx) {
+  html { font-size: 70%; }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
