@@ -8,11 +8,12 @@ A personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **
 
 ## Features
 
-- **Recruiter-first order** - who I am and when I can start, then the three CV projects, then experience, skills, about, contact. The CV link stays in the sticky header.
-- **Real work, shown** - screenshots of the running apps in `public/projects/` (captured at 2x), and hand-drawn architecture sketches for the two projects with no presentable UI (`components/Sketches.tsx`)
+- **Recruiter-first order** - who I am and when I can start, then the work, experience, skills, about, contact. The CV link stays in the sticky header.
+- **Real work, shown** - every project is one compact row: picture, one-line result, stack, links. Projects tagged "On my CV" are marked. "How it works" opens the large screenshot (or hand-drawn sketch) plus problem and approach. Screenshots live in `public/projects/`; projects with no presentable UI get a sketch (`components/Sketches.tsx`).
 - **Work in the first ten seconds** - the hero pins three real app screenshots beside the intro; each jumps to its write-up (`components/HeroShots.tsx`)
-- **Skills with receipts** - each tool carries a small number: how many of the projects list it, computed from the project data (`components/Skills.tsx`)
-- **Hand-made details** - margin notes in handwriting with pen-drawn arrows (`components/Doodles.tsx`), highlighter on the one sentence that matters, a live "it's 10:07 am in Nagpur" clock
+- **Skills with logos** - every tool carries its brand logo (`lib/tech-icons.ts`) and glows like highlighter on hover (`components/Tool.tsx`)
+- **Expandable experience** - each role shows three lines; click to read the full account and the tools used (`components/ExperienceList.tsx`)
+- **Hand-made details** - margin notes in handwriting with pen-drawn arrows (`components/Doodles.tsx`), highlighter on the one sentence that matters, a live "it's 10:07 am in India" clock
 - **No client JS for content** - the page is static server components; only the copy-email button and the clock hydrate. The "Also built" rows use native `<details>`.
 - **Dynamic social cards** - OG and Twitter images generated at build (`app/opengraph-image.tsx`, `app/twitter-image.tsx`, shared `lib/og-image.tsx`)
 - **SEO** - metadata, Open Graph, Twitter cards, `sitemap.xml`, `robots.txt`
@@ -71,14 +72,14 @@ Structured content lives in **`lib/content.ts`**: profile, experience, projects,
 | Export         | Feeds                                                              |
 |----------------|--------------------------------------------------------------------|
 | `profile`      | Name, contact details, CV path                                      |
-| `experience`   | Roles - period, headline, highlights                                |
+| `experience`   | Roles - period, three-line `summary`, full `details`, `tools`       |
 | `projects`     | Problem, approach, result, stack, links, categories, image/sketch   |
-| `skillGroups`  | The Skills list (the numbers are computed from `projects[].stack`)  |
+| `skillGroups`  | The Skills list (logos come from `lib/tech-icons.ts`)               |
 | `education`, `credentials` | Education                                               |
 | `story`, `principles` | About                                                        |
 | `nav`          | Header links (each `id` must match a section `id`)                  |
 
-**Projects.** The ones with `onCv: true` get the full write-up; the rest appear under "Also built". Give a project either `image` (a 16:10 WebP in `public/projects/`) plus `imageAlt`, or a `sketch` id. To add a new sketch, add a component in `components/Sketches.tsx` using the `Box`, `Arr` and `PenNote` helpers (lines are generated from a seeded jitter, so server and client render identically) and reference it in `Work.tsx`.
+**Projects.** `onCv: true` adds the "On my CV" tag; order in the array is the order on the page. Give a project either `image` (a 16:10 WebP in `public/projects/`) plus `imageAlt`, or a `sketch` id. To add a new sketch, add a component in `components/Sketches.tsx` using the `Box`, `Arr` and `PenNote` helpers (lines are generated from a seeded jitter, so server and client render identically) and reference it in `Work.tsx`.
 
 **Screenshots.** Capture at 1440x900 with a 2x device scale, crop to 16:10 and save as WebP (~1600px wide) plus a 640px `-sm.webp` variant of the same name (thumbnails and the hero use it; see `thumb()` in `lib/content.ts`). Real product shots beat mockups; if an app has no meaningful UI, sketch it.
 

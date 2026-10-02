@@ -10,7 +10,7 @@ export const profile = {
   role: "Software Engineer, AI/ML",
   status: "AI Engineer Intern at Innovun Global",
   availability: "Immediate joiner",
-  location: "Nagpur, India",
+  location: "India",
   work: "Fully remote, any timezone",
   summary:
     "Software engineer shipping machine learning and generative AI systems end to end - Python and TypeScript services over PostgreSQL, Docker delivery through CI/CD, shipped to 200+ users at 99.5% uptime.",
@@ -35,8 +35,12 @@ export interface Role {
   role: string;
   place?: string;
   current?: boolean;
-  headline: string;
-  highlights: string[];
+  /** Three short lines: the part of this job that matters most for the next one. */
+  summary: [string, string, string];
+  /** The full account, shown when the role is expanded. */
+  details: string[];
+  /** Tools worked with in this role (names that exist in lib/tech-icons.ts get a logo). */
+  tools: string[];
 }
 
 export const experience: Role[] = [
@@ -46,35 +50,53 @@ export const experience: Role[] = [
     role: "AI Engineer Intern",
     place: "Remote",
     current: true,
-    headline: "Live RAG agent for Cruz Roja Mexicana (Red Cross, Mexico)",
-    highlights: [
-      "Building the retrieval pipeline and prompts behind a live RAG agent for Cruz Roja Mexicana (Red Cross, Mexico).",
-      "Unified two external platform APIs across 3 channels into one consistent schema behind a live service.",
+    summary: [
+      "Live RAG agent for the Red Cross in Mexico, built on LangChain and LangGraph.",
+      "WhatsApp and Instagram APIs unified into one agent schema across 3 channels.",
+      "A natural-language-to-SQL agent over 2 enterprise systems.",
     ],
+    details: [
+      "Building the retrieval pipeline and prompts behind a live multi-channel conversational agent for Cruz Roja Mexicana (Red Cross, Mexico), on LangChain and LangGraph.",
+      "Integrated the WhatsApp Business Cloud API and Instagram Graph API across 3 channels into one consistent agent schema behind a live service.",
+      "Developing a natural-language-to-SQL agent that consolidates 2 enterprise source systems into one queryable database.",
+      "Troubleshooting production defects end to end and writing technical documentation for client stakeholders.",
+    ],
+    tools: ["LangChain", "LangGraph", "RAG Pipelines", "SQL", "WhatsApp Business Cloud API", "Instagram Graph API"],
   },
   {
     period: "Jan - Jun 2026",
     company: "AI LifeBOT",
     role: "AI Engineer Intern",
-    headline: "Production AI applications, shipped and kept alive",
-    highlights: [
-      "Engineered 3 production applications for 200+ users, raising task efficiency 40%.",
+    summary: [
+      "3 production apps for 200+ users, with RAG pipelines and real-time streaming.",
+      "99.5% uptime, and latency cut 35% by profiling the full request path.",
+      "Code reviews, pytest in CI/CD, and 5+ features shipped in an Agile team.",
+    ],
+    details: [
+      "Engineered 3 production applications for 200+ users, raising task efficiency 40%, with RAG pipelines and real-time streaming inside them.",
+      "Sustained 99.5% uptime with telemetry and audit logging, owning incident response and root cause analysis.",
       "Cut query and response latency 35% by profiling an inherited codebase across the full request path.",
       "Shipped 5+ features end to end, compressing delivery and validation cycles 50%.",
-      "Automated pytest suites inside CI/CD pipelines and reviewed teammate code in an Agile team.",
-      "Kept the apps at 99.5% uptime.",
+      "Conducted code reviews and automated pytest suites inside CI/CD pipelines, working in an Agile team.",
     ],
+    tools: ["RAG Pipelines", "pytest", "CI/CD"],
   },
   {
     period: "May - Jul 2025",
     company: "CFM, RCOEM",
     role: "Machine Learning Research Intern",
-    headline: "Clinical classification model on real, messy data",
-    highlights: [
-      "Trained a clinical classification model on 1,000+ health records to 87% accuracy on held-out data.",
-      "Raised result reliability 25% through cross-validation across multiple splits, not one sample.",
-      "Made development 30% faster.",
+    summary: [
+      "Clinical classifier on 1,000+ health records: 87% accuracy on held-out data.",
+      "Cross-validation across multiple splits raised result reliability 25%.",
+      "Reusable, tested data pipelines cut development time 30%.",
     ],
+    details: [
+      "Engineered measurable features in Python and Pandas from 1,000+ raw, inconsistent health records.",
+      "Trained and validated a clinical classification model, reaching 87% accuracy on held-out data.",
+      "Raised result reliability 25% through cross-validation across multiple splits, not one sample.",
+      "Standardised data pipelines into tested, reusable components, cutting development time 30%.",
+    ],
+    tools: ["Python", "Pandas"],
   },
 ];
 
@@ -108,7 +130,7 @@ export const slug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g
 /** 640px variant of a project screenshot, for thumbnails. */
 export const thumb = (image: string) => image.replace(/\.webp$/, "-sm.webp");
 
-// The first three are the projects carried on the CV, in CV order.
+// The ones with onCv: true get the full write-up, in this order; the rest sit under "Also built".
 export const projects: Project[] = [
   {
     title: "music-recsys",
@@ -167,11 +189,31 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Executive Email Copilot",
+    image: "/projects/email-copilot.webp",
+    imageAlt: "Executive Email Copilot inbox with triage counts, a selected urgent message and the copilot’s priority and risk reasoning.",
+    categories: ["GenAI & Agents"],
+    onCv: true,
+    problem: "No reproducible way to benchmark autonomous email-triage agents.",
+    approach: [
+      "Deterministic RL-style inbox simulation.",
+      "Four policy modes - baseline, perturbation, LLM, hybrid.",
+      "Bounded, numerically stable grading metrics.",
+      "Telemetry, approval workflows and episode replay.",
+    ],
+    result: "Honest benchmarks on classification, prioritization and full inbox management.",
+    stack: ["Python", "FastAPI", "Pydantic", "SQLAlchemy", "SciPy", "React", "OpenAI API"],
+    links: [
+      { label: "GitHub", href: "https://github.com/rogerdemello/autonomous-executive-email-copilot" },
+      { label: "Live", href: "https://exec-email-copilot.onrender.com" },
+    ],
+  },
+  {
     title: "Shadow GTM",
     image: "/projects/shadow-gtm.webp",
     imageAlt: "Shadow GTM dashboard showing a competitor matrix, ranked AI-recommended plays and a live intelligence feed.",
     categories: ["GenAI & Agents", "Full-stack"],
-    problem: "GTM teams can't watch every competitor move in real time.",
+    problem: "GTM teams can’t watch every competitor move in real time.",
     approach: [
       "Gemini-grounded competitor page scans.",
       "Diffs signals against prior snapshots.",
@@ -202,30 +244,11 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", href: "https://github.com/rogerdemello/ml-guardian" }],
   },
   {
-    title: "Executive Email Copilot",
-    image: "/projects/email-copilot.webp",
-    imageAlt: "Executive Email Copilot inbox with triage counts, a selected urgent message and the copilot's priority and risk reasoning.",
-    categories: ["GenAI & Agents"],
-    problem: "No reproducible way to benchmark autonomous email-triage agents.",
-    approach: [
-      "Deterministic RL-style inbox simulation.",
-      "Four policy modes - baseline, perturbation, LLM, hybrid.",
-      "Bounded, numerically stable grading metrics.",
-      "Telemetry, approval workflows and episode replay.",
-    ],
-    result: "Honest benchmarks on classification, prioritization and full inbox management.",
-    stack: ["Python", "FastAPI", "Pydantic", "SQLAlchemy", "SciPy", "React", "OpenAI API"],
-    links: [
-      { label: "GitHub", href: "https://github.com/rogerdemello/autonomous-executive-email-copilot" },
-      { label: "Live", href: "https://exec-email-copilot.onrender.com" },
-    ],
-  },
-  {
     title: "BharatOS",
     image: "/projects/bharatos.webp",
     imageAlt: "BharatOS dashboard with CFO, Inventory, Marketing, Risk and Growth agent tiles, a Business Twin, a Paytm transaction feed and a supplier call agent.",
     categories: ["GenAI & Agents"],
-    problem: "India's small businesses get voice APIs, not an AI that reasons about the business.",
+    problem: "India’s small businesses get voice APIs, not an AI that reasons about the business.",
     approach: [
       "Five agents - CFO, Inventory, Marketing, Risk, Growth.",
       "Business Twin for historical recall.",

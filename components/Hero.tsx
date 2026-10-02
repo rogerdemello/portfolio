@@ -1,5 +1,5 @@
 import { profile } from "@/lib/content";
-import { Arrow } from "./Doodles";
+import { Arrow, PenUnderline } from "./Doodles";
 import HeroShots from "./HeroShots";
 
 const links = [
@@ -11,17 +11,24 @@ const links = [
 export default function Hero() {
   return (
     <section id="top" className="page pb-6 pt-14 sm:pt-24">
-      <h1 className="text-[clamp(3.4rem,9vw,6.5rem)] font-medium leading-[0.96] tracking-[-0.038em]">Hi, I&apos;m Roger.</h1>
+      <h1 className="text-[clamp(3.4rem,9vw,6.5rem)] font-medium leading-[0.96] tracking-[-0.038em]">
+        Hi, I’m{" "}
+        <span className="relative inline-block italic">
+          Roger
+          <PenUnderline />
+        </span>
+        .
+      </h1>
 
-      <div className="relative mt-9">
+      <div className="relative mt-14">
         <div className="max-w-[42rem] space-y-5 text-[1.28rem] leading-[1.6] sm:text-[1.38rem] lg:max-w-[36rem] xl:max-w-[38rem]">
           <p>
-            I&apos;m a software engineer in Nagpur, India. I build machine learning and generative AI systems end to
+            I’m a software engineer based in India. I build machine learning and generative AI systems end to
             end: Python and TypeScript services over PostgreSQL, shipped in Docker through CI/CD.
           </p>
 
           <p>
-            Right now I&apos;m an AI engineer intern at Innovun Global, working remotely on the retrieval pipeline
+            Right now I’m an AI engineer intern at Innovun Global, working remotely on the retrieval pipeline
             and prompts behind a live RAG agent for the Red Cross in Mexico. Before that I spent six months at AI
             LifeBOT, where I engineered <strong className="font-semibold">3 production apps</strong> for{" "}
             <strong className="font-semibold">200+ users</strong> and kept them at{" "}
@@ -29,7 +36,7 @@ export default function Hero() {
           </p>
 
           <p>
-            I&apos;ve just finished my B.Tech, and{" "}
+            I’ve just finished my B.Tech, and{" "}
             <mark className="marker relative">
               I can start immediately
               {/* margin note under the phrase, wide screens only */}

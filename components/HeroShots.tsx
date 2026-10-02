@@ -32,7 +32,7 @@ export default function HeroShots() {
           );
         })}
         <p aria-hidden className="note absolute -bottom-11 left-3 -rotate-2 whitespace-nowrap">
-          the real apps, not mockups
+          click any
         </p>
       </div>
     </div>
