@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 // Same voice as the site: plain paper, a serif headline, one highlighted line, a note in ballpoint.
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_ALT =
-  "Roger Demello - software engineer, AI/ML, in Nagpur, India. Can start immediately, in any timezone.";
+  "Roger Demello - software engineer, AI/ML, based in India. Can start immediately, in any timezone.";
 
 const PAPER = "#FAF9F6";
 const INK = "#1C1B19";

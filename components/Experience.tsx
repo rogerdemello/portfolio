@@ -1,37 +1,25 @@
 import { experience, education, credentials } from "@/lib/content";
-import Figures from "./Figures";
+import Tool from "./Tool";
+import ExperienceList from "./ExperienceList";
 
 export default function Experience() {
+  // Tool logos are rendered here, on the server, so the client accordion doesn't ship the icon set.
+  const items = experience.map((role) => ({
+    role,
+    tools: (
+      <ul className="-ml-2.5 flex flex-wrap gap-x-1 gap-y-1.5 text-[1rem]">
+        {role.tools.map((t) => (
+          <Tool key={t} name={t} />
+        ))}
+      </ul>
+    ),
+  }));
+
   return (
     <section id="experience" className="page pt-24 sm:pt-32">
       <h2 className="h2">Experience</h2>
 
-      <ol className="mt-12 space-y-14">
-        {experience.map((r) => (
-          <li key={r.company} className="grid gap-x-10 gap-y-2 md:grid-cols-[10.5rem_1fr]">
-            <div className="meta md:pt-2.5">
-              <p className="font-semibold text-ink">{r.period}</p>
-              {r.place && <p>{r.place}</p>}
-              {r.current && <p className="note mt-1 -rotate-2 text-[1.3rem]">that&apos;s now</p>}
-            </div>
-
-            <div className="max-w-[40rem]">
-              <h3 className="text-[1.65rem] font-medium leading-tight tracking-[-0.02em]">
-                {r.company}
-                <span className="font-normal text-muted"> · {r.role}</span>
-              </h3>
-              <p className="mt-2 text-[1.15rem] italic leading-snug text-ink/75">{r.headline}</p>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-[1.08rem] leading-[1.55] marker:text-pen">
-                {r.highlights.map((h) => (
-                  <li key={h}>
-                    <Figures text={h} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <ExperienceList items={items} />
 
       <div className="mt-20 grid gap-x-10 gap-y-10 md:grid-cols-[10.5rem_1fr]">
         <h3 className="text-[1.65rem] font-medium leading-tight tracking-[-0.02em] md:col-span-2">Education</h3>

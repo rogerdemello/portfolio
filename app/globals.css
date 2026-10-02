@@ -125,10 +125,37 @@ body {
     color: rgb(var(--muted));
   }
 
+  /* Skills: a logo and a name. Point at one and it lights up like highlighter. */
+  .skill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.34rem 0.75rem 0.34rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.25s, transform 0.2s;
+  }
+  .skill-icon { transition: transform 0.25s; }
+  .skill:hover {
+    transform: translateY(-2px);
+    background: rgb(var(--mark) / 0.5);
+    border-color: rgb(var(--mark));
+    box-shadow: 0 0 0 3px rgb(var(--mark) / 0.35), 0 10px 26px -4px rgb(var(--mark) / 0.85);
+  }
+  .skill:hover .skill-icon { transform: scale(1.18) rotate(-6deg); }
+
   /* Native <details> toggle */
   .more > summary { list-style: none; cursor: pointer; }
   .more > summary::-webkit-details-marker { display: none; }
   .more[open] .more-plus { transform: rotate(45deg); }
+}
+
+/* A pen stroke that draws itself once. pathLength is normalised to 1 on the path. */
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.draw-in path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.45s forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -153,5 +180,6 @@ body {
   a[href^="http"]::after { content: " (" attr(href) ")"; font-family: var(--font-sans), sans-serif; font-size: 0.72em; color: #555; word-break: break-all; }
   a[href$=".pdf"]::after, a[href^="#"]::after { content: none; }
   .btn { border: 1px solid #999; background: none; color: #000; }
+  .skill { box-shadow: none !important; background: none !important; opacity: 1 !important; transform: none !important; border-color: transparent !important; }
   details:not([open]) > *:not(summary) { display: block; }
 }
