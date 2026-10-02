@@ -95,7 +95,7 @@ const personLd = {
   alternateName: "Roger Demello",
   jobTitle: "Software Engineer, AI/ML",
   url: "https://rogerdemello.tech",
-  address: { "@type": "PostalAddress", addressLocality: "Nagpur", addressCountry: "IN" },
+  address: { "@type": "PostalAddress", addressCountry: "IN" },
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Shri Ramdeobaba College of Engineering and Management",

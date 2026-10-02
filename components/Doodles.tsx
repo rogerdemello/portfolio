@@ -65,3 +65,19 @@ export function Squiggle({ children }: { children: React.ReactNode }) {
     </span>
   );
 }
+
+/** A confident double underline that writes itself once on load (see .draw-in in globals.css). */
+export function PenUnderline() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 300 22"
+      preserveAspectRatio="none"
+      className="draw-in pointer-events-none absolute -bottom-[0.3em] left-[-0.02em] h-[0.2em] w-[104%] text-pen"
+      overflow="visible"
+    >
+      <path d="M3 13 C 62 4, 112 18, 172 9 S 262 11, 297 4" pathLength={1} fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+      <path d="M44 19 C 104 14, 176 21, 252 15" pathLength={1} fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" style={{ animationDelay: "1.2s" }} />
+    </svg>
+  );
+}
