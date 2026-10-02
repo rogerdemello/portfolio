@@ -102,9 +102,9 @@ function PenNote({ x, y, lines, anchor = "start" }: { x: number; y: number; line
 const frame = "figure bg-paper";
 
 /** music-recsys, redrawn from the README's architecture block. */
-export function MusicRecsysSketch() {
+export function MusicRecsysSketch({ bare = false }: { bare?: boolean }) {
   return (
-    <svg role="img" aria-label="Sketch of the music-recsys architecture: user events flow through an event bus and feature updater into an online store, then a two-tower model, ANN retrieval and a LightGBM ranker produce the top-N, with an MLflow registry, FastAPI and Prometheus around them." viewBox="0 0 780 445" className={frame}>
+    <svg role={bare ? undefined : "img"} aria-label={bare ? undefined : "Sketch of the music-recsys architecture: user events flow through an event bus and feature updater into an online store, then a two-tower model, ANN retrieval and a LightGBM ranker produce the top-N, with an MLflow registry, FastAPI and Prometheus around them."} aria-hidden={bare || undefined} viewBox="0 0 780 445" className={bare ? "block h-auto w-full" : frame}>
       {/* row 1: events in */}
       <Box x={20} y={30} w={130} h={66} title="user events" seed={11} />
       <Box x={205} y={30} w={140} h={66} title="event bus" sub="file → Kafka" seed={12} />
@@ -140,9 +140,9 @@ export function MusicRecsysSketch() {
 }
 
 /** DealSentry's review flow. */
-export function DealSentrySketch() {
+export function DealSentrySketch({ bare = false }: { bare?: boolean }) {
   return (
-    <svg role="img" aria-label="Sketch of the DealSentry flow: an uploaded proposal is parsed, scored by a rules engine for pricing, legal and structural risk, routed for approval with an SLA clock, and only then signed, with an audit log, role-based access control and CRM integrations underneath." viewBox="0 0 780 420" className={frame}>
+    <svg role={bare ? undefined : "img"} aria-label={bare ? undefined : "Sketch of the DealSentry flow: an uploaded proposal is parsed, scored by a rules engine for pricing, legal and structural risk, routed for approval with an SLA clock, and only then signed, with an audit log, role-based access control and CRM integrations underneath."} aria-hidden={bare || undefined} viewBox="0 0 780 420" className={bare ? "block h-auto w-full" : frame}>
       <Box x={20} y={30} w={140} h={66} title="proposal" sub="PDF / DOCX upload" seed={31} />
       <Box x={215} y={30} w={140} h={66} title="parse" sub="text + structure" seed={32} />
       <Box x={410} y={30} w={190} h={66} title="rules engine" sub="pricing · legal · structure" seed={33} mark />
