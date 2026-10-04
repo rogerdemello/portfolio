@@ -5,8 +5,11 @@ import { MusicRecsysSketch, DealSentrySketch } from "./Sketches";
 import Figures from "./Figures";
 import Shot from "./Shot";
 import Expander from "./Expander";
+import MoreProjects from "./MoreProjects";
 
 const sketched = projects.filter((p) => p.sketch).length;
+const onCv = projects.filter((p) => p.onCv);
+const others = projects.filter((p) => !p.onCv);
 
 function Links({ p }: { p: Project }) {
   const live = p.links.find((l) => l.label === "Live");
@@ -117,17 +120,26 @@ export default function Work() {
     <section id="work" className="page pt-20 sm:pt-28">
       <h2 className="h2">Work</h2>
       <p className="measure mt-5 text-[1.2rem] leading-[1.6] text-ink/80">
-        Here are {numberWord(projects.length)} projects I’ve built. If you’re short on time, start with the ones tagged{" "}
-        <Circled>On my CV</Circled>. Every one links to its code, and the ones with a live demo say so.{" "}
-        {capitalise(numberWord(sketched))} of them have no interface worth a screenshot, so I drew how they work instead.
-        The sketches are mine.
+        Here are {numberWord(projects.length)} projects I’ve built. If you’re short on time, start with{" "}
+        <Circled>the first {numberWord(onCv.length)}</Circled>, the ones on my CV. Every one links to its code, and the
+        ones with a live demo say so. {capitalise(numberWord(sketched))} of them have no interface worth a screenshot, so I
+        drew how they work instead. The sketches are mine.
       </p>
 
-      <ul className="mt-12 divide-y divide-ink/[0.12] border-y border-ink/[0.12]">
-        {projects.map((p) => (
+      <ul className="mt-12 divide-y divide-ink/[0.12] border-t border-ink/[0.12]">
+        {onCv.map((p) => (
           <Row key={p.title} p={p} />
         ))}
       </ul>
+
+      <MoreProjects count={others.length}>
+        <ul className="divide-y divide-ink/[0.12] border-t border-ink/[0.12]">
+          {others.map((p) => (
+            <Row key={p.title} p={p} />
+          ))}
+        </ul>
+      </MoreProjects>
+      <div className="border-t border-ink/[0.12]" />
     </section>
   );
 }

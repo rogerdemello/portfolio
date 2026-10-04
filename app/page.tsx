@@ -13,9 +13,9 @@ export default function Home() {
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Hero />
-        <Work />
-        <Experience />
         <Skills />
+        <Experience />
+        <Work />
         <About />
         <Contact />
       </main>

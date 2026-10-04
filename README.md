@@ -8,8 +8,8 @@ A personal portfolio built with **Next.js (App Router)**, **TypeScript**, and **
 
 ## Features
 
-- **Recruiter-first order** - who I am and when I can start, then the work, experience, skills, about, contact. The CV link stays in the sticky header.
-- **Real work, shown** - every project is one compact row: picture, one-line result, stack, links. Projects tagged "On my CV" are marked. "How it works" opens the large screenshot (or hand-drawn sketch) plus problem and approach. Screenshots live in `public/projects/`; projects with no presentable UI get a sketch (`components/Sketches.tsx`).
+- **Recruiter-first order** - who I am and when I can start, then skills, experience, work, about, contact. The CV link stays in the sticky header.
+- **Real work, shown** - every project is one compact row: picture, one-line result, stack, links. The four "On my CV" projects show first; the rest unfold under "View more projects" (`components/MoreProjects.tsx`), and links into the fold, like the hero screenshots, open it. "How it works" opens the large screenshot (or hand-drawn sketch) plus problem and approach. Screenshots live in `public/projects/`; projects with no presentable UI get a sketch (`components/Sketches.tsx`).
 - **Work in the first ten seconds** - the hero pins three real app screenshots beside the intro; each jumps to its write-up (`components/HeroShots.tsx`)
 - **Skills with logos** - every tool carries its brand logo (`lib/tech-icons.ts`) and glows like highlighter on hover (`components/Tool.tsx`)
 - **Expandable experience** - each role shows three lines; click to read the full account and the tools used (`components/ExperienceList.tsx`)
