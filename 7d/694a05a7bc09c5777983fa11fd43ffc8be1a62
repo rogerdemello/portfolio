@@ -1,0 +1,104 @@
+lib/content.ts
+  s_38c86fbe44829b::t_6a211469dbee99 321-322
+components/Work.tsx
+  s_38c86fbe44829b::t_98cdf4cf69c4fd 8,11-12,123-126,129-130,134-142
+README.md
+  s_38c86fbe44829b::t_6a211469dbee99 11
+  s_38c86fbe44829b::t_98cdf4cf69c4fd 12
+components/Contact.tsx
+  s_38c86fbe44829b::t_bc4794ab915d36 11-12
+app/globals.css
+  s_38c86fbe44829b::t_98cdf4cf69c4fd 164-182
+components/MoreProjects.tsx
+  s_38c86fbe44829b::t_524090fe095e49 1-60
+app/page.tsx
+  s_38c86fbe44829b::t_6a211469dbee99 17-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "autter_version": "1.6.9",
+  "base_commit_sha": "7d694a05a7bc09c5777983fa11fd43ffc8be1a62",
+  "branch": "feat/fold-projects-reorder",
+  "prompts": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:8cd483ccdfcc6e41d2afdf9166ed5a448ec3292e5090aab83675d44632befc51",
+      "total_additions": 109,
+      "total_deletions": 17,
+      "accepted_lines": 968,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_38c86fbe44829b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ea2a3f5-5d3a-494e-a483-ee7ce9bf9d36",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Roger <rogerdemello289@gmail.com>",
+      "messages_url": "cas:8cd483ccdfcc6e41d2afdf9166ed5a448ec3292e5090aab83675d44632befc51",
+      "stats": {
+        "total_additions": 109,
+        "total_deletions": 17,
+        "accepted_lines": 968,
+        "overriden_lines": 0,
+        "files": {
+          ".claude/launch.json": {
+            "total_additions": 1,
+            "total_deletions": 0,
+            "accepted_lines": 0,
+            "overriden_lines": 0
+          },
+          "README.md": {
+            "total_additions": 2,
+            "total_deletions": 2,
+            "accepted_lines": 135,
+            "overriden_lines": 0
+          },
+          "app/globals.css": {
+            "total_additions": 19,
+            "total_deletions": 0,
+            "accepted_lines": 215,
+            "overriden_lines": 0
+          },
+          "app/page.tsx": {
+            "total_additions": 2,
+            "total_deletions": 2,
+            "accepted_lines": 25,
+            "overriden_lines": 0
+          },
+          "components/Contact.tsx": {
+            "total_additions": 5,
+            "total_deletions": 5,
+            "accepted_lines": 63,
+            "overriden_lines": 0
+          },
+          "components/MoreProjects.tsx": {
+            "total_additions": 60,
+            "total_deletions": 0,
+            "accepted_lines": 60,
+            "overriden_lines": 0
+          },
+          "components/Work.tsx": {
+            "total_additions": 18,
+            "total_deletions": 6,
+            "accepted_lines": 145,
+            "overriden_lines": 0
+          },
+          "lib/content.ts": {
+            "total_additions": 2,
+            "total_deletions": 2,
+            "accepted_lines": 325,
+            "overriden_lines": 0
+          }
+        }
+      }
+    }
+  }
+}
