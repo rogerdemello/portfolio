@@ -317,9 +317,9 @@ export const principles = [
 /* ------------------------------------------------------------------ */
 
 export const nav = [
-  { name: "Work", id: "work" },
-  { name: "Experience", id: "experience" },
   { name: "Skills", id: "skills" },
+  { name: "Experience", id: "experience" },
+  { name: "Work", id: "work" },
   { name: "About", id: "about" },
   { name: "Contact", id: "contact" },
 ];

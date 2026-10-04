@@ -8,8 +8,8 @@ export default function Contact() {
       <h2 className="h2">Say hello</h2>
 
       <p className="measure mt-5 text-[1.28rem] leading-[1.6]">
-        I’m looking for a full-time role in AI and ML engineering or as an SDE, and{" "}
-        <mark className="marker">I can start immediately</mark>, from any timezone. Call is fastest.
+        I’m open to full-time roles in AI/ML engineering and software development (SDE). The fastest way to reach me is
+        a call.
       </p>
 
       <p className="mt-8">
