@@ -18,6 +18,7 @@ export default function Hero() {
           <PenUnderline />
         </span>
         .
+        <span className="sr-only"> Roger Richard Demello is an AI engineer and software engineer based in India.</span>
       </h1>
 
       <div className="relative mt-14">
@@ -28,10 +29,10 @@ export default function Hero() {
           </p>
 
           <p>
-            Right now I’m an AI engineer intern at Innovun Global, working remotely on the retrieval pipeline
-            and prompts behind a live RAG agent for the Red Cross in Mexico. Before that I spent six months at AI
+            Right now I’m an AI engineer intern at Innovun Global, working remotely on a bilingual RAG
+            assistant with hybrid search for the Red Cross in Mexico. Before that I spent six months at AI
             LifeBOT, where I engineered <strong className="font-semibold">3 production apps</strong> for{" "}
-            <strong className="font-semibold">200+ users</strong> and kept them at{" "}
+            <strong className="font-semibold">300+ users</strong> and kept them at{" "}
             <strong className="font-semibold">99.5% uptime</strong>.
           </p>
 

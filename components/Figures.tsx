@@ -1,4 +1,4 @@
-/** Sets figures like "200+", "99.5%" and "~70%" in bold so a skimming reader lands on them. */
+/** Sets figures like "300+", "99.5%" and "~70%" in bold so a skimming reader lands on them. */
 export default function Figures({ text }: { text: string }) {
   return (
     <>
