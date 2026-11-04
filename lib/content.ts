@@ -13,7 +13,7 @@ export const profile = {
   location: "India",
   work: "Fully remote, any timezone",
   summary:
-    "Software engineer shipping machine learning and generative AI systems end to end - Python and TypeScript services over PostgreSQL, Docker delivery through CI/CD, shipped to 200+ users at 99.5% uptime.",
+    "AI and software engineer with 3 internships building production RAG applications, AI agents with human approval, and full-stack services in Python, TypeScript and Java - 3 production apps, 300+ users, 99.5% uptime.",
   email: "rogerdemello289@gmail.com",
   phone: "+91 94217 78898",
   phoneHref: "tel:+919421778898",
@@ -51,35 +51,34 @@ export const experience: Role[] = [
     place: "Remote",
     current: true,
     summary: [
-      "Live RAG agent for the Red Cross in Mexico, built on LangChain and LangGraph.",
-      "WhatsApp and Instagram APIs unified into one agent schema across 3 channels.",
-      "A natural-language-to-SQL agent over 2 enterprise systems.",
+      "Auri chat widget in Preact for the Red Cross in Mexico: a bilingual RAG assistant for 67 courses.",
+      "Hybrid search in the RAG pipeline: pgvector and keyword scores fused with reciprocal rank fusion.",
+      "PO-to-SO proof of concept: OCR and Gemini extraction behind human-in-the-loop review.",
     ],
     details: [
-      "Building the retrieval pipeline and prompts behind a live multi-channel conversational agent for Cruz Roja Mexicana (Red Cross, Mexico), on LangChain and LangGraph.",
-      "Integrated the WhatsApp Business Cloud API and Instagram Graph API across 3 channels into one consistent agent schema behind a live service.",
-      "Developing a natural-language-to-SQL agent that consolidates 2 enterprise source systems into one queryable database.",
-      "Troubleshooting production defects end to end and writing technical documentation for client stakeholders.",
+      "Building the Auri chat widget in Preact for Cruz Roja Mexicana (Red Cross, Mexico), a bilingual RAG assistant for 67 courses.",
+      "Implementing hybrid search in the RAG pipeline, fusing pgvector vector and keyword scores with reciprocal rank fusion.",
+      "Developing a PO-to-SO proof of concept that extracts PDF fields with OCR and Gemini, gated by human-in-the-loop review.",
+      "Testing extraction on 13 sample PO layouts, including scans with no text layer, skewed pages and multi-column pages.",
     ],
-    tools: ["LangChain", "LangGraph", "RAG Pipelines", "SQL", "WhatsApp Business Cloud API", "Instagram Graph API"],
+    tools: ["RAG Pipelines", "pgvector", "Preact", "Gemini", "OCR"],
   },
   {
     period: "Jan - Jun 2026",
     company: "AI LifeBOT",
     role: "AI Engineer Intern",
     summary: [
-      "3 production apps for 200+ users, with RAG pipelines and real-time streaming.",
+      "RAG pipelines in 3 production apps for 300+ users, on Python, FastAPI and PostgreSQL.",
       "99.5% uptime, and latency cut 35% by profiling the full request path.",
-      "Code reviews, pytest in CI/CD, and 5+ features shipped in an Agile team.",
+      "pytest suites in CI/CD, and 5+ features shipped end to end.",
     ],
     details: [
-      "Engineered 3 production applications for 200+ users, raising task efficiency 40%, with RAG pipelines and real-time streaming inside them.",
-      "Sustained 99.5% uptime with telemetry and audit logging, owning incident response and root cause analysis.",
-      "Cut query and response latency 35% by profiling an inherited codebase across the full request path.",
-      "Shipped 5+ features end to end, compressing delivery and validation cycles 50%.",
-      "Conducted code reviews and automated pytest suites inside CI/CD pipelines, working in an Agile team.",
+      "Architected RAG pipelines in 3 production applications serving 300+ users on Python, FastAPI and PostgreSQL.",
+      "Sustained 99.5% uptime with telemetry, structured audit logging, incident response and root cause analysis.",
+      "Cut query and response latency 35% by profiling hot paths across the request path of an inherited codebase.",
+      "Automated pytest suites in CI/CD pipelines, shipping 5+ features end to end through cross-functional collaboration.",
     ],
-    tools: ["RAG Pipelines", "pytest", "CI/CD"],
+    tools: ["RAG Pipelines", "FastAPI", "PostgreSQL", "pytest", "CI/CD"],
   },
   {
     period: "May - Jul 2025",
@@ -266,12 +265,13 @@ export const projects: Project[] = [
 /* ------------------------------------------------------------------ */
 
 export const skillGroups = [
-  { label: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "C++", "C", "Bash", "YAML"] },
-  { label: "Generative AI", items: ["RAG Pipelines", "LangChain", "LangGraph", "Multi-Agent Systems", "FAISS", "OpenAI API"] },
-  { label: "Machine Learning", items: ["Scikit-learn", "PyTorch", "XGBoost", "LightGBM", "Anomaly Detection", "NLP", "Computer Vision"] },
-  { label: "Backend & APIs", items: ["FastAPI", "Flask", "Express", "Node.js", "REST APIs", "Microservices", "React", "Next.js"] },
-  { label: "Data & Cloud", items: ["PostgreSQL", "Redis", "Pandas", "NumPy", "MLflow", "Docker", "AWS", "CI/CD", "GitHub Actions", "MLOps"] },
-  { label: "CS Fundamentals", items: ["Data Structures", "Algorithms", "System Design", "OOP", "pytest"] },
+  { label: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "C++", "C", "Bash", "YAML", "Dart"] },
+  { label: "Generative AI", items: ["RAG Pipelines", "Hybrid Search", "LangChain", "LangGraph", "LlamaIndex", "MCP", "Multi-Agent Systems", "pgvector", "FAISS", "Azure OpenAI", "Gemini"] },
+  { label: "Machine Learning", items: ["Scikit-learn", "PyTorch", "LightGBM", "Random Forest", "IsolationForest", "Anomaly Detection", "MLflow"] },
+  { label: "Backend & APIs", items: ["FastAPI", "Flask", "Express", "Node.js", "REST APIs", "Microservices", "WebSockets", "React", "Next.js", "Preact"] },
+  { label: "Data & Cloud", items: ["PostgreSQL", "Redis", "SQLAlchemy", "Prisma", "Supabase", "Pandas", "NumPy", "Docker", "AWS", "CI/CD", "GitHub Actions"] },
+  { label: "Testing & Security", items: ["pytest", "Vitest", "JUnit 5", "Playwright", "Prometheus", "Grafana", "OAuth", "OIDC", "RBAC"] },
+  { label: "CS Fundamentals", items: ["Data Structures", "Algorithms", "System Design", "OOP", "Concurrency"] },
 ] as const;
 
 /* ------------------------------------------------------------------ */
@@ -301,8 +301,8 @@ export const credentials = [
 export const story = [
   { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
   { year: "2025", line: "Trained models on real, messy data.", sub: "A clinical classifier over 1,000+ health records to 87% accuracy - plus the preprocessing and cross-validation that made the number trustworthy." },
-  { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - 3 production apps, 200+ users, 40% task efficiency, 35% lower latency." },
-  { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Building the retrieval pipeline behind a live RAG agent for the Red Cross in Mexico - immediate joiner, fully remote." },
+  { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - 3 production apps, 300+ users, 99.5% uptime, 35% lower latency." },
+  { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Building a bilingual RAG assistant with hybrid search for the Red Cross in Mexico - immediate joiner, fully remote." },
 ];
 
 export const principles = [
