@@ -6,7 +6,6 @@ import { profile, projects, slug } from "@/lib/content";
 // Serif for everything you read: headings and body, like a letter.
 const serif = Newsreader({
   subsets: ["latin"],
-  axes: ["opsz"],
   style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
