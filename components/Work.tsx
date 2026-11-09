@@ -52,34 +52,10 @@ function Thumb({ p }: { p: Project }) {
             <Sketch p={p} bare />
           </div>
         ) : (
-          <Shot src={thumb(p.image!)} alt={p.imageAlt!} width={640} height={400} />
+          <Shot src={thumb(p.image!)} alt={p.imageAlt!} width={640} height={400} lazy />
         )}
       </div>
     </a>
-  );
-}
-
-/** The large picture shown when a row is opened. */
-function FullFigure({ p }: { p: Project }) {
-  const caption = p.sketch
-    ? "My sketch of how it works. There isn’t a UI worth a screenshot."
-    : p.title === "sentinelops"
-      ? "The real app, running locally. I injected a database scenario and it predicted the incident."
-      : "Screenshot of the running app.";
-  return (
-    <figure className="max-w-[52rem]">
-      {p.sketch ? (
-        // Diagrams keep a readable size on phones and scroll sideways inside their own frame.
-        <div className="-mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
-          <div className="min-w-[640px]">
-            <Sketch p={p} />
-          </div>
-        </div>
-      ) : (
-        <Shot src={p.image!} alt={p.imageAlt!} width={1600} height={1000} />
-      )}
-      <figcaption className="meta mt-2">{caption}</figcaption>
-    </figure>
   );
 }
 
@@ -100,7 +76,7 @@ function Row({ p }: { p: Project }) {
           <Links p={p} />
         </div>
 
-        <Expander figure={<FullFigure p={p} />}>
+        <Expander figure={{ title: p.title, image: p.image, imageAlt: p.imageAlt, sketch: p.sketch }}>
           <div className="max-w-[40rem] space-y-3 text-[1.05rem] leading-[1.55]">
             <p className="italic text-ink/75">{p.problem}</p>
             <ul className="list-disc space-y-1 pl-5 marker:text-pen">

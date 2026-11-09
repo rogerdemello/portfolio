@@ -12,12 +12,15 @@ export default function Shot({
   width,
   height,
   className = "",
+  lazy = false,
 }: {
   src: string;
   alt: string;
   width: number;
   height: number;
   className?: string;
+  /** Below-the-fold images: let the browser defer them until they are near the viewport. */
+  lazy?: boolean;
 }) {
   const ref = useRef<HTMLImageElement>(null);
   const [attempt, setAttempt] = useState(0);
@@ -25,7 +28,7 @@ export default function Shot({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || lazy) return; // a deferred image has not started loading yet, so there is nothing to check
     // A failure that happened before hydration never fires onError, so look for it now.
     if (el.complete && el.naturalWidth === 0) retry();
     // A stalled request never errors either: give it a few seconds, then ask again.
@@ -33,7 +36,7 @@ export default function Shot({
       if (!el.complete || el.naturalWidth === 0) retry();
     }, 6000);
     return () => clearTimeout(timer);
-  }, [attempt]);
+  }, [attempt, lazy]);
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
@@ -44,6 +47,7 @@ export default function Shot({
       width={width}
       height={height}
       decoding="async"
+      loading={lazy ? "lazy" : undefined}
       onError={retry}
       className={`figure shot ${className}`}
     />
