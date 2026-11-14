@@ -67,6 +67,11 @@ body {
     text-decoration-color: rgb(var(--ink) / 0.45);
     transition: color 0.15s, text-decoration-color 0.15s;
   }
+  /* Touch screens: grow the hit area of small links and buttons to ~44px without moving anything on the page. */
+  @media (pointer: coarse) {
+    .link, .more > summary, [data-tap] { padding: 0.6rem 0.5rem; margin: -0.6rem -0.5rem; }
+  }
+
   .link:hover { color: rgb(var(--pen)); text-decoration-color: rgb(var(--pen)); }
 
   .btn {

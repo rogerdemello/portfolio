@@ -115,7 +115,7 @@ Deployed on **Vercel**.
 
 ## CV
 
-Replace `public/Roger_Demello_CV.pdf` with your PDF, keeping the filename so the CV buttons and any external references keep working.
+Replace `public/Roger_Demello_Resume.pdf` with your PDF, keeping the filename so the CV buttons and any external references keep working.
 
 ---
 

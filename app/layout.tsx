@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 const SITE = "https://rogerdemello.tech";
 const TITLE = "Roger Richard Demello | AI Engineer & Software Engineer";
 const DESCRIPTION =
-  "AI engineer and software engineer in India building production RAG apps, LLM agents and full-stack services. 3 production apps, 300+ users, 99.5% uptime.";
+  "AI engineer and software engineer in India building production RAG apps, LLM agents and full-stack services. 3+ companies, 500+ users, 99.5% uptime.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
