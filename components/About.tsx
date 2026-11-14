@@ -1,4 +1,4 @@
-import { story, principles } from "@/lib/content";
+import { story } from "@/lib/content";
 
 export default function About() {
   return (
@@ -16,16 +16,6 @@ export default function About() {
           </li>
         ))}
       </ol>
-
-      <div className="mt-20 grid gap-x-10 gap-y-4 md:grid-cols-[10.5rem_1fr]">
-        <h3 className="text-[1.65rem] font-medium leading-tight tracking-[-0.02em] md:col-span-2">How I work</h3>
-        <span aria-hidden className="hidden md:block" />
-        <ul className="max-w-[40rem] list-disc space-y-2 pl-5 text-[1.15rem] leading-[1.55] marker:text-pen">
-          {principles.map((p) => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
-      </div>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import { profile } from "@/lib/content";
 import CopyEmail from "./CopyEmail";
 import LocalTime from "./LocalTime";
+import CvMenu from "./CvMenu";
 
 export default function Contact() {
   return (
@@ -25,27 +26,27 @@ export default function Contact() {
         <a href={profile.phoneHref} className="btn btn-ink">
           Call me <span aria-hidden>→</span>
         </a>
-        <a href={profile.cv} target="_blank" rel="noopener noreferrer" download={profile.cvFile} className="btn btn-line">
-          Download my CV <span aria-hidden>↓</span>
-        </a>
+        <CvMenu variant="line" />
       </div>
 
       <ul className="mt-10 space-y-1.5 font-sans text-[1.02rem]">
-        <li>
-          <span className="inline-block w-24 text-muted">Email</span>
-          <a href={`mailto:${profile.email}`} className="link break-all">
-            {profile.email}
-          </a>
-          <CopyEmail email={profile.email} />
+        <li className="flex items-baseline">
+          <span className="w-24 shrink-0 text-muted">Email</span>
+          <span className="min-w-0">
+            <a href={`mailto:${profile.email}`} className="link break-all">
+              {profile.email}
+            </a>
+            <CopyEmail email={profile.email} />
+          </span>
         </li>
-        <li>
-          <span className="inline-block w-24 text-muted">LinkedIn</span>
+        <li className="flex items-baseline">
+          <span className="w-24 shrink-0 text-muted">LinkedIn</span>
           <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="link">
             {profile.linkedinLabel}
           </a>
         </li>
-        <li>
-          <span className="inline-block w-24 text-muted">GitHub</span>
+        <li className="flex items-baseline">
+          <span className="w-24 shrink-0 text-muted">GitHub</span>
           <a href={profile.github} target="_blank" rel="noopener noreferrer" className="link">
             {profile.githubLabel}
           </a>

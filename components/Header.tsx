@@ -1,5 +1,6 @@
 import { profile } from "@/lib/content";
 import NavLinks from "./NavLinks";
+import CvMenu from "./CvMenu";
 
 export default function Header() {
   return (
@@ -11,15 +12,7 @@ export default function Header() {
 
         <NavLinks />
 
-        <a
-          href={profile.cv}
-          target="_blank"
-          rel="noopener noreferrer"
-          download={profile.cvFile}
-          className="font-sans text-[0.93rem] font-semibold underline decoration-pen decoration-2 underline-offset-4 transition-colors hover:text-pen"
-        >
-          CV <span aria-hidden>↓</span>
-        </a>
+        <CvMenu variant="nav" align="right" label="CV" />
       </div>
     </header>
   );

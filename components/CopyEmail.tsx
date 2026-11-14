@@ -29,6 +29,7 @@ export default function CopyEmail({ email }: { email: string }) {
   return (
     <button
       type="button"
+      data-tap
       onClick={copy}
       aria-live="polite"
       className="ml-3 font-sans text-[0.88rem] text-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-pen"
