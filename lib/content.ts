@@ -22,7 +22,6 @@ export const profile = {
   github: "https://github.com/rogerdemello",
   githubLabel: "github.com/rogerdemello",
   cv: "/Roger_Demello_Resume.pdf",
-  cvFile: "Roger_Demello_Resume.pdf",
 };
 
 /* ------------------------------------------------------------------ */

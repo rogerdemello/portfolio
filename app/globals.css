@@ -153,12 +153,12 @@ body {
   }
   .skill-icon { transition: transform 0.25s; }
   .skill:hover {
-    transform: translateY(-2px);
-    background: rgb(var(--mark) / 0.5);
-    border-color: rgb(var(--mark));
-    box-shadow: 0 0 0 3px rgb(var(--mark) / 0.35), 0 10px 26px -4px rgb(var(--mark) / 0.85);
+    transform: translateY(-1px);
+    background: rgb(var(--mark) / 0.16);
+    border-color: rgb(var(--mark) / 0.5);
+    box-shadow: 0 6px 14px -8px rgb(var(--mark) / 0.6);
   }
-  .skill:hover .skill-icon { transform: scale(1.18) rotate(-6deg); }
+  .skill:hover .skill-icon { transform: scale(1.08) rotate(-3deg); }
 
   /* Native <details> toggle */
   .more > summary { list-style: none; cursor: pointer; }
