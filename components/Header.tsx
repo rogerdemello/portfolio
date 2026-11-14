@@ -1,6 +1,6 @@
 import { profile } from "@/lib/content";
 import NavLinks from "./NavLinks";
-import CvMenu from "./CvMenu";
+import CvLink from "./CvLink";
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
 
         <NavLinks />
 
-        <CvMenu variant="nav" align="right" label="CV" />
+        <CvLink variant="nav" label="CV" />
       </div>
     </header>
   );

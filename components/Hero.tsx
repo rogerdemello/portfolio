@@ -1,7 +1,7 @@
 import { profile } from "@/lib/content";
 import { Arrow, PenUnderline } from "./Doodles";
 import HeroShots from "./HeroShots";
-import CvMenu from "./CvMenu";
+import CvLink from "./CvLink";
 
 const links = [
   { label: "Email me", href: `mailto:${profile.email}` },
@@ -51,7 +51,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 lg:mt-14">
-          <CvMenu variant="ink" />
+          <CvLink variant="ink" />
           <p className="flex flex-wrap gap-x-5 gap-y-1 font-sans text-[0.98rem]">
             {links.map((l) => (
               <a
