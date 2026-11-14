@@ -1,7 +1,7 @@
 import { profile } from "@/lib/content";
 import CopyEmail from "./CopyEmail";
 import LocalTime from "./LocalTime";
-import CvMenu from "./CvMenu";
+import CvLink from "./CvLink";
 
 export default function Contact() {
   return (
@@ -26,7 +26,7 @@ export default function Contact() {
         <a href={profile.phoneHref} className="btn btn-ink">
           Call me <span aria-hidden>→</span>
         </a>
-        <CvMenu variant="line" />
+        <CvLink variant="line" />
       </div>
 
       <ul className="mt-10 space-y-1.5 font-sans text-[1.02rem]">
