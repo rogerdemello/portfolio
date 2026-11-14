@@ -1,6 +1,7 @@
 import { profile } from "@/lib/content";
 import { Arrow, PenUnderline } from "./Doodles";
 import HeroShots from "./HeroShots";
+import CvMenu from "./CvMenu";
 
 const links = [
   { label: "Email me", href: `mailto:${profile.email}` },
@@ -24,15 +25,14 @@ export default function Hero() {
       <div className="relative mt-14">
         <div className="max-w-[42rem] space-y-5 text-[1.28rem] leading-[1.6] sm:text-[1.38rem] lg:max-w-[36rem] xl:max-w-[38rem]">
           <p>
-            I’m a software engineer based in India. I build machine learning and generative AI systems end to
-            end: Python and TypeScript services over PostgreSQL, shipped in Docker through CI/CD.
+            I’m a software engineer in India building machine learning and generative AI systems end to end, from
+            Python and TypeScript services to Docker and CI/CD.
           </p>
 
           <p>
-            Right now I’m an AI engineer intern at Innovun Global, working remotely on a bilingual RAG
-            assistant with hybrid search for the Red Cross in Mexico. Before that I spent six months at AI
-            LifeBOT, where I engineered <strong className="font-semibold">3 production apps</strong> for{" "}
-            <strong className="font-semibold">300+ users</strong> and kept them at{" "}
+            I’m an AI engineer intern at Innovun Global, building a bilingual RAG assistant for the Red Cross in
+            Mexico. Before that, at AI LifeBOT, I built <strong className="font-semibold">3 production apps</strong>{" "}
+            for <strong className="font-semibold">500+ users</strong> at{" "}
             <strong className="font-semibold">99.5% uptime</strong>.
           </p>
 
@@ -51,9 +51,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 lg:mt-14">
-          <a href={profile.cv} target="_blank" rel="noopener noreferrer" download={profile.cvFile} className="btn btn-ink">
-            Download my CV <span aria-hidden>↓</span>
-          </a>
+          <CvMenu variant="ink" />
           <p className="flex flex-wrap gap-x-5 gap-y-1 font-sans text-[0.98rem]">
             {links.map((l) => (
               <a

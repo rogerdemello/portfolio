@@ -13,7 +13,7 @@ export const profile = {
   location: "India",
   work: "Fully remote, any timezone",
   summary:
-    "AI and software engineer with 3 internships building production RAG applications, AI agents with human approval, and full-stack services in Python, TypeScript and Java - 3 production apps, 300+ users, 99.5% uptime.",
+    "AI and software engineer with 3 internships building production RAG applications, AI agents with human approval, and full-stack services in Python, TypeScript and Java - 3+ companies, 500+ users, 99.5% uptime.",
   email: "rogerdemello289@gmail.com",
   phone: "+91 94217 78898",
   phoneHref: "tel:+919421778898",
@@ -21,8 +21,8 @@ export const profile = {
   linkedinLabel: "linkedin.com/in/rogerdemello",
   github: "https://github.com/rogerdemello",
   githubLabel: "github.com/rogerdemello",
-  cv: "/Roger_Demello_CV.pdf",
-  cvFile: "Roger_Demello_CV.pdf",
+  cv: "/Roger_Demello_Resume.pdf",
+  cvFile: "Roger_Demello_Resume.pdf",
 };
 
 /* ------------------------------------------------------------------ */
@@ -68,12 +68,12 @@ export const experience: Role[] = [
     company: "AI LifeBOT",
     role: "AI Engineer Intern",
     summary: [
-      "RAG pipelines in 3 production apps for 300+ users, on Python, FastAPI and PostgreSQL.",
+      "RAG pipelines in 3 production apps for 500+ users, on Python, FastAPI and PostgreSQL.",
       "99.5% uptime, and latency cut 35% by profiling the full request path.",
       "pytest suites in CI/CD, and 5+ features shipped end to end.",
     ],
     details: [
-      "Architected RAG pipelines in 3 production applications serving 300+ users on Python, FastAPI and PostgreSQL.",
+      "Architected RAG pipelines in 3 production applications serving 500+ users on Python, FastAPI and PostgreSQL.",
       "Sustained 99.5% uptime with telemetry, structured audit logging, incident response and root cause analysis.",
       "Cut query and response latency 35% by profiling hot paths across the request path of an inherited codebase.",
       "Automated pytest suites in CI/CD pipelines, shipping 5+ features end to end through cross-functional collaboration.",
@@ -265,12 +265,12 @@ export const projects: Project[] = [
 /* ------------------------------------------------------------------ */
 
 export const skillGroups = [
-  { label: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "C++", "C", "Bash", "YAML", "Dart"] },
-  { label: "Generative AI", items: ["RAG Pipelines", "Hybrid Search", "LangChain", "LangGraph", "LlamaIndex", "MCP", "Multi-Agent Systems", "pgvector", "FAISS", "Azure OpenAI", "Gemini"] },
+  { label: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "C++", "C", "Bash", "YAML"] },
+  { label: "Generative AI", items: ["RAG Pipelines", "Hybrid Search", "LangChain", "LangGraph", "LlamaIndex", "MCP", "Multi-Agent Systems", "pgvector", "FAISS", "Gemini"] },
   { label: "Machine Learning", items: ["Scikit-learn", "PyTorch", "LightGBM", "Random Forest", "IsolationForest", "Anomaly Detection", "MLflow"] },
   { label: "Backend & APIs", items: ["FastAPI", "Flask", "Express", "Node.js", "REST APIs", "Microservices", "WebSockets", "React", "Next.js", "Preact"] },
   { label: "Data & Cloud", items: ["PostgreSQL", "Redis", "SQLAlchemy", "Prisma", "Supabase", "Pandas", "NumPy", "Docker", "AWS", "CI/CD", "GitHub Actions"] },
-  { label: "Testing & Security", items: ["pytest", "Vitest", "JUnit 5", "Playwright", "Prometheus", "Grafana", "OAuth", "OIDC", "RBAC"] },
+  { label: "Testing & Security", items: ["pytest", "Vitest", "Playwright", "OAuth", "OIDC", "RBAC"] },
   { label: "CS Fundamentals", items: ["Data Structures", "Algorithms", "System Design", "OOP", "Concurrency"] },
 ] as const;
 
@@ -283,8 +283,8 @@ export const education = {
   short: "RCOEM, Nagpur",
   years: "2022 - 2026",
   degrees: [
-    { title: "B.Tech, Electronics & Communication", cgpa: 8.9, label: "8.90" },
-    { title: "Minor, AI & Machine Learning", cgpa: 9.67, label: "9.67" },
+    { title: "B.Tech, Electronics & Communication", cgpa: 8.9, label: "8.90 / 10" },
+    { title: "Minor, AI & Machine Learning", cgpa: 9.67, label: "9.67 / 10" },
   ],
 };
 
@@ -301,15 +301,8 @@ export const credentials = [
 export const story = [
   { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
   { year: "2025", line: "Trained models on real, messy data.", sub: "A clinical classifier over 1,000+ health records to 87% accuracy - plus the preprocessing and cross-validation that made the number trustworthy." },
-  { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - 3 production apps, 300+ users, 99.5% uptime, 35% lower latency." },
+  { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - 3 production apps, 500+ users, 99.5% uptime, 35% lower latency." },
   { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Building a bilingual RAG assistant with hybrid search for the Red Cross in Mexico - immediate joiner, fully remote." },
-];
-
-export const principles = [
-  "Ship small, measure, iterate.",
-  "Latency and reliability over leaderboard scores.",
-  "Make retrieval honest; make agents finish.",
-  "Document so the next person - or model - can pick it up.",
 ];
 
 /* ------------------------------------------------------------------ */
