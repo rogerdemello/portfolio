@@ -34,7 +34,7 @@ export default function Experience() {
           <ul className="mt-3 space-y-1.5 text-[1.08rem]">
             {education.degrees.map((d) => (
               <li key={d.title}>
-                {d.title}. <span className="text-muted">CGPA</span> <strong className="font-semibold">{d.label}</strong>
+                {d.title}. <span className="text-muted">{d.metric}</span> <strong className="font-semibold">{d.label}</strong>
               </li>
             ))}
           </ul>

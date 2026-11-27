@@ -13,6 +13,24 @@ export default function ExperienceList({ items }: { items: { role: Role; tools: 
   return (
     <ol className="mt-12 border-t border-ink/[0.14]">
       {items.map(({ role: r, tools }) => {
+        // A role with nothing written yet is a plain row: no expander, no empty panel.
+        if (r.details.length === 0) {
+          return (
+            <li key={r.company} className="border-b border-ink/[0.14]">
+              <div className="grid w-full gap-x-10 gap-y-2 py-9 md:grid-cols-[10.5rem_1fr]">
+                <span className="meta block md:pt-2.5">
+                  <span className="block font-semibold text-ink">{r.period}</span>
+                  {r.place && <span className="block">{r.place}</span>}
+                  {r.current && <span className="note mt-1 block -rotate-2 text-[1.3rem]">that’s now</span>}
+                </span>
+                <span className="block text-[1.65rem] font-medium leading-tight tracking-[-0.02em]">
+                  {r.company}
+                  <span className="font-normal text-muted"> · {r.role}</span>
+                </span>
+              </div>
+            </li>
+          );
+        }
         const isOpen = open === r.company;
         const id = `role-${r.company.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
         return (
