@@ -8,7 +8,7 @@ export const profile = {
   name: "Roger Demello",
   fullName: "Roger Richard Demello",
   role: "Software Engineer, AI/ML",
-  status: "AI Engineer Intern at Innovun Global",
+  status: "Systems Engineer Trainee at Infosys",
   availability: "Immediate joiner",
   location: "India",
   work: "Fully remote, any timezone",
@@ -34,9 +34,9 @@ export interface Role {
   role: string;
   place?: string;
   current?: boolean;
-  /** Three short lines: the part of this job that matters most for the next one. */
-  summary: [string, string, string];
-  /** The full account, shown when the role is expanded. */
+  /** Short lines: the part of this job that matters most for the next one. Empty until there is something to say. */
+  summary: string[];
+  /** The full account, shown when the role is expanded. A role with no details is shown as a plain row. */
   details: string[];
   /** Tools worked with in this role (names that exist in lib/tech-icons.ts get a logo). */
   tools: string[];
@@ -44,21 +44,29 @@ export interface Role {
 
 export const experience: Role[] = [
   {
-    period: "Aug 2026 - Now",
+    period: "Nov 2026 - Now",
+    company: "Infosys",
+    role: "Systems Engineer Trainee",
+    current: true,
+    summary: [],
+    details: [],
+    tools: [],
+  },
+  {
+    period: "Aug - Nov 2026",
     company: "Innovun Global",
     role: "AI Engineer Intern",
     place: "Remote",
-    current: true,
     summary: [
-      "Auri chat widget in Preact for the Red Cross in Mexico: a bilingual RAG assistant for 67 courses.",
+      "Auri chat widget in Preact for an international NGO: a bilingual RAG assistant for 67 courses.",
       "Hybrid search in the RAG pipeline: pgvector and keyword scores fused with reciprocal rank fusion.",
       "PO-to-SO proof of concept: OCR and Gemini extraction behind human-in-the-loop review.",
     ],
     details: [
-      "Building the Auri chat widget in Preact for Cruz Roja Mexicana (Red Cross, Mexico), a bilingual RAG assistant for 67 courses.",
-      "Implementing hybrid search in the RAG pipeline, fusing pgvector vector and keyword scores with reciprocal rank fusion.",
-      "Developing a PO-to-SO proof of concept that extracts PDF fields with OCR and Gemini, gated by human-in-the-loop review.",
-      "Testing extraction on 13 sample PO layouts, including scans with no text layer, skewed pages and multi-column pages.",
+      "Built the Auri chat widget in Preact for an international NGO, a bilingual RAG assistant for 67 courses.",
+      "Implemented hybrid search in the RAG pipeline, fusing pgvector vector and keyword scores with reciprocal rank fusion.",
+      "Developed a PO-to-SO proof of concept that extracts PDF fields with OCR and Gemini, gated by human-in-the-loop review.",
+      "Tested extraction on 13 sample PO layouts, including scans with no text layer, skewed pages and multi-column pages.",
     ],
     tools: ["RAG Pipelines", "pgvector", "Preact", "Gemini", "OCR"],
   },
@@ -269,7 +277,6 @@ export const skillGroups = [
   { label: "Machine Learning", items: ["Scikit-learn", "PyTorch", "LightGBM", "Random Forest", "IsolationForest", "Anomaly Detection", "MLflow"] },
   { label: "Backend & APIs", items: ["FastAPI", "Flask", "Express", "Node.js", "REST APIs", "Microservices", "WebSockets", "React", "Next.js", "Preact"] },
   { label: "Data & Cloud", items: ["PostgreSQL", "Redis", "SQLAlchemy", "Prisma", "Supabase", "Pandas", "NumPy", "Docker", "AWS", "CI/CD", "GitHub Actions"] },
-  { label: "Testing & Security", items: ["pytest", "Vitest", "Playwright", "OAuth", "OIDC", "RBAC"] },
   { label: "CS Fundamentals", items: ["Data Structures", "Algorithms", "System Design", "OOP", "Concurrency"] },
 ] as const;
 
@@ -282,8 +289,8 @@ export const education = {
   short: "RCOEM, Nagpur",
   years: "2022 - 2026",
   degrees: [
-    { title: "B.Tech, Electronics & Communication", cgpa: 8.9, label: "8.90 / 10" },
-    { title: "Minor, AI & Machine Learning", cgpa: 9.67, label: "9.67 / 10" },
+    { title: "B.Tech, Electronics & Communication", metric: "CGPA", label: "8.90 / 10" },
+    { title: "Minor, AI & Machine Learning", metric: "Grade", label: "AA" },
   ],
 };
 
@@ -301,7 +308,7 @@ export const story = [
   { year: "2024", line: "Fell for the math behind ML.", sub: "An electronics undergrad who got pulled into models, gradients, and messy real data." },
   { year: "2025", line: "Trained models on real, messy data.", sub: "A clinical classifier over 1,000+ health records to 87% accuracy - plus the preprocessing and cross-validation that made the number trustworthy." },
   { year: "2026", line: "Shipped to production.", sub: "Six months at AI LifeBOT - 3 production apps, 500+ users, 99.5% uptime, 35% lower latency." },
-  { year: "Now", line: "Graduated, and building at full speed.", sub: "B.Tech done. Building a bilingual RAG assistant with hybrid search for the Red Cross in Mexico - immediate joiner, fully remote." },
+  { year: "Now", line: "Graduated, and working.", sub: "B.Tech done. Started as a Systems Engineer Trainee at Infosys, after building a bilingual RAG assistant with hybrid search for an international NGO at Innovun Global." },
 ];
 
 /* ------------------------------------------------------------------ */

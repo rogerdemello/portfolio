@@ -112,7 +112,7 @@ const personLd = {
   email: `mailto:${profile.email}`,
   telephone: profile.phone,
   address: { "@type": "PostalAddress", addressCountry: "IN" },
-  worksFor: { "@type": "Organization", name: "Innovun Global" },
+  worksFor: { "@type": "Organization", name: "Infosys" },
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Shri Ramdeobaba College of Engineering and Management",

@@ -30,9 +30,10 @@ export default function Hero() {
           </p>
 
           <p>
-            I’m an AI engineer intern at Innovun Global, building a bilingual RAG assistant for the Red Cross in
-            Mexico. Before that, at AI LifeBOT, I built <strong className="font-semibold">3 production apps</strong>{" "}
-            for <strong className="font-semibold">500+ users</strong> at{" "}
+            I’m a Systems Engineer Trainee at Infosys. Before that I interned at Innovun Global, building a bilingual
+            RAG assistant for an international NGO, and at AI LifeBOT I built{" "}
+            <strong className="font-semibold">3 production apps</strong> for{" "}
+            <strong className="font-semibold">500+ users</strong> at{" "}
             <strong className="font-semibold">99.5% uptime</strong>.
           </p>
 
